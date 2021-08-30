@@ -17,6 +17,9 @@ buildscript {
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         //This plugin is available from Bintray's JCenter repository and from the Gradle Plugin Portal
         classpath "com.github.ben-manes:gradle-versions-plugin:0.36.0"
+
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.30.1-alpha"
+
     }
 }
 

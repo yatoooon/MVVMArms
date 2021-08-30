@@ -4,7 +4,7 @@ android {
             versionCode 1
             versionName "1.0.0"
             applicationId "com.common.sample"
-            resValue "string", "app_name", "MVVMJetpack"
+            resValue "string", "app_name", "MVVMArms"
         }
     }
 }

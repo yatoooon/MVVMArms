@@ -22,4 +22,5 @@ internal fun Project.configurePlugins(isAppModule: Boolean) {
     plugins.apply("kotlin-android")
     plugins.apply("kotlin-kapt")
     plugins.apply("kotlin-parcelize")
+    plugins.apply("dagger.hilt.android.plugin")
 }

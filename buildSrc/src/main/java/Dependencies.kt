@@ -15,8 +15,8 @@ object Versions {
  */
 object Deps {
     //kotlin
-    const val kotlinxCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1"
-    const val kotlinxCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
+    const val kotlinxCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
+    const val kotlinxCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
     const val koinAndroid = "org.koin:koin-android:2.2.2"
     const val koinAndroidxScope = "org.koin:koin-androidx-scope:2.2.2"
     const val koinAndroidxViewmodel = "org.koin:koin-androidx-viewmodel:2.2.2"
@@ -25,6 +25,7 @@ object Deps {
     const val anko = "org.jetbrains.anko:anko:0.10.8"
     const val ankoCommon = "org.jetbrains.anko:anko-common:0.10.8"
     const val kotlinStdlibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
+    const val kotlinCore = "androidx.core:core-ktx:1.3.0"
 
     //androidx
     const val appcompat = "androidx.appcompat:appcompat:1.3.1"
@@ -38,6 +39,10 @@ object Deps {
     const val lifecycleLivedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
     const val lifecycleViewmodelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
     const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
+    const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:2.2.0"
+
+
     const val lifecycleViewmodelSavedstate = "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1"
     const val coreKtx = "androidx.core:core-ktx:1.6.0"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:1.3.6"
@@ -48,6 +53,8 @@ object Deps {
     const val retrofitConverterGson = "com.squareup.retrofit2:converter-gson:2.9.0"
     const val retrofitAdapterRxjava = "com.squareup.retrofit2:adapter-rxjava:2.9.0"
     const val retrofitAdapterRxjava2 = "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+    const val retrofit_helper = "com.github.jenly1314:retrofit-helper:1.0.1"
+
     const val okhttp = "com.squareup.okhttp3:okhttp:4.9.1"
     const val glide = "com.github.bumptech.glide:glide:4.12.0"
     const val glideCompiler = "com.github.bumptech.glide:compiler:4.12.0"
@@ -97,8 +104,11 @@ object Deps {
 
     //tools
     const val dagger2 = "com.google.dagger:dagger:2.38.1"
-    const val hilt = "com.google.dagger:hilt-android:2.35.1"
-    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:2.35.1"
+    const val hiltAndroid = "com.google.dagger:hilt-android:2.30.1-alpha"
+    const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:2.30.1-alpha"
+    const val androidHiltLifecycleViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
+    const val androidHiltCompiler = "androidx.hilt:hilt-compiler:1.0.0-alpha02"
+
     const val dagger2Compiler = "com.google.dagger:dagger-compiler:2.38.1"
     const val gson = "com.google.code.gson:gson:2.8.7"
     const val multidex = "androidx.multidex:multidex:2.0.1"
@@ -125,7 +135,9 @@ object Deps {
     const val viewbindingKtx = "com.dylanc:viewbinding-ktx:1.1.1"
     const val viewbindingBaseKtx = "com.dylanc:viewbinding-base-ktx:1.1.1"
     const val viewbindingBrvahKtx = "com.dylanc:viewbinding-brvah-ktx:1.1.1"
-
+    const val jenlyAdapter = "com.king.base:adapter:3.2.1-androidx"
+    const val jenlyUtil = "com.king.base:util:3.2.1-androidx"
+    const val logger = "com.orhanobut:logger:2.2.0"
     //test
     const val junit = "junit:junit:4.+"
     const val extJunit = "androidx.test.ext:junit:1.1.3"

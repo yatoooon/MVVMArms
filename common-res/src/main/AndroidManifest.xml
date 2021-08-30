@@ -1,0 +1,17 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.common.res">
+
+    <application>
+
+        <!-- name为：IComponentApp的实现类，value固定为: ComponentApp -->
+        <meta-data
+            android:name="com.common.res.ResCompoentApp"
+            android:value="ComponentApp" />
+
+        <!-- core 全局配置 -->
+        <meta-data
+            android:name="com.common.res.config.AppConfigModule"
+            android:value="FrameConfigModule" />
+    </application>
+
+</manifest>

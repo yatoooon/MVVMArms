@@ -1,0 +1,86 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        consumerProguardFiles 'consumer-rules.pro'
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
+    }
+
+    //统一规范资源名称前缀，防止多个 module 之间资源冲突
+    resourcePrefix "res_"
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(":common-core")
+
+    compileOnly Deps.kotlinStdlibJdk7
+    compileOnly Deps.kotlinCore
+
+    compileOnly Deps.kotlinxCoroutinesCore
+    compileOnly Deps.kotlinxCoroutinesAndroid
+    compileOnly Deps.lifecycleViewmodelKtx
+
+    //lifecycle
+    kapt Deps.lifecycleCompiler
+    //room
+    kapt Deps.roomCompiler
+    //hilt
+    implementation Deps.hiltAndroid
+    kapt Deps.hiltAndroidCompiler
+
+    implementation Deps.androidHiltLifecycleViewmodel
+    kapt Deps.androidHiltCompiler
+
+    api Deps.arouterApi
+    kapt Deps.arouterCompiler
+
+
+    api Deps.appcompat
+    api Deps.jenlyAdapter
+    api Deps.jenlyUtil
+    api Deps.logger
+
+    api Deps.glide
+    kapt Deps.glideCompiler
+
+    api Deps.recyclerview
+    api Deps.constraintlayout
+
+}

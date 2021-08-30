@@ -19,6 +19,12 @@ internal fun Project.configureDependencies() = dependencies.apply {
     }
 
     add("kapt", Deps.arouterCompiler)
+
+    add("implementation", Deps.hiltAndroid)
+    add("kapt", Deps.hiltAndroidCompiler)
+    add("implementation", Deps.androidHiltLifecycleViewmodel)
+    add("kapt", Deps.androidHiltCompiler)
+
 }
 
 internal fun Project.containsAndroidPlugin(): Boolean {

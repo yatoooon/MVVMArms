@@ -1,0 +1,72 @@
+apply plugin: 'com.android.library'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+
+    }
+    resourcePrefix "core_"
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+    }
+
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+repositories {
+    flatDir {
+        dirs 'libs' //this way we can find the .aar file in libs folder
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //appcompat
+    api Deps.appcompat
+
+    //retrofit
+    api Deps.retrofit
+    api Deps.gson
+    api Deps.retrofitConverterGson
+
+    //retrofit-helper
+    api Deps.retrofit_helper
+
+    //lifecycle
+    api Deps.lifecycleRuntimeKtx
+    api Deps.lifecycleExtensions
+    annotationProcessor Deps.lifecycleCompiler
+
+    //room
+    api Deps.room
+    annotationProcessor Deps.roomCompiler
+
+    //hilt
+    api Deps.hiltAndroid
+    annotationProcessor Deps.hiltAndroidCompiler
+
+    //log
+    api Deps.timber
+}
