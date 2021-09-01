@@ -7,7 +7,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Fragment模板示例
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+
  */
 @AndroidEntryPoint
 class TemplateFragment : BaseVMFragment<TemplateViewModel>() {

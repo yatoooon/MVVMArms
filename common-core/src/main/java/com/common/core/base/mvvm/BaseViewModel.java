@@ -48,7 +48,7 @@ import androidx.lifecycle.Observer;
  *
  *
  * 标准MVVM模式中的VM (ViewModel)层基类
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public class BaseViewModel<M extends BaseModel> extends AndroidViewModel implements IViewModel {
 

@@ -12,7 +12,7 @@ import com.common.core.base.BaseFragment;
 /**
  * 用来规范{@link BaseActivity} 和{@link BaseFragment} 风格。
  *
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public interface IView {
 

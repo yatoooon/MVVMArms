@@ -5,16 +5,21 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.common.core.base.BaseActivity
+import com.common.core.util.AppManager
+import com.common.res.immersionbar.BindFullScreen
+import com.common.res.immersionbar.BindImmersionBar
 import com.common.simple.R
 import com.common.simple.databinding.AppActivitySplashBinding
+import com.gyf.immersionbar.ImmersionBar
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 /**
  * 模板示例
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 @AndroidEntryPoint
-class AppSplashActivity : BaseActivity<AppActivitySplashBinding>() {
+class AppSplashActivity : BaseActivity<AppActivitySplashBinding>(), BindFullScreen {
 
     override fun initData(savedInstanceState: Bundle?) {
         startAnimation(viewDataBinding.rootView)
@@ -28,7 +33,6 @@ class AppSplashActivity : BaseActivity<AppActivitySplashBinding>() {
         val anim = AnimationUtils.loadAnimation(context, R.anim.app_splash_anim)
         anim.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {
-
             }
 
             override fun onAnimationEnd(animation: Animation) {

@@ -5,7 +5,7 @@ import com.common.res.BR
 import com.king.base.adapter.BaseRecyclerAdapter
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 open class BaseAdapter<T>(context: Context,layoutId: Int,private val variableId: Int = BR.data) : BaseRecyclerAdapter<T, BindViewHolder<*>>(context,layoutId) {
 

@@ -6,7 +6,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public interface IModel extends LifecycleObserver {
 

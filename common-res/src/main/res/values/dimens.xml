@@ -68,4 +68,7 @@
     <dimen name="res_sp_29">29sp</dimen>
     <dimen name="res_sp_30">30sp</dimen>
 
+    <!-- ToolBar高度 -->
+    <dimen name="res_toolbar_height">50dp</dimen>
+
 </resources>

@@ -2,9 +2,9 @@ package com.common.core.config;
 
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
-public abstract class FrameConfigModule implements AppliesOptions {
+public abstract class CoreConfigModule implements AppliesOptions , InjectLifecycles {
 
     /**
      * 是否启用解析配置

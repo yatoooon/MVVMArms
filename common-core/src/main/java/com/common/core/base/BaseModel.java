@@ -30,7 +30,7 @@ import androidx.room.RoomDatabase;
  *
  *
  * 标准MVVM模式中的M (Model)层基类
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public class BaseModel implements IModel {
 

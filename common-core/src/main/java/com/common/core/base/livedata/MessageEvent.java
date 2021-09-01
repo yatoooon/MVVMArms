@@ -7,7 +7,7 @@ import androidx.lifecycle.LifecycleOwner;
 
 /**
  * 提供观察消息事件
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public class MessageEvent extends SingleLiveEvent<String> {
 

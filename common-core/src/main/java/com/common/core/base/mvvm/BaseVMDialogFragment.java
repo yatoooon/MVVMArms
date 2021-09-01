@@ -55,7 +55,7 @@ import timber.log.Timber;
  *    }
  * //-------------------------
  *
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public abstract class BaseVMDialogFragment<VM extends BaseViewModel,VDB extends ViewDataBinding> extends DialogFragment implements IView, ILoading {
 

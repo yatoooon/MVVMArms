@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.common.simple.config.AppConfiguration"
+            android:value="CoreConfigModule" />
     </application>
 
 </manifest>

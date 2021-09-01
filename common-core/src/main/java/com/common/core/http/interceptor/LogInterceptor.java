@@ -20,7 +20,7 @@ import timber.log.Timber;
 
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public class LogInterceptor implements Interceptor {
 

@@ -6,7 +6,7 @@ import com.common.core.base.livedata.StatusEvent;
 import androidx.annotation.Nullable;
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public class Resource<T> {
 

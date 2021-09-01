@@ -16,7 +16,7 @@ import android.app.Service;
  *    }
  * //-------------------------
  *
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public abstract class BaseService extends Service {
 

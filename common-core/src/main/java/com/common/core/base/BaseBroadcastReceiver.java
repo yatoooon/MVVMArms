@@ -16,7 +16,7 @@ import android.content.BroadcastReceiver;
  *    }
  * //-------------------------
  *
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public abstract class BaseBroadcastReceiver extends BroadcastReceiver {
 

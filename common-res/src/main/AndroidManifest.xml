@@ -3,15 +3,9 @@
 
     <application>
 
-        <!-- name为：IComponentApp的实现类，value固定为: ComponentApp -->
         <meta-data
-            android:name="com.common.res.ResCompoentApp"
-            android:value="ComponentApp" />
-
-        <!-- core 全局配置 -->
-        <meta-data
-            android:name="com.common.res.config.AppConfigModule"
-            android:value="FrameConfigModule" />
+            android:name="com.common.res.config.ResConfigModule"
+            android:value="CoreConfigModule" />
     </application>
 
 </manifest>

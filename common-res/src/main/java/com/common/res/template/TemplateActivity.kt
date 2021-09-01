@@ -7,7 +7,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Activity模板示例
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 @AndroidEntryPoint
 class TemplateActivity : BaseVMActivity<TemplateViewModel>(){

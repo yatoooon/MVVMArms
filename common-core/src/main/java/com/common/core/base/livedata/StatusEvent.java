@@ -11,7 +11,7 @@ import androidx.lifecycle.LifecycleOwner;
 /**
  * 提供观察状态事件
  *
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public class StatusEvent extends SingleLiveEvent<Integer> {
 

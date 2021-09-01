@@ -3,7 +3,7 @@ package com.common.res.bean
 import com.google.gson.annotations.SerializedName
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 class Response<T> {
 

@@ -23,7 +23,7 @@ import retrofit2.Retrofit;
 
 /**
  * 统一管理数据业务层
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 @Singleton
 public class BaseRepository implements IRepository {

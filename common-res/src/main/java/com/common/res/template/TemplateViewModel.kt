@@ -7,6 +7,6 @@ import com.common.core.base.mvvm.DataViewModel
 
 /**
  * ViewModel示例
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 class TemplateViewModel @ViewModelInject constructor(application: Application, model: BaseModel) : DataViewModel(application, model)

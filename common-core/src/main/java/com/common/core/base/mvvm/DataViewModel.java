@@ -33,7 +33,7 @@ import com.common.core.base.BaseModel;
  *
  * 默认提供{@link BaseModel#getRetrofitService}的功能，当ViewModel和Model数据比较简单时可使用本类，弱化Model层。
  * 如果ViewModel或Model层里面逻辑比较复杂请尽量使用继承{@link BaseViewModel} 和{@link BaseModel}进行分层。
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public class DataViewModel extends BaseViewModel<BaseModel> {
 

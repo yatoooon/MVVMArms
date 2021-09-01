@@ -10,7 +10,7 @@ import com.common.core.R;
 import androidx.annotation.NonNull;
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public class BaseProgressDialog extends Dialog {
 

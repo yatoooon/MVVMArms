@@ -1,7 +1,7 @@
 package com.common.core.base.ibase;
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public interface ILoading {
     /**

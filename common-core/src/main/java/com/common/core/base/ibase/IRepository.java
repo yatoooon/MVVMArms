@@ -13,7 +13,7 @@ import com.common.core.base.BaseRepository;
 
 /**
  * 统一管理数据业务层，实现类见{@link BaseRepository}
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public interface IRepository {
     /**

@@ -7,7 +7,7 @@ import retrofit2.Response;
 import timber.log.Timber;
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public abstract class ApiCallback<T> implements Callback<T> {
     @Override

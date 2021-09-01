@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 /**
  * 懒加载Fragment
  *
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 public abstract class BaseVMLazyFragment<VM extends BaseViewModel> extends BaseVMFragment<VM> {
     /**

@@ -82,5 +82,8 @@ dependencies {
 
     api Deps.recyclerview
     api Deps.constraintlayout
+    api Deps.cardview
+    api Deps.immersionbar
+
 
 }

@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 object ImageLoader {
 

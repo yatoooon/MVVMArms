@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="res_AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="res_AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/res_colorPrimary</item>
         <item name="colorPrimaryDark">@color/res_colorPrimaryDark</item>
@@ -12,4 +12,18 @@
         <item name="android:onClick">onClick</item>
     </style>
 
+
+    <style name="res_FullscreenTheme" parent="res_AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="res_TranslucentTheme" parent="res_AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/res_color_00000000</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
 </resources>

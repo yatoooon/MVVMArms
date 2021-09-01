@@ -7,7 +7,7 @@ import com.king.base.adapter.holder.ViewHolder
 
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 class BindViewHolder<VDB: ViewDataBinding>(view: View) : ViewHolder(view) {
 

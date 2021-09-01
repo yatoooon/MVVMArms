@@ -1,13 +1,13 @@
 package com.common.res.config
 
 /**
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  */
 object Constants {
 
     const val BASE_URL = "http://v.juhe.cn"
 
-    const val TAG = "Jenly"
+    const val TAG = "Logger"
 
     /**
      * Route paths

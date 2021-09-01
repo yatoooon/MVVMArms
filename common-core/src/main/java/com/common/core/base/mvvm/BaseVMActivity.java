@@ -24,7 +24,7 @@ import java.lang.reflect.Type;
  * <p>
  * 如果您继承使用了BaseActivity或其子类，你需要参照如下方式添加@AndroidEntryPoint注解
  *
- * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
+ *
  * @example Activity
  * //-------------------------
  * @AndroidEntryPoint public class YourActivity extends BaseActivity {
