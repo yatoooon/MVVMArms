@@ -1,4 +1,4 @@
-package com.common.core.config;
+package com.common.core.config.inter;
 
 import android.app.Activity;
 import android.app.Application;

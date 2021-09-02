@@ -1,210 +1,157 @@
 package com.common.core.util;
 
-import java.lang.String;
-import java.lang.Object;
-import java.lang.IllegalStateException;
-import java.lang.IllegalArgumentException;
-import java.lang.NullPointerException;
-
 import androidx.annotation.Nullable;
 
-/**
- * @see <a href="https://github.com/google/guava/blob/b86fe4fc7ec511d78507c3ba32c789d1f250f827/guava/src/com/google/common/base/Preconditions.java">guava</a>
- *
- */
 public final class Preconditions {
-    private Preconditions() {}
 
-    /**
-     * Ensures the truth of an expression involving one or more parameters to the calling method.
-     *
-     * @param expression a boolean expression
-     * @throws IllegalArgumentException if {@code expression} is false
-     */
+    private Preconditions() {
+        throw new IllegalStateException("you can't instantiate me!");
+    }
+
     public static void checkArgument(boolean expression) {
         if (!expression) {
             throw new IllegalArgumentException();
         }
     }
 
-    /**
-     * Ensures the truth of an expression involving one or more parameters to the calling method.
-     *
-     * @param expression a boolean expression
-     * @param errorMessage the exception message to use if the check fails; will be converted to a
-     *     string using {@link String#valueOf(Object)}
-     * @throws IllegalArgumentException if {@code expression} is false
-     */
     public static void checkArgument(boolean expression, @Nullable Object errorMessage) {
         if (!expression) {
             throw new IllegalArgumentException(String.valueOf(errorMessage));
         }
     }
 
-    /**
-     * Ensures the truth of an expression involving one or more parameters to the calling method.
-     *
-     * @param expression a boolean expression
-     * @param errorMessageTemplate a template for the exception message should the check fail. The
-     *     message is formed by replacing each {@code %s} placeholder in the template with an
-     *     argument. These are matched by position - the first {@code %s} gets {@code
-     *     errorMessageArgs[0]}, etc. Unmatched arguments will be appended to the formatted message in
-     *     square braces. Unmatched placeholders will be left as-is.
-     * @param errorMessageArgs the arguments to be substituted into the message template. Arguments
-     *     are converted to strings using {@link String#valueOf(Object)}.
-     * @throws IllegalArgumentException if {@code expression} is false
-     */
-    public static void checkArgument(
-            boolean expression,
-            @Nullable String errorMessageTemplate,
-            @Nullable Object... errorMessageArgs) {
+    public static void checkArgument(boolean expression, @Nullable String errorMessageTemplate, @Nullable Object... errorMessageArgs) {
         if (!expression) {
-            throw new IllegalArgumentException(lenientFormat(errorMessageTemplate, errorMessageArgs));
+            throw new IllegalArgumentException(format(errorMessageTemplate, errorMessageArgs));
         }
     }
 
-    /**
-     * Ensures the truth of an expression involving the state of the calling instance, but not
-     * involving any parameters to the calling method.
-     *
-     * @param expression a boolean expression
-     * @throws IllegalStateException if {@code expression} is false
-     */
     public static void checkState(boolean expression) {
         if (!expression) {
             throw new IllegalStateException();
         }
     }
 
-    /**
-     * Ensures the truth of an expression involving the state of the calling instance, but not
-     * involving any parameters to the calling method.
-     *
-     * @param expression a boolean expression
-     * @param errorMessage the exception message to use if the check fails; will be converted to a
-     *     string using {@link String#valueOf(Object)}
-     * @throws IllegalStateException if {@code expression} is false
-     */
     public static void checkState(boolean expression, @Nullable Object errorMessage) {
         if (!expression) {
             throw new IllegalStateException(String.valueOf(errorMessage));
         }
     }
 
-    /**
-     * Ensures the truth of an expression involving the state of the calling instance, but not
-     * involving any parameters to the calling method.
-     *
-     * @param expression a boolean expression
-     * @param errorMessageTemplate a template for the exception message should the check fail. The
-     *     message is formed by replacing each {@code %s} placeholder in the template with an
-     *     argument. These are matched by position - the first {@code %s} gets {@code
-     *     errorMessageArgs[0]}, etc. Unmatched arguments will be appended to the formatted message in
-     *     square braces. Unmatched placeholders will be left as-is.
-     * @param errorMessageArgs the arguments to be substituted into the message template. Arguments
-     *     are converted to strings using {@link String#valueOf(Object)}.
-     * @throws IllegalStateException if {@code expression} is false
-     */
-    public static void checkState(
-            boolean expression,
-            @Nullable String errorMessageTemplate,
-            @Nullable Object... errorMessageArgs) {
+    public static void checkState(boolean expression, @Nullable String errorMessageTemplate, @Nullable Object... errorMessageArgs) {
         if (!expression) {
-            throw new IllegalStateException(lenientFormat(errorMessageTemplate, errorMessageArgs));
+            throw new IllegalStateException(format(errorMessageTemplate, errorMessageArgs));
         }
     }
 
-    /**
-     * Ensures that an object reference passed as a parameter to the calling method is not null.
-     *
-     * @param reference an object reference
-     * @return the non-null reference that was validated
-     * @throws NullPointerException if {@code reference} is null
-     */
-    
     public static <T> T checkNotNull(T reference) {
         if (reference == null) {
             throw new NullPointerException();
+        } else {
+            return reference;
         }
-        return reference;
     }
-
-    /**
-     * Ensures that an object reference passed as a parameter to the calling method is not null.
-     *
-     * @param reference an object reference
-     * @param errorMessage the exception message to use if the check fails; will be converted to a
-     *     string using {@link String#valueOf(Object)}
-     * @return the non-null reference that was validated
-     * @throws NullPointerException if {@code reference} is null
-     */
 
     public static <T> T checkNotNull(T reference, @Nullable Object errorMessage) {
         if (reference == null) {
             throw new NullPointerException(String.valueOf(errorMessage));
+        } else {
+            return reference;
         }
-        return reference;
     }
 
-    /**
-     * Ensures that an object reference passed as a parameter to the calling method is not null.
-     *
-     * @param reference an object reference
-     * @param errorMessageTemplate a template for the exception message should the check fail. The
-     *     message is formed by replacing each {@code %s} placeholder in the template with an
-     *     argument. These are matched by position - the first {@code %s} gets {@code
-     *     errorMessageArgs[0]}, etc. Unmatched arguments will be appended to the formatted message in
-     *     square braces. Unmatched placeholders will be left as-is.
-     * @param errorMessageArgs the arguments to be substituted into the message template. Arguments
-     *     are converted to strings using {@link String#valueOf(Object)}.
-     * @return the non-null reference that was validated
-     * @throws NullPointerException if {@code reference} is null
-     */
-    
-    public static <T> T checkNotNull(
-            T reference, @Nullable String errorMessageTemplate,@Nullable Object... errorMessageArgs) {
+    public static <T> T checkNotNull(T reference, @Nullable String errorMessageTemplate, @Nullable Object... errorMessageArgs) {
         if (reference == null) {
-            throw new NullPointerException(lenientFormat(errorMessageTemplate, errorMessageArgs));
+            throw new NullPointerException(format(errorMessageTemplate, errorMessageArgs));
+        } else {
+            return reference;
         }
-        return reference;
     }
 
-    public static String lenientFormat(
-            @Nullable String template, @Nullable Object... args) {
-        template = String.valueOf(template); // null -> "null"
+    public static int checkElementIndex(int index, int size) {
+        return checkElementIndex(index, size, "index");
+    }
 
-        if (args == null) {
-            args = new Object[] {"(Object[])null"};
+    public static int checkElementIndex(int index, int size, @Nullable String desc) {
+        if (index >= 0 && index < size) {
+            return index;
+        } else {
+            throw new IndexOutOfBoundsException(badElementIndex(index, size, desc));
         }
+    }
 
-        // start substituting the arguments into the '%s' placeholders
+    private static String badElementIndex(int index, int size, String desc) {
+        if (index < 0) {
+            return format("%s (%s) must not be negative", new Object[]{desc, Integer.valueOf(index)});
+        } else if (size < 0) {
+            throw new IllegalArgumentException((new StringBuilder(26)).append("negative size: ").append(size).toString());
+        } else {
+            return format("%s (%s) must be less than size (%s)", new Object[]{desc, Integer.valueOf(index), Integer.valueOf(size)});
+        }
+    }
+
+    public static int checkPositionIndex(int index, int size) {
+        return checkPositionIndex(index, size, "index");
+    }
+
+    public static int checkPositionIndex(int index, int size, @Nullable String desc) {
+        if (index >= 0 && index <= size) {
+            return index;
+        } else {
+            throw new IndexOutOfBoundsException(badPositionIndex(index, size, desc));
+        }
+    }
+
+    private static String badPositionIndex(int index, int size, String desc) {
+        if (index < 0) {
+            return format("%s (%s) must not be negative", new Object[]{desc, Integer.valueOf(index)});
+        } else if (size < 0) {
+            throw new IllegalArgumentException((new StringBuilder(26)).append("negative size: ").append(size).toString());
+        } else {
+            return format("%s (%s) must not be greater than size (%s)", new Object[]{desc, Integer.valueOf(index), Integer.valueOf(size)});
+        }
+    }
+
+    public static void checkPositionIndexes(int start, int end, int size) {
+        if (start < 0 || end < start || end > size) {
+            throw new IndexOutOfBoundsException(badPositionIndexes(start, end, size));
+        }
+    }
+
+    private static String badPositionIndexes(int start, int end, int size) {
+        return start >= 0 && start <= size ? (end >= 0 && end <= size ? format("end index (%s) must not be less than start index (%s)", new Object[]{Integer.valueOf(end), Integer.valueOf(start)}) : badPositionIndex(end, size, "end index")) : badPositionIndex(start, size, "start index");
+    }
+
+    static String format(String template, @Nullable Object... args) {
+        template = String.valueOf(template);
         StringBuilder builder = new StringBuilder(template.length() + 16 * args.length);
         int templateStart = 0;
-        int i = 0;
-        while (i < args.length) {
-            int placeholderStart = template.indexOf("%s", templateStart);
+
+        int i;
+        int placeholderStart;
+        for (i = 0; i < args.length; templateStart = placeholderStart + 2) {
+            placeholderStart = template.indexOf("%s", templateStart);
             if (placeholderStart == -1) {
                 break;
             }
-            builder.append(template, templateStart, placeholderStart);
-            builder.append(args[i++]);
-            templateStart = placeholderStart + 2;
-        }
-        builder.append(template, templateStart, template.length());
 
-        // if we run out of placeholders, append the extra args in square braces
+            builder.append(template.substring(templateStart, placeholderStart));
+            builder.append(args[i++]);
+        }
+
+        builder.append(template.substring(templateStart));
         if (i < args.length) {
             builder.append(" [");
             builder.append(args[i++]);
+
             while (i < args.length) {
                 builder.append(", ");
                 builder.append(args[i++]);
             }
+
             builder.append(']');
         }
 
         return builder.toString();
     }
-    
-
 }

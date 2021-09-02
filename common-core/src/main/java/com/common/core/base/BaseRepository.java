@@ -6,7 +6,7 @@ import android.text.TextUtils;
 
 import com.common.core.base.ibase.IRepository;
 import com.common.core.config.Constants;
-import com.common.core.config.AppliesOptions;
+import com.common.core.config.inter.AppliesOptions;
 import com.common.core.util.Preconditions;
 
 import java.lang.Class;

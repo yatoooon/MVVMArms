@@ -319,12 +319,4 @@ public final class AppManager {
         }
     }
 
-    @Override
-    public String toString() {
-        return "AppManager{" +
-                "TAG='" + TAG + '\'' +
-                ", mActivityList=" + mActivityList +
-                ", mCurrentActivity=" + mCurrentActivity +
-                '}';
-    }
 }

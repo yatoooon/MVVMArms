@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.Context;
 
 import com.common.core.base.delegate.BaseApplicationLifecycleDelegate;
+import com.common.core.di.component.AppComponent;
+
+import javax.inject.Inject;
 
 
 /**
@@ -11,7 +14,11 @@ import com.common.core.base.delegate.BaseApplicationLifecycleDelegate;
  */
 public class BaseApplication extends Application {
 
+    @Inject
+    AppComponent appComponent;
+
     private BaseApplicationLifecycleDelegate mBaseApplicationLifecycleDelegate;
+
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -28,7 +35,6 @@ public class BaseApplication extends Application {
         if (mBaseApplicationLifecycleDelegate != null) {
             mBaseApplicationLifecycleDelegate.onCreate(this);
         }
-
     }
 
 
@@ -41,4 +47,7 @@ public class BaseApplication extends Application {
     }
 
 
+    public AppComponent getAppComponent() {
+        return appComponent;
+    }
 }
