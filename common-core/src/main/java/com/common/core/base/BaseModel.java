@@ -1,16 +1,15 @@
 package com.common.core.base;
 
-import com.common.core.base.ibase.IModel;
-import com.common.core.config.Constants;
-import com.common.core.base.ibase.IRepository;
-
-import java.lang.Class;
-import javax.inject.Inject;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import com.common.core.base.ibase.IModel;
+import com.common.core.base.ibase.IRepository;
+import com.common.core.config.Constants;
+
+import javax.inject.Inject;
 
 /**
  *

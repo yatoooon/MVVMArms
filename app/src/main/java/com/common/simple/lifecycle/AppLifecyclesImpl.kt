@@ -1,4 +1,4 @@
-package com.common.simple.config
+package com.common.simple.lifecycle
 
 import android.app.Application
 import android.content.Context

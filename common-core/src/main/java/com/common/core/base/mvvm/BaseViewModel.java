@@ -3,12 +3,6 @@ package com.common.core.base.mvvm;
 import android.app.Application;
 import android.os.Message;
 
-import com.common.core.base.BaseModel;
-import com.common.core.base.ibase.IViewModel;
-import com.common.core.base.livedata.MessageEvent;
-import com.common.core.base.livedata.SingleLiveEvent;
-import com.common.core.base.livedata.StatusEvent;
-
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
@@ -17,6 +11,12 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
+
+import com.common.core.base.BaseModel;
+import com.common.core.base.ibase.IViewModel;
+import com.common.core.base.livedata.MessageEvent;
+import com.common.core.base.livedata.SingleLiveEvent;
+import com.common.core.base.livedata.StatusEvent;
 
 /**
  * MVVMFrame 框架基于Google官方的 JetPack 构建，在使用MVVMFrame时，需遵循一些规范：

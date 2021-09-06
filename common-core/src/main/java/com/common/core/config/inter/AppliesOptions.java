@@ -2,12 +2,11 @@ package com.common.core.config.inter;
 
 import android.content.Context;
 
-import com.common.core.http.InterceptorConfig;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.common.core.di.module.ConfigModule;
-
+import androidx.annotation.NonNull;
 import androidx.room.RoomDatabase;
+
+import com.common.core.di.module.AppModule;
+import com.google.gson.GsonBuilder;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -21,47 +20,35 @@ import retrofit2.Retrofit;
 public interface AppliesOptions {
 
     /**
-     * 为框架提供一些配置参数入口
+     * 使用 {@link AppModule.Builder} 给框架配置一些配置参数
      *
-     * @param context
-     * @param builder
+     * @param context {@link Context}
+     * @param builder {@link AppModule.Builder}
      */
-    void applyOptions(Context context, ConfigModule.Builder builder);
+    void applyOptions(@NonNull Context context, @NonNull AppModule.Builder builder);
 
 
     /**
-     * 为框架中的{@link Retrofit}提供配置参数入口
+     * {@link Retrofit} 自定义配置接口
      */
-    interface RetrofitOptions {
-        void applyOptions(Retrofit.Builder builder);
+     interface RetrofitConfiguration {
+        void configRetrofit(@NonNull Context context, @NonNull Retrofit.Builder builder);
     }
 
     /**
-     * 为框架中的{@link OkHttpClient}提供配置参数入口
+     * {@link OkHttpClient} 自定义配置接口
      */
-    interface OkHttpClientOptions {
-        void applyOptions(OkHttpClient.Builder builder);
+     interface OkhttpConfiguration {
+        void configOkhttp(@NonNull Context context, @NonNull OkHttpClient.Builder builder);
     }
 
-    /**
-     * 为框架中的{@link Gson}提供配置参数入口
-     */
-    interface GsonOptions {
-        void applyOptions(GsonBuilder builder);
+     interface GsonConfiguration {
+        void configGson(@NonNull Context context, @NonNull GsonBuilder builder);
     }
 
-    /**
-     * 为框架中的{@link InterceptorConfig}提供配置参数入口
-     */
-    interface InterceptorConfigOptions {
-        void applyOptions(InterceptorConfig.Builder builder);
-    }
 
-    /**
-     * 为框架中的{@link Gson}提供配置参数入口
-     */
-    interface RoomDatabaseOptions<T extends RoomDatabase> {
-        void applyOptions(RoomDatabase.Builder<T> builder);
+     interface RoomConfiguration<T extends RoomDatabase> {
+        void configRoom(@NonNull Context context, RoomDatabase.Builder<T> builder);
     }
 
 }

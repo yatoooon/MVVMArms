@@ -24,7 +24,7 @@ object Deps {
     //anko
     const val anko = "org.jetbrains.anko:anko:0.10.8"
     const val ankoCommon = "org.jetbrains.anko:anko-common:0.10.8"
-    const val kotlinStdlibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
+    const val kotlinStdlibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
     const val kotlinCore = "androidx.core:core-ktx:1.3.0"
 
     //androidx
@@ -120,8 +120,9 @@ object Deps {
     const val liveEventBusX = "com.jeremyliao:live-event-bus-x:1.7.3"
     const val jolyglotGson = "com.github.VictorAlbertos.Jolyglot:gson:0.0.6"
     const val timber = "com.jakewharton.timber:timber:5.0.0"
-    const val umengCommon = "com.umeng.umsdk:common:9.4.2"
+    const val umengCommon = "com.umeng.umsdk:common:2.1.0"
     const val umengUtdid = "com.umeng.umsdk:utdid:1.5.2.1"
+    const val umengAnalytics = "com.umeng.umsdk:analytics:8.1.3"
     const val zlwAudioRecorder = "com.github.zhaolewei:ZlwAudioRecorder:1.07"
     const val nineoldandroids = "com.nineoldandroids:library:2.4.0"
     const val butterknife = "com.jakewharton:butterknife:10.2.3"

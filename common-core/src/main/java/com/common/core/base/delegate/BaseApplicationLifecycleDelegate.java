@@ -7,12 +7,9 @@ import androidx.annotation.NonNull;
 
 import com.common.core.config.CoreConfigModule;
 import com.common.core.config.ManifestParser;
-import com.common.core.di.component.AppComponent;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.inject.Inject;
 
 /**
  * 用于模块/组件的各个 Module 在 Application 中初始化一些配置

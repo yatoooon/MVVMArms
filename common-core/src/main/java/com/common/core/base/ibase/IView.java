@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModel;
 
 import com.common.core.base.BaseActivity;
 import com.common.core.base.BaseFragment;

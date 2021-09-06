@@ -1,14 +1,15 @@
 package com.common.core.base.livedata;
 
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import timber.log.Timber;
 
 /**

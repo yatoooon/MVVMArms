@@ -18,7 +18,7 @@
         </activity>
 
         <meta-data
-            android:name="com.common.simple.config.AppConfiguration"
+            android:name="com.common.simple.lifecycle.AppConfiguration"
             android:value="CoreConfigModule" />
     </application>
 

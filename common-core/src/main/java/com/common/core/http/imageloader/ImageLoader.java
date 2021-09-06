@@ -4,7 +4,6 @@ import android.content.Context;
 
 import androidx.annotation.Nullable;
 
-
 import com.common.core.util.Preconditions;
 
 import javax.inject.Inject;

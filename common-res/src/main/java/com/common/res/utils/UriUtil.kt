@@ -1,7 +1,6 @@
 package com.common.res.utils
 
 import android.net.Uri
-import android.util.Log
 import java.io.UnsupportedEncodingException
 import java.net.URI
 import java.net.URLDecoder

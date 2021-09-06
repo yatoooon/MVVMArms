@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ResNiceImageView">
+        <attr name="res_is_circle" format="boolean" />
+        <attr name="res_is_cover_src" format="boolean" />
+        <attr name="res_corner_radius" format="dimension" />
+        <attr name="res_corner_top_left_radius" format="dimension" />
+        <attr name="res_corner_top_right_radius" format="dimension" />
+        <attr name="res_corner_bottom_left_radius" format="dimension" />
+        <attr name="res_corner_bottom_right_radius" format="dimension" />
+        <attr name="res_border_width" format="dimension" />
+        <attr name="res_border_color" format="color" />
+        <attr name="res_inner_border_width" format="dimension" />
+        <attr name="res_inner_border_color" format="color" />
+        <attr name="res_mask_color" format="color" />
+    </declare-styleable>
+</resources>

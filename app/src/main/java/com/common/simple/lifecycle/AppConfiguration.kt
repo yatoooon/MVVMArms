@@ -1,14 +1,14 @@
-package com.common.simple.config
+package com.common.simple.lifecycle
 
 import android.app.Application.ActivityLifecycleCallbacks
 import android.content.Context
 import androidx.fragment.app.FragmentManager
 import com.common.core.base.delegate.BaseApplicationLifecycle
 import com.common.core.config.CoreConfigModule
-import com.common.core.di.module.ConfigModule
+import com.common.core.di.module.AppModule
 
 class AppConfiguration : CoreConfigModule() {
-    override fun applyOptions(context: Context?, builder: ConfigModule.Builder?) {
+    override fun applyOptions(context: Context, builder: AppModule.Builder) {
     }
 
 

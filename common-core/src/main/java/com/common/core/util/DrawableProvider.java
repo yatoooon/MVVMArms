@@ -7,7 +7,6 @@ import android.graphics.drawable.StateListDrawable;
 import android.media.ExifInterface;
 import android.widget.TextView;
 
-
 import java.io.IOException;
 
 /**

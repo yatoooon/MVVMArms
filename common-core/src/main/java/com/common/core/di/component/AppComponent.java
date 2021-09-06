@@ -2,10 +2,10 @@ package com.common.core.di.component;
 
 import android.content.Context;
 
-import com.common.core.util.ArmsUtil;
-import com.google.gson.Gson;
 import com.common.core.http.imageloader.BaseImageLoaderStrategy;
 import com.common.core.http.imageloader.ImageLoader;
+import com.common.core.util.ArmsUtil;
+import com.google.gson.Gson;
 
 import java.io.File;
 import java.util.concurrent.ExecutorService;
@@ -32,7 +32,7 @@ public class AppComponent {
     /**
      * 图片加载管理器, 用于加载图片的管理类, 使用策略者模式, 可在运行时动态替换任何图片加载框架
      * arms-imageloader-glide 提供 Glide 的策略实现类, 也可以自行实现
-     * 需要在 {@link ConfigModule#applyOptions(Context, GlobalConfigModule.Builder)} 中
+     * 需要在  ConfigModule#applyOptions(Context, GlobalConfigModule.Builder)} 中
      * 手动注册 {@link BaseImageLoaderStrategy}, {@link ImageLoader} 才能正常使用
      *
      * @return
@@ -58,7 +58,7 @@ public class AppComponent {
 
     /**
      * 缓存文件根目录 (RxCache 和 Glide 的缓存都已经作为子文件夹放在这个根目录下), 应该将所有缓存都统一放到这个根目录下
-     * 便于管理和清理, 可在 {@link ConfigModule#applyOptions(Context, GlobalConfigModule.Builder)} 种配置
+     * 便于管理和清理
      *
      * @return {@link File}
      */

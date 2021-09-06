@@ -4,8 +4,6 @@ import android.os.Message;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -14,7 +12,6 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import com.common.core.base.BaseFragment;
 import com.common.core.base.livedata.MessageEvent;
 import com.common.core.base.livedata.StatusEvent;
-
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

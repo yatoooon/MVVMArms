@@ -5,6 +5,7 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.common.core.base.BaseActivity
+import com.common.res.ext.load
 import com.common.res.immersionbar.BindFullScreen
 import com.common.simple.R
 import com.common.simple.databinding.AppActivitySplashBinding
@@ -32,6 +33,7 @@ class AppSplashActivity : BaseActivity<AppActivitySplashBinding>(), BindFullScre
             }
 
             override fun onAnimationEnd(animation: Animation) {
+                binding.ivLogo.load(getDrawable(R.drawable.res_white_round_bg))
             }
 
             override fun onAnimationRepeat(animation: Animation) {

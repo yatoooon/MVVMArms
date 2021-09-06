@@ -13,7 +13,6 @@ import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 
-
 import com.common.core.base.BaseApplication;
 import com.common.core.base.delegate.BaseApplicationLifecycleDelegate;
 import com.common.core.di.component.AppComponent;

@@ -7,4 +7,7 @@
     <string name="res_response_network_unavailable_error">网络不给力，请检查网络。</string>
 
     <string name="res_response_failure">获取失败</string>
+
+    <string name="res_message_empty">暂无数据~</string>
+    <string name="res_message_error">网络异常,点击空白处重试</string>
 </resources>

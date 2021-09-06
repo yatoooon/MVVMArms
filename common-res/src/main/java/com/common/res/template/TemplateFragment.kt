@@ -1,7 +1,6 @@
 package com.common.res.template
 
 import android.os.Bundle
-import androidx.databinding.ViewDataBinding
 import com.common.core.base.mvvm.BaseVMFragment
 import dagger.hilt.android.AndroidEntryPoint
 

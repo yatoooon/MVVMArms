@@ -1,12 +1,16 @@
 package com.common.core.di.module;
 
 
-import android.app.Application;
 import android.content.Context;
+import android.text.TextUtils;
 
-import com.common.core.config.inter.AppliesOptions;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.room.RoomDatabase;
+
 import com.common.core.config.CoreConfigModule;
 import com.common.core.config.ManifestParser;
+import com.common.core.config.inter.AppliesOptions;
 import com.common.core.http.GlobalHttpHandler;
 import com.common.core.http.imageloader.BaseImageLoaderStrategy;
 import com.common.core.http.log.DefaultFormatPrinter;
@@ -14,7 +18,6 @@ import com.common.core.http.log.FormatPrinter;
 import com.common.core.http.log.RequestInterceptor;
 import com.common.core.util.DataHelper;
 import com.common.core.util.Preconditions;
-import com.king.retrofit.retrofithelper.RetrofitHelper;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -27,16 +30,11 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Singleton;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.room.RoomDatabase;
-
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
-import okhttp3.Cache;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.internal.Util;
@@ -47,12 +45,12 @@ import okhttp3.internal.Util;
  */
 @InstallIn(SingletonComponent.class)
 @Module
-public class ConfigModule {
+public class AppModule {
 
     @Singleton
     @Provides
-    Builder provideConfigModuleBuilder(@ApplicationContext Context context) {
-        ConfigModule.Builder builder = new ConfigModule.Builder();
+    AppModule.Builder provideConfigModuleBuilder(@ApplicationContext Context context) {
+        AppModule.Builder builder = new AppModule.Builder();
         //解析配置
         List<CoreConfigModule> modules = new ManifestParser(context).parse();
         //遍历配置
@@ -65,19 +63,16 @@ public class ConfigModule {
         return builder;
     }
 
+    /**
+     * 提供 BaseUrl,默认使用 <"https://api.github.com/">
+     *
+     * @return
+     */
     @Singleton
     @Provides
     HttpUrl provideBaseUrl(@NonNull Builder builder) {
-        HttpUrl baseUrl = builder.baseUrl;
-        if (baseUrl == null) {//如果 mBaseUrl 为空表示没有在自定义配置 CoreConfigModule 中配过 BaseUrl
-            //尝试去 RetrofitHelper 中取一次 BaseUrl，这里相当于多支持一种配置 BaseUrl 的方式
-            baseUrl = RetrofitHelper.getInstance().getBaseUrl();
-        }
-        //再次检测 mBaseUrl 是否为空，如果依旧为空，表示两种配置方式都没有配置过，则直接抛出异常
-        Preconditions.checkNotNull(baseUrl, "Base URL required.");
-        return baseUrl;
+        return builder.baseUrl == null ? HttpUrl.parse("https://api.github.com/") : builder.baseUrl;
     }
-
 
     /**
      * 提供图片加载框架
@@ -103,60 +98,35 @@ public class ConfigModule {
         return builder.handler;
     }
 
-
-    @Singleton
-    @Provides
-    @Nullable
-    List<Interceptor> provideInterceptors(@NonNull Builder builder) {
-        return builder.interceptors;
-    }
-
     /**
      * 提供缓存文件
      */
     @Singleton
     @Provides
-    File provideCacheFile(Application application, @NonNull Builder builder) {
-        return builder.cacheFile == null ? DataHelper.getCacheFile(application) : builder.cacheFile;
+    File provideCacheFile(@ApplicationContext Context context, @NonNull Builder builder) {
+        return builder.cacheFile == null ? DataHelper.getCacheFile(context) : builder.cacheFile;
+    }
+
+    @Singleton
+    @Provides
+    @Nullable
+    AppliesOptions.RetrofitConfiguration provideRetrofitConfiguration(@NonNull Builder builder) {
+        return builder.retrofitConfiguration;
+    }
+
+    @Singleton
+    @Provides
+    @Nullable
+    AppliesOptions.OkhttpConfiguration provideOkhttpConfiguration(@NonNull Builder builder) {
+        return builder.okhttpConfiguration;
     }
 
 
     @Singleton
     @Provides
     @Nullable
-    AppliesOptions.RetrofitOptions provideRetrofitOptions(@NonNull Builder builder) {
-        return builder.retrofitOptions;
-    }
-
-    @Singleton
-    @Provides
-    @Nullable
-    AppliesOptions.OkHttpClientOptions provideOkHttpClientOptions(@NonNull Builder builder) {
-        return builder.okHttpClientOptions;
-    }
-
-    @Singleton
-    @Provides
-    @Nullable
-    AppliesOptions.GsonOptions provideGsonOptions(@NonNull Builder builder) {
-        return builder.gsonOptions;
-    }
-
-    @Singleton
-    @Provides
-    @Nullable
-    AppliesOptions.InterceptorConfigOptions provideInterceptorConfigOptions(@NonNull Builder builder) {
-        return builder.interceptorConfigOptions;
-    }
-
-    @Singleton
-    @Provides
-    AppliesOptions.RoomDatabaseOptions provideRoomDatabaseOptions(@NonNull Builder builder) {
-        if (builder.roomDatabaseOptions != null) {
-            return builder.roomDatabaseOptions;
-        }
-        return it -> {
-        };
+    AppliesOptions.GsonConfiguration provideGsonConfiguration(@NonNull Builder builder) {
+        return builder.gsonConfiguration;
     }
 
     @Singleton
@@ -169,6 +139,19 @@ public class ConfigModule {
     @Provides
     FormatPrinter provideFormatPrinter(@NonNull Builder builder) {
         return builder.formatPrinter == null ? new DefaultFormatPrinter() : builder.formatPrinter;
+    }
+
+    @Singleton
+    @Provides
+    @Nullable
+    List<Interceptor> provideInterceptors(@NonNull Builder builder) {
+        return builder.interceptors;
+    }
+
+    @Singleton
+    @Provides
+    AppliesOptions.RoomConfiguration provideRoomConfiguration(@NonNull Builder builder) {
+        return builder.roomConfiguration;
     }
 
     /**
@@ -185,45 +168,32 @@ public class ConfigModule {
     }
 
     public static final class Builder {
-
         private HttpUrl baseUrl;
-
         private BaseImageLoaderStrategy loaderStrategy;
-
         private GlobalHttpHandler handler;
-
-        private List<Interceptor> interceptors;
-
         private File cacheFile;
-
-        private AppliesOptions.RetrofitOptions retrofitOptions;
-
-        private AppliesOptions.OkHttpClientOptions okHttpClientOptions;
-
-        private AppliesOptions.GsonOptions gsonOptions;
-
-        private AppliesOptions.InterceptorConfigOptions interceptorConfigOptions;
-
-        private AppliesOptions.RoomDatabaseOptions roomDatabaseOptions;
-
+        private List<Interceptor> interceptors;
+        private AppliesOptions.RetrofitConfiguration retrofitConfiguration;
+        private AppliesOptions.OkhttpConfiguration okhttpConfiguration;
+        private AppliesOptions.GsonConfiguration gsonConfiguration;
+        private AppliesOptions.RoomConfiguration roomConfiguration;
         private RequestInterceptor.Level printHttpLogLevel;
-
         private FormatPrinter formatPrinter;
-
         private ExecutorService executorService;
 
-
-        public Builder() {
-
+        private Builder() {
         }
 
-        public Builder baseUrl(@NonNull String baseUrl) {
+        public Builder baseurl(String baseUrl) {//基础url
+            if (TextUtils.isEmpty(baseUrl)) {
+                throw new NullPointerException("BaseUrl can not be empty");
+            }
             this.baseUrl = HttpUrl.parse(baseUrl);
             return this;
         }
 
-        public Builder baseUrl(@NonNull HttpUrl baseUrl) {
-            this.baseUrl = baseUrl;
+        public Builder baseurl(HttpUrl baseUrl) {
+            this.baseUrl = Preconditions.checkNotNull(baseUrl, HttpUrl.class.getCanonicalName() + "can not be null.");
             return this;
         }
 
@@ -237,6 +207,11 @@ public class ConfigModule {
             return this;
         }
 
+        public Builder cacheFile(File cacheFile) {
+            this.cacheFile = cacheFile;
+            return this;
+        }
+
         public Builder addInterceptor(Interceptor interceptor) {//动态添加任意个interceptor
             if (interceptors == null) {
                 interceptors = new ArrayList<>();
@@ -246,34 +221,23 @@ public class ConfigModule {
         }
 
 
-        public Builder cacheFile(File cacheFile) {
-            this.cacheFile = cacheFile;
+        public Builder retrofitConfiguration(AppliesOptions.RetrofitConfiguration retrofitConfiguration) {
+            this.retrofitConfiguration = retrofitConfiguration;
             return this;
         }
 
-
-        public Builder retrofitOptions(AppliesOptions.RetrofitOptions retrofitOptions) {
-            this.retrofitOptions = retrofitOptions;
+        public Builder okhttpConfiguration(AppliesOptions.OkhttpConfiguration okhttpConfiguration) {
+            this.okhttpConfiguration = okhttpConfiguration;
             return this;
         }
 
-        public Builder okHttpClientOptions(AppliesOptions.OkHttpClientOptions okHttpClientOptions) {
-            this.okHttpClientOptions = okHttpClientOptions;
+        public Builder gsonConfiguration(AppliesOptions.GsonConfiguration gsonConfiguration) {
+            this.gsonConfiguration = gsonConfiguration;
             return this;
         }
 
-        public Builder gsonOptions(AppliesOptions.GsonOptions gsonOptions) {
-            this.gsonOptions = gsonOptions;
-            return this;
-        }
-
-        public Builder interceptorConfigOptions(AppliesOptions.InterceptorConfigOptions interceptorConfigOptions) {
-            this.interceptorConfigOptions = interceptorConfigOptions;
-            return this;
-        }
-
-        public Builder roomDatabaseOptions(AppliesOptions.RoomDatabaseOptions<? extends RoomDatabase> roomDatabaseOptions) {
-            this.roomDatabaseOptions = roomDatabaseOptions;
+        public Builder roomConfiguration(AppliesOptions.RoomConfiguration<? extends RoomDatabase> roomConfiguration) {
+            this.roomConfiguration = roomConfiguration;
             return this;
         }
 
@@ -287,11 +251,11 @@ public class ConfigModule {
             return this;
         }
 
+
         public Builder executorService(ExecutorService executorService) {
             this.executorService = executorService;
             return this;
         }
-
 
     }
 

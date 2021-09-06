@@ -2,16 +2,14 @@ package com.common.core.base.mvvm;
 
 import android.app.Application;
 
-import java.lang.Class;
-
-import javax.inject.Inject;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.common.core.base.BaseModel;
+
+import javax.inject.Inject;
 
 
 /**

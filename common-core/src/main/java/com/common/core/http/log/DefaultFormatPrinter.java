@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-
 import com.common.core.util.CharacterHandler;
 import com.common.core.util.LogUtil;
 

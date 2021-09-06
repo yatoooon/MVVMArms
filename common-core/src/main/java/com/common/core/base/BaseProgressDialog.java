@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.Gravity;
 
-import com.common.core.R;
-
 import androidx.annotation.NonNull;
+
+import com.common.core.R;
 
 /**
  *

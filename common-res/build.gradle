@@ -52,38 +52,60 @@ dependencies {
 
     compileOnly Deps.kotlinStdlibJdk7
     compileOnly Deps.kotlinCore
-
     compileOnly Deps.kotlinxCoroutinesCore
     compileOnly Deps.kotlinxCoroutinesAndroid
     compileOnly Deps.lifecycleViewmodelKtx
-
-    //lifecycle
-    kapt Deps.lifecycleCompiler
-    //room
-    kapt Deps.roomCompiler
-    //hilt
-    implementation Deps.hiltAndroid
-    kapt Deps.hiltAndroidCompiler
-
-    implementation Deps.androidHiltLifecycleViewmodel
-    kapt Deps.androidHiltCompiler
-
-    api Deps.arouterApi
-    kapt Deps.arouterCompiler
-
 
     api Deps.appcompat
     api Deps.jenlyAdapter
     api Deps.jenlyUtil
     api Deps.logger
-
     api Deps.glide
-    kapt Deps.glideCompiler
-
     api Deps.recyclerview
     api Deps.constraintlayout
+    api Deps.tbssdk
+    api Deps.vlayout
+    api Deps.smartkey
     api Deps.cardview
+    api Deps.titlebar
+    api Deps.autosize
+    api Deps.easyFloat
+    api Deps.rvAdapter
+    api Deps.bgaQrcode
+    api Deps.arouterApi
+    api Deps.mmkvStatic
+    api Deps.umengCommon
+    api Deps.umengUtdid
     api Deps.immersionbar
+    api Deps.umengAnalytics
+    api Deps.ycbannerlib
+    api Deps.labelsView
+    api Deps.dropDownMenu
+    api Deps.filedownloader
+    api Deps.progressmanager
+    api Deps.pictureSelector
+    api Deps.androidPdfViewer
+    api Deps.circleProgressbar
+    api Deps.retrofitUrlManager
+    api Deps.bottomNavigationViewEx
+    api Deps.smartRefreshLayoutKernel
+    api Deps.smartRefreshHeaderClassics
+    api Deps.baseRecyclerViewAdapterHelper
+
+    kapt Deps.arouterCompiler
+    kapt Deps.lifecycleCompiler
+    kapt Deps.roomCompiler
+    kapt Deps.hiltAndroidCompiler
+    kapt Deps.glideCompiler
+    kapt Deps.androidHiltCompiler
 
 
+    implementation Deps.xUpdate
+    implementation Deps.okhttputils
+    implementation Deps.hiltAndroid
+    implementation Deps.androidHiltLifecycleViewmodel
+
+    debugImplementation Deps.spidermanDebug
+    releaseImplementation Deps.spidermanRelease
+    //debugImplementation Deps.leakcanary
 }

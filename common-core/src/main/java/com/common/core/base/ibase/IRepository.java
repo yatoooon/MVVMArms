@@ -2,8 +2,6 @@ package com.common.core.base.ibase;
 
 import android.content.Context;
 
-import java.lang.Class;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.room.Room;

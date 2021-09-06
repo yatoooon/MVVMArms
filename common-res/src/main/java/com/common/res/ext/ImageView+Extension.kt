@@ -10,7 +10,7 @@ import com.common.res.glide.config.ImageConfigImpl
 
 //ImageView 扩展
 fun ImageView.load(
-        imageUrl: String?,
+        res: Any?,
         isCircle: Boolean = false,
         isCrossFade: Boolean = false,
         isCenterCrop: Boolean = false,
@@ -25,7 +25,7 @@ fun ImageView.load(
 ) {
     loadImage(
             this,
-            imageUrl,
+            res,
             isCircle,
             isCrossFade,
             isCenterCrop,
@@ -41,7 +41,7 @@ fun ImageView.load(
 
 @BindingAdapter(
         value = [
-            "bind:imageUrl",
+            "bind:res",
             "bind:isCircle",
             "bind:isCrossFade",
             "bind:isCenterCrop",
@@ -56,7 +56,7 @@ fun ImageView.load(
         requireAll = false)
 fun loadImage(
         imageView: ImageView,
-        any: Any?,
+        res: Any?,
         isCircle: Boolean = false,
         isCrossFade: Boolean = false,
         isCenterCrop: Boolean = false,
@@ -72,7 +72,7 @@ fun loadImage(
     ArmsUtil.obtainAppComponent().imageLoader.loadImage(imageView.context,
             ImageConfigImpl
                     .builder()
-                    .res(any)
+                    .res(res)
                     .isCircle(isCircle)
                     .isCrossFade(isCrossFade)
                     .isCenterCrop(isCenterCrop)

@@ -1,9 +1,9 @@
 package com.common.core.bean;
 
 
-import com.common.core.base.livedata.StatusEvent;
-
 import androidx.annotation.Nullable;
+
+import com.common.core.base.livedata.StatusEvent;
 
 /**
  *

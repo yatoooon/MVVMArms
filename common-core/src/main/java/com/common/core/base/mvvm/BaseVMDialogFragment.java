@@ -16,16 +16,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 
-import com.common.core.base.BaseProgressDialog;
-import com.common.core.base.ibase.ILoading;
-import com.common.core.base.ibase.IView;
-import com.common.core.base.livedata.MessageEvent;
-import com.common.core.base.livedata.StatusEvent;
-import com.common.core.R;
-
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-
 import androidx.annotation.IdRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
@@ -39,6 +29,17 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
+
+import com.common.core.R;
+import com.common.core.base.BaseProgressDialog;
+import com.common.core.base.ibase.ILoading;
+import com.common.core.base.ibase.IView;
+import com.common.core.base.livedata.MessageEvent;
+import com.common.core.base.livedata.StatusEvent;
+
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
 import timber.log.Timber;
 
 

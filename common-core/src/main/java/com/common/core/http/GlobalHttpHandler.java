@@ -3,7 +3,6 @@ package com.common.core.http;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;

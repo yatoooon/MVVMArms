@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-
 import com.common.core.base.delegate.BaseApplicationLifecycle;
 
 import java.util.List;

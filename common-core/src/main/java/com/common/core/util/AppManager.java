@@ -6,7 +6,6 @@ import android.app.Service;
 
 import androidx.annotation.Nullable;
 
-
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -62,8 +61,8 @@ public final class AppManager {
     }
 
     /**
-     * 获取在前台的 {@link Activity} (保证获取到的 {@link Activity} 正处于可见状态, 即未调用 {@link Activity#onStop()}), 获取的 {@link Activity} 存续时间
-     * 是在 {@link Activity#onStop()} 之前, 所以如果当此 {@link Activity} 调用 {@link Activity#onStop()} 方法之后, 没有其他的 {@link Activity} 回到前台(用户返回桌面或者打开了其他 App 会出现此状况)
+     * 获取在前台的 {@link Activity} (保证获取到的 {@link Activity} 正处于可见状态, 即未调用  ActivityonStop, 获取的 {@link Activity} 存续时间
+     * 是在  Activity onStop 之前, 所以如果当此 {@link Activity} 调用 Activity#onStop()} 方法之后, 没有其他的 {@link Activity} 回到前台(用户返回桌面或者打开了其他 App 会出现此状况)
      * 这时调用 {@link #getCurrentActivity()} 有可能返回 {@code null}, 所以请注意使用场景和 {@link #getTopActivity()} 不一样
      * <p>
      * Example usage:
@@ -79,9 +78,9 @@ public final class AppManager {
     }
 
     /**
-     * 将在前台的 {@link Activity} 赋值给 {@code currentActivity}, 注意此方法是在 {@link Activity#onResume} 方法执行时将栈顶的 {@link Activity} 赋值给 {@code currentActivity}
-     * 所以在栈顶的 {@link Activity} 执行 {@link Activity#onCreate} 方法时使用 {@link #getCurrentActivity()} 获取的就不是当前栈顶的 {@link Activity}, 可能是上一个 {@link Activity}
-     * 如果在 App 启动第一个 {@link Activity} 执行 {@link Activity#onCreate} 方法时使用 {@link #getCurrentActivity()} 则会出现返回为 {@code null} 的情况
+     * 将在前台的 {@link Activity} 赋值给 {@code currentActivity}, 注意此方法是在 Activity#onResume} 方法执行时将栈顶的 {@link Activity} 赋值给 {@code currentActivity}
+     * 所以在栈顶的 {@link Activity} 执行  Activity#onCreate} 方法时使用 {@link #getCurrentActivity()} 获取的就不是当前栈顶的 {@link Activity}, 可能是上一个 {@link Activity}
+     * 如果在 App 启动第一个 {@link Activity} 执行  Activity#onCreate} 方法时使用 {@link #getCurrentActivity()} 则会出现返回为 {@code null} 的情况
      * 想避免这种情况请使用 {@link #getTopActivity()}
      *
      * @param currentActivity

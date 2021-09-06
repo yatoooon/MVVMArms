@@ -28,11 +28,11 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import timber.log.Timber;
-
 import com.common.core.R;
 import com.common.core.base.ibase.ILoading;
 import com.common.core.base.ibase.IView;
+
+import timber.log.Timber;
 
 
 /**
