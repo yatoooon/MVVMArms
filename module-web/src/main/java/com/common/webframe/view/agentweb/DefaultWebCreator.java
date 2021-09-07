@@ -189,7 +189,7 @@ public class DefaultWebCreator implements WebCreator {
             AgentWebConfig.WEBVIEW_TYPE = AgentWebConfig.WEBVIEW_AGENTWEB_SAFE_TYPE;
         }
         ViewStub mViewStub = new ViewStub(mActivity);
-        mViewStub.setId(R.id.mainframe_error_viewsub_id);
+        mViewStub.setId(R.id.web_mainframe_error_viewsub_id);
         mFrameLayout.addView(mViewStub, new FrameLayout.LayoutParams(-1, -1));
         if (mIsNeedDefaultProgress) {
             FrameLayout.LayoutParams lp = null;

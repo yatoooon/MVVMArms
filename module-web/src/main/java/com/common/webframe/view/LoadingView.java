@@ -36,7 +36,7 @@ public class LoadingView extends LinearLayout {
     }
 
     private void init() {
-        View view = LayoutInflater.from(context).inflate(R.layout.layout_loading_view, this, true);
+        View view = LayoutInflater.from(context).inflate(R.layout.web_layout_loading_view, this, true);
         progressBar = view.findViewById(R.id.progressBar);
         tvResult = findViewById(R.id.tv_result);
         ivResult = findViewById(R.id.iv_result);
@@ -54,7 +54,7 @@ public class LoadingView extends LinearLayout {
      * 成功
      */
     public void showSuccess() {
-        ivResult.setImageResource(R.drawable.ic_load_success);
+        ivResult.setImageResource(R.drawable.web_ic_load_success);
         ivResult.setVisibility(View.VISIBLE);
         progressBar.setVisibility(GONE);
     }
@@ -63,7 +63,7 @@ public class LoadingView extends LinearLayout {
      * 失败
      */
     public void showFail() {
-        ivResult.setImageResource(R.drawable.ic_load_fail);
+        ivResult.setImageResource(R.drawable.web_ic_load_fail);
         ivResult.setVisibility(View.VISIBLE);
         progressBar.setVisibility(GONE);
     }

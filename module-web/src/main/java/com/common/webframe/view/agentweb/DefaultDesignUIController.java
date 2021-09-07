@@ -66,7 +66,7 @@ public class DefaultDesignUIController extends DefaultUIController {
                     message,
                     Snackbar.LENGTH_SHORT,
                     Color.WHITE,
-                    mActivity.getResources().getColor(R.color.black),
+                    mActivity.getResources().getColor(R.color.web_black),
                     null,
                     -1,
                     null);

@@ -13,7 +13,7 @@
         tools:ignore="MissingDefaultResource">
 
         <include
-            layout="@layout/layout_toolbar"
+            layout="@layout/web_layout_toolbar"
             android:id="@+id/layout_toolbar" />
 
         <com.common.res.view.NoSlideViewPager

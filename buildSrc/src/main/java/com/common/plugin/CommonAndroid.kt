@@ -84,6 +84,9 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             }
         }
 
+        resourcePrefix(project.name.replace("module-", "") + "_")
+
+
         buildTypes {
             @Suppress("MISSING_DEPENDENCY_CLASS")
             val signingConfig = SigningConfig("sample").apply {

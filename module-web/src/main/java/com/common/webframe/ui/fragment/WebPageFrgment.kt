@@ -12,7 +12,7 @@ import com.common.res.entity.SendEventEntity
 import com.common.res.event.WEBFRAME_EVENT
 import com.common.res.utils.eventBusObserve
 import com.common.webframe.R
-import com.common.webframe.databinding.FragmentWebpageBinding
+import com.common.webframe.databinding.WebFragmentWebpageBinding
 import com.common.webframe.jsapi.JsApi
 import com.common.webframe.utils.CookieUtil
 import com.common.webframe.view.BaseDWebView
@@ -30,9 +30,9 @@ import java.util.*
  * author：panyy
  * data：2018/3/14
  */
-class WebPageFrgment : BaseFragment<FragmentWebpageBinding>() {
+class WebPageFrgment : BaseFragment<WebFragmentWebpageBinding>() {
     override fun getLayoutId(): Int {
-        return R.layout.fragment_webpage
+        return R.layout.web_fragment_webpage
     }
 
     private var jsApi: JsApi? = null

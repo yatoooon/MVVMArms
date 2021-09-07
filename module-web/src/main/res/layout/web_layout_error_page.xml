@@ -3,7 +3,7 @@
     android:id="@+id/ll_error_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/web_white"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="轻触屏幕重新加载"
-        android:textColor="@color/color_939393"
+        android:textColor="@color/web_color_939393"
         android:textSize="19sp" />
 
 </LinearLayout>

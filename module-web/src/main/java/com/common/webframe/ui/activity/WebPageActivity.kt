@@ -11,7 +11,7 @@ import com.common.res.event.WEBFRAME_EVENT
 import com.common.res.utils.bindViewClickListener
 import com.common.res.utils.eventBusPost
 import com.common.webframe.R
-import com.common.webframe.databinding.ActivityWebpageBinding
+import com.common.webframe.databinding.WebActivityWebpageBinding
 import com.common.webframe.ui.fragment.WebPageFrgment
 
 /**
@@ -19,7 +19,7 @@ import com.common.webframe.ui.fragment.WebPageFrgment
  * author：panyy
  * data：2020/10/27
  */
-open class WebPageActivity : BaseActivity<ActivityWebpageBinding>() {
+open class WebPageActivity : BaseActivity<WebActivityWebpageBinding>() {
 
     private var url: String? = null
     private var isHideToolbar = false
@@ -28,7 +28,7 @@ open class WebPageActivity : BaseActivity<ActivityWebpageBinding>() {
     private var event: SendEventEntity? = null
 
     override fun getLayoutId(): Int {
-        return R.layout.activity_webpage
+        return R.layout.web_activity_webpage
     }
 
     override fun initData(savedInstanceState: Bundle?) {
@@ -63,12 +63,12 @@ open class WebPageActivity : BaseActivity<ActivityWebpageBinding>() {
         binding.layoutToolbar.tvWebframeTitle.setTextColor(resources.getColor(titleColor))
         binding.layoutToolbar.tvWebframeRightText.setTextColor(resources.getColor(titleColor))
         binding.layoutToolbar.webframeToolbar.setBackgroundColor(resources.getColor(toolbarColor))
-        if (titleColor == R.color.white) {
-            binding.layoutToolbar.ivWebframeBack.setImageResource(R.drawable.ic_webframe_back_white)
-            binding.layoutToolbar.ivWebframeMore.setImageResource(R.drawable.ic_add_white_24dp)
+        if (titleColor == R.color.web_white) {
+            binding.layoutToolbar.ivWebframeBack.setImageResource(R.drawable.web_ic_webframe_back_white)
+            binding.layoutToolbar.ivWebframeMore.setImageResource(R.drawable.web_ic_add_white_24dp)
         } else {
-            binding.layoutToolbar.ivWebframeBack.setImageResource(R.drawable.ic_webframe_back_black)
-            binding.layoutToolbar.ivWebframeMore.setImageResource(R.drawable.ic_add_black_24dp)
+            binding.layoutToolbar.ivWebframeBack.setImageResource(R.drawable.web_ic_webframe_back_black)
+            binding.layoutToolbar.ivWebframeMore.setImageResource(R.drawable.web_ic_add_black_24dp)
         }
     }
 

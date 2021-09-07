@@ -31,7 +31,7 @@ public class ProgressDX5WebView extends DX5WebView {
         mProgressBar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 4);
         mProgressBar.setLayoutParams(layoutParams);
-        Drawable drawable = context.getResources().getDrawable(R.drawable.layer_progress_bar_states);
+        Drawable drawable = context.getResources().getDrawable(R.drawable.web_layer_progress_bar_states);
         mProgressBar.setProgressDrawable(drawable);
         addView(mProgressBar);
         setWebViewClient(new MyWebViewClient());

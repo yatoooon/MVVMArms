@@ -11,7 +11,7 @@ import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.common.core.base.BaseActivity
 import com.common.webframe.R
-import com.common.webframe.databinding.ActivityTabpageBinding
+import com.common.webframe.databinding.WebActivityTabpageBinding
 import com.common.webframe.entity.RefreshTabRightBtnEntity
 import com.common.webframe.entity.TabPageEntity.TabEntity
 import com.common.webframe.ui.adapter.TabPagerAdapter
@@ -24,11 +24,11 @@ import java.util.*
  * author：panyy
  * data：2018/3/14
  */
-class TabPageActivity : BaseActivity<ActivityTabpageBinding>() {
+class TabPageActivity : BaseActivity<WebActivityTabpageBinding>() {
 
 
     override fun getLayoutId(): Int {
-        return R.layout.activity_tabpage
+        return R.layout.web_activity_tabpage
     }
 
     private var tabs: ArrayList<TabEntity>? = null
@@ -43,7 +43,7 @@ class TabPageActivity : BaseActivity<ActivityTabpageBinding>() {
         for (i in tabs!!.indices) {
             val tab = tabs!![i]
             tabFragments.add(WebPageFrgment.newInstance(tab.url))
-            val rb = LayoutInflater.from(context).inflate(R.layout.layout_radiobutton, null) as RadioButton
+            val rb = LayoutInflater.from(context).inflate(R.layout.web_layout_radiobutton, null) as RadioButton
             rb.text = tab.name
             binding.layoutToolbar.radioGroup.addView(rb)
         }

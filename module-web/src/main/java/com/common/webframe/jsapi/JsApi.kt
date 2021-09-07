@@ -21,7 +21,7 @@ import com.common.res.event.WEBFRAME_EVENT
 import com.common.res.utils.GsonUtil
 import com.common.res.utils.appLogoutToLogin
 import com.common.res.utils.eventBusPost
-import com.common.webframe.databinding.ActivityWebpageBinding
+import com.common.webframe.databinding.WebActivityWebpageBinding
 import com.common.webframe.entity.*
 import com.common.webframe.entity.ToolBarEntity.BtnLeftEntity
 import com.common.webframe.entity.ToolBarEntity.BtnmoreEntity

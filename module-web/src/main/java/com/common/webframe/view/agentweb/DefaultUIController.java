@@ -62,9 +62,9 @@ public class DefaultUIController extends AbsAgentWebUIController {
         if (mAskOpenOtherAppDialog == null) {
             mAskOpenOtherAppDialog = new AlertDialog
                     .Builder(mActivity)
-                    .setMessage(mResources.getString(R.string.agentweb_leave_app_and_go_other_page,
+                    .setMessage(mResources.getString(R.string.web_agentweb_leave_app_and_go_other_page,
                             AgentWebUtils.getApplicationName(mActivity)))//
-                    .setTitle(mResources.getString(R.string.agentweb_tips))
+                    .setTitle(mResources.getString(R.string.web_agentweb_tips))
                     .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -73,7 +73,7 @@ public class DefaultUIController extends AbsAgentWebUIController {
                             }
                         }
                     })//
-                    .setPositiveButton(mResources.getString(R.string.agentweb_leave), new DialogInterface.OnClickListener() {
+                    .setPositiveButton(mResources.getString(R.string.web_agentweb_leave), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             if (callback != null) {
@@ -108,9 +108,9 @@ public class DefaultUIController extends AbsAgentWebUIController {
         }
         AlertDialog mAlertDialog = null;
         mAlertDialog = new AlertDialog.Builder(mActivity)
-                .setTitle(mResources.getString(R.string.agentweb_tips))
-                .setMessage(mResources.getString(R.string.agentweb_honeycomblow))
-                .setNegativeButton(mResources.getString(R.string.agentweb_download), new DialogInterface.OnClickListener() {
+                .setTitle(mResources.getString(R.string.web_agentweb_tips))
+                .setMessage(mResources.getString(R.string.web_agentweb_honeycomblow))
+                .setNegativeButton(mResources.getString(R.string.web_agentweb_download), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (dialog != null) {
@@ -121,7 +121,7 @@ public class DefaultUIController extends AbsAgentWebUIController {
                         }
                     }
                 })//
-                .setPositiveButton(mResources.getString(R.string.agentweb_cancel), new DialogInterface.OnClickListener() {
+                .setPositiveButton(mResources.getString(R.string.web_agentweb_cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
