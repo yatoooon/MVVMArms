@@ -38,7 +38,6 @@ import timber.log.Timber;
  * <p>
  * 如果您继承使用了BaseActivity或其子类，你需要参照如下方式添加@AndroidEntryPoint注解
  *
- *
  * @example Activity
  * //-------------------------
  * @AndroidEntryPoint public class YourActivity extends BaseActivity {
@@ -69,8 +68,11 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         super.onCreate(savedInstanceState);
         initView();
         initViewModel();
+        initObserve();
+        initViewClick();
         initData(savedInstanceState);
     }
+
 
     /**
      * 初始化ContentView，{@link #setContentView(int)} }
@@ -83,7 +85,16 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         }
     }
 
+
     public void initViewModel() {
+
+    }
+
+    public void initObserve() {
+
+    }
+
+    public void initViewClick() {
 
     }
 

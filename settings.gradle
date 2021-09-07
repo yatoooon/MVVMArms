@@ -1,3 +1,4 @@
+include ':module-web'
 include ':app'
 include ':common-res'
 include ':common-core'

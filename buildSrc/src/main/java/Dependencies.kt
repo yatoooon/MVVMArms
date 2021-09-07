@@ -87,7 +87,7 @@ object Deps {
     const val androidPdfViewer = "com.github.barteksc:android-pdf-viewer:2.8.2"
     const val playerbase = "com.kk.taurus.playerbase:playerbase:3.4.2"
     const val dropDownMenu = "com.wdeo3601:drop-down-menu:1.0.5"
-    const val labelsView = "com.github.donkingliang:LabelsView:1.6.5"
+    const val labelsView = "com.github.donkingliang:LabelsView:1.6.3"
     const val circleProgressbar = "com.dinuscxj:circleprogressbar:1.3.6"
     const val rvAdapter = "com.gitee.cbfg5210:RVAdapter:0.3.5"
 

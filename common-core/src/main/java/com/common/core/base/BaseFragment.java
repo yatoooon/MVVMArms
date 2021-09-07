@@ -40,7 +40,6 @@ import timber.log.Timber;
  * <p>
  * 如果您继承使用了BaseFragment或其子类，你需要参照如下方式添加@AndroidEntryPoint注解
  *
- *
  * @example Fragment
  * //-------------------------
  * @AndroidEntryPoint public class YourFragment extends BaseFragment {
@@ -79,8 +78,11 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         mRootView = createRootView(inflater, container, savedInstanceState);
         initView();
         initViewModel();
+        initObserve();
+        initViewClick();
         return mRootView;
     }
+
 
     public void initView() {
         if (isBinding()) {
@@ -89,7 +91,12 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     }
 
     public void initViewModel() {
+    }
 
+    public void initObserve() {
+    }
+
+    public void initViewClick() {
     }
 
     @Override
