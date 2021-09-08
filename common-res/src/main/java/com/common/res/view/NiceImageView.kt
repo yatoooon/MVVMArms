@@ -275,32 +275,32 @@ class NiceImageView @JvmOverloads constructor(context: Context, attrs: Attribute
     }
 
     init {
-        val ta = context.obtainStyledAttributes(attrs, R.styleable.ResNiceImageView, 0, 0)
+        val ta = context.obtainStyledAttributes(attrs, R.styleable.res_NiceImageView, 0, 0)
         for (i in 0 until ta.indexCount) {
             val attr = ta.getIndex(i)
-            if (attr == R.styleable.ResNiceImageView_res_is_cover_src) {
+            if (attr == R.styleable.res_NiceImageView_res_is_cover_src) {
                 isCoverSrc = ta.getBoolean(attr, isCoverSrc)
-            } else if (attr == R.styleable.ResNiceImageView_res_is_circle) {
+            } else if (attr == R.styleable.res_NiceImageView_res_is_circle) {
                 isCircle = ta.getBoolean(attr, isCircle)
-            } else if (attr == R.styleable.ResNiceImageView_res_border_width) {
+            } else if (attr == R.styleable.res_NiceImageView_res_border_width) {
                 borderWidth = ta.getDimensionPixelSize(attr, borderWidth)
-            } else if (attr == R.styleable.ResNiceImageView_res_border_color) {
+            } else if (attr == R.styleable.res_NiceImageView_res_border_color) {
                 borderColor = ta.getColor(attr, borderColor)
-            } else if (attr == R.styleable.ResNiceImageView_res_inner_border_width) {
+            } else if (attr == R.styleable.res_NiceImageView_res_inner_border_width) {
                 innerBorderWidth = ta.getDimensionPixelSize(attr, innerBorderWidth)
-            } else if (attr == R.styleable.ResNiceImageView_res_inner_border_color) {
+            } else if (attr == R.styleable.res_NiceImageView_res_inner_border_color) {
                 innerBorderColor = ta.getColor(attr, innerBorderColor)
-            } else if (attr == R.styleable.ResNiceImageView_res_corner_radius) {
+            } else if (attr == R.styleable.res_NiceImageView_res_corner_radius) {
                 cornerRadius = ta.getDimensionPixelSize(attr, cornerRadius)
-            } else if (attr == R.styleable.ResNiceImageView_res_corner_top_left_radius) {
+            } else if (attr == R.styleable.res_NiceImageView_res_corner_top_left_radius) {
                 cornerTopLeftRadius = ta.getDimensionPixelSize(attr, cornerTopLeftRadius)
-            } else if (attr == R.styleable.ResNiceImageView_res_corner_top_right_radius) {
+            } else if (attr == R.styleable.res_NiceImageView_res_corner_top_right_radius) {
                 cornerTopRightRadius = ta.getDimensionPixelSize(attr, cornerTopRightRadius)
-            } else if (attr == R.styleable.ResNiceImageView_res_corner_bottom_left_radius) {
+            } else if (attr == R.styleable.res_NiceImageView_res_corner_bottom_left_radius) {
                 cornerBottomLeftRadius = ta.getDimensionPixelSize(attr, cornerBottomLeftRadius)
-            } else if (attr == R.styleable.ResNiceImageView_res_corner_bottom_right_radius) {
+            } else if (attr == R.styleable.res_NiceImageView_res_corner_bottom_right_radius) {
                 cornerBottomRightRadius = ta.getDimensionPixelSize(attr, cornerBottomRightRadius)
-            } else if (attr == R.styleable.ResNiceImageView_res_mask_color) {
+            } else if (attr == R.styleable.res_NiceImageView_res_mask_color) {
                 maskColor = ta.getColor(attr, maskColor)
             }
         }

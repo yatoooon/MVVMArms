@@ -10,7 +10,7 @@ import com.common.res.callback.EmptyCallBack
 import com.common.res.callback.ErrorCallBack
 import com.common.res.callback.LoadingCallBack
 import com.common.res.update.OKHttpUpdateHttpService
-import com.common.res.view.RefreshLottieHeader
+import com.common.res.layout.RefreshLottieHeader
 import com.kingja.loadsir.core.LoadSir
 import com.liulishuo.filedownloader.FileDownloader
 import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection
@@ -24,9 +24,7 @@ import com.xuexiang.xupdate.XUpdate
 import com.xuexiang.xupdate.utils.UpdateUtils
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
-import org.koin.core.context.loadKoinModules
 import org.koin.core.context.startKoin
-import org.koin.dsl.module
 import timber.log.Timber
 
 class ResLifecyclesImpl : BaseApplicationLifecycle {

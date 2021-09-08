@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="ResNiceImageView">
+    <declare-styleable name="res_NiceImageView">
         <attr name="res_is_circle" format="boolean" />
         <attr name="res_is_cover_src" format="boolean" />
         <attr name="res_corner_radius" format="dimension" />
@@ -13,5 +13,105 @@
         <attr name="res_inner_border_width" format="dimension" />
         <attr name="res_inner_border_color" format="color" />
         <attr name="res_mask_color" format="color" />
+    </declare-styleable>
+
+
+    <!-- 仿 ios 开关按钮 -->
+    <declare-styleable name="res_SwitchButton">
+        <!-- 是否选中 -->
+        <attr name="android:checked" />
+        <!-- 是否禁用 -->
+        <attr name="android:enabled" />
+    </declare-styleable>
+
+    <!-- 正则表达式编辑框 -->
+    <declare-styleable name="res_RegexEditText">
+        <!-- 正则输入限制 -->
+        <attr name="res_inputRegex" format="string" />
+        <!-- 常用正则类型 -->
+        <attr name="res_regexType" >
+            <!-- 手机号（只能以 1 开头） -->
+            <enum name="mobile" value="0x01" />
+            <!-- 中文（普通的中文字符） -->
+            <enum name="chinese" value="0x02" />
+            <!-- 英文（大写和小写的英文） -->
+            <enum name="english" value="0x03" />
+            <!-- 整数（非 0 开头的数字） -->
+            <enum name="count" value="0x04" />
+            <!-- 用户名（中文、英文、数字） -->
+            <enum name="name" value="0x05" />
+            <!-- 非空格字符 -->
+            <enum name="nonnull" value="0x06" />
+        </attr>
+    </declare-styleable>
+
+    <!-- 设置栏 -->
+    <declare-styleable name="res_SettingBar">
+        <!-- 左边 -->
+        <attr name="res_bar_leftText" format="string"/>
+        <attr name="res_bar_leftHint" format="string"/>
+        <attr name="res_bar_leftIcon" format="reference" />
+        <attr name="res_bar_leftColor" format="color" />
+        <attr name="res_bar_leftSize" format="dimension" />
+        <!-- 右边 -->
+        <attr name="res_bar_rightText" format="string" />
+        <attr name="res_bar_rightHint" format="string"/>
+        <attr name="res_bar_rightIcon" format="reference" />
+        <attr name="res_bar_rightColor" format="color" />
+        <attr name="res_bar_rightSize" format="dimension" />
+        <!-- 分割线 -->
+        <attr name="res_bar_lineVisible" format="boolean" />
+        <attr name="res_bar_lineColor" format="reference|color" />
+        <attr name="res_bar_lineSize" format="dimension" />
+        <attr name="res_bar_lineMargin" format="dimension" />
+    </declare-styleable>
+
+    <!-- 带提交动画按钮 -->
+    <declare-styleable name="res_SubmitButton">
+        <!-- 进度按钮颜色 -->
+        <attr name="res_progressColor" format="color" />
+        <!-- 成功按钮颜色 -->
+        <attr name="res_succeedColor" format="color" />
+        <!-- 出错按钮颜色 -->
+        <attr name="res_errorColor" format="color" />
+        <!-- 进度条样式 -->
+        <attr name="res_progressStyle" format="enum">
+            <!-- 无进度 -->
+            <enum name="loading" value="0x00" />
+            <!-- 带进度 -->
+            <enum name="progress" value="0x01" />
+        </attr>
+    </declare-styleable>
+
+    <!-- 倾斜的 TextView -->
+    <declare-styleable name="res_SlantedTextView">
+        <attr name="android:text" />
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="android:textStyle" />
+        <attr name="android:gravity" />
+        <attr name="android:colorBackground" />
+        <attr name="android:paddingVertical" />
+        <attr name="android:paddingHorizontal" />
+        <!-- 显示成三角形 -->
+        <attr name="res_triangle" format="boolean" />
+    </declare-styleable>
+
+    <!-- 自定义 ViewStub -->
+    <declare-styleable name="res_CustomViewStub">
+        <!-- 布局 id -->
+        <attr name="android:layout" />
+    </declare-styleable>
+
+    <!-- 缩放的 ImageView -->
+    <declare-styleable name="res_ScaleImageView">
+        <!-- 缩放比例 -->
+        <attr name="res_scaleRatio" format="float" />
+    </declare-styleable>
+
+    <!-- 按照比例显示的 FrameLayout -->
+    <declare-styleable name="res_RatioFrameLayout">
+        <!-- 宽高比例 -->
+        <attr name="res_sizeRatio" format="string" />
     </declare-styleable>
 </resources>

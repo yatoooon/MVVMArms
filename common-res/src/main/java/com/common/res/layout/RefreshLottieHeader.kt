@@ -1,4 +1,4 @@
-package com.common.res.view
+package com.common.res.layout
 
 import android.content.Context
 import android.view.LayoutInflater
