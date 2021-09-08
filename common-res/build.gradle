@@ -74,10 +74,7 @@ dependencies {
     api Deps.bgaQrcode
     api Deps.arouterApi
     api Deps.mmkvStatic
-    api Deps.umengCommon
-    api Deps.umengUtdid
     api Deps.immersionbar
-    api Deps.umengAnalytics
     api Deps.ycbannerlib
     api Deps.labelsView
     api Deps.dropDownMenu

@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.common.res.R
-import com.umeng.analytics.MobclickAgent
 import timber.log.Timber
 
 //添加生命周期的打印信息
@@ -34,12 +33,10 @@ class ResActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
 
     override fun onActivityResumed(activity: Activity) {
         Timber.i("%s - onActivityResumed", activity)
-        MobclickAgent.onResume(activity) // 友盟基础指标统计，不能遗漏
     }
 
     override fun onActivityPaused(activity: Activity) {
         Timber.i("%s - onActivityPaused", activity)
-        MobclickAgent.onPause(activity) // 友盟基础指标统计，不能遗漏
     }
 
     override fun onActivityStopped(activity: Activity) {

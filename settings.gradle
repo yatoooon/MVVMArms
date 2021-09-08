@@ -1,3 +1,4 @@
+include ':module-umeng'
 include ':module-web'
 include ':app'
 include ':common-res'
