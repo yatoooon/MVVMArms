@@ -5,6 +5,7 @@ import android.content.Context
 import com.common.core.base.delegate.BaseApplicationLifecycle
 import com.common.umeng.UmengClient
 import com.umeng.analytics.MobclickAgent
+import com.umeng.commonsdk.BuildConfig
 import com.umeng.commonsdk.UMConfigure
 
 
