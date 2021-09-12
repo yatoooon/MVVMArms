@@ -5,6 +5,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 
 /**
@@ -12,7 +13,7 @@ import androidx.fragment.app.Fragment;
  *
  *
  */
-public abstract class BaseVMLazyFragment<VM extends BaseViewModel> extends BaseVMFragment<VM> {
+public abstract class BaseVMLazyFragment<VDB extends ViewDataBinding,VM extends BaseViewModel> extends BaseVMFragment<VDB,VM> {
     /**
      * 是否可见
      */

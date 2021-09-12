@@ -20,10 +20,10 @@ import java.io.File
  */
 internal fun Project.configureAndroid(isAppModule: Boolean) {
     var extension =
-            if (isAppModule || isRunAlone)
-                extensions.getByType<BaseAppModuleExtension>()
-            else
-                extensions.getByType<LibraryExtension>()
+        if (isAppModule || isRunAlone)
+            extensions.getByType<BaseAppModuleExtension>()
+        else
+            extensions.getByType<LibraryExtension>()
 
     extension.run {
 
@@ -38,7 +38,13 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             flavorDimensions("default")
             ndk {
                 // 设置支持的SO库架构
-                abiFilters("armeabi", "x86", "armeabi-v7a", "x86_64", "arm64-v8a")  //"armeabi", "x86", "armeabi-v7a", "x86_64", "arm64-v8a"
+                abiFilters(
+                    "armeabi",
+                    "x86",
+                    "armeabi-v7a",
+                    "x86_64",
+                    "arm64-v8a"
+                )  //"armeabi", "x86", "armeabi-v7a", "x86_64", "arm64-v8a"
             }
             javaCompileOptions {
                 annotationProcessorOptions {
@@ -72,7 +78,8 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             getByName("main") {
                 if (isRunAlone) {
                     @Suppress("MISSING_DEPENDENCY_CLASS")
-                    var debugManifest = File("${project.projectDir}/src/main/debug/AndroidManifest.xml")
+                    var debugManifest =
+                        File("${project.projectDir}/src/main/debug/AndroidManifest.xml")
                     if (debugManifest.exists()) {
                         manifest.srcFile("src/main/debug/AndroidManifest.xml")
                     } else {

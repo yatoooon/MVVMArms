@@ -1,4 +1,5 @@
 package com.common.res.router
+
 //路由组件路径
 object RouterHub {
 
@@ -7,6 +8,9 @@ object RouterHub {
 
     //login组件
     const val LOGIN: String = "/login"
+
+    //login组件
+    const val TEMPLATE: String = "/template"
 
     //main组件
     const val MAIN: String = "/main"
@@ -19,6 +23,9 @@ object RouterHub {
 
     //login页
     const val PUBLIC_LOGIN: String = "$LOGIN/loginPage"
+
+    //login页
+    const val PUBLIC_TEMPLATE: String = "$TEMPLATE/template"
 
     //main页
     const val PUBLIC_MAIN: String = "$MAIN/mainPage"

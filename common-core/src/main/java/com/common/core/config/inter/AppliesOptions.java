@@ -48,7 +48,7 @@ public interface AppliesOptions {
 
 
      interface RoomConfiguration<T extends RoomDatabase> {
-        void configRoom(@NonNull Context context, RoomDatabase.Builder<T> builder);
+        void configRoom(@NonNull Context context, @NonNull RoomDatabase.Builder<T> builder);
     }
 
 }

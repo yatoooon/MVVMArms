@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.sample">
+    package="com.common.umeng">
 
     <!-- 共同权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -75,7 +75,7 @@
 
 
         <meta-data
-            android:name="com.common.lifecycle.UmengConfigModule"
+            android:name="com.common.umeng.lifecycle.UmengConfigModule"
             android:value="CoreConfigModule" />
     </application>
 

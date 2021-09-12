@@ -45,20 +45,17 @@ import timber.log.Timber;
 
 /**
  * MVVMFrame 框架基于Google官方的 JetPack 构建，在使用MVVMFrame时，需遵循一些规范：
- *
+ * <p>
  * 如果您继承使用了BaseDialogFragment或其子类，你需要参照如下方式添加@AndroidEntryPoint注解
  *
  * @example Fragment
  * //-------------------------
- *    @AndroidEntryPoint
- *    public class YourFragment extends BaseDialogFragment {
- *
- *    }
+ * @AndroidEntryPoint public class YourFragment extends BaseDialogFragment {
+ * <p>
+ * }
  * //-------------------------
- *
- *
  */
-public abstract class BaseVMDialogFragment<VM extends BaseViewModel,VDB extends ViewDataBinding> extends DialogFragment implements IView, ILoading {
+public abstract class BaseVMDialogFragment<VDB extends ViewDataBinding, VM extends BaseViewModel> extends DialogFragment implements IView, ILoading {
 
     /**
      * 请通过 {@link #getViewModel()}获取，后续版本 {@link #mViewModel}可能会私有化
@@ -87,8 +84,8 @@ public abstract class BaseVMDialogFragment<VM extends BaseViewModel,VDB extends 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         initDialog(getDialog());
-        mRootView = createRootView(inflater,container,savedInstanceState);
-        if(isBinding()){
+        mRootView = createRootView(inflater, container, savedInstanceState);
+        if (isBinding()) {
             mBinding = DataBindingUtil.bind(mRootView);
         }
         initViewModel();
@@ -108,16 +105,16 @@ public abstract class BaseVMDialogFragment<VM extends BaseViewModel,VDB extends 
         initWindow(getDialog().getWindow());
     }
 
-    protected void initDialog(Dialog dialog){
-        if(dialog != null){
+    protected void initDialog(Dialog dialog) {
+        if (dialog != null) {
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setCanceledOnTouchOutside(false);
         }
 
     }
 
-    protected void initWindow(Window window){
-        if(window != null){
+    protected void initWindow(Window window) {
+        if (window != null) {
             window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             window.getAttributes().windowAnimations = R.style.core_dialog_animation;
             setWindow(window, DEFAULT_WIDTH_RATIO);
@@ -126,20 +123,22 @@ public abstract class BaseVMDialogFragment<VM extends BaseViewModel,VDB extends 
 
     /**
      * 创建 {@link #mRootView}
+     *
      * @param inflater
      * @param container
      * @param savedInstanceState
      * @return
      */
-    protected View createRootView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        return inflater.inflate(getLayoutId(),container,false);
+    protected View createRootView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(getLayoutId(), container, false);
     }
 
     /**
      * 获取rootView
+     *
      * @return {@link #mRootView}
      */
-    protected View getRootView(){
+    protected View getRootView() {
         return mRootView;
     }
 
@@ -150,42 +149,42 @@ public abstract class BaseVMDialogFragment<VM extends BaseViewModel,VDB extends 
     /**
      * 初始化 {@link #mViewModel}
      */
-    private void initViewModel(){
+    private void initViewModel() {
         mViewModel = createViewModel();
-        if(mViewModel != null){
+        if (mViewModel != null) {
             getLifecycle().addObserver(mViewModel);
             registerLoadingEvent();
         }
     }
 
-    private Class<VM> getVMClass(){
+    private Class<VM> getVMClass() {
         Class<?> cls = getClass();
         Class<VM> vmClass = null;
-        while (vmClass == null && cls!= null){
+        while (vmClass == null && cls != null) {
             vmClass = getVMClass(cls);
             cls = cls.getSuperclass();
         }
-        if(vmClass == null){
+        if (vmClass == null) {
             vmClass = (Class<VM>) BaseViewModel.class;
         }
         return vmClass;
     }
 
-    private Class getVMClass(Class<?> cls){
+    private Class getVMClass(Class<?> cls) {
         Type type = cls.getGenericSuperclass();
-        if(type instanceof ParameterizedType){
-            Type[] types = ((ParameterizedType)type).getActualTypeArguments();
-            for(Type t : types){
-                if(t instanceof Class){
-                    Class vmClass = (Class)t;
-                    if(BaseViewModel.class.isAssignableFrom(vmClass)){
+        if (type instanceof ParameterizedType) {
+            Type[] types = ((ParameterizedType) type).getActualTypeArguments();
+            for (Type t : types) {
+                if (t instanceof Class) {
+                    Class vmClass = (Class) t;
+                    if (BaseViewModel.class.isAssignableFrom(vmClass)) {
                         return vmClass;
                     }
-                }else if(t instanceof ParameterizedType){
-                    Type rawType = ((ParameterizedType)t).getRawType();
-                    if(rawType instanceof Class){
-                        Class vmClass = (Class)rawType;
-                        if(BaseViewModel.class.isAssignableFrom(vmClass)){
+                } else if (t instanceof ParameterizedType) {
+                    Type rawType = ((ParameterizedType) t).getRawType();
+                    if (rawType instanceof Class) {
+                        Class vmClass = (Class) rawType;
+                        if (BaseViewModel.class.isAssignableFrom(vmClass)) {
                             return vmClass;
                         }
                     }
@@ -200,12 +199,12 @@ public abstract class BaseVMDialogFragment<VM extends BaseViewModel,VDB extends 
     public void onDestroy() {
         super.onDestroy();
 
-        if(mViewModel!=null){
+        if (mViewModel != null) {
             getLifecycle().removeObserver(mViewModel);
         }
         mViewModel = null;
 
-        if(mBinding!=null){
+        if (mBinding != null) {
             mBinding.unbind();
         }
     }
@@ -213,13 +212,13 @@ public abstract class BaseVMDialogFragment<VM extends BaseViewModel,VDB extends 
     /**
      * 注册状态监听
      */
-    protected void registerLoadingEvent(){
+    protected void registerLoadingEvent() {
         mViewModel.getLoadingEvent().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean isLoading) {
-                if(isLoading != null && isLoading){
+                if (isLoading != null && isLoading) {
                     showLoading();
-                }else{
+                } else {
                     hideLoading();
                 }
             }
@@ -239,187 +238,196 @@ public abstract class BaseVMDialogFragment<VM extends BaseViewModel,VDB extends 
     /**
      * 注册消息事件
      */
-    protected void registerMessageEvent(@NonNull MessageEvent.MessageObserver observer){
-        mViewModel.getMessageEvent().observe(getViewLifecycleOwner(),observer);
+    protected void registerMessageEvent(@NonNull MessageEvent.MessageObserver observer) {
+        mViewModel.getMessageEvent().observe(getViewLifecycleOwner(), observer);
     }
 
     /**
      * 注册单个消息事件，消息对象:{@link Message}
+     *
      * @param observer
      */
-    protected void registerSingleLiveEvent(@NonNull Observer<Message> observer){
-        mViewModel.getSingleLiveEvent().observe(getViewLifecycleOwner(),observer);
+    protected void registerSingleLiveEvent(@NonNull Observer<Message> observer) {
+        mViewModel.getSingleLiveEvent().observe(getViewLifecycleOwner(), observer);
     }
 
     /**
      * 注册状态事件
+     *
      * @param observer
      */
-    protected void registerStatusEvent(@NonNull StatusEvent.StatusObserver observer){
-        mViewModel.getStatusEvent().observe(getViewLifecycleOwner(),observer);
+    protected void registerStatusEvent(@NonNull StatusEvent.StatusObserver observer) {
+        mViewModel.getStatusEvent().observe(getViewLifecycleOwner(), observer);
     }
 
     /**
      * 是否使用DataBinding
-     * @return  默认为true 表示使用。如果为false，则不会初始化 {@link #mBinding}。
+     *
+     * @return 默认为true 表示使用。如果为false，则不会初始化 {@link #mBinding}。
      */
     @Override
-    public boolean isBinding(){
+    public boolean isBinding() {
         return true;
     }
 
     /**
      * 创建ViewModel
+     *
      * @return 默认为null，为null时，{@link #mViewModel}会默认根据当前Activity泛型 {@link VM}获得ViewModel
      */
-    public VM createViewModel(){
+    public VM createViewModel() {
         return obtainViewModel(getVMClass());
     }
 
     /**
      * 获取 ViewModel
+     *
      * @return {@link #mViewModel}
      */
-    public VM getViewModel(){
+    public VM getViewModel() {
         return mViewModel;
     }
 
     /**
      * 获取 ViewDataBinding
+     *
      * @return {@link #mBinding}
      */
-    public VDB getViewDataBinding(){
+    public VDB getViewDataBinding() {
         return mBinding;
     }
 
     /**
      * 同 {@link #getViewDataBinding()}
+     *
      * @return {@link #mBinding}
      */
-    public VDB getBinding(){
+    public VDB getBinding() {
         return mBinding;
     }
 
 
     /**
      * 通过 {@link #createViewModelProvider(ViewModelStoreOwner)}获得 ViewModel
+     *
      * @param modelClass
      * @param <T>
      * @return
      */
-    public <T extends ViewModel> T obtainViewModel(@NonNull Class<T> modelClass){
+    public <T extends ViewModel> T obtainViewModel(@NonNull Class<T> modelClass) {
         return createViewModelProvider(this).get(modelClass);
     }
 
     /**
      * 创建 {@link ViewModelProvider}
+     *
      * @param owner
      * @return
      */
-    private ViewModelProvider createViewModelProvider(@NonNull ViewModelStoreOwner owner){
+    private ViewModelProvider createViewModelProvider(@NonNull ViewModelStoreOwner owner) {
         return new ViewModelProvider(owner);
     }
 
     //---------------------------------------
-    protected void finish(){
-        if(getActivity() != null){
+    protected void finish() {
+        if (getActivity() != null) {
             getActivity().finish();
         }
     }
 
-    protected Intent newIntent(Class<?> cls){
-        return new Intent(getContext(),cls);
+    protected Intent newIntent(Class<?> cls) {
+        return new Intent(getContext(), cls);
     }
 
-    protected Intent newIntent(Class<?> cls,int flags){
+    protected Intent newIntent(Class<?> cls, int flags) {
         Intent intent = newIntent(cls);
         intent.addFlags(flags);
         return intent;
     }
 
-    protected void startActivity(Class<?> cls){
+    protected void startActivity(Class<?> cls) {
         startActivity(newIntent(cls));
     }
 
-    protected void startActivity(Class<?> cls,int flags){
-        startActivity(newIntent(cls,flags));
+    protected void startActivity(Class<?> cls, int flags) {
+        startActivity(newIntent(cls, flags));
     }
 
-    protected void startActivity(Class<?> cls,@Nullable ActivityOptionsCompat optionsCompat){
-        startActivity(newIntent(cls),optionsCompat);
+    protected void startActivity(Class<?> cls, @Nullable ActivityOptionsCompat optionsCompat) {
+        startActivity(newIntent(cls), optionsCompat);
     }
 
-    protected void startActivity(Class<?> cls,int flags,@Nullable ActivityOptionsCompat optionsCompat){
-        startActivity(newIntent(cls,flags),optionsCompat);
+    protected void startActivity(Class<?> cls, int flags, @Nullable ActivityOptionsCompat optionsCompat) {
+        startActivity(newIntent(cls, flags), optionsCompat);
     }
 
-    protected void startActivity(Intent intent,@Nullable ActivityOptionsCompat optionsCompat){
-        if(optionsCompat != null){
-            startActivity(intent,optionsCompat.toBundle());
-        }else{
+    protected void startActivity(Intent intent, @Nullable ActivityOptionsCompat optionsCompat) {
+        if (optionsCompat != null) {
+            startActivity(intent, optionsCompat.toBundle());
+        } else {
             startActivity(intent);
         }
     }
 
-    protected void startActivityFinish(Class<?> cls){
+    protected void startActivityFinish(Class<?> cls) {
         startActivity(cls);
         finish();
     }
 
-    protected void startActivityFinish(Class<?> cls,int flags){
-        startActivity(cls,flags);
+    protected void startActivityFinish(Class<?> cls, int flags) {
+        startActivity(cls, flags);
         finish();
     }
 
-    protected void startActivityFinish(Class<?> cls,@Nullable ActivityOptionsCompat optionsCompat){
-        startActivity(cls,optionsCompat);
+    protected void startActivityFinish(Class<?> cls, @Nullable ActivityOptionsCompat optionsCompat) {
+        startActivity(cls, optionsCompat);
         finish();
     }
 
-    protected void startActivityFinish(Class<?> cls,int flags,@Nullable ActivityOptionsCompat optionsCompat){
-        startActivity(newIntent(cls,flags),optionsCompat);
+    protected void startActivityFinish(Class<?> cls, int flags, @Nullable ActivityOptionsCompat optionsCompat) {
+        startActivity(newIntent(cls, flags), optionsCompat);
     }
 
-    protected void startActivityFinish(Intent intent,@Nullable ActivityOptionsCompat optionsCompat){
-        startActivity(intent,optionsCompat);
+    protected void startActivityFinish(Intent intent, @Nullable ActivityOptionsCompat optionsCompat) {
+        startActivity(intent, optionsCompat);
     }
 
-    protected void startActivityForResult(Class<?> cls,int requestCode){
-        startActivityForResult(newIntent(cls),requestCode);
+    protected void startActivityForResult(Class<?> cls, int requestCode) {
+        startActivityForResult(newIntent(cls), requestCode);
     }
 
-    protected void startActivityForResult(Class<?> cls,int requestCode,@Nullable ActivityOptionsCompat optionsCompat){
+    protected void startActivityForResult(Class<?> cls, int requestCode, @Nullable ActivityOptionsCompat optionsCompat) {
         Intent intent = newIntent(cls);
-        if(optionsCompat != null){
-            startActivityForResult(intent,requestCode,optionsCompat.toBundle());
-        }else{
-            startActivityForResult(intent,requestCode);
+        if (optionsCompat != null) {
+            startActivityForResult(intent, requestCode, optionsCompat.toBundle());
+        } else {
+            startActivityForResult(intent, requestCode);
         }
     }
 
     @Override
     public void startActivityForResult(Intent intent, int requestCode, @Nullable Bundle options) {
-        if(isIgnoreJump(intent)){
+        if (isIgnoreJump(intent)) {
             return;
         }
         super.startActivityForResult(intent, requestCode, options);
     }
 
-    protected boolean isIgnoreJump(Intent intent){
+    protected boolean isIgnoreJump(Intent intent) {
         String jumpTag;
-        if(intent.getComponent() != null){
+        if (intent.getComponent() != null) {
             jumpTag = intent.getComponent().getClassName();
-        }else if(intent.getAction() != null){
+        } else if (intent.getAction() != null) {
             jumpTag = intent.getAction();
-        }else{
+        } else {
             return false;
         }
 
-        if(TextUtils.isEmpty(jumpTag)){
+        if (TextUtils.isEmpty(jumpTag)) {
             return false;
         }
 
-        if(jumpTag.equals(mJumpTag) && mJumpTime > SystemClock.elapsedRealtime() - getIgnoreIntervalTime()){
+        if (jumpTag.equals(mJumpTag) && mJumpTime > SystemClock.elapsedRealtime() - getIgnoreIntervalTime()) {
             Timber.d("Ignore:" + jumpTag);
             return true;
         }
@@ -429,107 +437,107 @@ public abstract class BaseVMDialogFragment<VM extends BaseViewModel,VDB extends 
         return false;
     }
 
-    protected long getIgnoreIntervalTime(){
+    protected long getIgnoreIntervalTime() {
         return IGNORE_INTERVAL_TIME;
     }
     //---------------------------------------
 
-    protected View inflate(@LayoutRes int id){
-        return inflate(id,null);
+    protected View inflate(@LayoutRes int id) {
+        return inflate(id, null);
     }
 
-    protected View inflate(@LayoutRes int id,@Nullable ViewGroup root){
-        return LayoutInflater.from(getContext()).inflate(id,root);
+    protected View inflate(@LayoutRes int id, @Nullable ViewGroup root) {
+        return LayoutInflater.from(getContext()).inflate(id, root);
     }
 
-    protected View inflate(@LayoutRes int id,@Nullable ViewGroup root, boolean attachToRoot){
-        return LayoutInflater.from(getContext()).inflate(id,root,attachToRoot);
+    protected View inflate(@LayoutRes int id, @Nullable ViewGroup root, boolean attachToRoot) {
+        return LayoutInflater.from(getContext()).inflate(id, root, attachToRoot);
     }
 
     //---------------------------------------
 
-    protected void showDialogFragment(DialogFragment dialogFragment){
-        String tag = dialogFragment.getTag() !=null ? dialogFragment.getTag() : dialogFragment.getClass().getSimpleName();
-        showDialogFragment(dialogFragment,tag);
+    protected void showDialogFragment(DialogFragment dialogFragment) {
+        String tag = dialogFragment.getTag() != null ? dialogFragment.getTag() : dialogFragment.getClass().getSimpleName();
+        showDialogFragment(dialogFragment, tag);
     }
 
-    protected void showDialogFragment(DialogFragment dialogFragment,String tag) {
-        dialogFragment.show(getParentFragmentManager(),tag);
+    protected void showDialogFragment(DialogFragment dialogFragment, String tag) {
+        dialogFragment.show(getParentFragmentManager(), tag);
     }
 
     protected void showDialogFragment(DialogFragment dialogFragment, FragmentManager fragmentManager, String tag) {
-        dialogFragment.show(fragmentManager,tag);
+        dialogFragment.show(fragmentManager, tag);
     }
 
-    protected Dialog getProgressDialog(){
+    protected Dialog getProgressDialog() {
         return this.mProgressDialog;
     }
 
-    protected void dismissDialog(Dialog dialog){
-        if(dialog != null && dialog.isShowing()){
+    protected void dismissDialog(Dialog dialog) {
+        if (dialog != null && dialog.isShowing()) {
             dialog.dismiss();
         }
     }
 
-    protected void dismissPopupWindow(PopupWindow popupWindow){
-        if(popupWindow!=null && popupWindow.isShowing()){
+    protected void dismissPopupWindow(PopupWindow popupWindow) {
+        if (popupWindow != null && popupWindow.isShowing()) {
             popupWindow.dismiss();
         }
     }
 
-    protected void dismissProgressDialog(){
+    protected void dismissProgressDialog() {
         dismissDialog(mProgressDialog);
     }
 
-    protected void showProgressDialog(){
+    protected void showProgressDialog() {
         showProgressDialog(false);
     }
 
-    protected void showProgressDialog(boolean isCancel){
-        showProgressDialog(R.layout.core_progress_dialog,isCancel);
+    protected void showProgressDialog(boolean isCancel) {
+        showProgressDialog(R.layout.core_progress_dialog, isCancel);
     }
 
-    protected void showProgressDialog(@LayoutRes int resId){
-        showProgressDialog(resId,false);
+    protected void showProgressDialog(@LayoutRes int resId) {
+        showProgressDialog(resId, false);
     }
 
-    protected void showProgressDialog(@LayoutRes int resId,boolean isCancel){
-        showProgressDialog(inflate(resId),isCancel);
+    protected void showProgressDialog(@LayoutRes int resId, boolean isCancel) {
+        showProgressDialog(inflate(resId), isCancel);
     }
 
-    protected void showProgressDialog(View v){
-        showProgressDialog(v,false);
+    protected void showProgressDialog(View v) {
+        showProgressDialog(v, false);
     }
 
-    protected void showProgressDialog(View v,boolean isCancel){
+    protected void showProgressDialog(View v, boolean isCancel) {
         dismissProgressDialog();
-        mProgressDialog =  BaseProgressDialog.newInstance(getContext());
+        mProgressDialog = BaseProgressDialog.newInstance(getContext());
         mProgressDialog.setContentView(v);
         mProgressDialog.setCanceledOnTouchOutside(isCancel);
         mProgressDialog.show();
     }
 
-    protected void setDialogWindow(Dialog dialog, float widthRatio){
-        setWindow(dialog.getWindow(),widthRatio);
+    protected void setDialogWindow(Dialog dialog, float widthRatio) {
+        setWindow(dialog.getWindow(), widthRatio);
     }
 
-    protected void setWindow(Window window, float widthRatio){
+    protected void setWindow(Window window, float widthRatio) {
         WindowManager.LayoutParams lp = window.getAttributes();
-        lp.width = (int)(getWidthPixels() * widthRatio);
+        lp.width = (int) (getWidthPixels() * widthRatio);
         window.setAttributes(lp);
     }
 
     //---------------------------------------
 
-    protected DisplayMetrics getDisplayMetrics(){
+    protected DisplayMetrics getDisplayMetrics() {
         return getResources().getDisplayMetrics();
     }
 
-    protected int getWidthPixels(){
+    protected int getWidthPixels() {
         return getDisplayMetrics().widthPixels;
     }
 
-    protected int getHeightPixels(){
+    protected int getHeightPixels() {
         return getDisplayMetrics().heightPixels;
     }
 

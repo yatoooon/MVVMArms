@@ -5,4 +5,5 @@ dependencies {
     implementation project(':common-res')
     implementation project(':module-web')
     implementation project(':module-umeng')
+    implementation project(':module-template')
 }

@@ -4,6 +4,7 @@ import android.os.Message;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -30,7 +31,7 @@ import java.lang.reflect.Type;
  * }
  * //-------------------------
  */
-public abstract class BaseVMActivity<VM extends BaseViewModel> extends BaseActivity {
+public abstract class BaseVMActivity<VDB extends ViewDataBinding,VM extends BaseViewModel> extends BaseActivity<VDB> {
 
     /**
      * 请通过 {@link #getViewModel()}获取，后续版本 {@link #mViewModel}可能会私有化
