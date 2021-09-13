@@ -35,7 +35,6 @@ class AppSplashActivity : BaseActivity<AppActivitySplashBinding>(), BindFullScre
             }
 
             override fun onAnimationEnd(animation: Animation) {
-                binding.ivLogo.load(getDrawable(R.drawable.res_white_round_bg))
                 routerNavigation(RouterHub.PUBLIC_TEMPLATE)
             }
 

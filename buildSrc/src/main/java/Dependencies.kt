@@ -41,6 +41,7 @@ object Deps {
     const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:2.2.0"
+    const val paging3 = "androidx.paging:paging-runtime:3.1.0-alpha03"
 
 
     const val lifecycleViewmodelSavedstate = "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1"

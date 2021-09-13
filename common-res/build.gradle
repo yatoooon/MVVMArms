@@ -88,6 +88,7 @@ dependencies {
     api Deps.smartRefreshLayoutKernel
     api Deps.smartRefreshHeaderClassics
     api Deps.baseRecyclerViewAdapterHelper
+    api Deps.paging3
 
     kapt Deps.arouterCompiler
     kapt Deps.lifecycleCompiler

@@ -1,10 +1,24 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="res_AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="res_AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/res_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/res_colorPrimaryDark</item>
-        <item name="colorAccent">@color/res_colorAccent</item>
+        <item name="colorPrimary">#0277BD</item>
+        <item name="colorPrimaryDark">#004C8C</item>
+        <item name="colorAccent">#0277BD</item>
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorPrimaryVariant">#004C8C</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#9E9E9E</item>
+        <item name="colorSecondaryVariant">#707070</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="colorError">#F44336</item>
+        <item name="colorOnError">#FFFFFF</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#212121</item>
+        <item name="android:colorBackground">#FAFAFA</item>
+        <item name="colorOnBackground">#212121</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
     </style>
 
     <style name="res_OnClick">

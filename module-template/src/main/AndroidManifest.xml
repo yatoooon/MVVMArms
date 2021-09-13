@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.common.template">
 
-    <application
-        android:name=".app.TemplateApp">
+    <application android:name=".app.TemplateApp">
         <meta-data
             android:name="com.common.template.lifecycle.TemplateConfiguration"
             android:value="CoreConfigModule" />
 
-        <activity android:name=".mvvm.ui.TemplateActivity" />
+        <activity android:name=".ui.activity.TemplateActivity" />
     </application>
 
 
