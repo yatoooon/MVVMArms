@@ -1,4 +1,4 @@
-package com.common.simple.app
+package com.common.sample.app
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

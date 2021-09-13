@@ -1,4 +1,4 @@
-package com.common.simple.lifecycle
+package com.common.sample.lifecycle
 
 import android.app.Application.ActivityLifecycleCallbacks
 import android.content.Context

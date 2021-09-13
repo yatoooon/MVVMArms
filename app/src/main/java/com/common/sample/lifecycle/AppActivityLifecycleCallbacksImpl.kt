@@ -1,11 +1,11 @@
-package com.common.simple.lifecycle
+package com.common.sample.lifecycle
 
 import android.app.Activity
 import android.app.Application.ActivityLifecycleCallbacks
 import android.os.Bundle
 import com.common.res.immersionbar.BindFullScreen
 import com.common.res.immersionbar.BindImmersionBar
-import com.common.simple.R
+import com.common.sample.R
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
 

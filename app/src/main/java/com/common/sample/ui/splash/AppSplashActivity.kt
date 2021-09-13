@@ -1,18 +1,16 @@
-package com.common.simple.mvvm.ui.activity
+package com.common.sample.ui.splash
 
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.appcompat.content.res.AppCompatResources
 import com.common.core.base.BaseActivity
 import com.common.res.ext.load
 import com.common.res.immersionbar.BindFullScreen
 import com.common.res.router.RouterHub
 import com.common.res.router.routerNavigation
-import com.common.simple.R
-import com.common.simple.databinding.AppActivitySplashBinding
-import com.common.template.mvvm.ui.TemplateActivity
+import com.common.sample.R
+import com.common.sample.databinding.AppActivitySplashBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -37,12 +35,7 @@ class AppSplashActivity : BaseActivity<AppActivitySplashBinding>(), BindFullScre
             }
 
             override fun onAnimationEnd(animation: Animation) {
-                binding.ivLogo.load(
-                    AppCompatResources.getDrawable(
-                        context,
-                        R.drawable.res_white_round_bg
-                    )
-                )
+                binding.ivLogo.load(getDrawable(R.drawable.res_white_round_bg))
                 routerNavigation(RouterHub.PUBLIC_TEMPLATE)
             }
 

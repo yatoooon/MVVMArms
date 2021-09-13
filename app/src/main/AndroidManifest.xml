@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.simple">
+    package="com.common.sample">
     <!-- 共同权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/res_AppTheme"
         tools:replace="android:name">
-        <activity android:name="com.common.simple.mvvm.ui.activity.AppSplashActivity">
+        <activity android:name="com.common.sample.ui.splash.AppSplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -29,7 +29,7 @@
         </activity>
 
         <meta-data
-            android:name="com.common.simple.lifecycle.AppConfiguration"
+            android:name="com.common.sample.lifecycle.AppConfiguration"
             android:value="CoreConfigModule" />
     </application>
 

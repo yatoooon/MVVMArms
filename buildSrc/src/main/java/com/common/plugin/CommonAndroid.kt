@@ -65,12 +65,10 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
         if (isAppModule || isRunAlone) {
             extensions.getByType<BaseAppModuleExtension>().buildFeatures {
                 this.dataBinding = true
-                this.viewBinding = true
             }
         } else {
             extensions.getByType<LibraryExtension>().buildFeatures {
                 this.dataBinding = true
-                this.viewBinding = true
             }
         }
 
