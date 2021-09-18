@@ -137,8 +137,6 @@ object Deps {
     const val viewbindingKtx = "com.dylanc:viewbinding-ktx:1.1.1"
     const val viewbindingBaseKtx = "com.dylanc:viewbinding-base-ktx:1.1.1"
     const val viewbindingBrvahKtx = "com.dylanc:viewbinding-brvah-ktx:1.1.1"
-    const val jenlyAdapter = "com.king.base:adapter:3.2.1-androidx"
-    const val jenlyUtil = "com.king.base:util:3.2.1-androidx"
     const val logger = "com.orhanobut:logger:2.2.0"
     //test
     const val junit = "junit:junit:4.+"

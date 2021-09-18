@@ -4,7 +4,7 @@
     android:id="@+id/res_toolbar"
     android:layout_width="match_parent"
     android:layout_height="@dimen/res_toolbar_height"
-    android:background="@color/res_color_ffffff"
+    android:background="@color/res_colorPrimary"
     app:cardCornerRadius="0dp"
     app:cardElevation="2dp"
     app:contentInsetStart="0dp">

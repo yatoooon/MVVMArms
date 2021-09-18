@@ -57,8 +57,6 @@ dependencies {
     compileOnly Deps.lifecycleViewmodelKtx
 
     api Deps.appcompat
-    api Deps.jenlyAdapter
-    api Deps.jenlyUtil
     api Deps.logger
     api Deps.glide
     api Deps.recyclerview

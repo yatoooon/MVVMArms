@@ -1,17 +1,17 @@
 package com.common.res.adapter
 
-import android.content.Context
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.common.res.BR
-import com.king.base.adapter.BaseRecyclerAdapter
 
 /**
  *
  */
-open class BaseAdapter<T>(context: Context,layoutId: Int,private val variableId: Int = BR.data) : BaseRecyclerAdapter<T, BindViewHolder<*>>(context,layoutId) {
-
-    override fun bindViewDatas(holder: BindViewHolder<*>, item: T, position: Int) {
+open class BaseAdapter<T>(layoutId: Int, private val variableId: Int = BR.data) :
+    BaseQuickAdapter<T, BaseDataBindingHolder<*>>(layoutId) {
+    override fun convert(holder: BaseDataBindingHolder<*>, item: T) {
         holder.dataBinding?.let {
-            it.setVariable(variableId,item)
+            it.setVariable(variableId, item)
             it.executePendingBindings()
         }
     }
