@@ -44,7 +44,8 @@ object Deps {
     const val paging3 = "androidx.paging:paging-runtime:3.1.0-alpha03"
 
 
-    const val lifecycleViewmodelSavedstate = "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1"
+    const val lifecycleViewmodelSavedstate =
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1"
     const val coreKtx = "androidx.core:core-ktx:1.6.0"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:1.3.6"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.0"
@@ -64,7 +65,8 @@ object Deps {
 
     //view
     const val autosize = "me.jessyan:autosize:1.2.1"
-    const val baseRecyclerViewAdapterHelper = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6"
+    const val baseRecyclerViewAdapterHelper =
+        "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6"
     const val titlebar = "com.wuhenzhizao:titlebar:1.2.0"
     const val smartShowAll = "com.github.the-pig-of-jungle.smart-show:all:3.0.3"
     const val smartRefreshLayoutKernel = "com.scwang.smart:refresh-layout-kernel:2.0.3"
@@ -98,7 +100,8 @@ object Deps {
     const val rxlifecycle2 = "com.trello.rxlifecycle2:rxlifecycle:2.2.2"
     const val rxlifecycle2Android = "com.trello.rxlifecycle2:rxlifecycle-android:2.2.2"
     const val rxlifecycle2Components = "com.trello.rxlifecycle2:rxlifecycle-components:2.2.2"
-    const val rxlifecycle2AndroidLifecycle = "com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.2.2"
+    const val rxlifecycle2AndroidLifecycle =
+        "com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.2.2"
     const val rxcache2 = "com.github.VictorAlbertos.RxCache:runtime:1.8.3-2.x"
     const val rxpermissions2 = "com.github.tbruyelle:rxpermissions:2.x.v0.9.3"
     const val rxerrorhandler2 = "me.jessyan:rxerrorhandler:2.1.1"
@@ -121,9 +124,6 @@ object Deps {
     const val liveEventBusX = "com.jeremyliao:live-event-bus-x:1.7.3"
     const val jolyglotGson = "com.github.VictorAlbertos.Jolyglot:gson:0.0.6"
     const val timber = "com.jakewharton.timber:timber:5.0.0"
-    const val umengCommon = "com.umeng.umsdk:common:2.1.0"
-    const val umengUtdid = "com.umeng.umsdk:utdid:1.5.2.1"
-    const val umengAnalytics = "com.umeng.umsdk:analytics:8.1.3"
     const val zlwAudioRecorder = "com.github.zhaolewei:ZlwAudioRecorder:1.07"
     const val nineoldandroids = "com.nineoldandroids:library:2.4.0"
     const val butterknife = "com.jakewharton:butterknife:10.2.3"
@@ -138,6 +138,7 @@ object Deps {
     const val viewbindingBaseKtx = "com.dylanc:viewbinding-base-ktx:1.1.1"
     const val viewbindingBrvahKtx = "com.dylanc:viewbinding-brvah-ktx:1.1.1"
     const val logger = "com.orhanobut:logger:2.2.0"
+
     //test
     const val junit = "junit:junit:4.+"
     const val extJunit = "androidx.test.ext:junit:1.1.3"
@@ -146,5 +147,26 @@ object Deps {
     const val spidermanDebug = "com.simple:spiderman:1.1.7"
     const val spidermanRelease = "com.simple:spiderman-no-op:1.1.5"
     const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.5"
+
+    const val umengCommon = "com.umeng.umsdk:common:9.4.2"
+    const val umengAsms = "com.umeng.umsdk:asms:1.2.3"
+    const val umengShareCore = "com.umeng.umsdk:share-core:7.1.5"
+    const val umengShareWX = "com.umeng.umsdk:share-wx:7.1.5"
+    const val umengShareQQ = "com.umeng.umsdk:share-qq:7.1.5"
+    const val qqopensdk = "com.tencent.tauth:qqopensdk:3.53.0"
+    const val wechatsdk = "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.9"
+
+}
+
+object Umeng {
+    const val UMENG_APP_KEY = "5cb16d93570df399fd0014e2"
+
+    const val QQ_APP_ID = "101828096"
+
+    const val QQ_APP_SECRET = "9dfd3300c3aa3c4596a07796c64914b2"
+
+    const val WX_APP_ID = "wxd35706cc9f46114c"
+
+    const val WX_APP_SECRET = "0c8c7cf831dd135a32b3e395ea459b5a"
 }
 

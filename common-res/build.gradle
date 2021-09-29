@@ -88,6 +88,15 @@ dependencies {
     api Deps.baseRecyclerViewAdapterHelper
     api Deps.paging3
 
+    api Deps.umengCommon
+    api Deps.umengAsms
+    api Deps.umengShareCore
+    api Deps.umengShareWX
+    api Deps.umengShareQQ
+    api Deps.qqopensdk
+    api Deps.wechatsdk
+   
+
     kapt Deps.arouterCompiler
     kapt Deps.lifecycleCompiler
     kapt Deps.roomCompiler

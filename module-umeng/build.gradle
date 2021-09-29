@@ -1,40 +1,9 @@
 plugins {
     id "com.common.plugin.lib"
 }
-android {
 
-    defaultConfig {
-        // 模块混淆配置
-        consumerProguardFiles 'proguard-umeng.pro'
-
-        // 清单占位符
-        manifestPlaceholders = [
-                // 友盟 AppKey
-                'UMENG_APPKEY' : '5cb16d93570df399fd0014e2',
-                // QQ AppId
-                'QQ_APPID' : '101828096',
-                // QQ AppKey
-                'QQ_APPKEY' : '9dfd3300c3aa3c4596a07796c64914b2',
-                // 微信 AppId
-                'WX_APPID' : 'wxd35706cc9f46114c',
-                // 微信 AppKey
-                'WX_APPKEY' : '0c8c7cf831dd135a32b3e395ea459b5a'
-        ]
-    }
-}
+// 友盟统计集成文档：https://developer.umeng.com/docs/119267/detail/118584
+// 友盟社会化集成文档：https://developer.umeng.com/docs/128606/detail/193879
 dependencies {
     implementation project(':common-res')
-    // 依赖 libs 目录下所有 jar 包
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    // 依赖 libs 目录下所有 aar 包
-    implementation fileTree(include: ['*.aar'], dir: 'libs')
-
-    implementation  'com.umeng.umsdk:common:9.4.2'// 必选
-    implementation  'com.umeng.umsdk:asms:1.2.2'// 必选
-
-    implementation  'com.umeng.umsdk:share-core:7.1.4'//分享核心库，必选
-    implementation  'com.umeng.umsdk:share-qq:7.1.4'
-    implementation  'com.tencent.tauth:qqopensdk:3.51.2'//QQ官方SDK依赖库
-    implementation  'com.umeng.umsdk:share-wx:7.1.4'
-    implementation  'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.6.5'//微信官方SDK依赖库
 }

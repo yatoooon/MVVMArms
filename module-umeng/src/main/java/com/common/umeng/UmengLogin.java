@@ -1,9 +1,10 @@
 package com.common.umeng;
 
+import androidx.annotation.Nullable;
+
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
-import java.lang.ref.SoftReference;
 import java.util.Map;
 
 /**
@@ -65,14 +66,16 @@ public final class UmengLogin {
     }
 
     /**
-     * 为什么要用软引用，因为友盟会将监听回调（UMAuthListener）持有成静态的
+     * 为什么要包起来？因为友盟会将监听回调（UMAuthListener）持有成静态的，回调完没有及时释放
      */
-    public static final class LoginListenerWrapper extends SoftReference<OnLoginListener> implements UMAuthListener {
+    public static final class LoginListenerWrapper implements UMAuthListener {
 
+        @Nullable
+        private OnLoginListener mListener;
         private final Platform mPlatform;
 
-        LoginListenerWrapper(SHARE_MEDIA platform, OnLoginListener listener) {
-            super(listener);
+        LoginListenerWrapper(SHARE_MEDIA platform, @Nullable OnLoginListener listener) {
+            mListener = listener;
             switch (platform) {
                 case QQ:
                     mPlatform = Platform.QQ;
@@ -91,7 +94,12 @@ public final class UmengLogin {
          * @param platform      平台名称
          */
         @Override
-        public void onStart(SHARE_MEDIA platform) {}
+        public void onStart(SHARE_MEDIA platform) {
+            if (mListener == null) {
+                return;
+            }
+            mListener.onStart(mPlatform);
+        }
 
         /**
          * 授权成功的回调
@@ -102,9 +110,11 @@ public final class UmengLogin {
          */
         @Override
         public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
-            if (get() != null) {
-                get().onSucceed(mPlatform, new LoginData(data));
+            if (mListener == null) {
+                return;
             }
+            mListener.onSucceed(mPlatform, new LoginData(data));
+            mListener = null;
         }
 
         /**
@@ -116,9 +126,12 @@ public final class UmengLogin {
          */
         @Override
         public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-            if (get() != null) {
-                get().onError(mPlatform, t);
+            t.printStackTrace();
+            if (mListener == null) {
+                return;
             }
+            mListener.onError(mPlatform, t);
+            mListener = null;
         }
 
         /**
@@ -129,18 +142,27 @@ public final class UmengLogin {
          */
         @Override
         public void onCancel(SHARE_MEDIA platform, int action) {
-            if (get() != null) {
-                get().onCancel(mPlatform);
+            if (mListener == null) {
+                return;
             }
+            mListener.onCancel(mPlatform);
+            mListener = null;
         }
     }
 
     public interface OnLoginListener {
 
         /**
+         * 授权开始
+         *
+         * @param platform      平台对象
+         */
+        default void onStart(Platform platform) {}
+
+        /**
          * 授权成功的回调
          *
-         * @param platform      平台名称
+         * @param platform      平台对象
          * @param data          用户资料返回
          */
         void onSucceed(Platform platform, LoginData data);
@@ -148,7 +170,7 @@ public final class UmengLogin {
         /**
          * 授权失败的回调
          *
-         * @param platform      平台名称
+         * @param platform      平台对象
          * @param t             错误原因
          */
         default void onError(Platform platform, Throwable t) {}
@@ -156,7 +178,7 @@ public final class UmengLogin {
         /**
          * 授权取消的回调
          *
-         * @param platform      平台名称
+         * @param platform      平台对象
          */
         default void onCancel(Platform platform) {}
     }

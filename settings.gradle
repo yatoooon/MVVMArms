@@ -1,6 +1,6 @@
-include ':module-umeng'
 include ':module-web'
 include ':app'
 include ':common-res'
 include ':common-core'
 include ':module-template'
+include ':module-umeng'

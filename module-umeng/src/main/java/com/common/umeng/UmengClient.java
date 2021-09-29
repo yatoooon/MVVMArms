@@ -5,7 +5,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,23 +23,38 @@ import com.umeng.socialize.UMShareAPI;
  */
 public final class UmengClient {
 
+    private static String sDeviceOaid;
+
     /**
      * 初始化友盟相关 SDK
      */
-    public static void init(Application application) {
+    public static void init(Application application, boolean logEnable) {
+        preInit(application, logEnable);
+        // 友盟统计：https://developer.umeng.com/docs/66632/detail/101814#h1-u521Du59CBu5316u53CAu901Au7528u63A5u53E32
+        UMConfigure.init(application, BuildConfig.UM_KEY,"umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
+        // 获取设备的 oaid
+        UMConfigure.getOaid(application, oaid -> sDeviceOaid = oaid);
+    }
 
-        try {
-            Bundle metaData = application.getPackageManager().getApplicationInfo(application.getPackageName(), PackageManager.GET_META_DATA).metaData;
-            // 友盟统计，API 说明：https://developer.umeng.com/docs/66632/detail/101814#h1-u521Du59CBu5316u53CAu901Au7528u63A5u53E32
-            UMConfigure.init(application, String.valueOf(metaData.get("UMENG_APPKEY")),"umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
-            // 选用自动采集模式：https://developer.umeng.com/docs/119267/detail/118588#h1-u9875u9762u91C7u96C63
-            MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
-            // 初始化各个平台的 Key
-            PlatformConfig.setWeixin(String.valueOf(metaData.get("WX_APPID")), String.valueOf(metaData.get("WX_APPKEY")));
-            PlatformConfig.setQQZone(String.valueOf(metaData.get("QQ_APPID")), String.valueOf(metaData.get("QQ_APPKEY")));
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
+    /**
+     * 预初始化 SDK（在用户没有同意隐私协议前调用）
+     */
+    public static void preInit(Application application, boolean logEnable) {
+        UMConfigure.preInit(application, BuildConfig.UM_KEY,"umeng");
+        // 选用自动采集模式：https://developer.umeng.com/docs/119267/detail/118588#h1-u9875u9762u91C7u96C63
+        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
+
+        // 初始化各个平台的 ID 和 Key
+        PlatformConfig.setWeixin(BuildConfig.WX_ID, BuildConfig.WX_SECRET);
+        PlatformConfig.setQQZone(BuildConfig.QQ_ID, BuildConfig.QQ_SECRET);
+
+        // 初始化各个平台的文件提供者（必须要初始化，否则会导致无法分享文件）
+        String fileProvider = application.getPackageName() + ".provider";
+        PlatformConfig.setWXFileProvider(fileProvider);
+        PlatformConfig.setQQFileProvider(fileProvider);
+
+        // 是否开启日志打印
+        UMConfigure.setLogEnabled(logEnable);
     }
 
     /**
@@ -48,22 +62,21 @@ public final class UmengClient {
      *
      * @param activity              Activity对象
      * @param platform              分享平台
-     * @param data                  分享内容
+     * @param action                分享意图
      * @param listener              分享监听
      */
-    public static void share(Activity activity, Platform platform, UmengShare.ShareData data, UmengShare.OnShareListener listener) {
-        if (isAppInstalled(activity, platform.getPackageName())) {
-            new ShareAction(activity)
-                    .setPlatform(platform.getThirdParty())
-                    .withMedia(data.create())
-                    .setCallback(listener != null ? new UmengShare.ShareListenerWrapper(platform.getThirdParty(), listener) : null)
-                    .share();
+    public static void share(Activity activity, Platform platform, ShareAction action, @Nullable UmengShare.OnShareListener listener) {
+        if (!isAppInstalled(activity, platform.getPackageName())) {
+            // 当分享的平台软件可能没有被安装的时候
+            if (listener == null) {
+                return;
+            }
+            listener.onError(platform, new PackageManager.NameNotFoundException("Is not installed"));
             return;
         }
-        // 当分享的平台软件可能没有被安装的时候
-        if (listener != null) {
-            listener.onError(platform, new PackageManager.NameNotFoundException("Is not installed"));
-        }
+        action.setPlatform(platform.getThirdParty())
+                .setCallback(new UmengShare.ShareListenerWrapper(platform.getThirdParty(), listener))
+                .share();
     }
 
     /**
@@ -73,23 +86,25 @@ public final class UmengClient {
      * @param platform              登录平台
      * @param listener              登录监听
      */
-    public static void login(Activity activity, Platform platform, UmengLogin.OnLoginListener listener) {
-        if (isAppInstalled(activity, platform)) {
-            try {
-                // 删除旧的第三方登录授权
-                UMShareAPI.get(activity).deleteOauth(activity, platform.getThirdParty(), null);
-                // 要先等上面的代码执行完毕之后
-                Thread.sleep(200);
-                // 开启新的第三方登录授权
-                UMShareAPI.get(activity).getPlatformInfo(activity, platform.getThirdParty(), listener != null ? new UmengLogin.LoginListenerWrapper(platform.getThirdParty(), listener) : null);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    public static void login(Activity activity, Platform platform, @Nullable UmengLogin.OnLoginListener listener) {
+        if (!isAppInstalled(activity, platform)) {
+            // 当登录的平台软件可能没有被安装的时候
+            if (listener == null) {
+                return;
             }
+            listener.onError(platform, new PackageManager.NameNotFoundException("Is not installed"));
             return;
         }
-        // 当登录的平台软件可能没有被安装的时候
-        if (listener != null) {
-            listener.onError(platform, new PackageManager.NameNotFoundException("Is not installed"));
+
+        try {
+            // 删除旧的第三方登录授权
+            UMShareAPI.get(activity).deleteOauth(activity, platform.getThirdParty(), null);
+            // 要先等上面的代码执行完毕之后
+            Thread.sleep(200);
+            // 开启新的第三方登录授权
+            UMShareAPI.get(activity).getPlatformInfo(activity, platform.getThirdParty(), new UmengLogin.LoginListenerWrapper(platform.getThirdParty(), listener));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
@@ -101,13 +116,20 @@ public final class UmengClient {
     }
 
     /**
+     * 获取设备 oaid
+     */
+    public static String getDeviceOaid() {
+        return sDeviceOaid;
+    }
+
+    /**
      * 判断 App 是否安装
      */
     public static boolean isAppInstalled(Context context, Platform platform) {
         return isAppInstalled(context, platform.getPackageName());
     }
 
-    private static boolean isAppInstalled(Context context, @NonNull final String packageName) {
+    private static boolean isAppInstalled(Context context, @NonNull String packageName) {
         try {
             context.getPackageManager().getApplicationInfo(packageName, 0);
             return true;

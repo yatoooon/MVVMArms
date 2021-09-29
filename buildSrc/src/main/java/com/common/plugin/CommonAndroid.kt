@@ -5,6 +5,7 @@ import Versions
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.android.build.gradle.internal.dsl.SigningConfig
+import com.android.builder.internal.ClassFieldImpl
 import isRunAlone
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -12,6 +13,7 @@ import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.File
+import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
 /**
  * desc :android{} 配置
@@ -19,7 +21,7 @@ import java.io.File
  * date：2021/04/22
  */
 internal fun Project.configureAndroid(isAppModule: Boolean) {
-    var extension =
+    val extension =
         if (isAppModule || isRunAlone)
             extensions.getByType<BaseAppModuleExtension>()
         else
@@ -28,7 +30,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
     extension.run {
 
         buildToolsVersion(Versions.buildTool)
-        compileSdkVersion(Versions.compileSdk)
+
 
         defaultConfig {
             minSdkVersion(Versions.minSdk)
@@ -51,6 +53,26 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                     argument("AROUTER_MODULE_NAME", project.name)
                 }
             }
+
+
+            // 构建配置字段
+            addBuildConfigField(ClassFieldImpl("String", "UM_KEY", '\"' + Umeng.UMENG_APP_KEY + '\"'))
+            addBuildConfigField(ClassFieldImpl("String", "QQ_ID",'\"' +  Umeng.QQ_APP_ID+ '\"'))
+            addBuildConfigField(ClassFieldImpl("String", "QQ_SECRET", '\"' + Umeng.QQ_APP_SECRET+ '\"'))
+            addBuildConfigField(ClassFieldImpl("String", "WX_ID", '\"' + Umeng.WX_APP_ID+ '\"'))
+            addBuildConfigField(ClassFieldImpl("String", "WX_SECRET", '\"' + Umeng.WX_APP_SECRET+ '\"'))
+
+
+            addManifestPlaceholders(
+                mapOf<String,String>(
+                    "UM_KEY" to Umeng.UMENG_APP_KEY,
+                    "QQ_ID" to Umeng.QQ_APP_ID,
+                    "QQ_SECRET" to Umeng.QQ_APP_SECRET,
+                    "WX_ID" to Umeng.WX_APP_ID,
+                    "WX_SECRET" to Umeng.WX_APP_SECRET
+                )
+            )
+
         }
 
         compileOptions {

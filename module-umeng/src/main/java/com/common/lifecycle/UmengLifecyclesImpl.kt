@@ -1,4 +1,4 @@
-package com.common.umeng.lifecycle
+package com.common.lifecycle
 
 import android.app.Application
 import android.content.Context
@@ -17,8 +17,7 @@ class UmengLifecyclesImpl : BaseApplicationLifecycle {
 
     override fun onCreate(application: Application) {
         //初始化友盟SDK
-        UMConfigure.setLogEnabled(true)
-        UmengClient.init(application)
+        UmengClient.init(application,true)
         MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO)
 
     }

@@ -1,4 +1,4 @@
-package com.common.umeng.lifecycle
+package com.common.lifecycle
 
 import android.app.Application
 import android.content.Context
