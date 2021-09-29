@@ -1,9 +1,7 @@
 package com.common.res.view
 
 import android.content.Context
-import android.text.InputFilter
-import android.text.Spanned
-import android.text.TextUtils
+import android.text.*
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
 import com.common.res.R
@@ -15,7 +13,11 @@ import java.util.regex.Pattern
  * time   : 2019/06/29
  * desc   : 正则输入限制编辑框
  */
-open class RegexEditText @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.editTextStyle) : AppCompatEditText(context, attrs, defStyleAttr), InputFilter {
+open class RegexEditText @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.R.attr.editTextStyle
+) : AppCompatEditText(context, attrs, defStyleAttr), InputFilter {
     /** 正则表达式规则  */
     private var mPattern: Pattern? = null
 
@@ -79,6 +81,13 @@ open class RegexEditText @JvmOverloads constructor(context: Context, attrs: Attr
     }
 
     /**
+     * 清空筛选规则
+     */
+    fun clearFilters() {
+        super.setFilters(arrayOfNulls(0))
+    }
+
+    /**
      * [InputFilter]
      *
      * @param source        新输入的字符串
@@ -89,14 +98,24 @@ open class RegexEditText @JvmOverloads constructor(context: Context, attrs: Attr
      * @param destEnd       在原内容上的终点坐标
      * @return              返回字符串将会加入到内容中
      */
-    override fun filter(source: CharSequence, start: Int, end: Int, dest: Spanned, destStart: Int, destEnd: Int): CharSequence {
+    override fun filter(
+        source: CharSequence,
+        start: Int,
+        end: Int,
+        dest: Spanned,
+        destStart: Int,
+        destEnd: Int
+    ): CharSequence {
         if (mPattern == null) {
             return source
         }
 
         // 拼接出最终的字符串
         val begin = dest.toString().substring(0, destStart)
-        val over = dest.toString().substring(destStart + (destEnd - destStart), destStart + (dest.toString().length - begin.length))
+        val over = dest.toString().substring(
+            destStart + (destEnd - destStart),
+            destStart + (dest.toString().length - begin.length)
+        )
         val result = begin + source + over
 
         // 判断是插入还是删除
@@ -130,6 +149,9 @@ open class RegexEditText @JvmOverloads constructor(context: Context, attrs: Attr
         /** 英文（大写和小写的英文）  */
         const val REGEX_ENGLISH = "[a-zA-Z]*"
 
+        /** 数字（只允许输入纯数字） */
+        const val REGEX_NUMBER = "\\d*"
+
         /** 计数（非 0 开头的数字）  */
         const val REGEX_COUNT = "[1-9]\\d*"
 
@@ -150,9 +172,10 @@ open class RegexEditText @JvmOverloads constructor(context: Context, attrs: Attr
                 0x01 -> inputRegex = REGEX_MOBILE
                 0x02 -> inputRegex = REGEX_CHINESE
                 0x03 -> inputRegex = REGEX_ENGLISH
-                0x04 -> inputRegex = REGEX_COUNT
-                0x05 -> inputRegex = REGEX_NAME
-                0x06 -> inputRegex = REGEX_NONNULL
+                0x04 -> inputRegex = REGEX_NUMBER
+                0x05 -> inputRegex = REGEX_COUNT
+                0x06 -> inputRegex = REGEX_NAME
+                0x07 -> inputRegex = REGEX_NONNULL
                 else -> {
                 }
             }

@@ -19,7 +19,13 @@ import com.common.res.R
  * time   : 2018/10/18
  * desc   : 带清除按钮的 EditText
  */
-class ClearEditText @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.editTextStyle) : RegexEditText(context, attrs, defStyleAttr), OnTouchListener, OnFocusChangeListener, TextWatcher {
+class ClearEditText @JvmOverloads constructor(
+    context: Context?,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.R.attr.editTextStyle
+) : RegexEditText(
+    context!!, attrs, defStyleAttr
+), OnTouchListener, OnFocusChangeListener, TextWatcher {
     private val mClearDrawable: Drawable
     private var mTouchListener: OnTouchListener? = null
     private var mFocusChangeListener: OnFocusChangeListener? = null
@@ -30,17 +36,18 @@ class ClearEditText @JvmOverloads constructor(context: Context, attrs: Attribute
         mClearDrawable.setVisible(visible, false)
         val drawables = compoundDrawablesRelative
         setCompoundDrawablesRelative(
-                drawables[0],
-                drawables[1],
-                if (visible) mClearDrawable else null,
-                drawables[3])
+            drawables[0],
+            drawables[1],
+            if (visible) mClearDrawable else null,
+            drawables[3]
+        )
     }
 
-    override fun setOnFocusChangeListener(onFocusChangeListener: OnFocusChangeListener) {
+    override fun setOnFocusChangeListener(onFocusChangeListener: OnFocusChangeListener?) {
         mFocusChangeListener = onFocusChangeListener
     }
 
-    override fun setOnTouchListener(onTouchListener: OnTouchListener) {
+    override fun setOnTouchListener(onTouchListener: OnTouchListener?) {
         mTouchListener = onTouchListener
     }
 
@@ -99,8 +106,14 @@ class ClearEditText @JvmOverloads constructor(context: Context, attrs: Attribute
     override fun afterTextChanged(s: Editable) {}
 
     init {
-        mClearDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable.res_input_delete_ic)!!)
-        mClearDrawable.setBounds(0, 0, mClearDrawable.intrinsicWidth, mClearDrawable.intrinsicHeight)
+        mClearDrawable =
+            DrawableCompat.wrap(ContextCompat.getDrawable(context!!, R.drawable.res_input_delete_ic)!!)
+        mClearDrawable.setBounds(
+            0,
+            0,
+            mClearDrawable.intrinsicWidth,
+            mClearDrawable.intrinsicHeight
+        )
         setDrawableVisible(false)
         super.setOnTouchListener(this)
         super.setOnFocusChangeListener(this)

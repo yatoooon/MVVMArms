@@ -114,4 +114,48 @@
         <!-- 宽高比例 -->
         <attr name="res_sizeRatio" format="string" />
     </declare-styleable>
+
+    <!-- 支持限定 Drawable 大小的 TextView -->
+    <declare-styleable name="res_DrawableTextView">
+        <!-- Drawable 宽度 -->
+        <attr name="res_drawableWidth" format="dimension" />
+        <!-- Drawable 高度 -->
+        <attr name="res_drawableHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="res_PlayButton">
+        <!-- 线条颜色 -->
+        <attr name="res_pb_lineColor" format="color" />
+        <!-- 线条大小 -->
+        <attr name="res_pb_lineSize" format="integer" />
+        <!-- 动画时间 -->
+        <attr name="res_pb_animDuration" format="integer" />
+    </declare-styleable>
+
+    <!-- 自定义评分控件 -->
+    <declare-styleable name="res_SimpleRatingBar">
+        <!-- 当前星等级 -->
+        <attr name="res_grade" format="float"/>
+        <!-- 星星总数量 -->
+        <attr name="res_gradeCount" format="integer"/>
+        <!-- 星星的宽度 -->
+        <attr name="res_gradeWidth" format="dimension" />
+        <!-- 星星的高度 -->
+        <attr name="res_gradeHeight" format="dimension" />
+        <!-- 星星之间的间隔 -->
+        <attr name="res_gradeSpace" format="dimension"/>
+        <!-- 星星选择跨度 -->
+        <attr name="res_gradeStep" format="enum" >
+            <!-- 半颗星 -->
+            <enum name="half" value="0x00" />
+            <!-- 一颗星 -->
+            <enum name="one" value="0x01" />
+        </attr>
+        <!-- 默认的星星图标 -->
+        <attr name="res_normalDrawable" format="reference"/>
+        <!-- 半颗的星星图标 -->
+        <attr name="res_halfDrawable" format="reference"/>
+        <!-- 选中的星星图标 -->
+        <attr name="res_fillDrawable" format="reference"/>
+    </declare-styleable>
 </resources>

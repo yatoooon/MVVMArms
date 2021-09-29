@@ -8,13 +8,13 @@ import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
-import android.view.*
+import android.view.MotionEvent
+import android.view.View
 import android.view.View.OnFocusChangeListener
 import android.view.View.OnTouchListener
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.common.res.R
-import com.common.res.view.RegexEditText
 
 /**
  * author : Android 轮子哥
@@ -22,7 +22,13 @@ import com.common.res.view.RegexEditText
  * time   : 2019/08/25
  * desc   : 密码隐藏显示 EditText
  */
-class PasswordEditText @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.editTextStyle) : RegexEditText(context, attrs, defStyleAttr), OnTouchListener, OnFocusChangeListener, TextWatcher {
+class PasswordEditText @JvmOverloads constructor(
+    context: Context?,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = android.R.attr.editTextStyle
+) : RegexEditText(
+    context!!, attrs, defStyleAttr
+), OnTouchListener, OnFocusChangeListener, TextWatcher {
     private var mCurrentDrawable: Drawable
     private val mVisibleDrawable: Drawable
     private val mInvisibleDrawable: Drawable
@@ -35,26 +41,28 @@ class PasswordEditText @JvmOverloads constructor(context: Context, attrs: Attrib
         mCurrentDrawable.setVisible(visible, false)
         val drawables = compoundDrawablesRelative
         setCompoundDrawablesRelative(
-                drawables[0],
-                drawables[1],
-                if (visible) mCurrentDrawable else null,
-                drawables[3])
+            drawables[0],
+            drawables[1],
+            if (visible) mCurrentDrawable else null,
+            drawables[3]
+        )
     }
 
     private fun refreshDrawableStatus() {
         val drawables = compoundDrawablesRelative
         setCompoundDrawablesRelative(
-                drawables[0],
-                drawables[1],
-                mCurrentDrawable,
-                drawables[3])
+            drawables[0],
+            drawables[1],
+            mCurrentDrawable,
+            drawables[3]
+        )
     }
 
-    override fun setOnFocusChangeListener(onFocusChangeListener: OnFocusChangeListener) {
+    override fun setOnFocusChangeListener(onFocusChangeListener: OnFocusChangeListener?) {
         mFocusChangeListener = onFocusChangeListener
     }
 
-    override fun setOnTouchListener(onTouchListener: OnTouchListener) {
+    override fun setOnTouchListener(onTouchListener: OnTouchListener?) {
         mTouchListener = onTouchListener
     }
 
@@ -127,18 +135,37 @@ class PasswordEditText @JvmOverloads constructor(context: Context, attrs: Attrib
     override fun afterTextChanged(s: Editable) {}
 
     init {
-        mVisibleDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable.res_password_off_ic)!!)
-        mVisibleDrawable.setBounds(0, 0, mVisibleDrawable.intrinsicWidth, mVisibleDrawable.intrinsicHeight)
-        mInvisibleDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable.res_password_on_ic)!!)
-        mInvisibleDrawable.setBounds(0, 0, mInvisibleDrawable.intrinsicWidth, mInvisibleDrawable.intrinsicHeight)
+        mVisibleDrawable =
+            DrawableCompat.wrap(
+                ContextCompat.getDrawable(
+                    context!!,
+                    R.drawable.res_password_off_ic
+                )!!
+            )
+        mVisibleDrawable.setBounds(
+            0,
+            0,
+            mVisibleDrawable.intrinsicWidth,
+            mVisibleDrawable.intrinsicHeight
+        )
+        mInvisibleDrawable =
+            DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable.res_password_on_ic)!!)
+        mInvisibleDrawable.setBounds(
+            0,
+            0,
+            mInvisibleDrawable.intrinsicWidth,
+            mInvisibleDrawable.intrinsicHeight
+        )
         mCurrentDrawable = mVisibleDrawable
 
         // 密码不可见
         addInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD)
         if (inputRegex == null) {
             // 密码输入规则
-            inputRegex = RegexEditText.Companion.REGEX_NONNULL
+            inputRegex = REGEX_NONNULL
         }
+
+
         setDrawableVisible(false)
         super.setOnTouchListener(this)
         super.setOnFocusChangeListener(this)
