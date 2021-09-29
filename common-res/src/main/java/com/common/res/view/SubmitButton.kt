@@ -393,22 +393,22 @@ class SubmitButton @JvmOverloads constructor(context: Context, attrs: AttributeS
 
     companion object {
         /** 无进度  */
-        private const val STYLE_LOADING = 0x00
+        const val STYLE_LOADING = 0x00
 
         /** 带进度  */
-        private const val STYLE_PROGRESS = 0x01
+        const val STYLE_PROGRESS = 0x01
 
         /** 默认状态  */
-        private const val STATE_NONE = 0
+        const val STATE_NONE = 0
 
         /** 提交状态  */
-        private const val STATE_SUBMIT = 1
+        const val STATE_SUBMIT = 1
 
         /** 加载状态  */
-        private const val STATE_LOADING = 2
+        const val STATE_LOADING = 2
 
         /** 结果状态  */
-        private const val STATE_RESULT = 3
+        const val STATE_RESULT = 3
     }
 
     init {

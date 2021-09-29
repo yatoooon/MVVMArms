@@ -3,8 +3,7 @@ package com.common.res.view
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
-import android.text.TextPaint
-import android.text.TextUtils
+import android.text.*
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
@@ -19,7 +18,11 @@ import com.common.res.R
  * desc   : 一个倾斜的 TextView，适用于标签效果
  */
 @SuppressLint("RtlHardcoded")
-class SlantedTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
+class SlantedTextView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
     /** 背景画笔  */
     private val mBackgroundPaint: Paint
 
@@ -52,14 +55,16 @@ class SlantedTextView @JvmOverloads constructor(context: Context, attrs: Attribu
         var width = 0
         when (MeasureSpec.getMode(widthMeasureSpec)) {
             MeasureSpec.EXACTLY -> width = MeasureSpec.getSize(widthMeasureSpec)
-            MeasureSpec.AT_MOST, MeasureSpec.UNSPECIFIED -> width = mTextBounds.width() + paddingLeft + paddingRight
+            MeasureSpec.AT_MOST, MeasureSpec.UNSPECIFIED -> width =
+                mTextBounds.width() + paddingLeft + paddingRight
             else -> {
             }
         }
         var height = 0
         when (MeasureSpec.getMode(heightMeasureSpec)) {
             MeasureSpec.EXACTLY -> height = MeasureSpec.getSize(heightMeasureSpec)
-            MeasureSpec.AT_MOST, MeasureSpec.UNSPECIFIED -> height = mTextBounds.height() + paddingTop + paddingBottom
+            MeasureSpec.AT_MOST, MeasureSpec.UNSPECIFIED -> height =
+                mTextBounds.height() + paddingTop + paddingBottom
             else -> {
             }
         }
@@ -280,7 +285,8 @@ class SlantedTextView @JvmOverloads constructor(context: Context, attrs: Attribu
         set(gravity) {
             if (mGravity != gravity) {
                 // 适配布局反方向
-                mGravity = Gravity.getAbsoluteGravity(gravity, resources.configuration.layoutDirection)
+                mGravity =
+                    Gravity.getAbsoluteGravity(gravity, resources.configuration.layoutDirection)
                 invalidate()
             }
         }
@@ -323,12 +329,22 @@ class SlantedTextView @JvmOverloads constructor(context: Context, attrs: Attribu
         mTextPaint.isAntiAlias = true
         val array = context.obtainStyledAttributes(attrs, R.styleable.res_SlantedTextView)
         setText(array.getString(R.styleable.res_SlantedTextView_android_text)!!)
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, array.getDimensionPixelSize(R.styleable.res_SlantedTextView_android_textSize,
-                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 12f, resources.displayMetrics).toInt()).toFloat())
+        setTextSize(
+            TypedValue.COMPLEX_UNIT_PX, array.getDimensionPixelSize(
+                R.styleable.res_SlantedTextView_android_textSize, resources.getDimension(R.dimen.res_sp_12)
+                    .toInt()
+            ).toFloat()
+        )
         textColor = array.getColor(R.styleable.res_SlantedTextView_android_textColor, Color.WHITE)
-        textStyle = Typeface.defaultFromStyle(array.getInt(R.styleable.res_SlantedTextView_android_textStyle, Typeface.NORMAL))
+        textStyle = Typeface.defaultFromStyle(
+            array.getInt(
+                R.styleable.res_SlantedTextView_android_textStyle,
+                Typeface.NORMAL
+            )
+        )
         gravity = array.getInt(R.styleable.res_SlantedTextView_android_gravity, Gravity.END)
-        colorBackground = array.getColor(R.styleable.res_SlantedTextView_android_colorBackground, accentColor)
+        colorBackground =
+            array.getColor(R.styleable.res_SlantedTextView_android_colorBackground, accentColor)
         isTriangle = array.getBoolean(R.styleable.res_SlantedTextView_res_triangle, false)
         array.recycle()
     }

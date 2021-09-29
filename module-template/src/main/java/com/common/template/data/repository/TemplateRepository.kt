@@ -1,8 +1,11 @@
 package com.common.template.data.repository
 
 import com.common.core.base.BaseRepository
+import com.common.res.entity.ListEntity
+import com.common.res.net.BaseResponse
 import com.common.res.net.apiCall
 import com.common.template.data.api.TemplateService
+import com.common.template.data.entity.TemplateEntity
 import com.common.template.data.source.TemplatePagingSource
 import javax.inject.Inject
 

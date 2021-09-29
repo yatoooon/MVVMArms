@@ -11,7 +11,11 @@ import com.common.res.R
  * time   : 2019/08/02
  * desc   : 长按缩放松手恢复的 ImageView
  */
-class ScaleImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : AppCompatImageView(context, attrs, defStyleAttr) {
+class ScaleImageView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : AppCompatImageView(context, attrs, defStyleAttr) {
     private var mScaleSize = 1.2f
     override fun dispatchSetPressed(pressed: Boolean) {
         // 判断当前手指是否按下了

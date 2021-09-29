@@ -421,11 +421,11 @@ class SwitchButton @JvmOverloads constructor(context: Context, attrs: AttributeS
     /**
      * 保存开关状态
      */
-    private class SavedState : BaseSavedState {
+    class SavedState : BaseSavedState {
         var checked = false
 
         internal constructor(superState: Parcelable?) : super(superState) {}
-        private constructor(`in`: Parcel) : super(`in`) {
+        constructor(`in`: Parcel) : super(`in`) {
             checked = 1 == `in`.readInt()
         }
 
@@ -455,10 +455,10 @@ class SwitchButton @JvmOverloads constructor(context: Context, attrs: AttributeS
     }
 
     companion object {
-        private const val STATE_SWITCH_OFF = 1
-        private const val STATE_SWITCH_OFF2 = 2
-        private const val STATE_SWITCH_ON = 3
-        private const val STATE_SWITCH_ON2 = 4
+        const val STATE_SWITCH_OFF = 1
+        const val STATE_SWITCH_OFF2 = 2
+        const val STATE_SWITCH_ON = 3
+        const val STATE_SWITCH_ON2 = 4
     }
 
     init {
