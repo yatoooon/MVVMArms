@@ -1,11 +1,10 @@
 package com.common.res.entity
-//ListEntity
 data class ListEntity<T>(
-        var curPage: Int? = null,
-        var offset: Int? = null,
-        var over: Boolean? = null,
-        var pageCount: Int? = null,
-        var size: Int? = null,
-        var total: Int? = null,
-        var datas: MutableList<T>? = null
+        val curPage: Int,
+        val datas: MutableList<T>,
+        val offset: Int,
+        val over: Boolean,
+        val pageCount: Int,
+        val size: Int,
+        val total: Int
 )

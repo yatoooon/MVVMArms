@@ -8,9 +8,12 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.common.core.base.BaseModel
 import com.common.core.base.mvvm.BaseViewModel
-import com.common.template.data.entity.Item
+import com.common.res.entity.ListEntity
+import com.common.res.net.BaseResponse
+import com.common.template.data.entity.TemplateEntity
 import com.common.template.data.repository.TemplateRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 /**
  * ViewModel示例
@@ -18,11 +21,16 @@ import kotlinx.coroutines.flow.Flow
  */
 class TemplateViewModel @ViewModelInject constructor(
     application: Application,
-    templateRepository: TemplateRepository
+    private val templateRepository: TemplateRepository
 ) : BaseViewModel(application) {
 
-    val pagingData: Flow<PagingData<Item>> =
-        templateRepository.getPagingData().cachedIn(viewModelScope)
-    val isRefreshing: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
+    val articleListLiveData: MutableLiveData<BaseResponse<ListEntity<TemplateEntity>>> = MutableLiveData()
 
+    fun getArticleList(page:Int) {
+        viewModelScope.launch {
+            templateRepository.getArticleList(page).apply {
+                articleListLiveData.postValue(this)
+            }
+        }
+    }
 }

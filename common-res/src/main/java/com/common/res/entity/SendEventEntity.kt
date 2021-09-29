@@ -1,7 +1,6 @@
 package com.common.res.entity
 
 import java.io.Serializable
-//ListEntity
 /**
  * desc :发送事件实体类
  * author：panyy

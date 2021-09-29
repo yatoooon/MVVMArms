@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
-            name="data"
+            name="item"
             type="String" />
     </data>
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@{data}"/>
+        android:text="@{item}"/>
 </layout>

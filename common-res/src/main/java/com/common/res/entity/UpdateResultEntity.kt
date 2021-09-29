@@ -1,5 +1,4 @@
 package com.common.res.entity
-//UpdateResultEntity
 /**
  * desc :
  * author：panyy

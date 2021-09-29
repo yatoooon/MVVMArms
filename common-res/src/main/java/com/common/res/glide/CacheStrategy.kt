@@ -1,13 +1,11 @@
 package com.common.res.glide
 
 import androidx.annotation.IntDef
-import java.lang.annotation.Retention
-import java.lang.annotation.RetentionPolicy
 
 //缓存策略
 interface CacheStrategy {
     @IntDef(ALL, NONE, RESOURCE, DATA, AUTOMATIC)
-    @Retention(RetentionPolicy.SOURCE)
+    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
     annotation class Strategy
     companion object {
         const val ALL = 0
