@@ -4,7 +4,6 @@ import android.content.Context
 import com.bumptech.glide.Glide
 import com.bumptech.glide.GlideBuilder
 import com.bumptech.glide.Registry
-import com.common.core.http.imageloader.BaseImageLoaderStrategy
 
 //glide 应用配置选项
 /**

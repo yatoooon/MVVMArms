@@ -2,7 +2,7 @@ plugins {
     id "com.common.plugin.app"
 }
 dependencies {
-    implementation project(':common-res')
+    implementation project(':common-core')
     implementation project(':module-web')
     implementation project(':module-umeng')
     implementation project(':module-template')

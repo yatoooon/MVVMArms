@@ -7,4 +7,73 @@
     <color name="res_color_656565">#656565</color>
     <color name="res_color_333333">#333333</color>
     <color name="res_color_00000000">#00000000</color>
+
+    <!-- 透明色 -->
+    <color name="res_transparent">#00000000</color>
+    <!-- 熊猫色（黑白背景通吃） -->
+    <color name="res_panda">#FF757575</color>
+
+    <!-- 白色 -->
+    <color name="res_white">#FFFFFFFF</color>
+    <color name="res_white95">#F2FFFFFF</color>
+    <color name="res_white90">#E6FFFFFF</color>
+    <color name="res_white85">#D9FFFFFF</color>
+    <color name="res_white80">#CCFFFFFF</color>
+    <color name="res_white75">#BFFFFFFF</color>
+    <color name="res_white70">#B3FFFFFF</color>
+    <color name="res_white65">#A6FFFFFF</color>
+    <color name="res_white60">#99FFFFFF</color>
+    <color name="res_white55">#8CFFFFFF</color>
+    <color name="res_white50">#80FFFFFF</color>
+    <color name="res_white45">#73FFFFFF</color>
+    <color name="res_white40">#66FFFFFF</color>
+    <color name="res_white35">#59FFFFFF</color>
+    <color name="res_white30">#4DFFFFFF</color>
+    <color name="res_white25">#40FFFFFF</color>
+    <color name="res_white20">#33FFFFFF</color>
+    <color name="res_white15">#26FFFFFF</color>
+    <color name="res_white10">#1AFFFFFF</color>
+    <color name="res_white5">#0DFFFFFF</color>
+
+    <!-- 黑色 -->
+    <color name="res_blcak">#FF000000</color>
+    <color name="res_blcak95">#F2000000</color>
+    <color name="res_blcak90">#E6000000</color>
+    <color name="res_blcak85">#D9000000</color>
+    <color name="res_blcak80">#CC000000</color>
+    <color name="res_blcak75">#B000000F</color>
+    <color name="res_blcak70">#B3000000</color>
+    <color name="res_blcak65">#A6000000</color>
+    <color name="res_blcak60">#99000000</color>
+    <color name="res_blcak55">#8C000000</color>
+    <color name="res_blcak50">#80000000</color>
+    <color name="res_blcak45">#73000000</color>
+    <color name="res_blcak40">#66000000</color>
+    <color name="res_blcak35">#59000000</color>
+    <color name="res_blcak30">#4D000000</color>
+    <color name="res_blcak25">#40000000</color>
+    <color name="res_blcak20">#33000000</color>
+    <color name="res_blcak15">#26000000</color>
+    <color name="res_blcak10">#1A000000</color>
+    <color name="res_blcak5">#0D000000</color>
+
+    <!-- 灰色 -->
+    <color name="res_gray">#FF808080</color>
+    <!-- 红色 -->
+    <color name="res_red">#FFFF0000</color>
+    <!-- 金色 -->
+    <color name="res_gold">#FFFFD700</color>
+    <!-- 黄色 -->
+    <color name="res_yellow">#FFFFFF00</color>
+    <!-- 绿色 -->
+    <color name="res_green">#FF008000</color>
+    <!-- 蓝色 -->
+    <color name="res_blue">#FF0000FF</color>
+    <!-- 紫色 -->
+    <color name="res_purple">#FF800080</color>
+    <!-- 粉色 -->
+    <color name="res_pink">#FFFFC0CB</color>
+    <!-- 橙色 -->
+    <color name="res_orange">#FFFFA500</color>
+
 </resources>

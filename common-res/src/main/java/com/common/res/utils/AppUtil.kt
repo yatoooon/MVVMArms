@@ -1,7 +1,7 @@
 package com.common.res.utils
 
 import android.os.Bundle
-import com.common.core.util.AppManager
+import com.common.res.util.AppManager
 import com.common.res.config.AppConfig
 import com.common.res.router.RouterHub
 import com.common.res.router.routerNavigation

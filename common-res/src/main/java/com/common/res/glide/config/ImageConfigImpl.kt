@@ -3,7 +3,7 @@ package com.common.res.glide.config
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
-import com.common.core.http.imageloader.ImageConfig
+import com.common.res.http.imageloader.ImageConfig
 import com.common.res.glide.CacheStrategy
 
 /**

@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.common.core.R;
+import com.common.core.base.action.ActivityAction;
 import com.common.core.base.ibase.ILoading;
 import com.common.core.base.ibase.IView;
 
@@ -47,7 +48,7 @@ import timber.log.Timber;
  * }
  * //-------------------------
  */
-public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading {
+public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading , ActivityAction {
 
 
     /**
@@ -171,78 +172,13 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
 
     @Override
     public void showLoading() {
-        showProgressDialog();
     }
 
     @Override
     public void hideLoading() {
-        dismissProgressDialog();
     }
 
 
-    //---------------------------------------
-    protected void finish() {
-        if (getActivity() != null) {
-            getActivity().finish();
-        }
-    }
-
-    protected Intent newIntent(Class<?> cls) {
-        return new Intent(getContext(), cls);
-    }
-
-    protected Intent newIntent(Class<?> cls, int flags) {
-        Intent intent = newIntent(cls);
-        intent.addFlags(flags);
-        return intent;
-    }
-
-    protected void startActivity(Class<?> cls) {
-        startActivity(newIntent(cls));
-    }
-
-    protected void startActivity(Class<?> cls, int flags) {
-        startActivity(newIntent(cls, flags));
-    }
-
-    protected void startActivity(Class<?> cls, @Nullable ActivityOptionsCompat optionsCompat) {
-        startActivity(newIntent(cls), optionsCompat);
-    }
-
-    protected void startActivity(Class<?> cls, int flags, @Nullable ActivityOptionsCompat optionsCompat) {
-        startActivity(newIntent(cls, flags), optionsCompat);
-    }
-
-    protected void startActivity(Intent intent, @Nullable ActivityOptionsCompat optionsCompat) {
-        if (optionsCompat != null) {
-            startActivity(intent, optionsCompat.toBundle());
-        } else {
-            startActivity(intent);
-        }
-    }
-
-    protected void startActivityFinish(Class<?> cls) {
-        startActivity(cls);
-        finish();
-    }
-
-    protected void startActivityFinish(Class<?> cls, int flags) {
-        startActivity(cls, flags);
-        finish();
-    }
-
-    protected void startActivityFinish(Class<?> cls, @Nullable ActivityOptionsCompat optionsCompat) {
-        startActivity(cls, optionsCompat);
-        finish();
-    }
-
-    protected void startActivityFinish(Class<?> cls, int flags, @Nullable ActivityOptionsCompat optionsCompat) {
-        startActivity(newIntent(cls, flags), optionsCompat);
-    }
-
-    protected void startActivityFinish(Intent intent, @Nullable ActivityOptionsCompat optionsCompat) {
-        startActivity(intent, optionsCompat);
-    }
 
     protected void startActivityForResult(Class<?> cls, int requestCode) {
         startActivityForResult(newIntent(cls), requestCode);
@@ -306,158 +242,5 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         return LayoutInflater.from(getContext()).inflate(id, root, attachToRoot);
     }
 
-    //---------------------------------------
-
-    protected void showDialogFragment(DialogFragment dialogFragment) {
-        String tag = dialogFragment.getTag() != null ? dialogFragment.getTag() : dialogFragment.getClass().getSimpleName();
-        showDialogFragment(dialogFragment, tag);
-    }
-
-    protected void showDialogFragment(DialogFragment dialogFragment, String tag) {
-        dialogFragment.show(getParentFragmentManager(), tag);
-    }
-
-    protected void showDialogFragment(DialogFragment dialogFragment, FragmentManager fragmentManager, String tag) {
-        dialogFragment.show(fragmentManager, tag);
-    }
-
-    private final View.OnClickListener mOnDialogCancelClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            dismissDialog();
-
-        }
-    };
-
-    protected Dialog getDialog() {
-        return this.mDialog;
-    }
-
-    protected Dialog getProgressDialog() {
-        return this.mProgressDialog;
-    }
-
-    protected View.OnClickListener getDialogCancelClick() {
-        return mOnDialogCancelClick;
-    }
-
-    protected void dismissDialog() {
-        dismissDialog(mDialog);
-    }
-
-    protected void dismissDialog(Dialog dialog) {
-        if (dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
-        }
-    }
-
-    protected void dismissPopupWindow(PopupWindow popupWindow) {
-        if (popupWindow != null && popupWindow.isShowing()) {
-            popupWindow.dismiss();
-        }
-    }
-
-    protected void dismissProgressDialog() {
-        dismissDialog(mProgressDialog);
-    }
-
-    protected void showProgressDialog() {
-        showProgressDialog(false);
-    }
-
-    protected void showProgressDialog(boolean isCancel) {
-        showProgressDialog(R.layout.core_progress_dialog, isCancel);
-    }
-
-    protected void showProgressDialog(@LayoutRes int resId) {
-        showProgressDialog(resId, false);
-    }
-
-    protected void showProgressDialog(@LayoutRes int resId, boolean isCancel) {
-        showProgressDialog(inflate(resId), isCancel);
-    }
-
-    protected void showProgressDialog(View v) {
-        showProgressDialog(v, false);
-    }
-
-    protected void showProgressDialog(View v, boolean isCancel) {
-        dismissProgressDialog();
-        mProgressDialog = BaseProgressDialog.newInstance(getContext());
-        mProgressDialog.setContentView(v);
-        mProgressDialog.setCanceledOnTouchOutside(isCancel);
-        mProgressDialog.show();
-    }
-
-    protected void showDialog(View contentView) {
-        showDialog(contentView, DEFAULT_WIDTH_RATIO);
-    }
-
-    protected void showDialog(View contentView, boolean isCancel) {
-        showDialog(getContext(), contentView, R.style.core_dialog, DEFAULT_WIDTH_RATIO, isCancel);
-    }
-
-    protected void showDialog(View contentView, float widthRatio) {
-        showDialog(getContext(), contentView, widthRatio);
-    }
-
-    protected void showDialog(View contentView, float widthRatio, boolean isCancel) {
-        showDialog(getContext(), contentView, R.style.core_dialog, widthRatio, isCancel);
-    }
-
-    protected void showDialog(Context context, View contentView, float widthRatio) {
-        showDialog(context, contentView, R.style.core_dialog, widthRatio);
-    }
-
-    protected void showDialog(Context context, View contentView, @StyleRes int resId, float widthRatio) {
-        showDialog(context, contentView, resId, widthRatio, true);
-    }
-
-    protected void showDialog(Context context, View contentView, @StyleRes int resId, float widthRatio, final boolean isCancel) {
-        dismissDialog();
-        mDialog = new Dialog(context, resId);
-        mDialog.setContentView(contentView);
-        mDialog.setCanceledOnTouchOutside(false);
-        mDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
-            @Override
-            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_BACK) {
-                    if (isCancel) {
-                        dismissDialog();
-                    }
-                    return true;
-                }
-                return false;
-
-            }
-        });
-        setDialogWindow(mDialog, widthRatio);
-        mDialog.show();
-
-    }
-
-    protected void setDialogWindow(Dialog dialog, float widthRatio) {
-        setWindow(dialog.getWindow(), widthRatio);
-    }
-
-    protected void setWindow(Window window, float widthRatio) {
-        WindowManager.LayoutParams lp = window.getAttributes();
-        lp.width = (int) (getWidthPixels() * widthRatio);
-        window.setAttributes(lp);
-    }
-
-    //---------------------------------------
-
-    protected DisplayMetrics getDisplayMetrics() {
-        return getResources().getDisplayMetrics();
-    }
-
-    protected int getWidthPixels() {
-        return getDisplayMetrics().widthPixels;
-    }
-
-    protected int getHeightPixels() {
-        return getDisplayMetrics().heightPixels;
-    }
 
 }

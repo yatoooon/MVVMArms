@@ -1,1 +1,13 @@
-<manifest package="com.common.core" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.common.core">
+
+    <application
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="n">
+        <meta-data
+            android:name="com.common.core.lifecycle.CoreConfigModule"
+            android:value="CoreConfigModule" />
+    </application>
+
+</manifest>

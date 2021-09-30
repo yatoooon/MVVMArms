@@ -30,7 +30,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
     extension.run {
 
         buildToolsVersion(Versions.buildTool)
-
+        compileSdkVersion(Versions.compileSdk)
 
         defaultConfig {
             minSdkVersion(Versions.minSdk)

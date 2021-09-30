@@ -48,14 +48,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api project(":common-core")
-
-    compileOnly Deps.kotlinStdlibJdk7
-    compileOnly Deps.kotlinCore
-    compileOnly Deps.kotlinxCoroutinesCore
-    compileOnly Deps.kotlinxCoroutinesAndroid
-    compileOnly Deps.lifecycleViewmodelKtx
-
+    api Deps.kotlinCore
     api Deps.appcompat
     api Deps.logger
     api Deps.glide
@@ -95,7 +88,7 @@ dependencies {
     api Deps.umengShareQQ
     api Deps.qqopensdk
     api Deps.wechatsdk
-   
+
 
     kapt Deps.arouterCompiler
     kapt Deps.lifecycleCompiler
@@ -113,4 +106,73 @@ dependencies {
     debugImplementation Deps.spidermanDebug
     releaseImplementation Deps.spidermanRelease
     //debugImplementation Deps.leakcanary
+
+
+
+
+    //retrofit-helper
+    api Deps.retrofit_helper
+
+    //lifecycle
+    api Deps.lifecycleRuntimeKtx
+    api Deps.lifecycleExtensions
+    annotationProcessor Deps.lifecycleCompiler
+
+    //room
+    api Deps.room
+    annotationProcessor Deps.roomCompiler
+
+    //hilt
+    api Deps.hiltAndroid
+    annotationProcessor Deps.hiltAndroidCompiler
+
+    //log
+    api Deps.timber
+
+
+
+    //coroutines
+    api Deps.kotlinxCoroutinesCore
+    api Deps.kotlinxCoroutinesAndroid
+    //koin
+    api Deps.koinAndroid
+    api Deps.koinAndroidxScope
+    api Deps.koinAndroidxViewmodel
+    //anko
+    api Deps.anko
+    api Deps.ankoCommon
+    api Deps.kotlinStdlibJdk7
+    //androidx
+    api Deps.design
+    api Deps.coreKtx
+    api Deps.fragmentKtx
+    api Deps.annotationX
+    api Deps.appcompat
+    api Deps.recyclerview
+    api Deps.constraintlayout
+    //live bus
+    api Deps.liveEventBusX
+    //lifecycle
+    api Deps.lifecycleLivedataKtx
+    api Deps.lifecycleViewmodelKtx
+    api Deps.lifecycleRuntimeKtx
+    api Deps.lifecycleViewmodelSavedstate
+    //view
+    api Deps.lottie
+    api Deps.loadsir
+    api Deps.smartShowAll
+    //network
+    api Deps.okhttp
+    api Deps.retrofit
+    api Deps.retrofitConverterGson
+    //viewbinding
+    api Deps.viewbindingKtx
+    api Deps.viewbindingBaseKtx
+    api Deps.viewbindingBrvahKtx
+    //tools
+    api Deps.gson
+    api Deps.jolyglotGson
+    compileOnly Deps.javaxAnnotation
+    //test
+    api Deps.timber
 }

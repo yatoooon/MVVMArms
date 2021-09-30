@@ -13,7 +13,7 @@ import androidx.room.RoomDatabase;
 import com.common.core.base.ibase.IRepository;
 import com.common.core.config.Constants;
 import com.common.core.config.inter.AppliesOptions;
-import com.common.core.util.Preconditions;
+import com.common.res.util.Preconditions;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

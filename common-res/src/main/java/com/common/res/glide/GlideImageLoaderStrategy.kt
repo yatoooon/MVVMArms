@@ -7,10 +7,10 @@ import com.bumptech.glide.Registry
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.common.core.http.imageloader.BaseImageLoaderStrategy
-import com.common.core.http.imageloader.ImageConfig
-import com.common.core.util.ArmsUtil
-import com.common.core.util.Preconditions
+import com.common.res.http.imageloader.BaseImageLoaderStrategy
+import com.common.res.http.imageloader.ImageConfig
+import com.common.res.util.ArmsUtil
+import com.common.res.util.Preconditions
 import com.common.res.glide.config.GlideAppliesOptions
 import com.common.res.glide.config.GlideArms
 import com.common.res.glide.config.GlideRequests

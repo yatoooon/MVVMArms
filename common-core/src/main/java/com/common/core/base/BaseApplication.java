@@ -1,10 +1,12 @@
 package com.common.core.base;
 
-import android.app.Application;
 import android.content.Context;
 
 import com.common.core.base.delegate.BaseApplicationLifecycleDelegate;
-import com.common.core.di.component.AppComponent;
+import com.common.res.App;
+import com.common.res.component.AppComponent;
+
+import org.jetbrains.annotations.NotNull;
 
 import javax.inject.Inject;
 
@@ -12,7 +14,7 @@ import javax.inject.Inject;
 /**
  *
  */
-public class BaseApplication extends Application {
+public class BaseApplication extends  App {
 
     @Inject
     AppComponent appComponent;
@@ -46,7 +48,8 @@ public class BaseApplication extends Application {
         }
     }
 
-
+    @NotNull
+    @Override
     public AppComponent getAppComponent() {
         return appComponent;
     }

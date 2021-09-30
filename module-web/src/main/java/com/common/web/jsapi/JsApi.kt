@@ -14,7 +14,7 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
 import com.coder.zzq.smartshow.dialog.LoadingDialog
-import com.common.core.util.AppManager
+import com.common.res.util.AppManager
 import com.common.res.config.AppConfig
 import com.common.res.entity.SendEventEntity
 import com.common.res.event.WEBFRAME_EVENT

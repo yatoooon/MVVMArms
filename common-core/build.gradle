@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'dagger.hilt.android.plugin'
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 android {
 
     compileSdkVersion Versions.compileSdk
@@ -8,7 +8,11 @@ android {
     defaultConfig {
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
-
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
     }
     resourcePrefix "core_"
 
@@ -42,74 +46,11 @@ repositories {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-
-
-
-
-    //retrofit-helper
-    api Deps.retrofit_helper
-
-    //lifecycle
-    api Deps.lifecycleRuntimeKtx
-    api Deps.lifecycleExtensions
-    annotationProcessor Deps.lifecycleCompiler
-
-    //room
-    api Deps.room
-    annotationProcessor Deps.roomCompiler
-
-    //hilt
-    api Deps.hiltAndroid
-    annotationProcessor Deps.hiltAndroidCompiler
-
-    //log
-    api Deps.timber
-
-
-
-    //coroutines
-    api Deps.kotlinxCoroutinesCore
-    api Deps.kotlinxCoroutinesAndroid
-    //koin
-    api Deps.koinAndroid
-    api Deps.koinAndroidxScope
-    api Deps.koinAndroidxViewmodel
-    //anko
-    api Deps.anko
-    api Deps.ankoCommon
-    api Deps.kotlinStdlibJdk7
-    //androidx
-    api Deps.design
-    api Deps.coreKtx
-    api Deps.fragmentKtx
-    api Deps.annotationX
-    api Deps.appcompat
-    api Deps.recyclerview
-    api Deps.constraintlayout
-    //live bus
-    api Deps.liveEventBusX
-    //lifecycle
-    api Deps.lifecycleLivedataKtx
-    api Deps.lifecycleViewmodelKtx
-    api Deps.lifecycleRuntimeKtx
-    api Deps.lifecycleViewmodelSavedstate
-    //view
-    api Deps.lottie
-    api Deps.loadsir
-    api Deps.smartShowAll
-    //network
-    api Deps.okhttp
-    api Deps.retrofit
-    api Deps.retrofitConverterGson
-    //viewbinding
-    api Deps.viewbindingKtx
-    api Deps.viewbindingBaseKtx
-    api Deps.viewbindingBrvahKtx
-    //tools
-    api Deps.gson
-    api Deps.jolyglotGson
-    compileOnly Deps.javaxAnnotation
-    //test
-    api Deps.timber
+    api project(":common-res")
+    kapt Deps.arouterCompiler
+    kapt Deps.lifecycleCompiler
+    kapt Deps.roomCompiler
+    kapt Deps.hiltAndroidCompiler
+    kapt Deps.glideCompiler
+    kapt Deps.androidHiltCompiler
 }

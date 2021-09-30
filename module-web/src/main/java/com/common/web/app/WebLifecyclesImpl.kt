@@ -8,7 +8,7 @@ import android.content.Intent
 import android.os.Handler
 import android.text.TextUtils
 import com.common.core.base.delegate.BaseApplicationLifecycle
-import com.common.core.util.AppManager
+import com.common.res.util.AppManager
 import com.common.web.service.PreLoadX5Service
 
 

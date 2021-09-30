@@ -7,7 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.common.core.util.AppManager;
+import com.common.res.util.AppManager;
 
 
 public class BaseActivityLifecycle implements Application.ActivityLifecycleCallbacks {

@@ -63,6 +63,10 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             tools:node="replace" />
 
+        <meta-data
+            android:name="com.common.umeng.lifecycle.UmengConfigModule"
+            android:value="CoreConfigModule" />
+
     </application>
 
     <!-- Android 11 软件包可见性适配：https://developer.android.google.cn/about/versions/11/privacy/package-visibility -->

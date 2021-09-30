@@ -2,5 +2,5 @@ plugins {
     id "com.common.plugin.lib"
 }
 dependencies {
-    implementation project(':common-res')
+    implementation project(':common-core')
 }
