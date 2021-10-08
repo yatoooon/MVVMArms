@@ -20,6 +20,8 @@ buildscript {
 
         classpath "com.google.dagger:hilt-android-gradle-plugin:2.30.1-alpha"
 
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.10'
+
     }
 }
 

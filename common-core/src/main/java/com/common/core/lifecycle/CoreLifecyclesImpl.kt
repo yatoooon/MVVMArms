@@ -7,6 +7,7 @@ import com.coder.zzq.smartshow.core.SmartShow
 import com.common.core.base.delegate.BaseApplicationLifecycle
 import com.common.res.BuildConfig
 import com.common.res.layout.RefreshLottieHeader
+import com.hjq.toast.ToastUtils
 import com.liulishuo.filedownloader.FileDownloader
 import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection
 import com.orhanobut.logger.AndroidLogAdapter
@@ -66,6 +67,7 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
         }
         FileDownloader.setupOnApplicationOnCreate(application)
             .connectionCreator(FileDownloadUrlConnection.Creator(config)).commit()
+        ToastUtils.init(application)
     }
 
     override fun onTerminate(application: Application) {

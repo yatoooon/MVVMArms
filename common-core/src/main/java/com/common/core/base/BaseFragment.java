@@ -1,39 +1,31 @@
 package com.common.core.base;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.PopupWindow;
 
 import androidx.annotation.IdRes;
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StyleRes;
-import androidx.core.app.ActivityOptionsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Lifecycle;
 
-import com.common.core.R;
-import com.common.core.base.action.ActivityAction;
 import com.common.core.base.ibase.ILoading;
 import com.common.core.base.ibase.IView;
+import com.common.res.action.ActivityAction;
+import com.common.res.action.BundleAction;
+import com.common.res.action.ClickAction;
+import com.common.res.action.HandlerAction;
+import com.common.res.action.KeyboardAction;
+import com.common.res.action.ResourcesAction;
 
-import timber.log.Timber;
+import java.util.List;
 
 
 /**
@@ -48,9 +40,8 @@ import timber.log.Timber;
  * }
  * //-------------------------
  */
-public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading , ActivityAction {
-
-
+public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading,
+        ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction {
     /**
      * 请通过 {@link #getViewDataBinding()}获取，后续版本 {@link #mBinding}可能会私有化
      */
@@ -60,17 +51,6 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
      * 请通过 {@link #getRootView()} ()}获取，后续版本 {@link #mRootView}可能会私有化
      */
     private View mRootView;
-
-    protected static final float DEFAULT_WIDTH_RATIO = 0.85f;
-
-    private Dialog mDialog;
-
-    private Dialog mProgressDialog;
-
-    private String mJumpTag;
-    private long mJumpTime;
-
-    private static final long IGNORE_INTERVAL_TIME = 500;
 
 
     @Nullable
@@ -83,7 +63,6 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         initViewClick();
         return mRootView;
     }
-
 
     public void initView() {
         if (isBinding()) {
@@ -116,6 +95,12 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
      */
     protected View createRootView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(getLayoutId(), container, false);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mRootView = null;
     }
 
     /**
@@ -153,6 +138,7 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         if (mBinding != null) {
             mBinding.unbind();
         }
+        removeCallbacks();
     }
 
 
@@ -169,78 +155,68 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         return getRootView().findViewById(id);
     }
 
+    @Override
+    public Bundle getBundle() {
+        return getArguments();
+    }
 
     @Override
     public void showLoading() {
+        FragmentActivity activity = requireActivity();
+        if (activity instanceof BaseActivity) {
+            ((BaseActivity<?>) activity).showLoading();
+        }
     }
 
     @Override
     public void hideLoading() {
-    }
-
-
-
-    protected void startActivityForResult(Class<?> cls, int requestCode) {
-        startActivityForResult(newIntent(cls), requestCode);
-    }
-
-    protected void startActivityForResult(Class<?> cls, int requestCode, @Nullable ActivityOptionsCompat optionsCompat) {
-        Intent intent = newIntent(cls);
-        if (optionsCompat != null) {
-            startActivityForResult(intent, requestCode, optionsCompat.toBundle());
-        } else {
-            startActivityForResult(intent, requestCode);
+        FragmentActivity activity = requireActivity();
+        if (activity instanceof BaseActivity) {
+            ((BaseActivity<?>) activity).hideLoading();
         }
     }
 
-    @Override
-    public void startActivityForResult(Intent intent, int requestCode, @Nullable Bundle options) {
-        if (isIgnoreJump(intent)) {
-            return;
+    /**
+     * Fragment 按键事件派发
+     */
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        List<Fragment> fragments = getChildFragmentManager().getFragments();
+        for (Fragment fragment : fragments) {
+            // 这个子 Fragment 必须是 BaseFragment 的子类，并且处于可见状态
+            if (!(fragment instanceof BaseFragment) ||
+                    fragment.getLifecycle().getCurrentState() != Lifecycle.State.RESUMED) {
+                continue;
+            }
+            // 将按键事件派发给子 Fragment 进行处理
+            if (((BaseFragment<?>) fragment).dispatchKeyEvent(event)) {
+                // 如果子 Fragment 拦截了这个事件，那么就不交给父 Fragment 处理
+                return true;
+            }
         }
-        super.startActivityForResult(intent, requestCode, options);
+        switch (event.getAction()) {
+            case KeyEvent.ACTION_DOWN:
+                return onKeyDown(event.getKeyCode(), event);
+            case KeyEvent.ACTION_UP:
+                return onKeyUp(event.getKeyCode(), event);
+            default:
+                return false;
+        }
     }
 
-    protected boolean isIgnoreJump(Intent intent) {
-        String jumpTag;
-        if (intent.getComponent() != null) {
-            jumpTag = intent.getComponent().getClassName();
-        } else if (intent.getAction() != null) {
-            jumpTag = intent.getAction();
-        } else {
-            return false;
-        }
-
-        if (TextUtils.isEmpty(jumpTag)) {
-            return false;
-        }
-
-        if (jumpTag.equals(mJumpTag) && mJumpTime > SystemClock.elapsedRealtime() - getIgnoreIntervalTime()) {
-            Timber.d("Ignore:" + jumpTag);
-            return true;
-        }
-        mJumpTag = jumpTag;
-        mJumpTime = SystemClock.elapsedRealtime();
-
+    /**
+     * 按键按下事件回调
+     */
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // 默认不拦截按键事件
         return false;
     }
 
-    protected long getIgnoreIntervalTime() {
-        return IGNORE_INTERVAL_TIME;
+    /**
+     * 按键抬起事件回调
+     */
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        // 默认不拦截按键事件
+        return false;
     }
-    //---------------------------------------
-
-    protected View inflate(@LayoutRes int id) {
-        return inflate(id, null);
-    }
-
-    protected View inflate(@LayoutRes int id, @Nullable ViewGroup root) {
-        return LayoutInflater.from(getContext()).inflate(id, root);
-    }
-
-    protected View inflate(@LayoutRes int id, @Nullable ViewGroup root, boolean attachToRoot) {
-        return LayoutInflater.from(getContext()).inflate(id, root, attachToRoot);
-    }
-
 
 }

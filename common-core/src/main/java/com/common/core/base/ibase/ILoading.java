@@ -4,6 +4,8 @@ package com.common.core.base.ibase;
  *
  */
 public interface ILoading {
+
+    boolean isShowLoading();
     /**
      * 显示加载
      */

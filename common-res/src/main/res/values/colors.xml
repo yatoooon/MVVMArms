@@ -8,6 +8,29 @@
     <color name="res_color_333333">#333333</color>
     <color name="res_color_00000000">#00000000</color>
 
+
+    <!-- App 样式中引用的颜色 -->
+    <color name="res_common_primary_color">@color/res_white</color>
+    <color name="res_common_primary_dark_color">@color/res_black</color>
+    <color name="res_common_accent_color">#5A8DDF</color>
+    <color name="res_common_window_background_color">#F4F4F4</color>
+    <color name="res_common_text_color">#333333</color>
+    <color name="res_common_text_hint_color">@color/res_panda</color>
+
+    <!-- 按钮按压时的颜色 -->
+    <color name="res_common_button_pressed_color">#AA5A8DDF</color>
+    <!-- 按钮禁用时的颜色 -->
+    <color name="res_common_button_disable_color">#BBBBBB</color>
+    <!-- 分割线的颜色 -->
+    <color name="res_common_line_color">#ECECEC</color>
+    <!-- 矢量图标的颜色 -->
+    <color name="res_common_icon_color">#7C7C7C</color>
+
+    <!-- 对话框确认按钮的文本颜色 -->
+    <color name="res_common_confirm_text_color">#007AFF</color>
+    <!-- 对话框取消按钮的文本颜色 -->
+    <color name="res_common_cancel_text_color">#F44336</color>
+
     <!-- 透明色 -->
     <color name="res_transparent">#00000000</color>
     <!-- 熊猫色（黑白背景通吃） -->
@@ -36,26 +59,26 @@
     <color name="res_white5">#0DFFFFFF</color>
 
     <!-- 黑色 -->
-    <color name="res_blcak">#FF000000</color>
-    <color name="res_blcak95">#F2000000</color>
-    <color name="res_blcak90">#E6000000</color>
-    <color name="res_blcak85">#D9000000</color>
-    <color name="res_blcak80">#CC000000</color>
-    <color name="res_blcak75">#B000000F</color>
-    <color name="res_blcak70">#B3000000</color>
-    <color name="res_blcak65">#A6000000</color>
-    <color name="res_blcak60">#99000000</color>
-    <color name="res_blcak55">#8C000000</color>
-    <color name="res_blcak50">#80000000</color>
-    <color name="res_blcak45">#73000000</color>
-    <color name="res_blcak40">#66000000</color>
-    <color name="res_blcak35">#59000000</color>
-    <color name="res_blcak30">#4D000000</color>
-    <color name="res_blcak25">#40000000</color>
-    <color name="res_blcak20">#33000000</color>
-    <color name="res_blcak15">#26000000</color>
-    <color name="res_blcak10">#1A000000</color>
-    <color name="res_blcak5">#0D000000</color>
+    <color name="res_black">#FF000000</color>
+    <color name="res_black95">#F2000000</color>
+    <color name="res_black90">#E6000000</color>
+    <color name="res_black85">#D9000000</color>
+    <color name="res_black80">#CC000000</color>
+    <color name="res_black75">#B000000F</color>
+    <color name="res_black70">#B3000000</color>
+    <color name="res_black65">#A6000000</color>
+    <color name="res_black60">#99000000</color>
+    <color name="res_black55">#8C000000</color>
+    <color name="res_black50">#80000000</color>
+    <color name="res_black45">#73000000</color>
+    <color name="res_black40">#66000000</color>
+    <color name="res_black35">#59000000</color>
+    <color name="res_black30">#4D000000</color>
+    <color name="res_black25">#40000000</color>
+    <color name="res_black20">#33000000</color>
+    <color name="res_black15">#26000000</color>
+    <color name="res_black10">#1A000000</color>
+    <color name="res_black5">#0D000000</color>
 
     <!-- 灰色 -->
     <color name="res_gray">#FF808080</color>

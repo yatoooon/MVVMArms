@@ -25,7 +25,6 @@ object Deps {
     const val anko = "org.jetbrains.anko:anko:0.10.8"
     const val ankoCommon = "org.jetbrains.anko:anko-common:0.10.8"
     const val kotlinStdlibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
-    const val kotlinCore = "androidx.core:core-ktx:1.3.0"
 
     //androidx
     const val appcompat = "androidx.appcompat:appcompat:1.3.1"
@@ -72,6 +71,10 @@ object Deps {
     const val smartRefreshLayoutKernel = "com.scwang.smart:refresh-layout-kernel:2.0.3"
     const val smartRefreshHeaderClassics = "com.scwang.smart:refresh-header-classics:2.0.3"
     const val lottie = "com.airbnb.android:lottie:4.0.0"
+    const val shapeView = "com.github.getActivity:ShapeView:6.0"
+    const val titleBar = "com.github.getActivity:TitleBar:9.2"
+    const val toastUtils = "com.github.getActivity:ToastUtils:9.5"
+    const val XXPermissions = "com.github.getActivity:XXPermissions:12.3"
     const val loadsir = "com.kingja.loadsir:loadsir:1.3.8"
     const val photoview = "com.github.chrisbanes.photoview:library:1.2.3"
     const val tbssdk = "com.tencent.tbs.tbssdk:sdk:43993"
@@ -94,17 +97,6 @@ object Deps {
     const val circleProgressbar = "com.dinuscxj:circleprogressbar:1.3.6"
     const val rvAdapter = "com.gitee.cbfg5210:RVAdapter:0.3.5"
 
-    //rx2
-    const val rxjava2 = "io.reactivex.rxjava2:rxjava:2.2.21"
-    const val rxandroid2 = "io.reactivex.rxjava2:rxandroid:2.1.1"
-    const val rxlifecycle2 = "com.trello.rxlifecycle2:rxlifecycle:2.2.2"
-    const val rxlifecycle2Android = "com.trello.rxlifecycle2:rxlifecycle-android:2.2.2"
-    const val rxlifecycle2Components = "com.trello.rxlifecycle2:rxlifecycle-components:2.2.2"
-    const val rxlifecycle2AndroidLifecycle =
-        "com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.2.2"
-    const val rxcache2 = "com.github.VictorAlbertos.RxCache:runtime:1.8.3-2.x"
-    const val rxpermissions2 = "com.github.tbruyelle:rxpermissions:2.x.v0.9.3"
-    const val rxerrorhandler2 = "me.jessyan:rxerrorhandler:2.1.1"
 
     //tools
     const val dagger2 = "com.google.dagger:dagger:2.38.1"
@@ -155,6 +147,8 @@ object Deps {
     const val umengShareQQ = "com.umeng.umsdk:share-qq:7.1.5"
     const val qqopensdk = "com.tencent.tauth:qqopensdk:3.53.0"
     const val wechatsdk = "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.9"
+    const val buglyCrashReport = "com.tencent.bugly:crashreport:3.4.4"
+    const val buglyNativeCrashReport = "com.tencent.bugly:nativecrashreport:3.9.2"
 
 }
 

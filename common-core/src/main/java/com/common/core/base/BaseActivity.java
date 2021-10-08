@@ -1,37 +1,29 @@
 package com.common.core.base;
 
-import android.app.Dialog;
+import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
+import android.util.SparseArray;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
-import android.widget.PopupWindow;
 
-import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
-import androidx.annotation.StyleRes;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityOptionsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 
-import com.common.core.R;
-import com.common.core.base.action.ActivityAction;
 import com.common.core.base.ibase.ILoading;
 import com.common.core.base.ibase.IView;
+import com.common.res.action.*;
+import com.common.res.dialog.BaseDialog;
+import com.common.res.dialog.WaitDialog;
 
-import timber.log.Timber;
+import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -46,23 +38,31 @@ import timber.log.Timber;
  * }
  * //-------------------------
  */
-public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompatActivity implements IView, ILoading, ActivityAction {
+public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompatActivity implements IView, ILoading, ActivityAction, ClickAction,
+        HandlerAction, BundleAction, KeyboardAction {
 
     /**
      * 请通过 {@link #getViewDataBinding()}获取，后续版本 {@link #mBinding}可能会私有化
      */
     private VDB mBinding;
 
-    protected static final float DEFAULT_WIDTH_RATIO = 0.85f;
+    /**
+     * 错误结果码
+     */
+    public static final int RESULT_ERROR = -2;
+    /**
+     * Activity 回调集合
+     */
+    private SparseArray<OnActivityCallback> mActivityCallbacks;
 
-    private Dialog mDialog;
-
-    private Dialog mProgressDialog;
-
-    private String mJumpTag;
-    private long mJumpTime;
-
-    private static final long IGNORE_INTERVAL_TIME = 500;
+    /**
+     * 加载对话框
+     */
+    private BaseDialog mDialog;
+    /**
+     * 对话框数量
+     */
+    private int mDialogCount;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -84,8 +84,26 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         } else {
             setContentView(getLayoutId());
         }
+        initSoftKeyboard();
     }
 
+    /**
+     * 初始化软键盘
+     */
+    protected void initSoftKeyboard() {
+        // 点击外部隐藏软键盘，提升用户体验
+        getContentView().setOnClickListener(v -> {
+            // 隐藏软键，避免内存泄漏
+            hideKeyboard(getCurrentFocus());
+        });
+    }
+
+    /**
+     * 和 setContentView 对应的方法
+     */
+    public ViewGroup getContentView() {
+        return findViewById(Window.ID_ANDROID_CONTENT);
+    }
 
     public void initViewModel() {
 
@@ -101,11 +119,38 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
 
 
     @Override
+    public void finish() {
+        super.finish();
+        // 隐藏软键，避免内存泄漏
+        hideKeyboard(getCurrentFocus());
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         if (mBinding != null) {
             mBinding.unbind();
         }
+        removeCallbacks();
+        if (isShowLoading()) {
+            hideLoading();
+        }
+        mDialog = null;
+    }
+
+    /**
+     * 如果当前的 Activity（singleTop 启动模式） 被复用时会回调
+     */
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        // 设置为当前的 Intent，避免 Activity 被杀死后重启 Intent 还是最原先的那个
+        setIntent(intent);
+    }
+
+    @Override
+    public Bundle getBundle() {
+        return getIntent().getExtras();
     }
 
     /**
@@ -137,12 +182,51 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     }
 
 
+    /**
+     * 当前加载对话框是否在显示中
+     */
+    public boolean isShowLoading() {
+        return mDialog != null && mDialog.isShowing();
+    }
+
     @Override
     public void showLoading() {
+        if (isFinishing() || isDestroyed()) {
+            return;
+        }
+
+        mDialogCount++;
+        postDelayed(() -> {
+            if (mDialogCount <= 0 || isFinishing() || isDestroyed()) {
+                return;
+            }
+
+            if (mDialog == null) {
+                mDialog = new WaitDialog.Builder(this)
+                        .setCancelable(false)
+                        .create();
+            }
+            if (!mDialog.isShowing()) {
+                mDialog.show();
+            }
+        }, 300);
     }
 
     @Override
     public void hideLoading() {
+        if (isFinishing() || isDestroyed()) {
+            return;
+        }
+
+        if (mDialogCount > 0) {
+            mDialogCount--;
+        }
+
+        if (mDialogCount != 0 || mDialog == null || !mDialog.isShowing()) {
+            return;
+        }
+
+        mDialog.dismiss();
     }
 
 
@@ -151,68 +235,75 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         return this;
     }
 
-    protected void startActivityForResult(Class<?> cls, int requestCode) {
-        startActivityForResult(newIntent(cls), requestCode);
-    }
-
-    protected void startActivityForResult(Class<?> cls, int requestCode, @Nullable ActivityOptionsCompat optionsCompat) {
-        Intent intent = newIntent(cls);
-        if (optionsCompat != null) {
-            startActivityForResult(intent, requestCode, optionsCompat.toBundle());
-        } else {
-            startActivityForResult(intent, requestCode);
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        for (Fragment fragment : fragments) {
+            // 这个 Fragment 必须是 BaseFragment 的子类，并且处于可见状态
+            if (!(fragment instanceof BaseFragment) ||
+                    fragment.getLifecycle().getCurrentState() != Lifecycle.State.RESUMED) {
+                continue;
+            }
+            // 将按键事件派发给 Fragment 进行处理
+            if (((BaseFragment<?>) fragment).dispatchKeyEvent(event)) {
+                // 如果 Fragment 拦截了这个事件，那么就不交给 Activity 处理
+                return true;
+            }
         }
+        return super.dispatchKeyEvent(event);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void startActivityForResult(Intent intent, int requestCode, @Nullable Bundle options) {
-        if (isIgnoreJump(intent)) {
-            return;
-        }
+        // 隐藏软键，避免内存泄漏
+        hideKeyboard(getCurrentFocus());
+        // 查看源码得知 startActivity 最终也会调用 startActivityForResult
         super.startActivityForResult(intent, requestCode, options);
     }
 
-    protected boolean isIgnoreJump(Intent intent) {
-        String jumpTag;
-        if (intent.getComponent() != null) {
-            jumpTag = intent.getComponent().getClassName();
-        } else if (intent.getAction() != null) {
-            jumpTag = intent.getAction();
-        } else {
-            return false;
+    /**
+     * startActivityForResult 方法优化
+     */
+
+    public void startActivityForResult(Class<? extends Activity> clazz, OnActivityCallback callback) {
+        startActivityForResult(new Intent(this, clazz), null, callback);
+    }
+
+    public void startActivityForResult(Intent intent, OnActivityCallback callback) {
+        startActivityForResult(intent, null, callback);
+    }
+
+    public void startActivityForResult(Intent intent, @Nullable Bundle options, OnActivityCallback callback) {
+        if (mActivityCallbacks == null) {
+            mActivityCallbacks = new SparseArray<>(1);
         }
+        // 请求码必须在 2 的 16 次方以内
+        int requestCode = new Random().nextInt((int) Math.pow(2, 16));
+        mActivityCallbacks.put(requestCode, callback);
+        startActivityForResult(intent, requestCode, options);
+    }
 
-        if (TextUtils.isEmpty(jumpTag)) {
-            return false;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        OnActivityCallback callback;
+        if (mActivityCallbacks != null && (callback = mActivityCallbacks.get(requestCode)) != null) {
+            callback.onActivityResult(resultCode, data);
+            mActivityCallbacks.remove(requestCode);
+            return;
         }
-
-        if (jumpTag.equals(mJumpTag) && mJumpTime > SystemClock.elapsedRealtime() - getIgnoreIntervalTime()) {
-            Timber.d("Ignore:" + jumpTag);
-            return true;
-        }
-        mJumpTag = jumpTag;
-        mJumpTime = SystemClock.elapsedRealtime();
-
-        return false;
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
-    protected long getIgnoreIntervalTime() {
-        return IGNORE_INTERVAL_TIME;
+    public interface OnActivityCallback {
+
+        /**
+         * 结果回调
+         *
+         * @param resultCode 结果码
+         * @param data       数据
+         */
+        void onActivityResult(int resultCode, @Nullable Intent data);
     }
-
-    //---------------------------------------
-
-    protected View inflate(@LayoutRes int id) {
-        return inflate(id, null);
-    }
-
-    protected View inflate(@LayoutRes int id, @Nullable ViewGroup root) {
-        return LayoutInflater.from(getContext()).inflate(id, root);
-    }
-
-    protected View inflate(@LayoutRes int id, @Nullable ViewGroup root, boolean attachToRoot) {
-        return LayoutInflater.from(getContext()).inflate(id, root, attachToRoot);
-    }
-
 
 }

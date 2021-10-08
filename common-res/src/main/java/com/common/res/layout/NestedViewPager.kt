@@ -12,7 +12,7 @@ import androidx.viewpager.widget.ViewPager
  * time   : 2020/08/18
  * desc   : 支持嵌套滚动的 ViewPager
  */
-class NestedViewPager : ViewPager, NestedScrollingParent, NestedScrollingChild {
+open class NestedViewPager : ViewPager, NestedScrollingParent, NestedScrollingChild {
     private var mParentHelper: NestedScrollingParentHelper? = null
     private var mChildHelper: NestedScrollingChildHelper? = null
 
