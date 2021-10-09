@@ -44,7 +44,7 @@ class WebPageFrgment : BaseFragment<WebFragmentWebpageBinding>() {
         url = arguments?.getString("url")
         webView = DX5WebView(activity)
         val lp = FrameLayout.LayoutParams(-2, -2).apply { gravity = Gravity.CENTER }
-        val commonIndicator = CommonIndicator(getActivity()).apply {
+        val commonIndicator = CommonIndicator(activity).apply {
             addView(LoadingView(activity), lp)
             setBackgroundColor(Color.WHITE)
         }
@@ -119,8 +119,8 @@ class WebPageFrgment : BaseFragment<WebFragmentWebpageBinding>() {
 
     override fun initObserve() {
         eventBusObserve(WEBFRAME_EVENT, this) {
-            var entity = it as SendEventEntity
-            webView?.callHandler(entity?.event, arrayOf(entity?.args))
+            val entity = it as SendEventEntity
+            webView?.callHandler(entity.event, arrayOf(entity.args))
         }
     }
 

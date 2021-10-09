@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.common.core.base.delegate.BaseApplicationLifecycleDelegate;
 import com.common.res.App;
+import com.common.res.aop.Log;
 import com.common.res.component.AppComponent;
 
 import org.jetbrains.annotations.NotNull;
@@ -31,6 +32,7 @@ public class BaseApplication extends  App {
         mBaseApplicationLifecycleDelegate.attachBaseContext(base);
     }
 
+    @Log("启动耗时")
     @Override
     public void onCreate() {
         super.onCreate();

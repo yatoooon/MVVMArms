@@ -161,6 +161,15 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     }
 
     @Override
+    public boolean isShowLoading() {
+        FragmentActivity activity = requireActivity();
+        if (activity instanceof BaseActivity) {
+            return ((BaseActivity<?>) activity).isShowLoading();
+        }
+        return false;
+    }
+
+    @Override
     public void showLoading() {
         FragmentActivity activity = requireActivity();
         if (activity instanceof BaseActivity) {
