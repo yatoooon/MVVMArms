@@ -40,13 +40,15 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             flavorDimensions("default")
             ndk {
                 // 设置支持的SO库架构
-                abiFilters(
-                    "armeabi",
-                    "x86",
-                    "armeabi-v7a",
-                    "x86_64",
-                    "arm64-v8a"
-                )  //"armeabi", "x86", "armeabi-v7a", "x86_64", "arm64-v8a"
+                abiFilters.addAll(
+                    mutableSetOf(
+                        "armeabi",
+                        "x86",
+                        "armeabi-v7a",
+                        "x86_64",
+                        "arm64-v8a"
+                    )
+                )
             }
             javaCompileOptions {
                 annotationProcessorOptions {
@@ -56,15 +58,33 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 
 
             // 构建配置字段
-            addBuildConfigField(ClassFieldImpl("String", "UM_KEY", '\"' + Umeng.UMENG_APP_KEY + '\"'))
-            addBuildConfigField(ClassFieldImpl("String", "QQ_ID",'\"' +  Umeng.QQ_APP_ID+ '\"'))
-            addBuildConfigField(ClassFieldImpl("String", "QQ_SECRET", '\"' + Umeng.QQ_APP_SECRET+ '\"'))
-            addBuildConfigField(ClassFieldImpl("String", "WX_ID", '\"' + Umeng.WX_APP_ID+ '\"'))
-            addBuildConfigField(ClassFieldImpl("String", "WX_SECRET", '\"' + Umeng.WX_APP_SECRET+ '\"'))
+            addBuildConfigField(
+                ClassFieldImpl(
+                    "String",
+                    "UM_KEY",
+                    '\"' + Umeng.UMENG_APP_KEY + '\"'
+                )
+            )
+            addBuildConfigField(ClassFieldImpl("String", "QQ_ID", '\"' + Umeng.QQ_APP_ID + '\"'))
+            addBuildConfigField(
+                ClassFieldImpl(
+                    "String",
+                    "QQ_SECRET",
+                    '\"' + Umeng.QQ_APP_SECRET + '\"'
+                )
+            )
+            addBuildConfigField(ClassFieldImpl("String", "WX_ID", '\"' + Umeng.WX_APP_ID + '\"'))
+            addBuildConfigField(
+                ClassFieldImpl(
+                    "String",
+                    "WX_SECRET",
+                    '\"' + Umeng.WX_APP_SECRET + '\"'
+                )
+            )
 
 
             addManifestPlaceholders(
-                mapOf<String,String>(
+                mapOf<String, String>(
                     "UM_KEY" to Umeng.UMENG_APP_KEY,
                     "QQ_ID" to Umeng.QQ_APP_ID,
                     "QQ_SECRET" to Umeng.QQ_APP_SECRET,
@@ -129,7 +149,6 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             }
             getByName("release") {
                 isMinifyEnabled = false
-                isZipAlignEnabled = false
                 if (isAppModule || isRunAlone) {
                     isShrinkResources = false
                 }

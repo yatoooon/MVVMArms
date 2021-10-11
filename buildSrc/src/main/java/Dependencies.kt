@@ -132,7 +132,7 @@ object Deps {
     const val logger = "com.orhanobut:logger:2.2.0"
 
     //test
-    const val junit = "junit:junit:4.+"
+    const val junit = "junit:junit:4.0"
     const val extJunit = "androidx.test.ext:junit:1.1.3"
     const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
     const val androidJUnitRunner = "androidx.test.runner.AndroidJUnitRunner"

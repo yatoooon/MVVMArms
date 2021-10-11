@@ -41,18 +41,18 @@ fun ImageView.load(
 
 @BindingAdapter(
         value = [
-            "bind:res",
-            "bind:isCircle",
-            "bind:isCrossFade",
-            "bind:isCenterCrop",
-            "bind:isClearMemory",
-            "bind:isClearDiskCache",
-            "bind:blurValue",
-            "bind:imageRadius",
-            "bind:cacheStrategy",
-            "bind:placeholder",
-            "bind:errorPic",
-            "bind:fallback"],
+            "res",
+            "isCircle",
+            "isCrossFade",
+            "isCenterCrop",
+            "isClearMemory",
+            "isClearDiskCache",
+            "blurValue",
+            "imageRadius",
+            "cacheStrategy",
+            "placeholder",
+            "errorPic",
+            "fallback"],
         requireAll = false)
 fun loadImage(
         imageView: ImageView,
