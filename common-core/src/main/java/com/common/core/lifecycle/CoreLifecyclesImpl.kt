@@ -2,6 +2,7 @@ package com.common.core.lifecycle
 
 import android.app.Application
 import android.content.Context
+import android.os.Build
 import com.alibaba.android.arouter.launcher.ARouter
 import com.coder.zzq.smartshow.core.SmartShow
 import com.common.core.base.delegate.BaseApplicationLifecycle
@@ -67,6 +68,7 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
         }
         FileDownloader.setupOnApplicationOnCreate(application)
             .connectionCreator(FileDownloadUrlConnection.Creator(config)).commit()
+
         ToastUtils.init(application)
     }
 
@@ -90,6 +92,14 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
                 if (BuildConfig.DEBUG) {
                     Logger.log(priority, tag, message, t)
                 }
+            }
+
+            override fun createStackElementTag(element: StackTraceElement): String {
+                val tag = "(" + element.fileName + ":" + element.lineNumber + ")"
+                // 日志 TAG 长度限制已经在 Android 7.0 被移除
+                return if (tag.length <= 23 || Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    tag
+                } else tag.substring(0, 23)
             }
         })
     }
