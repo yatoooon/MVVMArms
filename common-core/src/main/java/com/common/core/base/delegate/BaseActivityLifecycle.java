@@ -1,7 +1,6 @@
 package com.common.core.base.delegate;
 
 import static com.common.core.base.delegate.BaseApplicationLifecycleDelegate.mApplication;
-import static com.common.core.base.delegate.BaseApplicationLifecycleDelegate.modules;
 
 import android.app.Activity;
 import android.app.Application;
@@ -19,10 +18,16 @@ import com.common.core.config.CoreConfigModule;
 import com.common.res.utils.AppManager;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
 
 
 public class BaseActivityLifecycle implements Application.ActivityLifecycleCallbacks {
 
+
+    @Inject
+    public List<CoreConfigModule> modules;
 
     public BaseActivityLifecycle() {
 

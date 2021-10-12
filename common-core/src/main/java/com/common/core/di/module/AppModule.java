@@ -49,10 +49,15 @@ public class AppModule {
 
     @Singleton
     @Provides
-    AppModule.Builder provideConfigModuleBuilder(@ApplicationContext Context context) {
+    List<CoreConfigModule> provideListCoreConfigModule(@ApplicationContext Context context){
+        return new ManifestParser(context).parse();
+    }
+
+
+    @Singleton
+    @Provides
+    AppModule.Builder provideConfigModuleBuilder(@ApplicationContext Context context,List<CoreConfigModule> modules) {
         AppModule.Builder builder = new AppModule.Builder();
-        //解析配置
-        List<CoreConfigModule> modules = new ManifestParser(context).parse();
         //遍历配置
         for (CoreConfigModule configModule : modules) {
             //如果启用则申请配置参数

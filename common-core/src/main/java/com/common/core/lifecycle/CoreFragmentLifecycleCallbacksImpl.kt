@@ -3,8 +3,11 @@ package com.common.core.lifecycle
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.common.res.R
 import timber.log.Timber
 
 class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCallbacks() {
@@ -16,11 +19,30 @@ class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCall
         Timber.i("%s - onFragmentCreated", f.toString())
     }
 
-    override fun onFragmentViewCreated(fm: FragmentManager, f: Fragment, v: View, savedInstanceState: Bundle?) {
+    override fun onFragmentViewCreated(
+        fm: FragmentManager,
+        f: Fragment,
+        v: View,
+        savedInstanceState: Bundle?
+    ) {
         Timber.i("%s - onFragmentViewCreated", f.toString())
+        val toolbar = v.findViewById<View>(R.id.res_toolbar)
+        if (toolbar != null) {
+            val tvTitle = toolbar.findViewById<TextView>(R.id.res_tv_title)
+            //找到 Toolbar 的标题栏并设置标题名
+            if (tvTitle != null && f.tag != null && f.tag != f.activity?.getString(R.string.app_name)) {
+                tvTitle.text = f.tag
+            }
+            val ivBack = toolbar.findViewById<ImageView>(R.id.res_iv_back)
+            ivBack?.setOnClickListener { f.activity?.onBackPressed() }
+        }
     }
 
-    override fun onFragmentActivityCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?) {
+    override fun onFragmentActivityCreated(
+        fm: FragmentManager,
+        f: Fragment,
+        savedInstanceState: Bundle?
+    ) {
         Timber.i("%s - onFragmentActivityCreated", f.toString())
     }
 
