@@ -125,6 +125,6 @@ class CoreConfigModule : CoreConfigModule() {
         context: Context,
         lifecycles: MutableList<FragmentManager.FragmentLifecycleCallbacks>
     ) {
-
+        lifecycles.add(CoreFragmentLifecycleCallbacksImpl())
     }
 }

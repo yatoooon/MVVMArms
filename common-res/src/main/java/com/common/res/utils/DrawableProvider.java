@@ -1,4 +1,4 @@
-package com.common.res.util;
+package com.common.res.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;

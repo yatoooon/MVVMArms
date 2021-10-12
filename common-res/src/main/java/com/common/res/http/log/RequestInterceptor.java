@@ -3,9 +3,9 @@ package com.common.res.http.log;
 import androidx.annotation.Nullable;
 
 import com.common.res.http.GlobalHttpHandler;
-import com.common.res.util.CharacterHandler;
-import com.common.res.util.UrlEncoderUtil;
-import com.common.res.util.ZipHelper;
+import com.common.res.utils.CharacterHandler;
+import com.common.res.utils.UrlEncoderUtil;
+import com.common.res.utils.ZipHelper;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

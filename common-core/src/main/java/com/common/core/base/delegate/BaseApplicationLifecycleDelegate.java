@@ -20,10 +20,11 @@ public class BaseApplicationLifecycleDelegate implements BaseApplicationLifecycl
     private List<BaseApplicationLifecycle> mBaseApplicationLifecycles = new ArrayList<>();
     private List<Application.ActivityLifecycleCallbacks> mActivityLifecycles = new ArrayList<>();
     public static Application mApplication;
+    public static  List<CoreConfigModule> modules = null;
 
 
     public BaseApplicationLifecycleDelegate(@NonNull Context context) {
-        List<CoreConfigModule> modules = new ManifestParser(context).parse();
+        modules = new ManifestParser(context).parse();
         for (CoreConfigModule coreConfigModule : modules) {
             coreConfigModule.injectAppLifecycle(context, mBaseApplicationLifecycles);
             coreConfigModule.injectActivityLifecycle(context, mActivityLifecycles);
@@ -65,6 +66,7 @@ public class BaseApplicationLifecycleDelegate implements BaseApplicationLifecycl
         this.mActivityLifecycles = null;
         this.mBaseActivityLifecycle = null;
         this.mBaseApplicationLifecycles = null;
+        modules = null;
     }
 
 

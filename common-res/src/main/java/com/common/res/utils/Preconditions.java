@@ -1,4 +1,4 @@
-package com.common.res.util;
+package com.common.res.utils;
 
 import androidx.annotation.Nullable;
 

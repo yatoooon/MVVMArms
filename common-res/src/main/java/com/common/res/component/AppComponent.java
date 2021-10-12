@@ -2,7 +2,7 @@ package com.common.res.component;
 
 import com.common.res.http.imageloader.BaseImageLoaderStrategy;
 import com.common.res.http.imageloader.ImageLoader;
-import com.common.res.util.ArmsUtil;
+import com.common.res.utils.ArmsUtil;
 import com.google.gson.Gson;
 
 import java.io.File;

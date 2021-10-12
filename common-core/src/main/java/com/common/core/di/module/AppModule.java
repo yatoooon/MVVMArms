@@ -16,8 +16,8 @@ import com.common.res.http.imageloader.BaseImageLoaderStrategy;
 import com.common.res.http.log.DefaultFormatPrinter;
 import com.common.res.http.log.FormatPrinter;
 import com.common.res.http.log.RequestInterceptor;
-import com.common.res.util.DataHelper;
-import com.common.res.util.Preconditions;
+import com.common.res.utils.DataHelper;
+import com.common.res.utils.Preconditions;
 
 import java.io.File;
 import java.util.ArrayList;

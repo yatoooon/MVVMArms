@@ -11,8 +11,8 @@ import com.bumptech.glide.load.engine.cache.LruResourceCache
 import com.bumptech.glide.load.engine.cache.MemorySizeCalculator
 import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.module.AppGlideModule
-import com.common.res.util.ArmsUtil
-import com.common.res.util.DataHelper
+import com.common.res.utils.ArmsUtil
+import com.common.res.utils.DataHelper
 import java.io.File
 import java.io.InputStream
 

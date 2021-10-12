@@ -2,8 +2,8 @@ package com.common.res.aop;
 
 import android.app.Activity;
 
-import com.common.res.util.AppManager;
-import com.common.res.util.PermissionCallback;
+import com.common.res.utils.AppManager;
+import com.common.res.utils.PermissionCallback;
 import com.hjq.permissions.XXPermissions;
 import com.tencent.bugly.crashreport.CrashReport;
 

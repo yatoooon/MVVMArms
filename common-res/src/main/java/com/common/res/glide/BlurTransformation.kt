@@ -3,7 +3,7 @@ package com.common.res.glide
 import android.graphics.Bitmap
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
-import com.common.res.util.FastBlur
+import com.common.res.utils.FastBlur
 import java.security.MessageDigest
 
 //高斯模糊

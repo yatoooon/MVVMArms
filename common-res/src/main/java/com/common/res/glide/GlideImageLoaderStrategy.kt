@@ -9,8 +9,8 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.common.res.http.imageloader.BaseImageLoaderStrategy
 import com.common.res.http.imageloader.ImageConfig
-import com.common.res.util.ArmsUtil
-import com.common.res.util.Preconditions
+import com.common.res.utils.ArmsUtil
+import com.common.res.utils.Preconditions
 import com.common.res.glide.config.GlideAppliesOptions
 import com.common.res.glide.config.GlideArms
 import com.common.res.glide.config.GlideRequests
