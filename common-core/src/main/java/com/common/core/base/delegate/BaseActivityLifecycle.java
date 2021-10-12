@@ -15,19 +15,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks;
 
 import com.common.core.config.CoreConfigModule;
+import com.common.core.config.ManifestParser;
 import com.common.res.utils.AppManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
 
 
 public class BaseActivityLifecycle implements Application.ActivityLifecycleCallbacks {
-
-
-    @Inject
-    public List<CoreConfigModule> modules;
 
     public BaseActivityLifecycle() {
 
@@ -48,19 +44,15 @@ public class BaseActivityLifecycle implements Application.ActivityLifecycleCallb
     private void registerFragmentCallbacks(Activity activity) {
 
         if (activity instanceof FragmentActivity) {
-            //mFragmentLifecycle 为 Fragment 生命周期实现类, 用于框架内部对每个 Fragment 的必要操作, 如给每个 Fragment 配置 FragmentDelegate
-            //注册框架内部已实现的 Fragment 生命周期逻辑
+            List<CoreConfigModule> modules = new ManifestParser(activity.getApplicationContext()).parse();
             ArrayList<FragmentLifecycleCallbacks> fragmentLifecycleCallbacksList = new ArrayList<>();
-            if (modules != null) {
-                for (CoreConfigModule module : modules) {
-                    module.injectFragmentLifecycle(mApplication, fragmentLifecycleCallbacksList);
-                }
+            for (CoreConfigModule module : modules) {
+                module.injectFragmentLifecycle(mApplication, fragmentLifecycleCallbacksList);
             }
             for (FragmentLifecycleCallbacks lifecycleCallbacks :
                     fragmentLifecycleCallbacksList) {
                 ((FragmentActivity) activity).getSupportFragmentManager().registerFragmentLifecycleCallbacks(lifecycleCallbacks, true);
             }
-
         }
     }
 

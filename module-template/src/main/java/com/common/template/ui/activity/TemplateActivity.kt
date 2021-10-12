@@ -1,7 +1,6 @@
 package com.common.template.ui.activity
 
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.mvvm.BaseVMActivity
