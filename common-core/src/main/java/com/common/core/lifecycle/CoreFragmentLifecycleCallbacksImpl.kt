@@ -34,6 +34,7 @@ class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCall
                 tvTitle.text = f.tag
             }
             val ivBack = toolbar.findViewById<ImageView>(R.id.res_iv_back)
+            ivBack.visibility = View.GONE
             ivBack?.setOnClickListener { f.activity?.onBackPressed() }
         }
     }

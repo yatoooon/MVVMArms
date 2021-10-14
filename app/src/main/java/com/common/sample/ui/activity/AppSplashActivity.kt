@@ -1,11 +1,10 @@
-package com.common.sample.ui.splash
+package com.common.sample.ui.activity
 
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.common.core.base.BaseActivity
-import com.common.res.ext.load
 import com.common.res.immersionbar.BindFullScreen
 import com.common.res.router.RouterHub
 import com.common.res.router.routerNavigation

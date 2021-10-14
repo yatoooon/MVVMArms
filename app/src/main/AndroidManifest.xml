@@ -21,7 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/res_AppTheme"
         tools:replace="android:name">
-        <activity android:name="com.common.sample.ui.splash.AppSplashActivity">
+        <activity android:name="com.common.sample.ui.activity.AppSplashActivity">
+        </activity>
+        <activity android:name=".ui.activity.AppMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

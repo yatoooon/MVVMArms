@@ -6,4 +6,6 @@ dependencies {
     implementation project(':module-web')
     implementation project(':module-umeng')
     implementation project(':module-template')
+    implementation project(':module-home')
+    implementation project(':module-found')
 }

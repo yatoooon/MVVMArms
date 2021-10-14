@@ -161,10 +161,10 @@
 
     <!-- 首页 -->
     <string name="res_home_exit_hint">再按一次退出</string>
-    <string name="res_home_nav_index">首页</string>
-    <string name="res_home_nav_found">发现</string>
-    <string name="res_home_nav_message">消息</string>
-    <string name="res_home_nav_me">我的</string>
+    <string name="res_nav_index">首页</string>
+    <string name="res_nav_found">发现</string>
+    <string name="res_nav_message">消息</string>
+    <string name="res_nav_me">我的</string>
 
     <!-- 登录 -->
     <string name="res_login_register">注册</string>
