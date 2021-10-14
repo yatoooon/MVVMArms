@@ -40,14 +40,12 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             flavorDimensions("default")
             ndk {
                 // 设置支持的SO库架构
-                abiFilters.addAll(
-                    mutableSetOf(
-                        "armeabi",
-                        "x86",
-                        "armeabi-v7a",
-                        "x86_64",
-                        "arm64-v8a"
-                    )
+                abiFilters(
+                    "armeabi",
+                    "x86",
+                    "armeabi-v7a",
+                    "x86_64",
+                    "arm64-v8a"
                 )
             }
             javaCompileOptions {
