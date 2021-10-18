@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
  *
  */
 @AndroidEntryPoint
-class AppSplashActivity : BaseActivity<AppActivitySplashBinding>(), BindFullScreen {
+class SplashActivity : BaseActivity<AppActivitySplashBinding>(), BindFullScreen {
 
     override fun initData(savedInstanceState: Bundle?) {
         startAnimation(viewDataBinding.rootView)

@@ -1,6 +1,7 @@
 package com.common.core.base;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
@@ -42,6 +44,13 @@ import java.util.List;
  */
 public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading,
         ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction {
+
+
+    /**
+     * Activity 对象
+     */
+    private FragmentActivity mActivity;
+
     /**
      * 请通过 {@link #getViewDataBinding()}获取，后续版本 {@link #mBinding}可能会私有化
      */
@@ -53,21 +62,29 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     private View mRootView;
 
 
+    /**
+     * 当前是否加载过
+     */
+    private boolean mLoading;
+
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        // 获得全局的 Activity
+        mActivity = requireActivity();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mRootView = createRootView(inflater, container, savedInstanceState);
-        initView();
-        initViewModel();
-        initObserve();
-        initViewClick();
-        return mRootView;
-    }
-
-    public void initView() {
+        mRootView = inflater.inflate(getLayoutId(), container, false);
+        mRootView.setTag(getLayoutId(), savedInstanceState);  //在这里用布局的id做了key
         if (isBinding()) {
             mBinding = DataBindingUtil.bind(getRootView());
         }
+        return mRootView;
     }
 
     public void initViewModel() {
@@ -82,19 +99,45 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initData(savedInstanceState);
+        initViewModel();
+        initObserve();
+        initViewClick();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!mLoading) {
+            mLoading = true;
+            Bundle savedInstanceState = null;
+            if (mRootView != null) {
+                savedInstanceState = (Bundle) mRootView.getTag(getLayoutId());
+            }
+            initData(savedInstanceState);
+            onFragmentResume(true);
+            return;
+        }
+        if (mActivity != null && mActivity.getLifecycle().getCurrentState() == Lifecycle.State.STARTED) {
+            onActivityResume();
+        } else {
+            onFragmentResume(false);
+        }
     }
 
     /**
-     * 创建 {@link #mRootView}
+     * Fragment 可见回调
      *
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
+     * @param first 是否首次调用
      */
-    protected View createRootView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(getLayoutId(), container, false);
+    protected void onFragmentResume(boolean first) {
+
+    }
+
+    /**
+     * Activity 可见回调
+     */
+    protected void onActivityResume() {
+
     }
 
     @Override
@@ -138,9 +181,23 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         if (mBinding != null) {
             mBinding.unbind();
         }
+        mLoading = false;
         removeCallbacks();
     }
 
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mActivity = null;
+    }
+
+    /**
+     * 这个 Fragment 是否已经加载过了
+     */
+    public boolean isLoading() {
+        return mLoading;
+    }
 
     /**
      * 获取rootView
@@ -226,6 +283,16 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         // 默认不拦截按键事件
         return false;
+    }
+
+    /**
+     * 销毁当前 Fragment 所在的 Activity
+     */
+    public void finish() {
+        if (mActivity == null || mActivity.isFinishing() || mActivity.isDestroyed()) {
+            return;
+        }
+        mActivity.finish();
     }
 
 }

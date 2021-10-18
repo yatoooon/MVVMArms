@@ -96,6 +96,7 @@ object Deps {
     const val labelsView = "com.github.donkingliang:LabelsView:1.6.3"
     const val circleProgressbar = "com.dinuscxj:circleprogressbar:1.3.6"
     const val rvAdapter = "com.gitee.cbfg5210:RVAdapter:0.3.5"
+    const val bottombar = "me.majiajie:pager-bottom-tab-strip:2.4.0"
 
 
     //tools

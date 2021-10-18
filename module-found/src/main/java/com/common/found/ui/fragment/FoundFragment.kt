@@ -23,6 +23,7 @@ open class FoundFragment : BaseVMFragment<FoundFragmentBinding, BaseViewModel>()
     }
 
     override fun initData(savedInstanceState: Bundle?) {
+
     }
 
 }
