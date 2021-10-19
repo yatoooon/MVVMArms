@@ -2,6 +2,7 @@ package com.common.core.lifecycle
 
 import android.content.Context
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -30,8 +31,8 @@ class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCall
         if (toolbar != null) {
             val tvTitle = toolbar.findViewById<TextView>(R.id.res_tv_title)
             //找到 Toolbar 的标题栏并设置标题名
-            if (tvTitle != null && f.tag != null && f.tag != f.activity?.getString(R.string.app_name)) {
-                tvTitle.text = f.tag
+            if (tvTitle != null && !TextUtils.isEmpty(f.arguments?.getString("title"))) {
+                tvTitle.text = f.arguments?.getString("title")
             }
             val ivBack = toolbar.findViewById<ImageView>(R.id.res_iv_back)
             ivBack.visibility = View.GONE
