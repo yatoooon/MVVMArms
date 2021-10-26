@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="res_colorPrimary">#0277BD</color>
-    <color name="res_colorPrimaryDark">#004C8C</color>
-    <color name="res_colorAccent">#0277BD</color>
+
     <color name="res_color_ffffff">#ffffff</color>
     <color name="res_color_656565">#656565</color>
     <color name="res_color_333333">#333333</color>
@@ -10,9 +8,9 @@
 
 
     <!-- App 样式中引用的颜色 -->
-    <color name="res_common_primary_color">@color/res_white</color>
-    <color name="res_common_primary_dark_color">@color/res_black</color>
-    <color name="res_common_accent_color">#5A8DDF</color>
+    <color name="res_common_primary_color">#0277BD</color>
+    <color name="res_common_primary_dark_color">#004C8C</color>
+    <color name="res_common_accent_color">#0277BD</color>
     <color name="res_common_window_background_color">#F4F4F4</color>
     <color name="res_common_text_color">#333333</color>
     <color name="res_common_text_hint_color">@color/res_panda</color>

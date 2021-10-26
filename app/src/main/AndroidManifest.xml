@@ -13,6 +13,7 @@
     <!-- 友盟社会化 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -21,8 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/res_AppTheme"
         tools:replace="android:name">
-        <activity android:name="com.common.sample.ui.activity.SplashActivity">
-        </activity>
+        <activity android:name="com.common.sample.ui.activity.SplashActivity"></activity>
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

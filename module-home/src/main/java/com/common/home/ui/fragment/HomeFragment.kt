@@ -5,14 +5,17 @@ import com.common.core.base.mvvm.BaseVMFragment
 import com.common.core.base.mvvm.BaseViewModel
 import com.common.home.R
 import com.common.home.databinding.HomeFragmentBinding
+import com.common.res.immersionbar.BindImmersionBar
+import com.gyf.immersionbar.ImmersionBar
 
-open class HomeFragment : BaseVMFragment<HomeFragmentBinding, BaseViewModel>() {
+open class HomeFragment : BaseVMFragment<HomeFragmentBinding, BaseViewModel>(), BindImmersionBar {
 
-    companion object{
-        fun newInstance(): HomeFragment {
+    companion object {
+        fun newInstance(title: String): HomeFragment {
             val args = Bundle()
             val fragment = HomeFragment()
             fragment.arguments = args
+            args.putString("title", title)
             return fragment
         }
     }
@@ -23,6 +26,8 @@ open class HomeFragment : BaseVMFragment<HomeFragmentBinding, BaseViewModel>() {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
+        ImmersionBar.setTitleBar(activity, binding.tbHomeTitle)
     }
+
 
 }

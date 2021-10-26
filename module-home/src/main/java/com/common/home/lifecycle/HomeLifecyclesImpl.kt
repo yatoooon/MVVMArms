@@ -10,7 +10,6 @@ class HomeLifecyclesImpl : BaseApplicationLifecycle {
     }
 
     override fun onCreate(application: Application) {
-
     }
 
     override fun onTerminate(application: Application) {

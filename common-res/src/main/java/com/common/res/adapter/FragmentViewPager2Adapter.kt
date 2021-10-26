@@ -19,13 +19,7 @@ class FragmentViewPager2Adapter : FragmentStateAdapter {
     }
 
     override fun createFragment(position: Int): Fragment {
-        val fragment = fragmentList[position]
-        if (!TextUtils.isEmpty(fragmentTitleList[position])) {
-            val bundle = Bundle()
-            bundle.putString("title", fragmentTitleList[position])
-            fragment.arguments = bundle
-        }
-        return fragment
+        return fragmentList[position]
     }
 
     override fun getItemCount(): Int {
@@ -33,12 +27,7 @@ class FragmentViewPager2Adapter : FragmentStateAdapter {
     }
 
     private var fragmentList: List<Fragment> = ArrayList()
-    private var fragmentTitleList: List<String> = ArrayList()
     fun setFragments(fragments: List<Fragment>) {
         fragmentList = fragments
-    }
-
-    fun setFragmentTitles(fragmentTitles: List<String>) {
-        fragmentTitleList = fragmentTitles
     }
 }

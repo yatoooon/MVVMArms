@@ -8,11 +8,12 @@ import com.common.found.databinding.FoundFragmentBinding
 
 open class FoundFragment : BaseVMFragment<FoundFragmentBinding, BaseViewModel>() {
 
-    companion object{
-        fun newInstance(): FoundFragment {
+    companion object {
+        fun newInstance(title: String): FoundFragment {
             val args = Bundle()
             val fragment = FoundFragment()
             fragment.arguments = args
+            args.putString("title", title)
             return fragment
         }
     }

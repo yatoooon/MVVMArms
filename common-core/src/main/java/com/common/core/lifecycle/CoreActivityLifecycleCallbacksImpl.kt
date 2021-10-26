@@ -6,7 +6,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.common.core.base.BaseActivity
 import com.common.res.R
+import com.common.res.immersionbar.BindFullScreen
+import com.common.res.immersionbar.BindImmersionBar
+import com.gyf.immersionbar.BarHide
+import com.gyf.immersionbar.ImmersionBar
 import timber.log.Timber
 
 //添加生命周期的打印信息
@@ -18,7 +23,33 @@ class CoreActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
 
     override fun onActivityStarted(activity: Activity) {
         Timber.i("%s - onActivityStarted", activity)
-        //这里全局给Activity设置toolbar和title,你想象力有多丰富,这里就有多强大,以前放到BaseActivity的操作都可以放到这里
+        //全局设置状态栏
+        if (activity is BaseActivity<*>) {
+            when (activity) {
+                is BindImmersionBar -> {
+                    ImmersionBar.with(activity)
+                        .statusBarDarkFont(true)
+                        .navigationBarColor(R.color.res_color_ffffff)
+                        .init()
+                }
+                is BindFullScreen -> {
+                    ImmersionBar.with(activity)
+                        .fullScreen(true)
+                        .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)
+                        .navigationBarColor(R.color.res_color_ffffff)
+                        .init()
+                }
+                else -> {
+                    ImmersionBar.with(activity)
+                        .fitsSystemWindows(true)
+                        .autoDarkModeEnable(true)
+                        .statusBarColor(R.color.res_color_ffffff)
+                        .navigationBarColor(R.color.res_color_ffffff)
+                        .init()
+                }
+            }
+        }
+        //全局设置toolbar 和 title
         val toolbar = activity.findViewById<View>(R.id.res_toolbar)
         if (toolbar != null) {
             val tvTitle = toolbar.findViewById<TextView>(R.id.res_tv_title)

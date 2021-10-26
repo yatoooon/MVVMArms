@@ -49,7 +49,7 @@ import java.util.List;
  */
 public class BasePopupWindow extends PopupWindow
         implements ActivityAction, HandlerAction, ClickAction,
-        AnimAction, KeyboardAction, PopupWindow.OnDismissListener {
+        AnimAction, KeyboardAction, PopupWindow.OnDismissListener ,ToastAction{
 
     private final Context mContext;
     private PopupBackground mPopupBackground;

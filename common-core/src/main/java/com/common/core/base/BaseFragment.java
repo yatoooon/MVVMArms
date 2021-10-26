@@ -26,6 +26,7 @@ import com.common.res.action.ClickAction;
 import com.common.res.action.HandlerAction;
 import com.common.res.action.KeyboardAction;
 import com.common.res.action.ResourcesAction;
+import com.common.res.action.ToastAction;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ import java.util.List;
  * //-------------------------
  */
 public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading,
-        ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction {
+        ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction , ToastAction {
 
 
     /**

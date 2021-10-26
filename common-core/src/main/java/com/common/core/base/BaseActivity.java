@@ -39,7 +39,7 @@ import java.util.Random;
  * //-------------------------
  */
 public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompatActivity implements IView, ILoading, ActivityAction, ClickAction,
-        HandlerAction, BundleAction, KeyboardAction {
+        HandlerAction, BundleAction, KeyboardAction ,ToastAction{
 
     /**
      * 请通过 {@link #getViewDataBinding()}获取，后续版本 {@link #mBinding}可能会私有化
