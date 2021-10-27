@@ -298,7 +298,7 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
 
     @Override
     public int getImmersionBarType() {
-        return DEFAULTBAR;
+        return NOSETBAR;
     }
 
     @Override

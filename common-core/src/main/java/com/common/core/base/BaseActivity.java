@@ -311,12 +311,12 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     //activity 默认状态栏沉浸
     @Override
     public int getImmersionBarType() {
-        return IMMERSIONBAR;
+        return DEFAULTBAR;
     }
 
     //activity 默认状态栏黑色字体
     @Override
     public boolean isStatusBarDarkFont() {
-        return false;
+        return true;
     }
 }

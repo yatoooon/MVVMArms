@@ -5,6 +5,7 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.common.core.base.BaseActivity
+import com.common.res.immersionbar.BindImmersionBar
 import com.common.res.router.RouterHub
 import com.common.res.router.routerNavigation
 import com.common.sample.R
@@ -33,7 +34,8 @@ class SplashActivity : BaseActivity<AppActivitySplashBinding>() {
             }
 
             override fun onAnimationEnd(animation: Animation) {
-                routerNavigation(RouterHub.PUBLIC_TEMPLATE)
+                routerNavigation(RouterHub.PUBLIC_MAIN)
+                finish()
             }
 
             override fun onAnimationRepeat(animation: Animation) {
@@ -43,5 +45,7 @@ class SplashActivity : BaseActivity<AppActivitySplashBinding>() {
         view.startAnimation(anim)
     }
 
-
+    override fun getImmersionBarType(): Int {
+        return BindImmersionBar.FULLSCREEN
+    }
 }

@@ -5,6 +5,7 @@ import com.common.core.base.mvvm.BaseVMFragment
 import com.common.core.base.mvvm.BaseViewModel
 import com.common.found.R
 import com.common.found.databinding.FoundFragmentBinding
+import com.common.res.immersionbar.BindImmersionBar
 
 open class FoundFragment : BaseVMFragment<FoundFragmentBinding, BaseViewModel>() {
 
@@ -25,6 +26,14 @@ open class FoundFragment : BaseVMFragment<FoundFragmentBinding, BaseViewModel>()
 
     override fun initData(savedInstanceState: Bundle?) {
 
+    }
+
+    override fun isStatusBarDarkFont(): Boolean {
+        return true
+    }
+
+    override fun getImmersionBarType(): Int {
+        return BindImmersionBar.DEFAULTBAR
     }
 
 }

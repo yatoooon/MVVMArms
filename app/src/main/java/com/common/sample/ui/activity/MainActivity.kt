@@ -3,20 +3,23 @@ package com.common.sample.ui.activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.BaseActivity
 import com.common.found.ui.fragment.FoundFragment
 import com.common.home.ui.fragment.HomeFragment
 import com.common.res.adapter.FragmentViewPager2Adapter
 import com.common.res.immersionbar.BindImmersionBar
+import com.common.res.router.RouterHub
 import com.common.res.utils.AppManager
 import com.common.res.utils.DoubleClickUtils.isOnDoubleClick
 import com.common.sample.R
 import com.common.sample.databinding.AppActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-
+@Route(path = RouterHub.PUBLIC_MAIN)
 @AndroidEntryPoint
 class MainActivity : BaseActivity<AppActivityMainBinding>() {
+
 
 
     private var mPagerAdapter = FragmentViewPager2Adapter(this)
@@ -68,6 +71,14 @@ class MainActivity : BaseActivity<AppActivityMainBinding>() {
             // 进行内存优化，销毁掉所有的界面
             AppManager.getAppManager().killAll()
         }, 300)
+    }
+
+    override fun getImmersionBarType(): Int {
+        return BindImmersionBar.IMMERSIONBAR
+    }
+
+    override fun isStatusBarDarkFont(): Boolean {
+        return false
     }
 }
 

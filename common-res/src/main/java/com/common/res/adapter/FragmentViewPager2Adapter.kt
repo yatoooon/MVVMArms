@@ -10,13 +10,13 @@ import androidx.lifecycle.Lifecycle
 import java.util.ArrayList
 
 class FragmentViewPager2Adapter : FragmentStateAdapter {
+
     constructor(fragmentActivity: FragmentActivity) : super(fragmentActivity) {}
     constructor(fragment: Fragment) : super(fragment) {}
     constructor(fragmentManager: FragmentManager, lifecycle: Lifecycle) : super(
         fragmentManager,
         lifecycle
-    ) {
-    }
+    ) {}
 
     override fun createFragment(position: Int): Fragment {
         return fragmentList[position]

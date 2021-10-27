@@ -25,10 +25,10 @@ object RouterHub {
     const val PUBLIC_LOGIN: String = "$LOGIN/loginPage"
 
     //login页
-    const val PUBLIC_TEMPLATE: String = "$TEMPLATE/template"
+    const val PUBLIC_TEMPLATE: String = "$TEMPLATE/TemplateActivity"
 
     //main页
-    const val PUBLIC_MAIN: String = "$MAIN/mainPage"
+    const val PUBLIC_MAIN: String = "$MAIN/MainActivity"
 
     //web框架服务
     const val WEBFRAME_ERVICE: String = "$WEBFRAME$SERVICE/WebframeService"

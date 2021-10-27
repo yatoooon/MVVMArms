@@ -10,6 +10,7 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/res_white"
         tools:context=".ui.fragment.HomeFragment">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -82,16 +83,29 @@
 
             </com.common.res.layout.XCollapsingToolbarLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.google.android.material.tabs.TabLayout
                 android:id="@+id/rv_home_tab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:itemCount="2"
-                tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                tools:spanCount="2" />
+                app:tabSelectedTextColor="@color/res_common_accent_color"
+                app:tabIndicatorHeight="@dimen/res_dp_2"
+                app:tabIndicatorColor="@color/res_common_accent_color"
+                app:tabTextColor="@color/res_black25" />
 
         </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_home_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.core.widget.NestedScrollView>
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

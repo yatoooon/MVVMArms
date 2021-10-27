@@ -22,14 +22,15 @@
         android:supportsRtl="true"
         android:theme="@style/res_AppTheme"
         tools:replace="android:name">
-        <activity android:name="com.common.sample.ui.activity.SplashActivity"></activity>
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name="com.common.sample.ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.MainActivity">
 
+        </activity>
         <meta-data
             android:name="com.common.sample.lifecycle.AppConfiguration"
             android:value="CoreConfigModule" />
