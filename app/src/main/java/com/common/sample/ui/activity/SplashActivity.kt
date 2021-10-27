@@ -5,7 +5,6 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.common.core.base.BaseActivity
-import com.common.res.immersionbar.BindFullScreen
 import com.common.res.router.RouterHub
 import com.common.res.router.routerNavigation
 import com.common.sample.R
@@ -17,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
  *
  */
 @AndroidEntryPoint
-class SplashActivity : BaseActivity<AppActivitySplashBinding>(), BindFullScreen {
+class SplashActivity : BaseActivity<AppActivitySplashBinding>() {
 
     override fun initData(savedInstanceState: Bundle?) {
         startAnimation(viewDataBinding.rootView)

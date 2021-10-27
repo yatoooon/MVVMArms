@@ -21,6 +21,7 @@ import com.common.core.base.ibase.IView;
 import com.common.res.action.*;
 import com.common.res.dialog.BaseDialog;
 import com.common.res.dialog.WaitDialog;
+import com.common.res.immersionbar.BindImmersionBar;
 
 import java.util.List;
 import java.util.Random;
@@ -38,8 +39,8 @@ import java.util.Random;
  * }
  * //-------------------------
  */
-public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompatActivity implements IView, ILoading, ActivityAction, ClickAction,
-        HandlerAction, BundleAction, KeyboardAction ,ToastAction{
+public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompatActivity implements IView, ILoading, BindImmersionBar, ActivityAction, ClickAction,
+        HandlerAction, BundleAction, KeyboardAction, ToastAction {
 
     /**
      * 请通过 {@link #getViewDataBinding()}获取，后续版本 {@link #mBinding}可能会私有化
@@ -306,4 +307,16 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         void onActivityResult(int resultCode, @Nullable Intent data);
     }
 
+
+    //activity 默认状态栏沉浸
+    @Override
+    public int getImmersionBarType() {
+        return IMMERSIONBAR;
+    }
+
+    //activity 默认状态栏黑色字体
+    @Override
+    public boolean isStatusBarDarkFont() {
+        return false;
+    }
 }

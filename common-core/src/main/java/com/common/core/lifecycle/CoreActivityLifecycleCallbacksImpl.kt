@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.common.core.base.BaseActivity
 import com.common.res.R
-import com.common.res.immersionbar.BindFullScreen
 import com.common.res.immersionbar.BindImmersionBar
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
@@ -25,26 +24,28 @@ class CoreActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
         Timber.i("%s - onActivityStarted", activity)
         //全局设置状态栏
         if (activity is BaseActivity<*>) {
-            when (activity) {
-                is BindImmersionBar -> {
+            when (activity.getImmersionBarType()) {
+                BindImmersionBar.IMMERSIONBAR -> {
                     ImmersionBar.with(activity)
-                        .statusBarDarkFont(true)
+                        .statusBarDarkFont(activity.isStatusBarDarkFont())
                         .navigationBarColor(R.color.res_color_ffffff)
+                        .autoDarkModeEnable(true, 0.2f)
                         .init()
                 }
-                is BindFullScreen -> {
+                BindImmersionBar.FULLSCREEN -> {
                     ImmersionBar.with(activity)
                         .fullScreen(true)
                         .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)
                         .navigationBarColor(R.color.res_color_ffffff)
                         .init()
                 }
-                else -> {
+                BindImmersionBar.DEFAULTBAR -> {
                     ImmersionBar.with(activity)
                         .fitsSystemWindows(true)
                         .autoDarkModeEnable(true)
                         .statusBarColor(R.color.res_color_ffffff)
                         .navigationBarColor(R.color.res_color_ffffff)
+                        .autoDarkModeEnable(true, 0.2f)
                         .init()
                 }
             }

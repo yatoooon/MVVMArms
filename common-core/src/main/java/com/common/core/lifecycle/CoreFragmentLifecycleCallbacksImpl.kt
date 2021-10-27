@@ -8,11 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.common.core.base.BaseActivity
 import com.common.core.base.BaseFragment
 import com.common.res.R
-import com.common.res.immersionbar.BindFullScreen
 import com.common.res.immersionbar.BindImmersionBar
+import com.common.res.immersionbar.BindImmersionBar.Companion.DEFAULTBAR
+import com.common.res.immersionbar.BindImmersionBar.Companion.FULLSCREEN
+import com.common.res.immersionbar.BindImmersionBar.Companion.IMMERSIONBAR
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
 import timber.log.Timber
@@ -63,28 +64,31 @@ class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCall
         Timber.i("%s - onFragmentResumed", f.toString())
         //设置全局fragment状态栏
         if (f is BaseFragment<*>) {
-            when (f) {
-                is BindImmersionBar -> {
+            when (f.getImmersionBarType()) {
+                IMMERSIONBAR -> {
                     ImmersionBar.with(f)
-                        .statusBarDarkFont(true)
+                        .statusBarDarkFont(f.isStatusBarDarkFont())
                         .navigationBarColor(R.color.res_color_ffffff)
+                        .autoDarkModeEnable(true, 0.2f)
                         .init()
                 }
-                is BindFullScreen -> {
+                FULLSCREEN -> {
                     ImmersionBar.with(f)
                         .fullScreen(true)
                         .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)
                         .navigationBarColor(R.color.res_color_ffffff)
                         .init()
                 }
-                else -> {
+                DEFAULTBAR -> {
                     ImmersionBar.with(f)
                         .fitsSystemWindows(true)
                         .autoDarkModeEnable(true)
                         .statusBarColor(R.color.res_color_ffffff)
                         .navigationBarColor(R.color.res_color_ffffff)
+                        .autoDarkModeEnable(true, 0.2f)
                         .init()
                 }
+
             }
         }
     }

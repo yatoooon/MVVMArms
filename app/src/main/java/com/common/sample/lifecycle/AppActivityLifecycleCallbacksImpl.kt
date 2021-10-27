@@ -3,12 +3,6 @@ package com.common.sample.lifecycle
 import android.app.Activity
 import android.app.Application.ActivityLifecycleCallbacks
 import android.os.Bundle
-import com.common.core.base.BaseActivity
-import com.common.res.immersionbar.BindFullScreen
-import com.common.res.immersionbar.BindImmersionBar
-import com.common.sample.R
-import com.gyf.immersionbar.BarHide
-import com.gyf.immersionbar.ImmersionBar
 
 class AppActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
 

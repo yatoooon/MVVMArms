@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity<AppActivityMainBinding>() ,BindImmersionBar{
+class MainActivity : BaseActivity<AppActivityMainBinding>() {
 
 
     private var mPagerAdapter = FragmentViewPager2Adapter(this)
@@ -45,6 +45,7 @@ class MainActivity : BaseActivity<AppActivityMainBinding>() ,BindImmersionBar{
                 }
             }
         mPagerAdapter.setFragments(fragments)
+        binding.vpHomePager.offscreenPageLimit = fragments.size
         binding.vpHomePager.adapter = mPagerAdapter
         binding.vpHomePager.isUserInputEnabled = false //禁止viewpager2左右滑动
         binding.vpHomePager.registerOnPageChangeCallback(object :

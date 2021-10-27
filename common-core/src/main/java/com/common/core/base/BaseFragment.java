@@ -1,6 +1,5 @@
 package com.common.core.base;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
@@ -27,6 +25,7 @@ import com.common.res.action.HandlerAction;
 import com.common.res.action.KeyboardAction;
 import com.common.res.action.ResourcesAction;
 import com.common.res.action.ToastAction;
+import com.common.res.immersionbar.BindImmersionBar;
 
 import java.util.List;
 
@@ -43,8 +42,8 @@ import java.util.List;
  * }
  * //-------------------------
  */
-public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading,
-        ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction , ToastAction {
+public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading, BindImmersionBar,
+        ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction, ToastAction {
 
 
     /**
@@ -294,6 +293,17 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
             return;
         }
         mActivity.finish();
+    }
+
+
+    @Override
+    public int getImmersionBarType() {
+        return DEFAULTBAR;
+    }
+
+    @Override
+    public boolean isStatusBarDarkFont() {
+        return true;
     }
 
 }
