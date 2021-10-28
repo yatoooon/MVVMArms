@@ -66,14 +66,14 @@ fun execCommand(commands: Array<String>?, isRoot: Boolean): Int {
             if (command == null) {
                 continue
             }
-            dos!!.write(command.toByteArray())
-            dos!!.writeBytes(COMMAND_LINE_END)
-            dos!!.flush()
+            dos.write(command.toByteArray())
+            dos.writeBytes(COMMAND_LINE_END)
+            dos.flush()
         }
-        dos!!.writeBytes(COMMAND_EXIT)
-        dos!!.flush()
+        dos.writeBytes(COMMAND_EXIT)
+        dos.flush()
 
-        result = process!!.waitFor()
+        result = process.waitFor()
     } catch (e: IOException) {
         e.printStackTrace()
     } catch (e: Exception) {

@@ -275,7 +275,7 @@ public class ArmsUtil {
                         string.getBytes(StandardCharsets.UTF_8));
             } else {
                 hash = MessageDigest.getInstance("MD5").digest(
-                        string.getBytes("UTF-8"));
+                        string.getBytes(StandardCharsets.UTF_8));
             }
         } catch (Exception e) {
             e.printStackTrace();

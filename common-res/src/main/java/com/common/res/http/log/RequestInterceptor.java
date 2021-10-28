@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -62,7 +63,7 @@ public class RequestInterceptor implements Interceptor {
             }
             Buffer requestbuffer = new Buffer();
             body.writeTo(requestbuffer);
-            Charset charset = Charset.forName("UTF-8");
+            Charset charset = StandardCharsets.UTF_8;
             MediaType contentType = body.contentType();
             if (contentType != null) {
                 charset = contentType.charset(charset);
@@ -247,7 +248,7 @@ public class RequestInterceptor implements Interceptor {
      * @return 解析后的响应结果
      */
     private String parseContent(ResponseBody responseBody, String encoding, Buffer clone) {
-        Charset charset = Charset.forName("UTF-8");
+        Charset charset = StandardCharsets.UTF_8;
         MediaType contentType = responseBody.contentType();
         if (contentType != null) {
             charset = contentType.charset(charset);

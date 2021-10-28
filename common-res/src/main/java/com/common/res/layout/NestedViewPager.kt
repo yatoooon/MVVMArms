@@ -16,8 +16,8 @@ open class NestedViewPager : ViewPager, NestedScrollingParent, NestedScrollingCh
     private var mParentHelper: NestedScrollingParentHelper? = null
     private var mChildHelper: NestedScrollingChildHelper? = null
 
-    constructor(context: Context) : super(context) {}
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {}
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
     override fun setNestedScrollingEnabled(enabled: Boolean) {
         mChildHelper!!.isNestedScrollingEnabled = enabled

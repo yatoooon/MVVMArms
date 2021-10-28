@@ -81,7 +81,7 @@ class GlideImageLoaderStrategy : BaseImageLoaderStrategy<ImageConfigImpl?>, Glid
         }
         if (config.getImageViews() != null && config.getImageViews()!!.isNotEmpty()) { //取消在执行的任务并且释放资源
             for (imageView in config.getImageViews()!!) {
-                GlideArms.get(ctx!!).requestManagerRetriever[ctx].clear(imageView!!)
+                GlideArms.get(ctx!!).requestManagerRetriever[ctx].clear(imageView)
             }
         }
         if (config.isClearDiskCache) { //清除本地缓存

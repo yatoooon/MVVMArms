@@ -78,9 +78,9 @@ fun Context.inflateLayout(@LayoutRes layoutId: Int, parent: ViewGroup? = null, a
 fun Context.getAppVersion(): String {
 
     val appContext = applicationContext
-    val manager = appContext.getPackageManager()
+    val manager = appContext.packageManager
     try {
-        val info = manager.getPackageInfo(appContext.getPackageName(), 0)
+        val info = manager.getPackageInfo(appContext.packageName, 0)
 
         if (info != null)
             return info.versionName
@@ -95,9 +95,9 @@ fun Context.getAppVersion(): String {
 fun Context.getAppVersionCode(): Int {
 
     val appContext = applicationContext
-    val manager = appContext.getPackageManager()
+    val manager = appContext.packageManager
     try {
-        val info = manager.getPackageInfo(appContext.getPackageName(), 0)
+        val info = manager.getPackageInfo(appContext.packageName, 0)
 
         if (info != null)
             return info.versionCode
@@ -133,10 +133,10 @@ fun Context.getAppInfo(apkPath: String): AppInfo {
 
     val packageName = packageInfo?.packageName
     val appName = packageManager.getApplicationLabel(packageInfo?.applicationInfo!!).toString()
-    val versionName = packageInfo?.versionName
-    val versionCode = packageInfo?.versionCode
-    val icon = packageManager.getApplicationIcon(packageInfo?.applicationInfo)
-    return AppInfo(apkPath, packageName!!, versionName!!, versionCode?.toLong()!!, appName, icon)
+    val versionName = packageInfo.versionName
+    val versionCode = packageInfo.versionCode
+    val icon = packageManager.getApplicationIcon(packageInfo.applicationInfo)
+    return AppInfo(apkPath, packageName!!, versionName!!, versionCode.toLong(), appName, icon)
 }
 
 fun Context.getAppInfos(apkFolderPath: String): List<AppInfo> {

@@ -87,7 +87,7 @@ object SDCardUtil {
     fun readFileFromSDCard(filePath: String, fileName: String): ByteArray? {
 
         var buffer: ByteArray? = null
-        var fin: FileInputStream? = null;
+        var fin: FileInputStream? = null
 
         try {
             if (checkSDCardAvailable()) {

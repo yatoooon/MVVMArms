@@ -8,4 +8,4 @@ inline fun <T> Boolean.then(function: () -> T, default: T) = if (this) function(
 
 inline fun <T> Boolean.then(function: () -> T, default: () -> T) = if (this) function() else default()
 
-infix inline fun <reified T> Boolean.then(function: () -> T) = if (this) function() else null
+inline infix fun <reified T> Boolean.then(function: () -> T) = if (this) function() else null

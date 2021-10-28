@@ -122,7 +122,7 @@ class SwitchButton @JvmOverloads constructor(context: Context, attrs: AttributeS
                 actuallyDrawingAreaTop = paddingTop
                 actuallyDrawingAreaBottom = getHeight() - paddingBottom
             }
-            mShadowReservedHeight = ((actuallyDrawingAreaBottom - actuallyDrawingAreaTop) * 0.07f) as Float
+            mShadowReservedHeight = ((actuallyDrawingAreaBottom - actuallyDrawingAreaTop) * 0.07f)
             val left = actuallyDrawingAreaLeft.toFloat()
             val top = actuallyDrawingAreaTop + mShadowReservedHeight
             mRight = actuallyDrawingAreaRight.toFloat()
@@ -424,7 +424,7 @@ class SwitchButton @JvmOverloads constructor(context: Context, attrs: AttributeS
     class SavedState : BaseSavedState {
         var checked = false
 
-        internal constructor(superState: Parcelable?) : super(superState) {}
+        internal constructor(superState: Parcelable?) : super(superState)
         constructor(`in`: Parcel) : super(`in`) {
             checked = 1 == `in`.readInt()
         }
@@ -442,6 +442,7 @@ class SwitchButton @JvmOverloads constructor(context: Context, attrs: AttributeS
         }
 
         companion object {
+            @JvmField
             val CREATOR: Parcelable.Creator<SavedState?> = object : Parcelable.Creator<SavedState?> {
                 override fun createFromParcel(`in`: Parcel): SavedState? {
                     return SavedState(`in`)

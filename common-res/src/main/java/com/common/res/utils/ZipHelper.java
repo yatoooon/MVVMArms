@@ -168,7 +168,7 @@ public class ZipHelper {
             } else {
                 returnValues = compressForZlib
                         (
-                                stringToCompress.getBytes("UTF-8")
+                                stringToCompress.getBytes(StandardCharsets.UTF_8)
                         );
             }
         } catch (Exception e) {
@@ -194,7 +194,7 @@ public class ZipHelper {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 gos.write(string.getBytes(StandardCharsets.UTF_8));
             } else {
-                gos.write(string.getBytes("UTF-8"));
+                gos.write(string.getBytes(StandardCharsets.UTF_8));
             }
             return os.toByteArray();
         } catch (IOException e) {

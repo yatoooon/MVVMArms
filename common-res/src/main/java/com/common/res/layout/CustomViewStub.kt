@@ -22,11 +22,9 @@ class CustomViewStub(context: Context, attrs: AttributeSet?, defStyleAttr: Int, 
      * 获取填充的 View
      */
     private var inflateView: View? = null
-        private set
 
     @JvmOverloads
-    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : this(context, attrs, defStyleAttr, 0) {
-    }
+    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : this(context, attrs, defStyleAttr, 0)
 
     override fun setVisibility(visibility: Int) {
         super.setVisibility(visibility)

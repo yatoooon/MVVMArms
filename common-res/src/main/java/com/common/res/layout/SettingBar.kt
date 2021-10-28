@@ -46,8 +46,7 @@ class SettingBar(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defS
     val lineView: View
 
     @JvmOverloads
-    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : this(context, attrs, defStyleAttr, 0) {
-    }
+    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : this(context, attrs, defStyleAttr, 0)
 
     /**
      * 设置左边的标题

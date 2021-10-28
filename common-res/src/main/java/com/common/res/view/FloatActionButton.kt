@@ -12,14 +12,13 @@ import androidx.appcompat.widget.AppCompatImageView
  * desc   : 带悬浮动画的按钮
  */
 class FloatActionButton : AppCompatImageView {
-    constructor(context: Context) : super(context) {}
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {}
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
-    ) {
-    }
+    )
 
     /**
      * 显示

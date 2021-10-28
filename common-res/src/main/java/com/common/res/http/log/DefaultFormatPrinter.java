@@ -44,7 +44,7 @@ public class DefaultFormatPrinter implements FormatPrinter {
     private static final String CENTER_LINE = "├ ";
     private static final String DEFAULT_LINE = "│ ";
     private static final String[] ARMS = new String[]{"-A-", "-R-", "-M-", "-S-"};
-    private static ThreadLocal<Integer> last = new ThreadLocal<Integer>() {
+    private static final ThreadLocal<Integer> last = new ThreadLocal<Integer>() {
         @Override
         protected Integer initialValue() {
             return 0;

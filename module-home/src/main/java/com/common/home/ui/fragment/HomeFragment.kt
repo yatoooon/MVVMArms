@@ -11,7 +11,6 @@ import com.common.core.base.mvvm.BaseVMFragment
 import com.common.core.base.mvvm.BaseViewModel
 import com.common.home.R
 import com.common.home.databinding.HomeFragmentBinding
-import com.common.res.adapter.BaseAdapter
 import com.common.res.adapter.FragmentViewPager2Adapter
 import com.common.res.immersionbar.BindImmersionBar
 import com.common.res.layout.XCollapsingToolbarLayout
@@ -33,6 +32,7 @@ class HomeFragment : BaseVMFragment<HomeFragmentBinding, BaseViewModel>(),
 
     private lateinit var mPagerAdapter: FragmentViewPager2Adapter
     private val fragments = mutableListOf<Fragment>(
+        StatusFragment.newInstance(),
         StatusFragment.newInstance()
     )
 

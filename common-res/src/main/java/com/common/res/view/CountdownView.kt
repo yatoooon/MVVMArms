@@ -21,16 +21,14 @@ class CountdownView : AppCompatTextView, Runnable {
     /** 记录原有的文本  */
     private var mRecordText: CharSequence? = null
 
-    constructor(context: Context?) : super(context!!) {}
+    constructor(context: Context?) : super(context!!)
     constructor(context: Context?, attrs: AttributeSet?) : super(
         context!!, attrs
-    ) {
-    }
+    )
 
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context!!, attrs, defStyleAttr
-    ) {
-    }
+    )
 
     /**
      * 设置倒计时总秒数

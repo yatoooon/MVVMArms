@@ -80,7 +80,7 @@ class SimpleRatingBar @JvmOverloads constructor(
                 if (grade - grade.toInt() > 0) {
                     grade = if (grade - grade.toInt() > 0.5f) {
                         // 0.5 - 1 算一颗星
-                        (grade + 0.5f) as Float
+                        (grade + 0.5f)
                     } else {
                         // 0 - 0.5 算半颗星
                         grade.toInt() + 0.5f

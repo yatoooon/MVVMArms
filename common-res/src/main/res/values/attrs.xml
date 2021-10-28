@@ -83,7 +83,7 @@
         </attr>
     </declare-styleable>
 
-    <!-- 倾斜的 TextView -->
+    <!-- 倾斜的 TextView-->
     <declare-styleable name="res_SlantedTextView">
         <attr name="android:text" />
         <attr name="android:textSize" />
@@ -93,9 +93,10 @@
         <attr name="android:colorBackground" />
         <attr name="android:paddingVertical" />
         <attr name="android:paddingHorizontal" />
-        <!-- 显示成三角形 -->
+         <!--显示成三角形 -->
         <attr name="res_triangle" format="boolean" />
     </declare-styleable>
+
 
     <!-- 自定义 ViewStub -->
     <declare-styleable name="res_CustomViewStub">

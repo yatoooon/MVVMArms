@@ -61,7 +61,7 @@ class MmkvSettingsImpl(name: String) : ObservableSettings {
 
     override fun clear() {
         delegate?.apply {
-            for (key in delegate?.allKeys()!!) {
+            for (key in delegate.allKeys()!!) {
                 removeValueForKey(key)
             }
         }
