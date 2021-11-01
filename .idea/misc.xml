@@ -10,11 +10,25 @@
         <entry key="app/src/main/res/layout/app_content_main.xml" value="0.28205128205128205" />
         <entry key="app/src/main/res/menu/app_navigation.xml" value="0.28205128205128205" />
         <entry key="app/src/main/res/menu/navigation.xml" value="0.28205128205128205" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/arrows_bottom_ic.xml" value="0.153125" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/arrows_left_ic.xml" value="0.153125" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/arrows_right_ic.xml" value="0.153125" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/arrows_top_ic.xml" value="0.153125" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/button_circle_selector.xml" value="0.24635416666666668" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/button_rect_selector.xml" value="0.24635416666666668" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/checkbox_disable_ic.xml" value="0.27395833333333336" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/checkbox_selector.xml" value="0.27395833333333336" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/compound_normal_ic.xml" value="0.27395833333333336" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/countdown_selector.xml" value="0.24635416666666668" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/radiobutton_checked_ic.xml" value="0.27395833333333336" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/radiobutton_selector.xml" value="0.27395833333333336" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/res_arrows_left_ic.xml" value="0.15052083333333333" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/res_avatar_placeholder_ic.xml" value="0.27395833333333336" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/res_button_circle_selector.xml" value="0.1" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/res_checkbox_checked_ic.xml" value="0.27395833333333336" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/res_compound_normal_ic.xml" value="0.27395833333333336" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/res_countdown_color_selector.xml" value="0.24635416666666668" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/res_radiobutton_disable_ic.xml" value="0.27395833333333336" />
         <entry key="common-res/src/main/res/layout/res_layout_empty.xml" value="0.22592592592592592" />
         <entry key="common-res/src/main/res/layout/res_layout_error.xml" value="0.22592592592592592" />
         <entry key="common-res/src/main/res/layout/res_layout_loading.xml" value="0.22592592592592592" />
@@ -33,6 +47,7 @@
         <entry key="module-home/src/main/res/layout/status_fragment.xml" value="0.3880208333333333" />
         <entry key="module-splash/src/main/res/layout/app_activity_splash.xml" value="0.3880208333333333" />
         <entry key="module-splash/src/main/res/layout/splash_activity.xml" value="0.1814814814814815" />
+        <entry key="module-template/src/main/res/drawable/home_example_bg.xml" value="0.27395833333333336" />
         <entry key="module-template/src/main/res/drawable/home_search_ic.xml" value="0.20092592592592592" />
         <entry key="module-template/src/main/res/layout/found_fragment.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/home_status_fragment.xml" value="0.1" />
