@@ -12,8 +12,6 @@ object RouterHub {
     //login组件
     const val LOGIN: String = "/login"
 
-    //login组件
-    const val TEMPLATE: String = "/template"
 
     //main组件
     const val MAIN: String = "/main"
@@ -30,8 +28,6 @@ object RouterHub {
     //login页
     const val PUBLIC_LOGIN: String = "$LOGIN/loginPage"
 
-    //login页
-    const val PUBLIC_TEMPLATE: String = "$TEMPLATE/TemplateActivity"
 
     //main页
     const val PUBLIC_MAIN: String = "$MAIN/MainActivity"
@@ -39,4 +35,15 @@ object RouterHub {
     //web框架服务
     const val WEBFRAME_ERVICE: String = "$WEBFRAME$SERVICE/WebframeService"
 
+
+    //template组件
+    const val TEMPLATE: String = "/template"
+
+    //template页
+    const val PUBLIC_TEMPLATE_ACTIVITY: String = "$TEMPLATE/activity/TemplateActivity"
+
+    const val PUBLIC_TEMPLATE_FRAGMENT_HOME: String = "$TEMPLATE/fragment/HomeFragment"
+    const val PUBLIC_TEMPLATE_FRAGMENT_FOUND: String = "$TEMPLATE/fragment/FoundFragment"
+    const val PUBLIC_TEMPLATE_FRAGMENT_MESSAGE: String = "$TEMPLATE/fragment/MessageFragment"
+    const val PUBLIC_TEMPLATE_FRAGMENT_ME: String = "$TEMPLATE/fragment/MeFragment"
 }

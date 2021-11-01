@@ -25,10 +25,8 @@ public interface IView {
 
     /**
      * 初始化数据
-     *
-     * @param savedInstanceState
      */
-    void initData(@Nullable Bundle savedInstanceState);
+    void initData();
 
 
     /**

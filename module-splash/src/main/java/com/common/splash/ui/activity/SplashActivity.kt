@@ -23,7 +23,7 @@ import com.common.splash.BuildConfig
 @AndroidEntryPoint
 class SplashActivity : BaseActivity<SplashActivityBinding>() {
 
-    override fun initData(savedInstanceState: Bundle?) {
+    override fun initData() {
     }
 
     override fun getLayoutId(): Int {
@@ -35,7 +35,8 @@ class SplashActivity : BaseActivity<SplashActivityBinding>() {
         return BindImmersionBar.FULLSCREEN
     }
 
-    override fun initViewClick() {
+    override fun initView() {
+        super.initView()
         binding.lavSplashLottie.addAnimatorListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator?) {
                 binding.lavSplashLottie.removeAnimatorListener(this)
@@ -43,7 +44,7 @@ class SplashActivity : BaseActivity<SplashActivityBinding>() {
                 finish()
             }
         })
-        binding.ivSplashDebug.setText(BuildConfig.BUILD_TYPE.toUpperCase())
+        binding.ivSplashDebug.text = BuildConfig.BUILD_TYPE.toUpperCase()
         if (BuildConfig.DEBUG) {
             binding.ivSplashDebug.visibility = View.VISIBLE
         } else {

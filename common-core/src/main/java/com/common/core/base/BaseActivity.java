@@ -42,9 +42,7 @@ import java.util.Random;
 public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompatActivity implements IView, ILoading, BindImmersionBar, ActivityAction, ClickAction,
         HandlerAction, BundleAction, KeyboardAction, ToastAction {
 
-    /**
-     * 请通过 {@link #getViewDataBinding()}获取，后续版本 {@link #mBinding}可能会私有化
-     */
+
     private VDB mBinding;
 
     /**
@@ -68,18 +66,18 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView();
         initView();
         initViewModel();
         initObserve();
-        initViewClick();
-        initData(savedInstanceState);
+        initData();
     }
 
 
     /**
      * 初始化ContentView，{@link #setContentView(int)} }
      */
-    public void initView() {
+    public void setContentView() {
         if (isBinding()) {
             mBinding = DataBindingUtil.setContentView(this, getLayoutId());
         } else {
@@ -106,6 +104,10 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         return findViewById(Window.ID_ANDROID_CONTENT);
     }
 
+    public void initView() {
+
+    }
+
     public void initViewModel() {
 
     }
@@ -113,11 +115,6 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     public void initObserve() {
 
     }
-
-    public void initViewClick() {
-
-    }
-
 
     @Override
     public void finish() {
@@ -164,18 +161,8 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         return true;
     }
 
-    /**
-     * 获取 ViewDataBinding
-     *
-     * @return {@link #mBinding}
-     */
-    public VDB getViewDataBinding() {
-        return mBinding;
-    }
 
     /**
-     * 同 {@link #getViewDataBinding()}
-     *
      * @return {@link #mBinding}
      */
     public VDB getBinding() {

@@ -1,6 +1,7 @@
 package com.common.core.base.mvvm;
 
 import android.os.Message;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +14,10 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import com.common.core.base.BaseActivity;
 import com.common.core.base.livedata.MessageEvent;
 import com.common.core.base.livedata.StatusEvent;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.core.Convertor;
+import com.kingja.loadsir.core.LoadService;
+import com.kingja.loadsir.core.LoadSir;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -23,7 +28,6 @@ import java.lang.reflect.Type;
  * <p>
  * 如果您继承使用了BaseActivity或其子类，你需要参照如下方式添加@AndroidEntryPoint注解
  *
- *
  * @example Activity
  * //-------------------------
  * @AndroidEntryPoint public class YourActivity extends BaseActivity {
@@ -31,13 +35,12 @@ import java.lang.reflect.Type;
  * }
  * //-------------------------
  */
-public abstract class BaseVMActivity<VDB extends ViewDataBinding,VM extends BaseViewModel> extends BaseActivity<VDB> {
+public abstract class BaseVMActivity<VDB extends ViewDataBinding, VM extends BaseViewModel> extends BaseActivity<VDB> {
 
     /**
      * 请通过 {@link #getViewModel()}获取，后续版本 {@link #mViewModel}可能会私有化
      */
     private VM mViewModel;
-
 
     /**
      * 初始化 {@link #mViewModel}
@@ -102,7 +105,7 @@ public abstract class BaseVMActivity<VDB extends ViewDataBinding,VM extends Base
      * 注册状态加载事件
      */
     protected void registerLoadingEvent() {
-        mViewModel.getLoadingEvent().observe(this, new Observer<Boolean>() {
+        getViewModel().getLoadingEvent().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean isLoading) {
                 if (isLoading != null && isLoading) {
@@ -179,5 +182,4 @@ public abstract class BaseVMActivity<VDB extends ViewDataBinding,VM extends Base
     private ViewModelProvider createViewModelProvider(@NonNull ViewModelStoreOwner owner) {
         return new ViewModelProvider(owner);
     }
-
 }

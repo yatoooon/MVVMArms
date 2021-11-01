@@ -51,14 +51,10 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
      */
     private FragmentActivity mActivity;
 
-    /**
-     * 请通过 {@link #getViewDataBinding()}获取，后续版本 {@link #mBinding}可能会私有化
-     */
+
     private VDB mBinding;
 
-    /**
-     * 请通过 {@link #getRootView()} ()}获取，后续版本 {@link #mRootView}可能会私有化
-     */
+
     private View mRootView;
 
 
@@ -80,7 +76,6 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mRootView = inflater.inflate(getLayoutId(), container, false);
-        mRootView.setTag(getLayoutId(), savedInstanceState);  //在这里用布局的id做了key
         if (isBinding()) {
             mBinding = DataBindingUtil.bind(getRootView());
         }
@@ -93,15 +88,15 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     public void initObserve() {
     }
 
-    public void initViewClick() {
+    public void initView() {
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initView();
         initViewModel();
         initObserve();
-        initViewClick();
     }
 
     @Override
@@ -109,11 +104,7 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         super.onResume();
         if (!mLoading) {
             mLoading = true;
-            Bundle savedInstanceState = null;
-            if (mRootView != null) {
-                savedInstanceState = (Bundle) mRootView.getTag(getLayoutId());
-            }
-            initData(savedInstanceState);
+            initData();
             onFragmentResume(true);
             return;
         }
@@ -157,17 +148,6 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     }
 
     /**
-     * 获取 ViewDataBinding
-     *
-     * @return {@link #mBinding}
-     */
-    public VDB getViewDataBinding() {
-        return mBinding;
-    }
-
-    /**
-     * 同 {@link #getViewDataBinding()}
-     *
      * @return {@link #mBinding}
      */
     public VDB getBinding() {

@@ -9,7 +9,7 @@ import com.common.res.BR
  *
  */
 open class BaseAdapter<T>(layoutId: Int, private val variableId: Int = BR.item) :
-    BaseQuickAdapter<T, BaseDataBindingHolder<*>>(layoutId) , LoadMoreModule {
+    BaseQuickAdapter<T, BaseDataBindingHolder<*>>(layoutId), LoadMoreModule {
 
     override fun convert(holder: BaseDataBindingHolder<*>, item: T) {
         holder.dataBinding?.let {
@@ -17,4 +17,21 @@ open class BaseAdapter<T>(layoutId: Int, private val variableId: Int = BR.item) 
             it.executePendingBindings()
         }
     }
+
+    companion object{
+        public const val PAGE_SIZE = 20
+    }
+
+    var page = 0
+
+    fun nextPage() {
+        page++
+    }
+
+    fun reset() {
+        page = 0
+    }
+
+    val isFirstPage: Boolean
+        get() = page == 0
 }

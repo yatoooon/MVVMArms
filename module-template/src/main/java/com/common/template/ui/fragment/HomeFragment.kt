@@ -1,4 +1,4 @@
-package com.common.home.ui.fragment
+package com.common.template.ui.fragment
 
 import android.content.res.ColorStateList
 import android.os.Bundle
@@ -7,28 +7,23 @@ import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.mvvm.BaseVMFragment
 import com.common.core.base.mvvm.BaseViewModel
-import com.common.home.R
-import com.common.home.databinding.HomeFragmentBinding
 import com.common.res.adapter.FragmentViewPager2Adapter
+import com.common.res.callback.LoadingCallBack
 import com.common.res.immersionbar.BindImmersionBar
 import com.common.res.layout.XCollapsingToolbarLayout
+import com.common.res.router.RouterHub
+import com.common.template.R
+import com.common.template.databinding.TemplateFragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import com.gyf.immersionbar.ImmersionBar
 
-class HomeFragment : BaseVMFragment<HomeFragmentBinding, BaseViewModel>(),
+@Route(path = RouterHub.PUBLIC_TEMPLATE_FRAGMENT_HOME)
+class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel>(),
     XCollapsingToolbarLayout.OnScrimsListener {
 
-    companion object {
-        fun newInstance(title: String): HomeFragment {
-            val args = Bundle()
-            val fragment = HomeFragment()
-            fragment.arguments = args
-            args.putString("title", title)
-            return fragment
-        }
-    }
 
     private lateinit var mPagerAdapter: FragmentViewPager2Adapter
     private val fragments = mutableListOf<Fragment>(
@@ -37,23 +32,26 @@ class HomeFragment : BaseVMFragment<HomeFragmentBinding, BaseViewModel>(),
     )
 
     override fun getLayoutId(): Int {
-        return R.layout.home_fragment
+        return R.layout.template_fragment_home
     }
 
-    override fun initData(savedInstanceState: Bundle?) {
+    override fun initData() {
+
 
     }
 
-    override fun initViewClick() {
+    override fun initView() {
         ImmersionBar.setTitleBar(this, binding.tbHomeTitle)
         mPagerAdapter = FragmentViewPager2Adapter(this)
         mPagerAdapter.setFragments(fragments)
         binding.ctlHomeBar.setOnScrimsListener(this)
         binding.vpHomePager.adapter = mPagerAdapter
         binding.vpHomePager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        (binding.vpHomePager.getChildAt(0) as RecyclerView).isNestedScrollingEnabled = false
         TabLayoutMediator(binding.rvHomeTab, binding.vpHomePager) { tab, position ->
-            tab.text = "TAB ${(position + 1)}"
+            when (position) {
+                0 -> tab.text = "列表演示"
+                1 -> tab.text = "网页演示"
+            }
         }.attach()
     }
 
@@ -63,7 +61,7 @@ class HomeFragment : BaseVMFragment<HomeFragmentBinding, BaseViewModel>(),
     }
 
     override fun isStatusBarDarkFont(): Boolean {
-        return false
+        return binding.ctlHomeBar.tagScrimsShown
     }
 
     override fun getImmersionBarType(): Int {
@@ -90,5 +88,6 @@ class HomeFragment : BaseVMFragment<HomeFragmentBinding, BaseViewModel>(),
             ColorStateList.valueOf(getColor(if (shown) R.color.res_common_icon_color else R.color.res_white))
         )
     }
+
 
 }

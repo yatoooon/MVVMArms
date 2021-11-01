@@ -1,6 +1,10 @@
 package com.common.core.base.mvvm;
 
+import android.os.Bundle;
 import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +17,9 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import com.common.core.base.BaseFragment;
 import com.common.core.base.livedata.MessageEvent;
 import com.common.core.base.livedata.StatusEvent;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.core.LoadService;
+import com.kingja.loadsir.core.LoadSir;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -23,7 +30,6 @@ import java.lang.reflect.Type;
  * <p>
  * 如果您继承使用了BaseFragment或其子类，你需要参照如下方式添加@AndroidEntryPoint注解
  *
- *
  * @example Fragment
  * //-------------------------
  * @AndroidEntryPoint public class YourFragment extends BaseFragment {
@@ -31,12 +37,14 @@ import java.lang.reflect.Type;
  * }
  * //-------------------------
  */
-public abstract class BaseVMFragment<VDB extends ViewDataBinding,VM extends BaseViewModel> extends BaseFragment<VDB> {
+public abstract class BaseVMFragment<VDB extends ViewDataBinding, VM extends BaseViewModel> extends BaseFragment<VDB> {
 
     /**
      * 请通过 {@link #getViewModel()}获取，后续版本 {@link #mViewModel}可能会私有化
      */
     private VM mViewModel;
+
+
 
 
     /**
@@ -182,6 +190,5 @@ public abstract class BaseVMFragment<VDB extends ViewDataBinding,VM extends Base
     private ViewModelProvider createViewModelProvider(@NonNull ViewModelStoreOwner owner) {
         return new ViewModelProvider(owner);
     }
-
 
 }

@@ -7,6 +7,5 @@ dependencies {
     implementation project(':module-splash')
     implementation project(':module-template')
     implementation project(':module-home')
-    implementation project(':module-found')
     implementation project(':module-splash')
 }

@@ -16,11 +16,11 @@ import dagger.hilt.android.AndroidEntryPoint
  * Activity模板示例
  *
  */
-@Route(path = RouterHub.PUBLIC_TEMPLATE)
+@Route(path = RouterHub.PUBLIC_TEMPLATE_ACTIVITY)
 @AndroidEntryPoint
 class TemplateActivity : BaseVMActivity<TemplateActivityBinding, TemplateViewModel>() {
 
-    private val repoAdapter = BaseAdapter<TemplateEntity>(R.layout.template_layout_item)
+    private val repoAdapter = BaseAdapter<TemplateEntity>(R.layout.template_item)
 
     override fun getLayoutId(): Int {
         return R.layout.template_activity
@@ -32,11 +32,12 @@ class TemplateActivity : BaseVMActivity<TemplateActivityBinding, TemplateViewMod
         })
     }
 
-    override fun initData(savedInstanceState: Bundle?) {
+    override fun initData() {
         viewModel.getArticleList(0)
     }
 
-    override fun initViewClick() {
+    override fun initView() {
+        super.initView()
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = repoAdapter
     }

@@ -126,7 +126,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     /**
      * 暴露给观察者提供消息事件，通过注册{@link BaseVMActivity#registerMessageEvent(MessageEvent.MessageObserver)}或
      * {@link BaseVMFragment#registerMessageEvent(MessageEvent.MessageObserver)} 或
-     * {@link BaseVMDialogFragment#registerMessageEvent(MessageEvent.MessageObserver)}接收消息事件
      *
      * @return {@link #mMessageEvent}
      */
@@ -137,7 +136,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     /**
      * 暴露给观察者提供状态变化事件，通过注册{@link BaseVMActivity#registerStatusEvent(StatusEvent.StatusObserver)}或
      * {@link BaseVMFragment#registerStatusEvent(StatusEvent.StatusObserver)} 或
-     * {@link BaseVMDialogFragment#registerStatusEvent(StatusEvent.StatusObserver)}接收消息事件
      *
      * @return {@link #mStatusEvent}
      */
@@ -148,7 +146,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     /**
      * 暴露给观察者提供接收单个消息事件，通过注册{@link BaseVMActivity#registerSingleLiveEvent(Observer)}或
      * {@link BaseVMFragment#registerSingleLiveEvent(Observer)} 或
-     * {@link BaseVMDialogFragment#registerSingleLiveEvent(Observer)}接收消息事件
      *
      * @return {@link #mSingleLiveEvent}
      */
@@ -159,7 +156,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     /**
      * 发送消息，通过注册{@link BaseVMActivity#registerMessageEvent(MessageEvent.MessageObserver)}或
      * {@link BaseVMFragment#registerMessageEvent(MessageEvent.MessageObserver)} 或
-     * {@link BaseVMDialogFragment#registerMessageEvent(MessageEvent.MessageObserver)}接收消息事件，
      * 也可通过观察{@link #getMessageEvent()}接收消息事件
      *
      * @param msgId 资源文件id
@@ -172,7 +168,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     /**
      * 发送消息，通过注册{@link BaseVMActivity#registerMessageEvent(MessageEvent.MessageObserver)}或
      * {@link BaseVMFragment#registerMessageEvent(MessageEvent.MessageObserver)} 或
-     * {@link BaseVMDialogFragment#registerMessageEvent(MessageEvent.MessageObserver)}接收消息事件，
      * 也可通过观察{@link #getMessageEvent()}接收消息事件
      *
      * @param msgId 资源文件id
@@ -186,7 +181,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     /**
      * 发送消息，通过注册{@link BaseVMActivity#registerMessageEvent(MessageEvent.MessageObserver)}或
      * {@link BaseVMFragment#registerMessageEvent(MessageEvent.MessageObserver)} 或
-     * {@link BaseVMDialogFragment#registerMessageEvent(MessageEvent.MessageObserver)}接收消息事件，
      * 也可通过观察{@link #getMessageEvent()}接收消息事件
      *
      * @param message 消息内容
@@ -199,7 +193,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     /**
      * 发送消息，通过注册{@link BaseVMActivity#registerMessageEvent(MessageEvent.MessageObserver)}或
      * {@link BaseVMFragment#registerMessageEvent(MessageEvent.MessageObserver)} 或
-     * {@link BaseVMDialogFragment#registerMessageEvent(MessageEvent.MessageObserver)}接收消息事件，
      * 也可通过观察{@link #getMessageEvent()}接收消息事件
      *
      * @param message 消息内容
@@ -218,7 +211,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     /**
      * 更新状态，通过注册{@link BaseVMActivity#registerStatusEvent(StatusEvent.StatusObserver)}或
      * {@link BaseVMFragment#registerStatusEvent(StatusEvent.StatusObserver)} 或
-     * {@link BaseVMDialogFragment#registerStatusEvent(StatusEvent.StatusObserver)}接收消息事件，
      * 也可通过观察{@link #getStatusEvent()}接收消息事件
      *
      * @param status
@@ -231,7 +223,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     /**
      * 更新状态，通过注册{@link BaseVMActivity#registerStatusEvent(StatusEvent.StatusObserver)}或
      * {@link BaseVMFragment#registerStatusEvent(StatusEvent.StatusObserver)} 或
-     * {@link BaseVMDialogFragment#registerStatusEvent(StatusEvent.StatusObserver)}接收消息事件，
      * 也可通过观察{@link #getStatusEvent()}接收消息事件
      *
      * @param status
@@ -250,7 +241,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
      * 发送单个消息事件，消息为{@link Message}对象，可通过{@link Message#what}区分消息类型，用法与{@link Message}一致，
      * 通过注册{@link BaseVMActivity#registerSingleLiveEvent(Observer)}或
      * {@link BaseVMFragment#registerSingleLiveEvent(Observer)} 或
-     * {@link BaseVMDialogFragment#registerSingleLiveEvent(Observer)}接收消息事件，
      * 也可通过观察{@link #getSingleLiveEvent()}接收消息事件
      *
      * @param what
@@ -264,7 +254,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
      * 发送单个消息事件，消息为{@link Message}对象，可通过{@link Message#what}区分消息类型，用法与{@link Message}一致，
      * 通过注册{@link BaseVMActivity#registerSingleLiveEvent(Observer)}或
      * {@link BaseVMFragment#registerSingleLiveEvent(Observer)} 或
-     * {@link BaseVMDialogFragment#registerSingleLiveEvent(Observer)}接收消息事件，
      * 也可通过观察{@link #getSingleLiveEvent()}接收消息事件
      *
      * @param what
@@ -281,7 +270,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
      * 发送单个消息事件，消息为{@link Message}对象，可通过{@link Message#what}区分消息类型，用法与{@link Message}一致，
      * 通过注册{@link BaseVMActivity#registerSingleLiveEvent(Observer)}或
      * {@link BaseVMFragment#registerSingleLiveEvent(Observer)} 或
-     * {@link BaseVMDialogFragment#registerSingleLiveEvent(Observer)}接收消息事件，
      * 也可通过观察{@link #getSingleLiveEvent()}接收消息事件
      *
      * @param message
@@ -295,7 +283,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
      * 发送单个消息事件，消息为{@link Message}对象，可通过{@link Message#what}区分消息类型，用法与{@link Message}一致，
      * 通过注册{@link BaseVMActivity#registerSingleLiveEvent(Observer)}或
      * {@link BaseVMFragment#registerSingleLiveEvent(Observer)} 或
-     * {@link BaseVMDialogFragment#registerSingleLiveEvent(Observer)}接收消息事件，
      * 也可通过观察{@link #getSingleLiveEvent()}接收消息事件
      *
      * @param message
@@ -312,7 +299,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
 
     /**
      * 调用此类会同步通知执行{@link BaseVMActivity#showLoading()}或{@link BaseVMFragment#showLoading()}或
-     * {@link BaseVMDialogFragment#showLoading()}
      */
     @MainThread
     public void showLoading() {
@@ -321,7 +307,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
 
     /**
      * 调用此类会同步通知执行{@link BaseVMActivity#showLoading()}或{@link BaseVMFragment#showLoading()}或
-     * {@link BaseVMDialogFragment#showLoading()}
      */
     public void showLoading(boolean post) {
         if (post) {
@@ -333,7 +318,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
 
     /**
      * 调用此类会同步通知执行{@link BaseVMActivity#hideLoading()}或{@link BaseVMFragment#hideLoading()}或
-     * {@link BaseVMDialogFragment#hideLoading()}
      */
     @MainThread
     public void hideLoading() {
@@ -343,7 +327,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
 
     /**
      * 调用此类会同步通知执行{@link BaseVMActivity#hideLoading()}或{@link BaseVMFragment#hideLoading()}或
-     * {@link BaseVMDialogFragment#hideLoading()}
      *
      * @param post 如果为{@code true}则可以在子线程调用，相当于调用{@link MutableLiveData#postValue(Object)}，
      *             如果为{@code false} 相当于调用{@link MutableLiveData#setValue(Object)}

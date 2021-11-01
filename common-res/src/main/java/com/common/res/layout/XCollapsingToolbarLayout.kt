@@ -17,7 +17,7 @@ class XCollapsingToolbarLayout : CollapsingToolbarLayout {
      * 获取当前的渐变状态
      */
     /** 当前渐变状态  */
-    private var tagScrimsShown = false
+    public var tagScrimsShown = false
 
     constructor(context: Context?) : super(context!!)
     constructor(context: Context?, attrs: AttributeSet?) : super(
