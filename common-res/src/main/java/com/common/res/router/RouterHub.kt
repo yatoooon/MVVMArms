@@ -6,8 +6,7 @@ object RouterHub {
     //服务组件, 用于给每个组件暴露特有的服务
     const val SERVICE = "/service"
 
-    //splash组件
-    const val SPLASH: String = "/splash"
+
 
     //login组件
     const val LOGIN: String = "/login"
@@ -22,8 +21,7 @@ object RouterHub {
     //webframe组件
     const val WEBFRAME: String = "/webframe"
 
-    //splash页
-    const val PUBLIC_SPLASH: String = "$LOGIN/SplashActivity"
+   
 
     //login页
     const val PUBLIC_LOGIN: String = "$LOGIN/loginPage"
@@ -36,8 +34,20 @@ object RouterHub {
     const val WEBFRAME_ERVICE: String = "$WEBFRAME$SERVICE/WebframeService"
 
 
+
+
+    //splash组件
+    const val SPLASH: String = "/splash"
+
+    //splash页
+    const val PUBLIC_SPLASH: String = "$SPLASH/SplashActivity"
+
+    const val HOME: String = "/home"
+
     //template组件
     const val TEMPLATE: String = "/template"
+
+    const val PUBLIC_HOME_MAIN_ACTIVITY: String = "$HOME/activity/MainActivity"
 
     //template页
     const val PUBLIC_TEMPLATE_ACTIVITY: String = "$TEMPLATE/activity/TemplateActivity"

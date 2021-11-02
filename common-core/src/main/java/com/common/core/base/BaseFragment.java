@@ -42,7 +42,7 @@ import java.util.List;
  * }
  * //-------------------------
  */
-public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading, BindImmersionBar,
+public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading,
         ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction, ToastAction {
 
 
@@ -273,17 +273,6 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
             return;
         }
         mActivity.finish();
-    }
-
-
-    @Override
-    public int getImmersionBarType() {
-        return NOSETBAR;
-    }
-
-    @Override
-    public boolean isStatusBarDarkFont() {
-        return true;
     }
 
 }

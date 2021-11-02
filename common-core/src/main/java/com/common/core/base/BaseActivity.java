@@ -295,10 +295,10 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     }
 
 
-    //activity 默认状态栏沉浸
+    //activity 默认沉浸状态栏
     @Override
     public int getImmersionBarType() {
-        return DEFAULTBAR;
+        return IMMERSIONBAR;
     }
 
     //activity 默认状态栏黑色字体

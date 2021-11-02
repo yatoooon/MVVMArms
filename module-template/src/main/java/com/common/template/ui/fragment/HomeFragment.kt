@@ -35,6 +35,7 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel>(
         return R.layout.template_fragment_home
     }
 
+
     override fun initData() {
 
 
@@ -55,18 +56,19 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel>(
         }.attach()
     }
 
+    override fun onResume() {
+        super.onResume()
+        ImmersionBar.with(requireActivity())
+            .statusBarDarkFont(binding.ctlHomeBar.tagScrimsShown)
+            .statusBarColor(R.color.res_transparent)
+            .navigationBarColor(R.color.res_white)
+            .init()
+    }
 
     override fun initObserve() {
 
     }
 
-    override fun isStatusBarDarkFont(): Boolean {
-        return binding.ctlHomeBar.tagScrimsShown
-    }
-
-    override fun getImmersionBarType(): Int {
-        return BindImmersionBar.IMMERSIONBAR
-    }
 
     override fun onScrimsStateChange(layout: XCollapsingToolbarLayout?, shown: Boolean) {
         ImmersionBar.with(requireActivity()).statusBarDarkFont(shown).init()

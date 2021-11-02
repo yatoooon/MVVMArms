@@ -1,5 +1,6 @@
 package com.common.home.ui.activity
 
+import android.content.Intent
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -14,7 +15,7 @@ import com.common.res.utils.AppManager
 import com.common.res.utils.DoubleClickUtils.isOnDoubleClick
 import dagger.hilt.android.AndroidEntryPoint
 
-@Route(path = RouterHub.PUBLIC_MAIN)
+@Route(path = RouterHub.PUBLIC_HOME_MAIN_ACTIVITY)
 @AndroidEntryPoint
 class MainActivity : BaseActivity<HomeActivityMainBinding>() {
 
@@ -28,7 +29,7 @@ class MainActivity : BaseActivity<HomeActivityMainBinding>() {
         ARouter.getInstance().build(RouterHub.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
             .withString("title", "发现")
             .navigation() as Fragment,
-        ARouter.getInstance().build(RouterHub.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
+        ARouter.getInstance().build(RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MESSAGE)
             .withString("title", "消息")
             .navigation() as Fragment,
         ARouter.getInstance().build(RouterHub.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
@@ -63,6 +64,12 @@ class MainActivity : BaseActivity<HomeActivityMainBinding>() {
                 apply.setSelect(position)
             }
         })
+        onNewIntent(intent)
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        binding.vpHomePager.setCurrentItem(getIntent().getIntExtra("index", 0), false)//false 不平滑过度
     }
 
     override fun onBackPressed() {
@@ -76,10 +83,6 @@ class MainActivity : BaseActivity<HomeActivityMainBinding>() {
             // 进行内存优化，销毁掉所有的界面
             AppManager.getAppManager().killAll()
         }, 300)
-    }
-
-    override fun getImmersionBarType(): Int {
-        return BindImmersionBar.IMMERSIONBAR
     }
 
     override fun isStatusBarDarkFont(): Boolean {

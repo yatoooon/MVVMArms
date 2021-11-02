@@ -52,8 +52,9 @@
         <entry key="module-template/src/main/res/layout/found_fragment.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/home_status_fragment.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_activity.xml" value="0.25833333333333336" />
-        <entry key="module-template/src/main/res/layout/template_fragment_found.xml" value="0.1" />
+        <entry key="module-template/src/main/res/layout/template_fragment_found.xml" value="0.1027984619140625" />
         <entry key="module-template/src/main/res/layout/template_fragment_home.xml" value="0.1" />
+        <entry key="module-template/src/main/res/layout/template_fragment_message.xml" value="0.2578125" />
         <entry key="module-template/src/main/res/layout/template_fragment_status.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_item.xml" value="0.22592592592592592" />
         <entry key="module-template/src/main/res/layout/template_item_head.xml" value="0.22592592592592592" />

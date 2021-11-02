@@ -28,24 +28,15 @@ class CoreActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
                 BindImmersionBar.IMMERSIONBAR -> {
                     ImmersionBar.with(activity)
                         .statusBarDarkFont(activity.isStatusBarDarkFont())
-                        .navigationBarColor(R.color.res_color_ffffff)
-                        .autoDarkModeEnable(true, 0.2f)
+                        .statusBarColor(R.color.res_white)
+                        .navigationBarColor(R.color.res_white)
                         .init()
                 }
                 BindImmersionBar.FULLSCREEN -> {
                     ImmersionBar.with(activity)
                         .fullScreen(true)
                         .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)
-                        .navigationBarColor(R.color.res_color_ffffff)
-                        .init()
-                }
-                BindImmersionBar.DEFAULTBAR -> {
-                    ImmersionBar.with(activity)
-                        .fitsSystemWindows(true)
-                        .autoDarkModeEnable(true)
-                        .statusBarColor(R.color.res_color_ffffff)
-                        .navigationBarColor(R.color.res_color_ffffff)
-                        .autoDarkModeEnable(true, 0.2f)
+                        .navigationBarColor(R.color.res_white)
                         .init()
                 }
             }

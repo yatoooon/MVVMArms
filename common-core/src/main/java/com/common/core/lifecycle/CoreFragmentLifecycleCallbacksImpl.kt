@@ -8,13 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.common.core.base.BaseFragment
 import com.common.res.R
-import com.common.res.immersionbar.BindImmersionBar
-import com.common.res.immersionbar.BindImmersionBar.Companion.DEFAULTBAR
-import com.common.res.immersionbar.BindImmersionBar.Companion.FULLSCREEN
-import com.common.res.immersionbar.BindImmersionBar.Companion.IMMERSIONBAR
-import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
 import timber.log.Timber
 
@@ -37,6 +31,7 @@ class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCall
         //设置全局toolbar和title
         val toolbar = v.findViewById<View>(R.id.res_toolbar)
         if (toolbar != null) {
+            ImmersionBar.setTitleBarMarginTop(f, toolbar) //activity默认是沉浸状态栏所以要加上
             val tvTitle = toolbar.findViewById<TextView>(R.id.res_tv_title)
             //找到 Toolbar 的标题栏并设置标题名
             if (tvTitle != null && !TextUtils.isEmpty(f.arguments?.getString("title"))) {
@@ -62,35 +57,6 @@ class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCall
 
     override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
         Timber.i("%s - onFragmentResumed", f.toString())
-        //设置全局fragment状态栏
-        if (f is BaseFragment<*>) {
-            when (f.getImmersionBarType()) {
-                IMMERSIONBAR -> {
-                    ImmersionBar.with(f)
-                        .statusBarDarkFont(f.isStatusBarDarkFont())
-                        .navigationBarColor(R.color.res_color_ffffff)
-                        .autoDarkModeEnable(true, 0.2f)
-                        .init()
-                }
-                FULLSCREEN -> {
-                    ImmersionBar.with(f)
-                        .fullScreen(true)
-                        .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)
-                        .navigationBarColor(R.color.res_color_ffffff)
-                        .init()
-                }
-                DEFAULTBAR -> {
-                    ImmersionBar.with(f)
-                        .fitsSystemWindows(true)
-                        .autoDarkModeEnable(true)
-                        .statusBarColor(R.color.res_color_ffffff)
-                        .navigationBarColor(R.color.res_color_ffffff)
-                        .autoDarkModeEnable(true, 0.2f)
-                        .init()
-                }
-
-            }
-        }
     }
 
     override fun onFragmentPaused(fm: FragmentManager, f: Fragment) {

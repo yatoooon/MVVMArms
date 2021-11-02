@@ -47,7 +47,7 @@
                             android:id="@+id/iv_find_corner"
                             android:layout_width="@dimen/res_dp_90"
                             android:layout_height="@dimen/res_dp_90"
-                            android:layout_marginStart="@dimen/res_dp_40"
+                            android:layout_marginStart="@dimen/res_dp_20"
                             app:srcCompat="@drawable/res_example_bg"
                             tools:scaleType="centerCrop" />
 
@@ -183,7 +183,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/res_dp_40"
+                        android:layout_marginHorizontal="@dimen/res_dp_20"
                         android:layout_marginTop="@dimen/res_dp_20"
                         android:gravity="center"
                         android:orientation="horizontal">
@@ -267,7 +267,7 @@
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/res_dp_40"
+                        android:layout_marginHorizontal="@dimen/res_dp_20"
                         android:layout_marginTop="@dimen/res_dp_10"
                         android:text="这是一个带清除的按钮的EditText" />
 
@@ -275,7 +275,7 @@
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/res_dp_40"
+                        android:layout_marginHorizontal="@dimen/res_dp_20"
                         android:layout_marginTop="@dimen/res_dp_10"
                         android:maxLength="20"
                         android:singleLine="true"
@@ -285,7 +285,7 @@
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/res_dp_40"
+                        android:layout_marginHorizontal="@dimen/res_dp_20"
                         android:layout_marginTop="@dimen/res_dp_20"
                         android:hint="这里只能输入手机号（只能以 1 开头）"
                         app:res_regexType="mobile" />
@@ -294,7 +294,7 @@
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/res_dp_40"
+                        android:layout_marginHorizontal="@dimen/res_dp_20"
                         android:hint="这里只能输入中文（普通的中文字符）"
                         app:res_regexType="chinese" />
 
@@ -302,7 +302,7 @@
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/res_dp_40"
+                        android:layout_marginHorizontal="@dimen/res_dp_20"
                         android:hint="这里只能输入英文（大写和小写的英文）"
                         app:res_regexType="english" />
 
@@ -310,7 +310,7 @@
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/res_dp_40"
+                        android:layout_marginHorizontal="@dimen/res_dp_20"
                         android:hint="这里只能输入数字（只允许输入纯数字）"
                         app:res_regexType="number" />
 
@@ -318,7 +318,7 @@
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/res_dp_40"
+                        android:layout_marginHorizontal="@dimen/res_dp_20"
                         android:hint="这里只能输入数量（非 0 开头的数字）"
                         app:res_regexType="count" />
 
@@ -326,7 +326,7 @@
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/res_dp_40"
+                        android:layout_marginHorizontal="@dimen/res_dp_20"
                         android:hint="这里只能输入用户名（中文、英文、数字）"
                         app:res_regexType="name" />
 
@@ -334,7 +334,7 @@
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/res_dp_40"
+                        android:layout_marginHorizontal="@dimen/res_dp_20"
                         android:hint="这里只能输入非空格的字符"
                         app:res_regexType="nonnull" />
 

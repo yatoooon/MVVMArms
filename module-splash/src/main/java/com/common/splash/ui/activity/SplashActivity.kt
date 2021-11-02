@@ -40,7 +40,7 @@ class SplashActivity : BaseActivity<SplashActivityBinding>() {
         binding.lavSplashLottie.addAnimatorListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator?) {
                 binding.lavSplashLottie.removeAnimatorListener(this)
-                routerNavigation(RouterHub.PUBLIC_MAIN)
+                routerNavigation(RouterHub.PUBLIC_HOME_MAIN_ACTIVITY)
                 finish()
             }
         })
