@@ -111,8 +111,6 @@ dependencies {
     implementation Deps.hiltAndroid
     implementation Deps.androidHiltLifecycleViewmodel
 
-    debugImplementation Deps.spidermanDebug
-    releaseImplementation Deps.spidermanRelease
     //debugImplementation Deps.leakcanary
 
 

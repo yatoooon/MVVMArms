@@ -137,8 +137,6 @@ object Deps {
     const val extJunit = "androidx.test.ext:junit:1.1.3"
     const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
     const val androidJUnitRunner = "androidx.test.runner.AndroidJUnitRunner"
-    const val spidermanDebug = "com.simple:spiderman:1.1.7"
-    const val spidermanRelease = "com.simple:spiderman-no-op:1.1.5"
     const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.5"
 
     const val umengCommon = "com.umeng.umsdk:common:9.4.2"

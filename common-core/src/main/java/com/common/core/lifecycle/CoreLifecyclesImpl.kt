@@ -6,6 +6,7 @@ import android.os.Build
 import com.alibaba.android.arouter.launcher.ARouter
 import com.coder.zzq.smartshow.core.SmartShow
 import com.common.core.base.delegate.BaseApplicationLifecycle
+import com.common.core.other.CrashHandler
 import com.common.res.BuildConfig
 import com.common.res.callback.EmptyCallBack
 import com.common.res.callback.ErrorCallBack
@@ -20,6 +21,7 @@ import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
+import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.mmkv.MMKV
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -75,6 +77,13 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
             .connectionCreator(FileDownloadUrlConnection.Creator(config)).commit()
 
         ToastUtils.init(application)
+
+
+        // Bugly 异常捕捉
+        CrashReport.initCrashReport(application, "BUGLY_ID", BuildConfig.DEBUG)
+
+        // 本地异常捕捉
+        CrashHandler.register(application)
     }
 
     override fun onTerminate(application: Application) {

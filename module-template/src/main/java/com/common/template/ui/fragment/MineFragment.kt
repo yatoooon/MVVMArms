@@ -8,6 +8,8 @@ import com.common.res.utils.bindViewClickListener
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentMineBinding
 import com.gyf.immersionbar.ImmersionBar
+import com.tencent.bugly.crashreport.CrashReport
+import java.lang.IllegalStateException
 
 @Route(path = RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MINE)
 class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
@@ -45,6 +47,14 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                         ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_IMAGE_SELECT)
                             .withString("maxSelect", "1")
                             .navigation()
+                    }
+                    btnMineCrash -> {
+                        // 上报错误到 Bugly 上
+                        CrashReport.postCatchedException(IllegalStateException("are you ok?"))
+                        // 关闭 Bugly 异常捕捉
+                        CrashReport.closeBugly()
+
+                        throw IllegalStateException("are you ok?")
                     }
                 }
             }

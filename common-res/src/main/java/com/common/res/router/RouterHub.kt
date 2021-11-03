@@ -7,7 +7,6 @@ object RouterHub {
     const val SERVICE = "/service"
 
 
-
     //login组件
     const val LOGIN: String = "/login"
 
@@ -21,7 +20,6 @@ object RouterHub {
     //webframe组件
     const val WEBFRAME: String = "/webframe"
 
-   
 
     //login页
     const val PUBLIC_LOGIN: String = "$LOGIN/loginPage"
@@ -34,13 +32,20 @@ object RouterHub {
     const val WEBFRAME_ERVICE: String = "$WEBFRAME$SERVICE/WebframeService"
 
 
-
-
     //splash组件
     const val SPLASH: String = "/splash"
 
     //splash页
     const val PUBLIC_SPLASH: String = "$SPLASH/SplashActivity"
+
+    //crash组件
+    const val CRASH: String = "/crash"
+
+    //crash页
+    const val PUBLIC_CRASH: String = "$CRASH/CrashActivity"
+
+    //restart页
+    const val PUBLIC_RESTART: String = "$CRASH/RestartActivity"
 
     //media组件
     const val MEDIA: String = "/media"

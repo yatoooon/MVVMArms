@@ -9,4 +9,5 @@ dependencies {
     implementation project(':module-home')
     implementation project(':module-splash')
     implementation project(':module-media')
+    implementation project(':module-crash')
 }

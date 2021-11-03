@@ -47,6 +47,10 @@
         <entry key="common-res/src/main/res/layout/res_layout_top_common.xml" value="0.2814814814814815" />
         <entry key="common-res/src/main/res/layout/res_rv_item.xml" value="0.24322916666666666" />
         <entry key="common-res/src/main/res/layout/res_widget_status_layout.xml" value="0.24322916666666666" />
+        <entry key="module-crash/src/main/res/drawable/crash_info_ic.xml" value="0.1962962962962963" />
+        <entry key="module-crash/src/main/res/drawable/crash_reboot_ic.xml" value="0.1" />
+        <entry key="module-crash/src/main/res/drawable/share_ic.xml" value="0.1962962962962963" />
+        <entry key="module-crash/src/main/res/layout/crash_activity.xml" value="0.2578125" />
         <entry key="module-found/src/main/res/layout/found_fragment.xml" value="0.28205128205128205" />
         <entry key="module-home/src/main/res/drawable/home_example_bg.xml" value="0.24635416666666668" />
         <entry key="module-home/src/main/res/drawable/home_search_bar_gray_bg.xml" value="0.24635416666666668" />
