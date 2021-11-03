@@ -55,7 +55,7 @@ import java.util.Set;
  * time   : 2019/07/24
  * desc   : 选择图片
  */
-@Route(path = RouterHub.PUBLIC_MEDIA_IMAGE_SELECT)
+@Route(path = RouterHub.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
 public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActivityBinding>
         implements StatusAction, Runnable, TitleBarAction,
         OnItemClickListener,

@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.core.BuildConfig;
-import com.common.res.App;
 import com.common.res.router.RouterHub;
 import com.common.res.router.RouterUtilKt;
 
@@ -63,13 +62,13 @@ public final class CrashHandler implements Thread.UncaughtExceptionHandler {
         boolean deadlyCrash = currentCrashTime - lastCrashTime < 1000 * 60 * 5;
 
         if (BuildConfig.DEBUG) {
-            ARouter.getInstance().build(RouterHub.PUBLIC_CRASH)
+            ARouter.getInstance().build(RouterHub.PUBLIC_CRASH_CRASHACTIVITY)
                     .withSerializable("throwable", throwable)
                     .navigation();
         } else {
             if (!deadlyCrash) {
                 // 如果不是致命的异常就自动重启应用
-                RouterUtilKt.routerNavigation(RouterHub.PUBLIC_RESTART);
+                RouterUtilKt.routerNavigation(RouterHub.PUBLIC_CRASH_RESTARTACTIVITY);
             }
         }
 

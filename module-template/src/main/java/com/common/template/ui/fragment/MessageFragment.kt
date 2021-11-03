@@ -6,7 +6,6 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.BaseFragment
 import com.common.res.aop.Permissions
 import com.common.res.ext.loadImage
-import com.common.res.immersionbar.BindImmersionBar
 import com.common.res.router.RouterHub
 import com.common.res.utils.bindViewClickListener
 import com.common.template.R
@@ -77,7 +76,7 @@ class MessageFragment : BaseFragment<TemplateFragmentMessageBinding>() {
 
                     }
                     btnMessageTab -> {
-                        ARouter.getInstance().build(RouterHub.PUBLIC_HOME_MAIN_ACTIVITY)
+                        ARouter.getInstance().build(RouterHub.PUBLIC_HOME_MAINACTIVITY)
                             .withString("index", "0")
                             .navigation()
                     }

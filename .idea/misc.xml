@@ -46,6 +46,7 @@
         <entry key="common-res/src/main/res/layout/res_layout_refresh_header.xml" value="0.22592592592592592" />
         <entry key="common-res/src/main/res/layout/res_layout_top_common.xml" value="0.2814814814814815" />
         <entry key="common-res/src/main/res/layout/res_rv_item.xml" value="0.24322916666666666" />
+        <entry key="common-res/src/main/res/layout/res_widget_player_view.xml" value="0.24322916666666666" />
         <entry key="common-res/src/main/res/layout/res_widget_status_layout.xml" value="0.24322916666666666" />
         <entry key="module-crash/src/main/res/drawable/crash_info_ic.xml" value="0.1962962962962963" />
         <entry key="module-crash/src/main/res/drawable/crash_reboot_ic.xml" value="0.1" />
@@ -65,6 +66,7 @@
         <entry key="module-media/src/main/res/layout/image_select_activity.xml" value="0.24322916666666666" />
         <entry key="module-media/src/main/res/layout/media_image_select_activity.xml" value="0.2578125" />
         <entry key="module-media/src/main/res/layout/media_image_select_item.xml" value="0.1" />
+        <entry key="module-media/src/main/res/layout/media_video_play_activity.xml" value="0.24322916666666666" />
         <entry key="module-media/src/main/res/layout/res_album_item.xml" value="0.2578125" />
         <entry key="module-media/src/main/res/layout/res_image_select_item.xml" value="0.24322916666666666" />
         <entry key="module-splash/src/main/res/layout/app_activity_splash.xml" value="0.3880208333333333" />

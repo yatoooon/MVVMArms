@@ -15,7 +15,7 @@ import com.common.res.utils.AppManager
 import com.common.res.utils.DoubleClickUtils.isOnDoubleClick
 import dagger.hilt.android.AndroidEntryPoint
 
-@Route(path = RouterHub.PUBLIC_HOME_MAIN_ACTIVITY)
+@Route(path = RouterHub.PUBLIC_HOME_MAINACTIVITY)
 @AndroidEntryPoint
 class MainActivity : BaseActivity<HomeActivityMainBinding>() {
 

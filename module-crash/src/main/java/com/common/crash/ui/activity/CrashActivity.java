@@ -2,7 +2,6 @@ package com.common.crash.ui.activity;
 
 import android.Manifest;
 import android.app.Application;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -17,7 +16,6 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -51,7 +49,7 @@ import java.util.regex.Pattern;
  * time   : 2019/06/27
  * desc   : 崩溃捕捉界面
  */
-@Route(path = RouterHub.PUBLIC_CRASH)
+@Route(path = RouterHub.PUBLIC_CRASH_CRASHACTIVITY)
 public final class CrashActivity extends BaseActivity {
 
     private static final String INTENT_KEY_IN_THROWABLE = "throwable";

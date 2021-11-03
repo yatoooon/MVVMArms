@@ -35,7 +35,7 @@ class CoreActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
                 BindImmersionBar.FULLSCREEN -> {
                     ImmersionBar.with(activity)
                         .fullScreen(true)
-                        .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)
+                        .hideBar(BarHide.FLAG_HIDE_BAR)
                         .navigationBarColor(R.color.res_white)
                         .init()
                 }

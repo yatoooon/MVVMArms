@@ -2,7 +2,6 @@ package com.common.splash.ui.activity
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
-import android.os.Bundle
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.BaseActivity
@@ -19,7 +18,7 @@ import com.common.splash.BuildConfig
  * 模板示例
  *
  */
-@Route(path = RouterHub.PUBLIC_SPLASH)
+@Route(path = RouterHub.PUBLIC_SPLASH_SPLASHACTIVITY)
 @AndroidEntryPoint
 class SplashActivity : BaseActivity<SplashActivityBinding>() {
 
@@ -40,7 +39,7 @@ class SplashActivity : BaseActivity<SplashActivityBinding>() {
         binding.lavSplashLottie.addAnimatorListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator?) {
                 binding.lavSplashLottie.removeAnimatorListener(this)
-                routerNavigation(RouterHub.PUBLIC_HOME_MAIN_ACTIVITY)
+                routerNavigation(RouterHub.PUBLIC_HOME_MAINACTIVITY)
                 finish()
             }
         })
