@@ -12,7 +12,6 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
-import com.common.core.base.BaseModel;
 import com.common.core.base.ibase.IViewModel;
 import com.common.core.base.livedata.MessageEvent;
 import com.common.core.base.livedata.SingleLiveEvent;
@@ -298,7 +297,7 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     }
 
     /**
-     * 调用此类会同步通知执行{@link BaseVMActivity#showLoading()}或{@link BaseVMFragment#showLoading()}或
+     * 调用此类会同步通知执行{@link BaseVMActivity#showDialog()}或{@link BaseVMFragment#showDialog()}或
      */
     @MainThread
     public void showLoading() {
@@ -306,7 +305,7 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     }
 
     /**
-     * 调用此类会同步通知执行{@link BaseVMActivity#showLoading()}或{@link BaseVMFragment#showLoading()}或
+     * 调用此类会同步通知执行{@link BaseVMActivity#showDialog()}或{@link BaseVMFragment#showDialog()}或
      */
     public void showLoading(boolean post) {
         if (post) {

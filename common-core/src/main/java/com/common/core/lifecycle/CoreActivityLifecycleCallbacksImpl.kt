@@ -39,6 +39,15 @@ class CoreActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
                         .navigationBarColor(R.color.res_white)
                         .init()
                 }
+                BindImmersionBar.DEFAULT -> {
+                    ImmersionBar.with(activity)
+                        .fitsSystemWindows(true)
+                        .autoDarkModeEnable(true)
+                        .statusBarColor(R.color.res_white)
+                        .navigationBarColor(R.color.res_white)
+                        .autoDarkModeEnable(true, 0.2f)
+                        .init()
+                }
             }
         }
         //全局设置toolbar 和 title

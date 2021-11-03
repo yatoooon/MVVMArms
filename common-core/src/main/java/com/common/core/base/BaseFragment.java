@@ -25,7 +25,6 @@ import com.common.res.action.HandlerAction;
 import com.common.res.action.KeyboardAction;
 import com.common.res.action.ResourcesAction;
 import com.common.res.action.ToastAction;
-import com.common.res.immersionbar.BindImmersionBar;
 
 import java.util.List;
 
@@ -207,10 +206,10 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     }
 
     @Override
-    public void showLoading() {
+    public void showDialog() {
         FragmentActivity activity = requireActivity();
         if (activity instanceof BaseActivity) {
-            ((BaseActivity<?>) activity).showLoading();
+            ((BaseActivity<?>) activity).showDialog();
         }
     }
 

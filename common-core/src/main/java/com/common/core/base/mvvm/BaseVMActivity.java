@@ -1,7 +1,6 @@
 package com.common.core.base.mvvm;
 
 import android.os.Message;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,10 +13,6 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import com.common.core.base.BaseActivity;
 import com.common.core.base.livedata.MessageEvent;
 import com.common.core.base.livedata.StatusEvent;
-import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.core.Convertor;
-import com.kingja.loadsir.core.LoadService;
-import com.kingja.loadsir.core.LoadSir;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -109,7 +104,7 @@ public abstract class BaseVMActivity<VDB extends ViewDataBinding, VM extends Bas
             @Override
             public void onChanged(@Nullable Boolean isLoading) {
                 if (isLoading != null && isLoading) {
-                    showLoading();
+                    showDialog();
                 } else {
                     hideLoading();
                 }

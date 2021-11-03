@@ -22,23 +22,6 @@
         android:supportsRtl="true"
         android:theme="@style/res_AppTheme"
         tools:replace="android:name">
-        <!-- 闪屏页 -->
-        <activity
-            android:name="com.common.splash.ui.activity.SplashActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/res_SplashTheme">
-            <!-- 程序入口 -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.common.home.ui.activity.MainActivity">
-
-        </activity>
 
         <meta-data
             android:name="com.common.sample.lifecycle.AppConfiguration"

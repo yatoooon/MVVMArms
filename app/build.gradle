@@ -8,4 +8,5 @@ dependencies {
     implementation project(':module-template')
     implementation project(':module-home')
     implementation project(':module-splash')
+    implementation project(':module-media')
 }

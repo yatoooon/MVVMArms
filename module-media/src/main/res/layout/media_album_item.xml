@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.common.media.ui.dialog.AlbumDialog.AlbumInfo" />
+
+        <import type="android.view.View" />
+
+    </data>
+<!--GlideApp.with(getContext())
+                        .asBitmap()
+                        .load(info.getIcon())
+                        .into(mIconView);
+
+                mNameView.setText(info.getName());
+                mRemarkView.setText(info.getRemark());
+                mCheckBox.setChecked(info.isSelect());
+                mCheckBox.setVisibility(info.isSelect() ? View.VISIBLE : View.INVISIBLE);-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/res_dp_15"
+        android:paddingTop="@dimen/res_dp_10"
+        android:paddingBottom="@dimen/res_dp_5">
+
+        <com.common.res.view.ScaleImageView
+            android:id="@+id/iv_album_icon"
+            android:layout_width="@dimen/res_dp_80"
+            android:layout_height="@dimen/res_dp_80"
+            android:scaleType="centerCrop"
+            app:res="@{item.icon}"
+            android:translationZ="@dimen/res_dp_10"
+            app:res_scaleRatio="0.95"
+            tools:src="@drawable/res_example_bg" />
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/res_dp_30"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_album_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/res_black70"
+                android:text="@{item.name}"
+                android:textSize="@dimen/res_sp_15"
+                tools:text="图片专辑" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_album_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/res_dp_10"
+                android:textColor="@color/res_black60"
+                android:textSize="@dimen/res_sp_12"
+                android:text="@{item.remark}"
+                tools:text="@string/res_image_select_total" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/rb_album_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/res_dp_10"
+            android:background="@null"
+            android:clickable="false"
+            android:checked="@{item.select}"
+            android:visibility="@{item.select?View.VISIBLE:View.GONE}"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            app:buttonCompat="@drawable/res_radiobutton_selector" />
+
+    </LinearLayout>
+</layout>

@@ -32,7 +32,7 @@ class MainActivity : BaseActivity<HomeActivityMainBinding>() {
         ARouter.getInstance().build(RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MESSAGE)
             .withString("title", "消息")
             .navigation() as Fragment,
-        ARouter.getInstance().build(RouterHub.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
+        ARouter.getInstance().build(RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MINE)
             .withString("title", "我的")
             .navigation() as Fragment
     )
@@ -88,6 +88,12 @@ class MainActivity : BaseActivity<HomeActivityMainBinding>() {
     override fun isStatusBarDarkFont(): Boolean {
         return false
     }
+
+    override fun getImmersionBarType(): Int {
+        return BindImmersionBar.IMMERSIONBAR
+    }
+
+
 }
 
 

@@ -42,6 +42,12 @@ object RouterHub {
     //splash页
     const val PUBLIC_SPLASH: String = "$SPLASH/SplashActivity"
 
+    //media组件
+    const val MEDIA: String = "/media"
+
+    //splash页
+    const val PUBLIC_MEDIA_IMAGE_SELECT: String = "$MEDIA/ImageSelectActivity"
+
     const val HOME: String = "/home"
 
     //template组件
@@ -55,5 +61,5 @@ object RouterHub {
     const val PUBLIC_TEMPLATE_FRAGMENT_HOME: String = "$TEMPLATE/fragment/HomeFragment"
     const val PUBLIC_TEMPLATE_FRAGMENT_FOUND: String = "$TEMPLATE/fragment/FoundFragment"
     const val PUBLIC_TEMPLATE_FRAGMENT_MESSAGE: String = "$TEMPLATE/fragment/MessageFragment"
-    const val PUBLIC_TEMPLATE_FRAGMENT_ME: String = "$TEMPLATE/fragment/MeFragment"
+    const val PUBLIC_TEMPLATE_FRAGMENT_MINE: String = "$TEMPLATE/fragment/MineFragment"
 }

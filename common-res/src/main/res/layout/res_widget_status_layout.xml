@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.common.res.layout.NestedLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0px"
+        android:layout_weight="1" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/iv_status_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/res_dp_10"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        tools:src="@drawable/res_status_nerwork_ic" />
+
+    <com.common.res.view.SmartTextView
+        android:id="@+id/iv_status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/res_dp_10"
+        android:textColor="@color/res_black30"
+        android:textSize="@dimen/res_sp_14"
+        tools:text="@string/res_status_layout_error_network" />
+
+    <com.hjq.shape.view.ShapeButton
+        android:id="@+id/iv_status_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/res_dp_20"
+        android:paddingHorizontal="@dimen/res_dp_15"
+        android:paddingVertical="@dimen/res_dp_8"
+        android:text="@string/res_status_layout_retry"
+        android:textColor="@color/res_white"
+        android:textSize="@dimen/res_sp_13"
+        android:visibility="invisible"
+        app:shape="rectangle"
+        app:shape_radius="@dimen/res_dp_5"
+        app:shape_solidColor="@color/res_common_accent_color"
+        app:shape_solidPressedColor="@color/res_common_button_pressed_color"
+        tools:visibility="visible" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0px"
+        android:layout_weight="1.5" />
+
+</com.common.res.layout.NestedLinearLayout>

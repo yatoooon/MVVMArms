@@ -1,4 +1,4 @@
-package com.common.core.base;
+package com.common.res.dialog;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -20,8 +20,7 @@ import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
-import com.common.core.R;
-import com.common.res.dialog.BaseDialog;
+import com.common.res.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 /**

@@ -7,7 +7,11 @@
         <meta-data
             android:name="com.common.home.lifecycle.HomeConfiguration"
             android:value="CoreConfigModule" />
-
+        <activity
+            android:name="com.common.home.ui.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 

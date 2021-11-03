@@ -178,7 +178,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     }
 
     @Override
-    public void showLoading() {
+    public void showDialog() {
         if (isFinishing() || isDestroyed()) {
             return;
         }
@@ -295,10 +295,10 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     }
 
 
-    //activity 默认沉浸状态栏
+    //activity 默认DEFAULT
     @Override
     public int getImmersionBarType() {
-        return IMMERSIONBAR;
+        return DEFAULT;
     }
 
     //activity 默认状态栏黑色字体
