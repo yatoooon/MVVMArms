@@ -1,4 +1,4 @@
-package com.common.umeng;
+package com.common.res.umeng;
 
 import com.umeng.socialize.bean.SHARE_MEDIA;
 

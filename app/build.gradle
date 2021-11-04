@@ -3,7 +3,6 @@ plugins {
 }
 dependencies {
     implementation project(':common-core')
-    implementation project(':module-umeng')
     implementation project(':module-splash')
     implementation project(':module-template')
     implementation project(':module-home')

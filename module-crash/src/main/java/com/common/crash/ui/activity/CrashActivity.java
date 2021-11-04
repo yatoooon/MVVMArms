@@ -25,7 +25,7 @@ import com.common.crash.R;
 import com.common.res.aop.SingleClick;
 import com.common.res.ext.Context_ExtensionKt;
 import com.common.res.router.RouterHub;
-import com.common.res.utils.ThreadPoolManager;
+import com.common.res.manager.ThreadPoolManager;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;

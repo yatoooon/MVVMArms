@@ -55,41 +55,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             }
 
 
-            // 构建配置字段
-            addBuildConfigField(
-                ClassFieldImpl(
-                    "String",
-                    "UM_KEY",
-                    '\"' + Umeng.UMENG_APP_KEY + '\"'
-                )
-            )
-            addBuildConfigField(ClassFieldImpl("String", "QQ_ID", '\"' + Umeng.QQ_APP_ID + '\"'))
-            addBuildConfigField(
-                ClassFieldImpl(
-                    "String",
-                    "QQ_SECRET",
-                    '\"' + Umeng.QQ_APP_SECRET + '\"'
-                )
-            )
-            addBuildConfigField(ClassFieldImpl("String", "WX_ID", '\"' + Umeng.WX_APP_ID + '\"'))
-            addBuildConfigField(
-                ClassFieldImpl(
-                    "String",
-                    "WX_SECRET",
-                    '\"' + Umeng.WX_APP_SECRET + '\"'
-                )
-            )
 
-
-            addManifestPlaceholders(
-                mapOf<String, String>(
-                    "UM_KEY" to Umeng.UMENG_APP_KEY,
-                    "QQ_ID" to Umeng.QQ_APP_ID,
-                    "QQ_SECRET" to Umeng.QQ_APP_SECRET,
-                    "WX_ID" to Umeng.WX_APP_ID,
-                    "WX_SECRET" to Umeng.WX_APP_SECRET
-                )
-            )
 
         }
 

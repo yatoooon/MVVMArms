@@ -35,7 +35,7 @@ import com.common.res.aop.SingleClick;
 import com.common.media.ui.dialog.AlbumDialog;
 import com.common.res.layout.StatusLayout;
 import com.common.res.router.RouterHub;
-import com.common.res.utils.ThreadPoolManager;
+import com.common.res.manager.ThreadPoolManager;
 import com.common.res.view.FloatActionButton;
 import com.common.res.view.GridSpaceDecoration;
 import com.hjq.bar.TitleBar;

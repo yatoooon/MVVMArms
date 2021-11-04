@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.26666666666666666" />
+        <entry key="app/src/main/res/drawable/login_qq_ic.xml" value="0.1574074074074074" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28205128205128205" />
         <entry key="app/src/main/res/layout/app_activity_main.xml" value="0.21524608303202872" />
         <entry key="app/src/main/res/layout/app_activity_splash.xml" value="0.28205128205128205" />
@@ -65,6 +66,9 @@
         <entry key="module-home/src/main/res/layout/home_status_fragment.xml" value="0.3734375" />
         <entry key="module-home/src/main/res/layout/home_vp2_layout_item.xml" value="0.14166666666666666" />
         <entry key="module-home/src/main/res/layout/status_fragment.xml" value="0.3880208333333333" />
+        <entry key="module-login/src/main/res/drawable/login_qq_ic.xml" value="0.1574074074074074" />
+        <entry key="module-login/src/main/res/drawable/login_wechat_ic.xml" value="0.1574074074074074" />
+        <entry key="module-login/src/main/res/layout/login_activity.xml" value="0.20462962962962963" />
         <entry key="module-media/src/main/res/layout/image_preview_activity.xml" value="0.21666666666666667" />
         <entry key="module-media/src/main/res/layout/image_select_activity.xml" value="0.24322916666666666" />
         <entry key="module-media/src/main/res/layout/media_image_preview_activity.xml" value="0.11677479147358666" />

@@ -12,6 +12,7 @@ import com.common.res.callback.EmptyCallBack
 import com.common.res.callback.ErrorCallBack
 import com.common.res.callback.LoadingCallBack
 import com.common.res.layout.RefreshLottieHeader
+import com.common.res.umeng.UmengClient
 import com.hjq.toast.ToastUtils
 import com.kingja.loadsir.core.LoadSir
 import com.liulishuo.filedownloader.FileDownloader
@@ -23,6 +24,7 @@ import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.mmkv.MMKV
+import com.umeng.analytics.MobclickAgent
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -84,6 +86,10 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
 
         // 本地异常捕捉
         CrashHandler.register(application)
+
+        //初始化友盟SDK
+        UmengClient.init(application,true)
+        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO)
     }
 
     override fun onTerminate(application: Application) {

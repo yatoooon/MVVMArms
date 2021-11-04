@@ -3,20 +3,21 @@ package com.common.res.router
 //路由组件路径
 object RouterHub {
 
-    const val LOGIN: String = "/login"
     const val MAIN: String = "/main"
     const val UNIAPP: String = "/uniapp"
-    const val PUBLIC_LOGIN: String = "$LOGIN/loginPage"
     const val PUBLIC_MAIN: String = "$MAIN/MainActivity"
-
-
     const val SERVICE = "/service"
+
+
+    const val LOGIN: String = "/login"
+    const val PUBLIC_LOGINACTIVITY: String = "$LOGIN/LoginActivity"
+
+
 
 
     const val WEB: String = "/web"
     const val WEB_SERVICE: String = "$WEB$SERVICE/WebframeService"
     const val PUBLIC_WEBPAGEACTIVITY: String = "$WEB/WebPageActivity"
-    const val PUBLIC_TABPAGEACTIVITY: String = "$WEB/TabPageActivity"
     const val PUBLIC_WEBPAGEFRAGMENT: String = "$WEB/WebPageFrgment"
 
 

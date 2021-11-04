@@ -44,10 +44,10 @@ class MainActivity : BaseActivity<HomeActivityMainBinding>() {
 
     override fun initData() {
         val apply = binding.tab.material()
-            .addItem(R.drawable.home_logo, "首页")
-            .addItem(R.drawable.home_logo, "发现")
-            .addItem(R.drawable.home_logo, "消息")
-            .addItem(R.drawable.home_logo, "我的")
+            .addItem(R.drawable.app_logo, "首页")
+            .addItem(R.drawable.app_logo, "发现")
+            .addItem(R.drawable.app_logo, "消息")
+            .addItem(R.drawable.app_logo, "我的")
             .build().apply {
                 addSimpleTabItemSelectedListener { index, old ->
                     binding.vpHomePager.setCurrentItem(index, false)//false 不平滑过度

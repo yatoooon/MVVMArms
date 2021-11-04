@@ -1,9 +1,0 @@
-plugins {
-    id "com.common.plugin.lib"
-}
-
-// 友盟统计集成文档：https://developer.umeng.com/docs/119267/detail/118584
-// 友盟社会化集成文档：https://developer.umeng.com/docs/128606/detail/193879
-dependencies {
-    implementation project(':common-core')
-}

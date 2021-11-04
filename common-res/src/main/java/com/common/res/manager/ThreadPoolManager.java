@@ -1,4 +1,4 @@
-package com.common.res.utils;
+package com.common.res.manager;
 
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;

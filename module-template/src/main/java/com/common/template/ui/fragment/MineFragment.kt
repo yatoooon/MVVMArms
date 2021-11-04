@@ -48,6 +48,10 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                 btnMineCrash
             ) {
                 when (this) {
+
+                    btnMineLogin -> {
+                        routerNavigation(RouterHub.PUBLIC_LOGINACTIVITY)
+                    }
                     btnMineGuide -> {
                         routerNavigation(RouterHub.PUBLIC_SPLASH_GUIDEACTIVITY)
                     }

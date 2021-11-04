@@ -1,4 +1,4 @@
-package com.common.umeng;
+package com.common.res.umeng;
 
 import android.app.Activity;
 import android.app.Application;
@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.common.res.BuildConfig;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;

@@ -24,7 +24,7 @@ fun appLogoutToLogin() {
     checkLogin {
         if (it) {
             appLogout()
-//            routerNavigation(RouterHub.PUBLIC_LOGIN)
+//            routerNavigation(RouterHub.PUBLIC_LOGINACTIVITY)
         }
     }
 }
@@ -42,7 +42,7 @@ fun appLogoutAutoLogin(username: String?, password: String?) {
                 putString("username", username)
                 putString("password", password)
             }
-//            routerNavigation(RouterHub.PUBLIC_LOGIN, bundle)
+//            routerNavigation(RouterHub.PUBLIC_LOGINACTIVITY, bundle)
         }
     }
 }
