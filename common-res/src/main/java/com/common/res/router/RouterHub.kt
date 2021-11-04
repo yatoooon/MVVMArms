@@ -44,7 +44,10 @@ object RouterHub {
 
     const val MEDIA: String = "/media"
     const val PUBLIC_MEDIA_IMAGESELECTACTIVITY: String = "$MEDIA/ImageSelectActivity"
+    const val PUBLIC_MEDIA_VIDEOSELECTACTIVITY: String = "$MEDIA/VideoSelectActivity"
     const val PUBLIC_MEDIA_VIDEOPLAYACTIVITY: String = "$MEDIA/VideoPlayActivity"
+    const val PUBLIC_MEDIA_VIDEOPLAYACTIVITY_LANDSCAPE: String = "$MEDIA/VideoPlayActivity/Landscape"
+    const val PUBLIC_MEDIA_VIDEOPLAYACTIVITY_PORTRAIT: String = "$MEDIA/VideoPlayActivity/Portrait"
 
 
 

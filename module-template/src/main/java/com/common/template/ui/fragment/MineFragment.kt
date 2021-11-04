@@ -4,8 +4,8 @@ import android.content.pm.ActivityInfo
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.BaseFragment
-import com.common.res.data.Builder
 import com.common.res.router.RouterHub
+import com.common.res.router.data.VideoPlayBuilder
 import com.common.res.utils.bindViewClickListener
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentMineBinding
@@ -47,16 +47,21 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                 when (this) {
                     btnMineImageSelect -> {
                         ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
-                            .withString("maxSelect", "1")
+                            .withInt("maxSelect", 3)
+                            .navigation()
+                    }
+                    btnMineVideoSelect -> {
+                        ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_VIDEOSELECTACTIVITY)
+                            .withInt("maxSelect", 1)
                             .navigation()
                     }
                     btnMineVideoPlay -> {
-                        val builder = Builder()
+                        val builder = VideoPlayBuilder()
                             .setVideoTitle("速度与激情特别行动")
                             .setVideoSource("http://vfx.mtime.cn/Video/2019/06/29/mp4/190629004821240734.mp4")
                             .setActivityOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
-//                            .start(requireActivity())
-                        ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY)
+                        ARouter.getInstance()
+                            .build(RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_LANDSCAPE)
                             .withParcelable("parameters", builder)
                             .navigation()
                     }

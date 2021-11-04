@@ -67,6 +67,8 @@
         <entry key="module-media/src/main/res/layout/media_image_select_activity.xml" value="0.2578125" />
         <entry key="module-media/src/main/res/layout/media_image_select_item.xml" value="0.1" />
         <entry key="module-media/src/main/res/layout/media_video_play_activity.xml" value="0.24322916666666666" />
+        <entry key="module-media/src/main/res/layout/media_video_select_activity.xml" value="0.22870370370370371" />
+        <entry key="module-media/src/main/res/layout/media_video_select_item.xml" value="0.22870370370370371" />
         <entry key="module-media/src/main/res/layout/res_album_item.xml" value="0.2578125" />
         <entry key="module-media/src/main/res/layout/res_image_select_item.xml" value="0.24322916666666666" />
         <entry key="module-splash/src/main/res/layout/app_activity_splash.xml" value="0.3880208333333333" />

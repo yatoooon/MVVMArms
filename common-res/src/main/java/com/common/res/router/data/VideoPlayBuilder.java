@@ -1,5 +1,4 @@
-package com.common.res.data;
-
+package com.common.res.router.data;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,13 +7,12 @@ import android.content.pm.ActivityInfo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-
 import java.io.File;
 
 /**
  * 播放参数构建
  */
-public final class Builder implements Parcelable {
+public final class VideoPlayBuilder implements Parcelable {
 
     /**
      * 视频源
@@ -51,10 +49,10 @@ public final class Builder implements Parcelable {
      */
     public int activityOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
 
-    public Builder() {
+    public VideoPlayBuilder() {
     }
 
-    public Builder(Parcel in) {
+    protected VideoPlayBuilder(Parcel in) {
         videoSource = in.readString();
         videoTitle = in.readString();
         activityOrientation = in.readInt();
@@ -66,7 +64,7 @@ public final class Builder implements Parcelable {
         autoOver = in.readByte() != 0;
     }
 
-    public Builder setVideoSource(File file) {
+    public VideoPlayBuilder setVideoSource(File file) {
         videoSource = file.getPath();
         if (videoTitle == null) {
             videoTitle = file.getName();
@@ -74,7 +72,7 @@ public final class Builder implements Parcelable {
         return this;
     }
 
-    public Builder setVideoSource(String url) {
+    public VideoPlayBuilder setVideoSource(String url) {
         videoSource = url;
         return this;
     }
@@ -83,7 +81,7 @@ public final class Builder implements Parcelable {
         return videoSource;
     }
 
-    public Builder setVideoTitle(String title) {
+    public VideoPlayBuilder setVideoTitle(String title) {
         videoTitle = title;
         return this;
     }
@@ -92,7 +90,7 @@ public final class Builder implements Parcelable {
         return videoTitle;
     }
 
-    public Builder setPlayProgress(int progress) {
+    public VideoPlayBuilder setPlayProgress(int progress) {
         playProgress = progress;
         return this;
     }
@@ -101,7 +99,7 @@ public final class Builder implements Parcelable {
         return playProgress;
     }
 
-    public Builder setGestureEnabled(boolean enabled) {
+    public VideoPlayBuilder setGestureEnabled(boolean enabled) {
         gestureEnabled = enabled;
         return this;
     }
@@ -110,7 +108,7 @@ public final class Builder implements Parcelable {
         return gestureEnabled;
     }
 
-    public Builder setLoopPlay(boolean enabled) {
+    public VideoPlayBuilder setLoopPlay(boolean enabled) {
         loopPlay = enabled;
         return this;
     }
@@ -119,7 +117,7 @@ public final class Builder implements Parcelable {
         return loopPlay;
     }
 
-    public Builder setAutoPlay(boolean enabled) {
+    public VideoPlayBuilder setAutoPlay(boolean enabled) {
         autoPlay = enabled;
         return this;
     }
@@ -128,7 +126,7 @@ public final class Builder implements Parcelable {
         return autoPlay;
     }
 
-    public Builder setAutoOver(boolean enabled) {
+    public VideoPlayBuilder setAutoOver(boolean enabled) {
         autoOver = enabled;
         return this;
     }
@@ -137,43 +135,31 @@ public final class Builder implements Parcelable {
         return autoOver;
     }
 
-    public Builder setActivityOrientation(int orientation) {
+    public VideoPlayBuilder setActivityOrientation(int orientation) {
         activityOrientation = orientation;
         return this;
     }
 
-    public void start(Context context) {
-        Intent intent = new Intent();
-        switch (activityOrientation) {
-            case ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE:
-                try {
-                    intent.setClass(context, Class.forName("com.common.media.ui.activity.VideoPlayActivity.Landscape"));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case ActivityInfo.SCREEN_ORIENTATION_PORTRAIT:
-                try {
-                    intent.setClass(context, Class.forName("com.common.media.ui.activity.VideoPlayActivity.Portrait"));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                break;
-            default:
-                try {
-                    intent.setClass(context, Class.forName("com.common.media.ui.activity.VideoPlayActivity"));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                break;
-        }
-
-        intent.putExtra("parameters", this);
-        if (!(context instanceof Activity)) {
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        }
-        context.startActivity(intent);
-    }
+//    public void start(Context context) {
+//        Intent intent = new Intent();
+//        switch (activityOrientation) {
+//            case ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE:
+//                intent.setClass(context, VideoPlayActivity.Landscape.class);
+//                break;
+//            case ActivityInfo.SCREEN_ORIENTATION_PORTRAIT:
+//                intent.setClass(context, VideoPlayActivity.Portrait.class);
+//                break;
+//            default:
+//                intent.setClass(context, VideoPlayActivity.class);
+//                break;
+//        }
+//
+//        intent.putExtra(INTENT_KEY_PARAMETERS, this);
+//        if (!(context instanceof Activity)) {
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        }
+//        context.startActivity(intent);
+//    }
 
     @Override
     public int describeContents() {
@@ -192,15 +178,15 @@ public final class Builder implements Parcelable {
         dest.writeByte(autoOver ? (byte) 1 : (byte) 0);
     }
 
-    public static final Creator<Builder> CREATOR = new Creator<Builder>() {
+    public static final Parcelable.Creator<VideoPlayBuilder> CREATOR = new Parcelable.Creator<VideoPlayBuilder>() {
         @Override
-        public Builder createFromParcel(Parcel source) {
-            return new Builder(source);
+        public VideoPlayBuilder createFromParcel(Parcel source) {
+            return new VideoPlayBuilder(source);
         }
 
         @Override
-        public Builder[] newArray(int size) {
-            return new Builder[size];
+        public VideoPlayBuilder[] newArray(int size) {
+            return new VideoPlayBuilder[size];
         }
     };
 }

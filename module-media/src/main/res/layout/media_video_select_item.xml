@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.common.media.ui.activity.VideoSelectActivity.VideoBean" />
+    </data>
+
+    <com.common.res.layout.RatioFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:res_sizeRatio="1:1">
+
+        <com.common.res.view.ScaleImageView
+            android:id="@+id/iv_video_select_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/res_white"
+            android:scaleType="centerCrop"
+            app:res="@{item.videoPath}"
+            app:res_scaleRatio="0.95"
+            tools:src="@drawable/res_example_bg" />
+
+        <FrameLayout
+            android:id="@+id/fl_video_select_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:paddingStart="@dimen/res_dp_20"
+            android:paddingTop="@dimen/res_dp_10"
+            android:paddingEnd="@dimen/res_dp_10"
+            android:paddingBottom="@dimen/res_dp_20">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/iv_video_select_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                app:buttonCompat="@drawable/res_checkbox_selector"
+                app:videoBean="@{item}" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/res_black30"
+            android:paddingHorizontal="@dimen/res_dp_15"
+            android:paddingVertical="@dimen/res_dp_10">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_video_select_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/res_white"
+                android:textSize="@dimen/res_sp_14"
+                app:videoDuration="@{item.videoDuration}"
+                tools:text="10:00" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_video_select_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:textColor="@color/res_white"
+                android:textSize="@dimen/res_sp_14"
+                app:videoSize="@{item.videoSize}"
+                tools:text="10.24M" />
+        </FrameLayout>
+
+    </com.common.res.layout.RatioFrameLayout>
+</layout>

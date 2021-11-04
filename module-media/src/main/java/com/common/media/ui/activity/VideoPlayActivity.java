@@ -7,10 +7,11 @@ import androidx.annotation.NonNull;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
 import com.common.media.R;
-import com.common.res.data.Builder;
 import com.common.res.immersionbar.BindImmersionBar;
 import com.common.res.router.RouterHub;
+import com.common.res.router.data.VideoPlayBuilder;
 import com.common.res.view.PlayerView;
+
 
 /**
  * author : Android 轮子哥
@@ -25,7 +26,7 @@ public class VideoPlayActivity extends BaseActivity
     public static final String INTENT_KEY_PARAMETERS = "parameters";
 
     private PlayerView mPlayerView;
-    private Builder mBuilder;
+    private VideoPlayBuilder mBuilder;
 
     @Override
     public int getLayoutId() {
@@ -108,12 +109,14 @@ public class VideoPlayActivity extends BaseActivity
     /**
      * 竖屏播放
      */
+    @Route(path = RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_PORTRAIT)
     public static final class Portrait extends VideoPlayActivity {
     }
 
     /**
      * 横屏播放
      */
+    @Route(path = RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_LANDSCAPE)
     public static final class Landscape extends VideoPlayActivity {
     }
 
