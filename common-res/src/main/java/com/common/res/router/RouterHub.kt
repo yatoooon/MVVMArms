@@ -22,6 +22,7 @@ object RouterHub {
 
     const val SPLASH: String = "/splash"
     const val PUBLIC_SPLASH_SPLASHACTIVITY: String = "$SPLASH/SplashActivity"
+    const val PUBLIC_SPLASH_GUIDEACTIVITY: String = "$SPLASH/GuideActivity"
 
 
     const val CRASH: String = "/crash"

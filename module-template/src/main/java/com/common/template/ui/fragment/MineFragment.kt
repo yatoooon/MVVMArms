@@ -6,6 +6,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.BaseFragment
 import com.common.res.router.RouterHub
 import com.common.res.router.data.VideoPlayBuilder
+import com.common.res.router.routerNavigation
 import com.common.res.utils.bindViewClickListener
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentMineBinding
@@ -47,6 +48,9 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                 btnMineCrash
             ) {
                 when (this) {
+                    btnMineGuide -> {
+                        routerNavigation(RouterHub.PUBLIC_SPLASH_GUIDEACTIVITY)
+                    }
                     btnMineBrowser -> {
                         ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEACTIVITY)
                             .withString("url", "www.baidu.com")
