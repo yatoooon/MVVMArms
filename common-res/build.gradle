@@ -62,6 +62,7 @@ dependencies {
     api Deps.autosize
     api Deps.easyFloat
     api Deps.rvAdapter
+    api Deps.circleindicator
     api Deps.bottombar
     api Deps.bgaQrcode
     api Deps.arouterApi

@@ -35,6 +35,10 @@
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:theme="@style/res_FullScreenTheme" />
+        <activity
+            android:name=".ui.activity.ImagePreviewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
 
 
         <!-- 表示当前已经适配了分区存储 -->

@@ -20,6 +20,7 @@
         <entry key="common-res/src/main/res/drawable-xxhdpi/checkbox_selector.xml" value="0.27395833333333336" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/compound_normal_ic.xml" value="0.27395833333333336" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/countdown_selector.xml" value="0.24635416666666668" />
+        <entry key="common-res/src/main/res/drawable-xxhdpi/image_preview_indicator.xml" value="0.16203703703703703" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/radiobutton_checked_ic.xml" value="0.27395833333333336" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/radiobutton_selector.xml" value="0.27395833333333336" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/res_arrows_left_ic.xml" value="0.15052083333333333" />
@@ -37,6 +38,7 @@
         <entry key="common-res/src/main/res/drawable-xxhdpi/status_empty_ic.xml" value="0.259375" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/status_error_ic.xml" value="0.259375" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/status_order_ic.xml" value="0.259375" />
+        <entry key="common-res/src/main/res/drawable/res_image_preview_indicator.xml" value="0.1574074074074074" />
         <entry key="common-res/src/main/res/layout/album_item.xml" value="0.24322916666666666" />
         <entry key="common-res/src/main/res/layout/res_album_dialog.xml" value="0.24322916666666666" />
         <entry key="common-res/src/main/res/layout/res_album_item.xml" value="0.24322916666666666" />
@@ -63,7 +65,10 @@
         <entry key="module-home/src/main/res/layout/home_status_fragment.xml" value="0.3734375" />
         <entry key="module-home/src/main/res/layout/home_vp2_layout_item.xml" value="0.14166666666666666" />
         <entry key="module-home/src/main/res/layout/status_fragment.xml" value="0.3880208333333333" />
+        <entry key="module-media/src/main/res/layout/image_preview_activity.xml" value="0.21666666666666667" />
         <entry key="module-media/src/main/res/layout/image_select_activity.xml" value="0.24322916666666666" />
+        <entry key="module-media/src/main/res/layout/media_image_preview_activity.xml" value="0.11677479147358666" />
+        <entry key="module-media/src/main/res/layout/media_image_preview_item.xml" value="0.20462962962962963" />
         <entry key="module-media/src/main/res/layout/media_image_select_activity.xml" value="0.2578125" />
         <entry key="module-media/src/main/res/layout/media_image_select_item.xml" value="0.1" />
         <entry key="module-media/src/main/res/layout/media_video_play_activity.xml" value="0.24322916666666666" />

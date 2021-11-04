@@ -12,6 +12,7 @@ import com.common.template.databinding.TemplateFragmentMineBinding
 import com.gyf.immersionbar.ImmersionBar
 import com.tencent.bugly.crashreport.CrashReport
 import java.lang.IllegalStateException
+import java.util.ArrayList
 
 @Route(path = RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MINE)
 class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
@@ -40,6 +41,7 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                 btnMineGuide,
                 btnMineBrowser,
                 btnMineImageSelect,
+                btnMineImagePreview,
                 btnMineVideoSelect,
                 btnMineVideoPlay,
                 btnMineCrash
@@ -48,6 +50,15 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                     btnMineImageSelect -> {
                         ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
                             .withInt("maxSelect", 3)
+                            .navigation()
+                    }
+                    btnMineImagePreview -> {
+                        val images = ArrayList<String>()
+                        images.add("https://www.baidu.com/img/bd_logo.png")
+                        images.add("https://avatars1.githubusercontent.com/u/28616817")
+                        ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_IMAGEPREVIEWACTIVITY)
+                            .withStringArrayList("imageList", images)
+                            .withInt("imageIndex", 0)
                             .navigation()
                     }
                     btnMineVideoSelect -> {
