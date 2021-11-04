@@ -3,6 +3,7 @@ package com.common.core.lifecycle
 import android.app.Activity
 import android.app.Application.ActivityLifecycleCallbacks
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -55,8 +56,9 @@ class CoreActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
         if (toolbar != null) {
             val tvTitle = toolbar.findViewById<TextView>(R.id.res_tv_title)
             //找到 Toolbar 的标题栏并设置标题名
-            if (tvTitle != null && activity.title != null && activity.title != activity.getString(R.string.app_name)) {
-                tvTitle.text = activity.title
+            //找到 Toolbar 的标题栏并设置标题名
+            if (tvTitle != null && !TextUtils.isEmpty(activity.intent.getStringExtra("title"))) {
+                tvTitle.text = activity.intent.getStringExtra("title")
             }
             val ivBack = toolbar.findViewById<ImageView>(R.id.res_iv_back)
             ivBack?.setOnClickListener { v: View? -> activity.onBackPressed() }

@@ -93,16 +93,16 @@
         <entry key="module-template/src/main/res/layout/template_item_head.xml" value="0.22592592592592592" />
         <entry key="module-template/src/main/res/layout/template_item_status.xml" value="0.25" />
         <entry key="module-template/src/main/res/layout/template_layout_item.xml" value="0.1" />
-        <entry key="module-web/src/main/res/layout/web_activity_config.xml" value="0.3734375" />
-        <entry key="module-web/src/main/res/layout/web_activity_tabpage.xml" value="0.3734375" />
-        <entry key="module-web/src/main/res/layout/web_activity_webpage.xml" value="0.3734375" />
+        <entry key="module-web/src/main/res/layout/web_activity_config.xml" value="0.31265508684863524" />
+        <entry key="module-web/src/main/res/layout/web_activity_tabpage.xml" value="0.31265508684863524" />
+        <entry key="module-web/src/main/res/layout/web_activity_webpage.xml" value="0.31265508684863524" />
         <entry key="module-web/src/main/res/layout/web_fragment_webpage.xml" value="0.22733612273361228" />
         <entry key="module-web/src/main/res/layout/web_layout_agentweb_error_page.xml" value="0.3734375" />
         <entry key="module-web/src/main/res/layout/web_layout_error_page.xml" value="0.3734375" />
         <entry key="module-web/src/main/res/layout/web_layout_item_h5_url.xml" value="0.3734375" />
         <entry key="module-web/src/main/res/layout/web_layout_loading_view.xml" value="0.3734375" />
         <entry key="module-web/src/main/res/layout/web_layout_radiobutton.xml" value="0.3734375" />
-        <entry key="module-web/src/main/res/layout/web_layout_toolbar.xml" value="0.3734375" />
+        <entry key="module-web/src/main/res/layout/web_layout_toolbar.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -47,6 +47,12 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                 btnMineCrash
             ) {
                 when (this) {
+                    btnMineBrowser -> {
+                        ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEACTIVITY)
+                            .withString("url", "www.baidu.com")
+                            .withString("title", "百度一下")
+                            .navigation()
+                    }
                     btnMineImageSelect -> {
                         ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
                             .withInt("maxSelect", 3)

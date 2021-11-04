@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.mvvm.BaseVMFragment
 import com.common.core.base.mvvm.BaseViewModel
 import com.common.res.adapter.FragmentViewPager2Adapter
@@ -26,6 +27,7 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel>(
 
 
     private lateinit var mPagerAdapter: FragmentViewPager2Adapter
+
     private val fragments = mutableListOf<Fragment>(
         StatusFragment.newInstance(),
         StatusFragment.newInstance()

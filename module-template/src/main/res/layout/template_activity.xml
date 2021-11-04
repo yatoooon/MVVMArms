@@ -12,9 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include
-            android:id="@+id/res_toolbar"
-            layout="@layout/res_layout_top_common" />
+        <include layout="@layout/res_layout_top_common" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/srl_refresh"
