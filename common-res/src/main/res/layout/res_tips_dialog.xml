@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/res_black85"
+    app:cardCornerRadius="@dimen/res_dp_15"
+    app:cardElevation="0px"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minWidth="@dimen/res_dp_110"
+        android:minHeight="@dimen/res_dp_110"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_tips_icon"
+            android:layout_width="@dimen/res_dp_60"
+            android:layout_height="@dimen/res_dp_60"
+            android:layout_marginTop="@dimen/res_dp_10"
+            app:srcCompat="@drawable/res_tips_warning_ic" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_tips_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/res_dp_15"
+            android:layout_marginTop="@dimen/res_dp_5"
+            android:layout_marginBottom="@dimen/res_dp_10"
+            android:maxLines="3"
+            android:textColor="@color/res_white"
+            android:textSize="@dimen/res_sp_14"
+            tools:text="提示语" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

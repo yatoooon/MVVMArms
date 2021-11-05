@@ -41,7 +41,7 @@ import com.hjq.bar.TitleBar;
  * time   : 2018/10/18
  * desc   : 登录界面
  */
-@Route(path = RouterHub.PUBLIC_LOGINACTIVITY)
+@Route(path = RouterHub.PUBLIC_LOGIN_LOGINACTIVITY)
 public final class LoginActivity extends BaseActivity
         implements UmengLogin.OnLoginListener, TitleBarAction,
         KeyboardWatcher.SoftKeyboardStateListener,
@@ -90,6 +90,9 @@ public final class LoginActivity extends BaseActivity
 
     @Override
     public void initView() {
+        if (getTitleBar() != null) {
+            getTitleBar().setOnTitleBarListener(this);
+        }
         mLogoView = findViewById(R.id.iv_login_logo);
         mBodyLayout = findViewById(R.id.ll_login_body);
         mPhoneView = findViewById(R.id.et_login_phone);
@@ -146,23 +149,23 @@ public final class LoginActivity extends BaseActivity
 
     @Override
     public void onRightClick(View view) {
-//        // 跳转到注册界面
-//        RegisterActivity.start(this, mPhoneView.getText().toString(),
-//                mPasswordView.getText().toString(), (phone, password) -> {
-//                    // 如果已经注册成功，就执行登录操作
-//                    mPhoneView.setText(phone);
-//                    mPasswordView.setText(password);
-//                    mPasswordView.requestFocus();
-//                    mPasswordView.setSelection(mPasswordView.getText().length());
-//                    onClick(mCommitView);
-//                });
+        // 跳转到注册界面
+        RegisterActivity.start(this, mPhoneView.getText().toString(),
+                mPasswordView.getText().toString(), (phone, password) -> {
+                    // 如果已经注册成功，就执行登录操作
+                    mPhoneView.setText(phone);
+                    mPasswordView.setText(password);
+                    mPasswordView.requestFocus();
+                    mPasswordView.setSelection(mPasswordView.getText().length());
+                    onClick(mCommitView);
+                });
     }
 
     @SingleClick
     @Override
     public void onClick(View view) {
         if (view == mForgetView) {
-//            startActivity(PasswordForgetActivity.class);
+            startActivity(PasswordForgetActivity.class);
             return;
         }
 
@@ -240,12 +243,13 @@ public final class LoginActivity extends BaseActivity
                 break;
         }
 
-        ArmsUtil.obtainAppComponent().imageLoader.loadImage(mLogoView.getContext(),
+        ArmsUtil.obtainAppComponent().imageLoader.loadImage(getActivity(),
                 new ImageConfigImpl
                         .Builder()
                         .res(data.getAvatar())
                         .isCircle(true)
                         .isCenterCrop(true)
+                        .imageView(mLogoView)
                         .build());
 
         toast("昵称：" + data.getName() + "\n" +

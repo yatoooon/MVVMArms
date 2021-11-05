@@ -78,12 +78,14 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
      * 初始化ContentView，{@link #setContentView(int)} }
      */
     public void setContentView() {
-        if (isBinding()) {
-            mBinding = DataBindingUtil.setContentView(this, getLayoutId());
-        } else {
-            setContentView(getLayoutId());
+        if (getLayoutId() != 0) {
+            if (isBinding()) {
+                mBinding = DataBindingUtil.setContentView(this, getLayoutId());
+            } else {
+                setContentView(getLayoutId());
+            }
+            initSoftKeyboard();
         }
-        initSoftKeyboard();
     }
 
     /**

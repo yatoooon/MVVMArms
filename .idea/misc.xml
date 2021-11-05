@@ -39,18 +39,32 @@
         <entry key="common-res/src/main/res/drawable-xxhdpi/status_empty_ic.xml" value="0.259375" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/status_error_ic.xml" value="0.259375" />
         <entry key="common-res/src/main/res/drawable-xxhdpi/status_order_ic.xml" value="0.259375" />
+        <entry key="common-res/src/main/res/drawable/dialog_input_bg.xml" value="0.14537037037037037" />
         <entry key="common-res/src/main/res/drawable/res_image_preview_indicator.xml" value="0.1574074074074074" />
+        <entry key="common-res/src/main/res/drawable/tips_error_ic.xml" value="0.14907407407407408" />
+        <entry key="common-res/src/main/res/drawable/tips_finish_ic.xml" value="0.14907407407407408" />
+        <entry key="common-res/src/main/res/drawable/tips_warning_ic.xml" value="0.14907407407407408" />
+        <entry key="common-res/src/main/res/drawable/white_selector.xml" value="0.13333333333333333" />
         <entry key="common-res/src/main/res/layout/album_item.xml" value="0.24322916666666666" />
+        <entry key="common-res/src/main/res/layout/menu_dialog.xml" value="0.1527777777777778" />
+        <entry key="common-res/src/main/res/layout/menu_item.xml" value="0.1527777777777778" />
         <entry key="common-res/src/main/res/layout/res_album_dialog.xml" value="0.24322916666666666" />
         <entry key="common-res/src/main/res/layout/res_album_item.xml" value="0.24322916666666666" />
+        <entry key="common-res/src/main/res/layout/res_input_dialog.xml" value="0.16666666666666666" />
         <entry key="common-res/src/main/res/layout/res_layout_empty.xml" value="0.22592592592592592" />
         <entry key="common-res/src/main/res/layout/res_layout_error.xml" value="0.22592592592592592" />
         <entry key="common-res/src/main/res/layout/res_layout_loading.xml" value="0.22592592592592592" />
         <entry key="common-res/src/main/res/layout/res_layout_refresh_header.xml" value="0.22592592592592592" />
         <entry key="common-res/src/main/res/layout/res_layout_top_common.xml" value="0.2814814814814815" />
+        <entry key="common-res/src/main/res/layout/res_menu_dialog.xml" value="0.1" />
+        <entry key="common-res/src/main/res/layout/res_menu_item.xml" value="0.1527777777777778" />
         <entry key="common-res/src/main/res/layout/res_rv_item.xml" value="0.24322916666666666" />
+        <entry key="common-res/src/main/res/layout/res_tips_dialog.xml" value="0.25" />
+        <entry key="common-res/src/main/res/layout/res_ui_dialog.xml" value="0.10833333333333334" />
         <entry key="common-res/src/main/res/layout/res_widget_player_view.xml" value="0.24322916666666666" />
         <entry key="common-res/src/main/res/layout/res_widget_status_layout.xml" value="0.24322916666666666" />
+        <entry key="common-res/src/main/res/layout/resupdate_dialog.xml" value="0.1527777777777778" />
+        <entry key="common-res/src/main/res/layout/safe_dialog.xml" value="0.1527777777777778" />
         <entry key="module-crash/src/main/res/drawable/crash_info_ic.xml" value="0.1962962962962963" />
         <entry key="module-crash/src/main/res/drawable/crash_reboot_ic.xml" value="0.1" />
         <entry key="module-crash/src/main/res/drawable/share_ic.xml" value="0.1962962962962963" />
@@ -66,9 +80,16 @@
         <entry key="module-home/src/main/res/layout/home_status_fragment.xml" value="0.3734375" />
         <entry key="module-home/src/main/res/layout/home_vp2_layout_item.xml" value="0.14166666666666666" />
         <entry key="module-home/src/main/res/layout/status_fragment.xml" value="0.3880208333333333" />
+        <entry key="module-login/src/main/res/drawable/login_phone_ic.xml" value="0.14907407407407408" />
         <entry key="module-login/src/main/res/drawable/login_qq_ic.xml" value="0.1574074074074074" />
+        <entry key="module-login/src/main/res/drawable/login_safe_ic.xml" value="0.14907407407407408" />
         <entry key="module-login/src/main/res/drawable/login_wechat_ic.xml" value="0.1574074074074074" />
         <entry key="module-login/src/main/res/layout/login_activity.xml" value="0.20462962962962963" />
+        <entry key="module-login/src/main/res/layout/login_password_forget_activity.xml" value="0.1" />
+        <entry key="module-login/src/main/res/layout/login_phone_reset_activity.xml" value="0.1" />
+        <entry key="module-login/src/main/res/layout/login_register_activity.xml" value="0.17962962962962964" />
+        <entry key="module-login/src/main/res/layout/password_forget_activity.xml" value="0.17962962962962964" />
+        <entry key="module-login/src/main/res/layout/password_reset_activity.xml" value="0.17962962962962964" />
         <entry key="module-media/src/main/res/layout/image_preview_activity.xml" value="0.21666666666666667" />
         <entry key="module-media/src/main/res/layout/image_select_activity.xml" value="0.24322916666666666" />
         <entry key="module-media/src/main/res/layout/media_image_preview_activity.xml" value="0.11677479147358666" />
@@ -80,6 +101,9 @@
         <entry key="module-media/src/main/res/layout/media_video_select_item.xml" value="0.22870370370370371" />
         <entry key="module-media/src/main/res/layout/res_album_item.xml" value="0.2578125" />
         <entry key="module-media/src/main/res/layout/res_image_select_item.xml" value="0.24322916666666666" />
+        <entry key="module-personal/src/main/res/layout/persional_setting_activity.xml" value="0.1527777777777778" />
+        <entry key="module-personal/src/main/res/layout/personal_data_activity.xml" value="0.1" />
+        <entry key="module-personal/src/main/res/layout/personal_setting_activity.xml" value="0.1" />
         <entry key="module-splash/src/main/res/drawable/guide_indicator_selected.xml" value="0.1574074074074074" />
         <entry key="module-splash/src/main/res/drawable/guide_indicator_unselected.xml" value="0.1574074074074074" />
         <entry key="module-splash/src/main/res/layout/app_activity_splash.xml" value="0.3880208333333333" />

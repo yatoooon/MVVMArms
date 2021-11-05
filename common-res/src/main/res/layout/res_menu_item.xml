@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="String" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_menu_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/res_transparent_selector"
+            android:gravity="center"
+            android:text="@{item}"
+            android:paddingHorizontal="@dimen/res_dp_15"
+            android:paddingVertical="@dimen/res_dp_13"
+            android:singleLine="true"
+            android:textColor="@color/res_common_confirm_text_color"
+            android:textSize="@dimen/sp_14"
+            tools:text="条目" />
+
+        <View
+            android:id="@+id/v_menu_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/res_line_size"
+            android:layout_gravity="bottom"
+            android:background="@color/res_common_line_color" />
+
+    </FrameLayout>
+</layout>

@@ -51,10 +51,7 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel>(
         binding.vpHomePager.adapter = mPagerAdapter
         binding.vpHomePager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         TabLayoutMediator(binding.rvHomeTab, binding.vpHomePager) { tab, position ->
-            when (position) {
-                0 -> tab.text = "列表演示"
-                1 -> tab.text = "网页演示"
-            }
+            tab.text = "列表" + (position + 1)
         }.attach()
     }
 

@@ -50,7 +50,25 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                 when (this) {
 
                     btnMineLogin -> {
-                        routerNavigation(RouterHub.PUBLIC_LOGINACTIVITY)
+                        routerNavigation(RouterHub.PUBLIC_LOGIN_LOGINACTIVITY)
+                    }
+                    btnMineRegister -> {
+                        routerNavigation(RouterHub.PUBLIC_LOGIN_REGISTERACTIVITY)
+                    }
+                    btnMineForget -> {
+                        routerNavigation(RouterHub.PUBLIC_LOGIN_PASSWORDFORGETACTIVITY)
+                    }
+                    btnMineReset -> {
+                        routerNavigation(RouterHub.PUBLIC_LOGIN_PASSWORDRESETACTIVITY)
+                    }
+                    btnMineChange -> {
+                        routerNavigation(RouterHub.PUBLIC_LOGIN_PHONERESETACTIVITY)
+                    }
+                    btnMinePersonal -> {
+                        routerNavigation(RouterHub.PUBLIC_PERSONAL_PERSONALDATAACTIVITY)
+                    }
+                    btnMineSetting ->{
+                        routerNavigation(RouterHub.PUBLIC_PERSONAL_SETTINGACTIVITY)
                     }
                     btnMineGuide -> {
                         routerNavigation(RouterHub.PUBLIC_SPLASH_GUIDEACTIVITY)
