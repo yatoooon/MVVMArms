@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.common.template">
 
     <application android:name=".app.TemplateApp">
@@ -8,7 +7,18 @@
             android:name="com.common.template.lifecycle.TemplateConfiguration"
             android:value="CoreConfigModule" />
 
-        <activity android:name=".ui.activity.TemplateActivity" />
+        <activity
+            android:name=".ui.activity.TemplateActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.StatusActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.DialogActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
     </application>
 
 

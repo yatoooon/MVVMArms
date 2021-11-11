@@ -10,6 +10,8 @@ import com.common.res.router.routerNavigation
 import com.common.res.utils.bindViewClickListener
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentMineBinding
+import com.common.template.ui.activity.DialogActivity
+import com.common.template.ui.activity.StatusActivity
 import com.gyf.immersionbar.ImmersionBar
 import com.tencent.bugly.crashreport.CrashReport
 import java.lang.IllegalStateException
@@ -49,6 +51,12 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
             ) {
                 when (this) {
 
+                    btnMineDialog -> {
+                        startActivity(DialogActivity::class.java)
+                    }
+                    btnMineHint -> {
+                        startActivity(StatusActivity::class.java)
+                    }
                     btnMineLogin -> {
                         routerNavigation(RouterHub.PUBLIC_LOGIN_LOGINACTIVITY)
                     }
@@ -67,7 +75,7 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                     btnMinePersonal -> {
                         routerNavigation(RouterHub.PUBLIC_PERSONAL_PERSONALDATAACTIVITY)
                     }
-                    btnMineSetting ->{
+                    btnMineSetting -> {
                         routerNavigation(RouterHub.PUBLIC_PERSONAL_SETTINGACTIVITY)
                     }
                     btnMineGuide -> {

@@ -52,7 +52,7 @@ public final class MenuDialog {
                 super.convert(holder, item);
                 if (holder.getBindingAdapterPosition() == getItemCount() - 1) {
                     holder.findView(R.id.v_menu_line).setVisibility(View.GONE);
-                }else{
+                } else {
                     holder.findView(R.id.v_menu_line).setVisibility(View.VISIBLE);
 
                 }
@@ -79,7 +79,7 @@ public final class MenuDialog {
                 case Gravity.CENTER:
                 case Gravity.CENTER_VERTICAL:
                     // 不显示取消按钮
-                    setCancel(null);
+                    setCancel("");
                     // 重新设置动画
                     setAnimStyle(BaseDialog.ANIM_SCALE);
                     break;
