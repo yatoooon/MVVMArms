@@ -3,8 +3,8 @@ package com.common.template.ui.activity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.mvvm.BaseVMActivity
-import com.common.res.adapter.BaseAdapter
 import com.common.export.arouter.RouterHub
+import com.common.res.adapter.BaseAdapter
 import com.common.template.R
 import com.common.template.data.entity.TemplateEntity
 import com.common.template.databinding.TemplateActivityBinding

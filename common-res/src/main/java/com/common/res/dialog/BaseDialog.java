@@ -38,7 +38,12 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 
 import com.common.res.R;
-import com.common.res.action.*;
+import com.common.res.action.ActivityAction;
+import com.common.res.action.AnimAction;
+import com.common.res.action.ClickAction;
+import com.common.res.action.HandlerAction;
+import com.common.res.action.KeyboardAction;
+import com.common.res.action.ResourcesAction;
 
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;

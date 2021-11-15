@@ -5,8 +5,9 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.BaseFragment
 import com.common.export.arouter.RouterHub
-import com.common.export.arouter.data.VideoPlayBuilder
 import com.common.export.arouter.routerNavigation
+import com.common.export.arouter.service.IMediaService
+import com.common.export.data.VideoPlayBuilder
 import com.common.res.utils.bindViewClickListener
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentMineBinding
@@ -14,8 +15,7 @@ import com.common.template.ui.activity.DialogActivity
 import com.common.template.ui.activity.StatusActivity
 import com.gyf.immersionbar.ImmersionBar
 import com.tencent.bugly.crashreport.CrashReport
-import java.lang.IllegalStateException
-import java.util.ArrayList
+import java.util.*
 
 @Route(path = RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MINE)
 class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
@@ -88,9 +88,10 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                             .navigation()
                     }
                     btnMineImageSelect -> {
-                        ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
-                            .withInt("maxSelect", 3)
-                            .navigation()
+                        ARouter.getInstance().navigation(IMediaService::class.java)
+                            .startImageSelectActivity(
+                                mActivity, 3
+                            ) { toast(it.toString())}
                     }
                     btnMineImagePreview -> {
                         val images = ArrayList<String>()
@@ -107,7 +108,7 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                             .navigation()
                     }
                     btnMineVideoPlay -> {
-                        val builder = com.common.export.arouter.data.VideoPlayBuilder()
+                        val builder = VideoPlayBuilder()
                             .setVideoTitle("速度与激情特别行动")
                             .setVideoSource("http://vfx.mtime.cn/Video/2019/06/29/mp4/190629004821240734.mp4")
                             .setActivityOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)

@@ -5,7 +5,6 @@ import Versions
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.android.build.gradle.internal.dsl.SigningConfig
-import com.android.builder.internal.ClassFieldImpl
 import isRunAlone
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -13,7 +12,6 @@ import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.File
-import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
 /**
  * desc :android{} 配置
@@ -40,7 +38,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             flavorDimensions("default")
             ndk {
                 // 设置支持的SO库架构
-                abiFilters(
+                abiFilters.add(
 //                    "armeabi",
 //                    "x86",
                     "armeabi-v7a"
@@ -48,6 +46,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 //                    "arm64-v8a"
                 )
             }
+
             javaCompileOptions {
                 annotationProcessorOptions {
                     argument("AROUTER_MODULE_NAME", project.name)

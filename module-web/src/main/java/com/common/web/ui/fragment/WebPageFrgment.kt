@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.BaseFragment
+import com.common.export.arouter.RouterHub
 import com.common.res.config.Constants.H5_URL
 import com.common.res.entity.SendEventEntity
 import com.common.res.event.WEBFRAME_EVENT
-import com.common.export.arouter.RouterHub
 import com.common.res.utils.eventBusObserve
 import com.common.web.R
 import com.common.web.databinding.WebFragmentWebpageBinding

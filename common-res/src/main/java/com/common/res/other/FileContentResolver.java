@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileNotFoundException;

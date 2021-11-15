@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.hjq.shape.layout.ShapeLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
@@ -9,8 +8,7 @@
     app:shape="rectangle"
     app:shape_solidColor="@color/res_white"
     app:shape_topLeftRadius="@dimen/res_dp_20"
-    app:shape_topRightRadius="@dimen/res_dp_20"
-    >
+    app:shape_topRightRadius="@dimen/res_dp_20">
 
     <FrameLayout
         android:layout_width="match_parent"

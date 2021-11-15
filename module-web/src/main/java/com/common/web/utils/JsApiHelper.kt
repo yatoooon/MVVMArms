@@ -6,9 +6,9 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.PopupMenu
 import com.coder.zzq.smartshow.dialog.EnsureDialog
+import com.common.res.utils.GsonUtil
 import com.common.res.utils.dismissLoadingDialog
 import com.common.res.utils.showLoadingDialog
-import com.common.res.utils.GsonUtil
 import com.common.web.entity.DialogEntity
 import com.common.web.jsapi.JsApi
 import com.common.web.ui.activity.WebPageActivity

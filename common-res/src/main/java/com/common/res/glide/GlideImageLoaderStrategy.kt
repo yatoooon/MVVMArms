@@ -7,14 +7,14 @@ import com.bumptech.glide.Registry
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.common.res.http.imageloader.BaseImageLoaderStrategy
-import com.common.res.http.imageloader.ImageConfig
-import com.common.res.utils.ArmsUtil
-import com.common.res.utils.Preconditions
 import com.common.res.glide.config.GlideAppliesOptions
 import com.common.res.glide.config.GlideArms
 import com.common.res.glide.config.GlideRequests
 import com.common.res.glide.config.ImageConfigImpl
+import com.common.res.http.imageloader.BaseImageLoaderStrategy
+import com.common.res.http.imageloader.ImageConfig
+import com.common.res.utils.ArmsUtil
+import com.common.res.utils.Preconditions
 import timber.log.Timber
 
 //glide 加载策略

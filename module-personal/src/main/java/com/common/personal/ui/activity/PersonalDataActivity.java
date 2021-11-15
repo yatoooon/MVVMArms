@@ -13,15 +13,14 @@ import androidx.annotation.Nullable;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.core.base.BaseActivity;
+import com.common.export.arouter.RouterHub;
 import com.common.personal.R;
 import com.common.res.aop.SingleClick;
 import com.common.res.dialog.InputDialog;
 import com.common.res.glide.config.ImageConfigImpl;
 import com.common.res.layout.SettingBar;
 import com.common.res.other.FileContentResolver;
-import com.common.export.arouter.RouterHub;
 import com.common.res.utils.ArmsUtil;
-
 
 import java.io.File;
 import java.net.URI;

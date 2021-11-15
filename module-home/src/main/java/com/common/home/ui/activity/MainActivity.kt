@@ -6,11 +6,11 @@ import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.BaseActivity
+import com.common.export.arouter.RouterHub
 import com.common.home.R
 import com.common.home.databinding.HomeActivityMainBinding
 import com.common.res.adapter.FragmentViewPager2Adapter
 import com.common.res.immersionbar.BindImmersionBar
-import com.common.export.arouter.RouterHub
 import com.common.res.utils.AppManager
 import com.common.res.utils.DoubleClickUtils.isOnDoubleClick
 import dagger.hilt.android.AndroidEntryPoint

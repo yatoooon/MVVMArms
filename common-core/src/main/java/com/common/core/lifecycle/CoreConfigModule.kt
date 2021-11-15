@@ -7,10 +7,10 @@ import com.common.core.base.delegate.BaseApplicationLifecycle
 import com.common.core.config.CoreConfigModule
 import com.common.core.config.inter.AppliesOptions
 import com.common.core.di.module.AppModule
-import com.common.res.http.SSLSocketClient
 import com.common.res.config.Constants.BASE_URL
 import com.common.res.config.GlobalHttpHandlerImpl
 import com.common.res.glide.GlideImageLoaderStrategy
+import com.common.res.http.SSLSocketClient
 import com.google.gson.GsonBuilder
 import me.jessyan.progressmanager.ProgressManager
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager

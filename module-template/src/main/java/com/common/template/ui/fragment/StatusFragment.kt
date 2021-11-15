@@ -4,16 +4,13 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.common.core.base.mvvm.BaseVMFragment
-import com.common.core.base.mvvm.BaseViewModel
 import com.common.res.adapter.BaseAdapter
 import com.common.res.adapter.BaseAdapter.Companion.PAGE_SIZE
 import com.common.res.ext.inflateLayout
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentStatusBinding
 import com.common.template.ui.vm.StatusViewModel
-import org.jetbrains.anko.support.v4.runOnUiThread
 import org.jetbrains.anko.textColor
-import kotlin.concurrent.thread
 
 class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewModel>() {
 

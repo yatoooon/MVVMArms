@@ -5,13 +5,13 @@ import android.animation.AnimatorListenerAdapter
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.BaseActivity
-import com.common.res.immersionbar.BindImmersionBar
 import com.common.export.arouter.RouterHub
 import com.common.export.arouter.routerNavigation
+import com.common.res.immersionbar.BindImmersionBar
+import com.common.splash.BuildConfig
 import com.common.splash.R
 import com.common.splash.databinding.SplashActivityBinding
 import dagger.hilt.android.AndroidEntryPoint
-import com.common.splash.BuildConfig
 
 
 /**

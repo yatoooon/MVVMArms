@@ -14,10 +14,10 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
 import com.coder.zzq.smartshow.dialog.LoadingDialog
-import com.common.res.utils.AppManager
 import com.common.res.config.AppConfig
 import com.common.res.entity.SendEventEntity
 import com.common.res.event.WEBFRAME_EVENT
+import com.common.res.utils.AppManager
 import com.common.res.utils.GsonUtil
 import com.common.res.utils.appLogoutToLogin
 import com.common.res.utils.eventBusPost

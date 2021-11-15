@@ -1,6 +1,4 @@
 plugins {
     id "com.common.plugin.lib"
 }
-dependencies {
-    implementation project(':common-core')
-}
+

@@ -5,7 +5,6 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 
-
 import com.common.res.dialog.BaseDialog;
 
 import java.util.ArrayList;

@@ -8,10 +8,10 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
+import com.common.export.arouter.RouterHub;
 import com.common.export.arouter.RouterUtilKt;
 import com.common.res.adapter.BaseAdapter;
 import com.common.res.aop.SingleClick;
-import com.common.export.arouter.RouterHub;
 import com.common.splash.BR;
 import com.common.splash.R;
 

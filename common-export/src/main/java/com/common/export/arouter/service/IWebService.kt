@@ -9,7 +9,7 @@ import com.alibaba.android.arouter.facade.template.IProvider
  * author：panyy
  * date：2021/04/22
  */
-interface IWebFrameService : IProvider {
+interface IWebService : IProvider {
 
     /**
      * 打开web页面

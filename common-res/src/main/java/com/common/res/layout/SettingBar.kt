@@ -1,26 +1,24 @@
 package com.common.res.layout
 
 import android.content.Context
-import android.widget.FrameLayout
-import android.widget.LinearLayout
-import androidx.annotation.StringRes
-import com.common.res.layout.SettingBar
-import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
-import android.graphics.PorterDuff
-import androidx.annotation.ColorInt
-import android.graphics.drawable.ColorDrawable
-import android.view.Gravity
-import com.common.res.R
-import android.content.res.TypedArray
 import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.StateListDrawable
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.view.Gravity
 import android.view.View
+import android.widget.FrameLayout
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
+import com.common.res.R
 
 /**
  * author : Android 轮子哥

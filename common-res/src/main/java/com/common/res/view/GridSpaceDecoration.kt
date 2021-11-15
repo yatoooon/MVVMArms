@@ -3,9 +3,9 @@ package com.common.res.view
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 
 /**
  * author : Android 轮子哥

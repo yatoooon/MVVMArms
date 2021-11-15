@@ -1,13 +1,11 @@
 package com.common.res.adapter
 
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.fragment.app.FragmentActivity
-import android.os.Bundle
-import android.text.TextUtils
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
-import java.util.ArrayList
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import java.util.*
 
 class FragmentViewPager2Adapter : FragmentStateAdapter {
 

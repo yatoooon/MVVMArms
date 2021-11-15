@@ -23,9 +23,7 @@
         android:theme="@style/res_AppTheme"
         tools:replace="android:name">
 
-        <meta-data
-            android:name="com.common.sample.lifecycle.AppConfiguration"
-            android:value="CoreConfigModule" />
+
     </application>
 
 </manifest>

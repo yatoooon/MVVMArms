@@ -1,13 +1,13 @@
 package com.common.template.ui.activity
 
+import androidx.core.content.ContextCompat
 import com.common.core.base.BaseActivity
 import com.common.res.action.StatusAction
-import com.common.res.layout.StatusLayout
-import com.common.template.R
-import com.common.res.dialog.MenuDialog
-import com.common.res.layout.StatusLayout.OnRetryListener
-import androidx.core.content.ContextCompat
 import com.common.res.dialog.BaseDialog
+import com.common.res.dialog.MenuDialog
+import com.common.res.layout.StatusLayout
+import com.common.res.layout.StatusLayout.OnRetryListener
+import com.common.template.R
 import com.common.template.databinding.TemplateStatusActivityBinding
 
 /**

@@ -4,14 +4,14 @@ import android.app.Activity
 import android.content.Context
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.common.res.utils.AppManager
 import com.common.export.arouter.RouterHub
-import com.common.export.arouter.service.IWebFrameService
+import com.common.export.arouter.service.IWebService
+import com.common.res.utils.AppManager
 import com.common.web.ui.activity.WebPageActivity
 import com.common.web.ui.fragment.WebPageFrgment
 
 @Route(path = RouterHub.WEB_SERVICE, name = "web框架服务")
-class WebFrameServiceImpl : IWebFrameService {
+class WebServiceImpl : IWebService {
 
     private var context: Context? = null
 

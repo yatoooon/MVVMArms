@@ -4,9 +4,9 @@ import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
-import com.common.res.utils.ArmsUtil
 import com.common.res.R
 import com.common.res.glide.config.ImageConfigImpl
+import com.common.res.utils.ArmsUtil
 
 //ImageView 扩展
 fun ImageView.load(

@@ -13,7 +13,6 @@ import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 
-
 import com.common.res.App;
 import com.common.res.component.AppComponent;
 

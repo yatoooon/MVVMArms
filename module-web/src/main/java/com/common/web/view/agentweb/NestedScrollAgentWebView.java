@@ -16,6 +16,9 @@
 package com.common.web.view.agentweb;
 
 import android.content.Context;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.MotionEventCompat;
@@ -24,10 +27,6 @@ import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
-
-import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.view.View;
 
 /**
  * 结合CoordinatorLayout可以与Toolbar联动的webview

@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.Intent
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.BaseActivity
+import com.common.export.arouter.RouterHub
 import com.common.res.entity.SendEventEntity
 import com.common.res.event.WEBFRAME_EVENT
-import com.common.export.arouter.RouterHub
 import com.common.res.utils.eventBusPost
 import com.common.web.R
 import com.common.web.databinding.WebActivityWebpageBinding

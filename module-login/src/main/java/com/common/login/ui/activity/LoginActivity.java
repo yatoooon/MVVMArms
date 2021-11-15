@@ -19,13 +19,13 @@ import androidx.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
+import com.common.export.arouter.RouterHub;
 import com.common.login.R;
 import com.common.res.aop.Log;
 import com.common.res.aop.SingleClick;
 import com.common.res.glide.config.ImageConfigImpl;
 import com.common.res.manager.InputTextManager;
 import com.common.res.other.KeyboardWatcher;
-import com.common.export.arouter.RouterHub;
 import com.common.res.umeng.Platform;
 import com.common.res.umeng.UmengClient;
 import com.common.res.umeng.UmengLogin;

@@ -45,10 +45,12 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction, ToastAction {
 
 
+
+
     /**
      * Activity 对象
      */
-    private FragmentActivity mActivity;
+    public BaseActivity mActivity;
 
 
     private VDB mBinding;
@@ -68,7 +70,9 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         // 获得全局的 Activity
-        mActivity = requireActivity();
+        if (requireActivity() instanceof BaseActivity) {
+            mActivity = (BaseActivity) requireActivity();
+        }
     }
 
     @Nullable

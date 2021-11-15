@@ -17,9 +17,9 @@ internal fun Project.configureDependencies() = dependencies.apply {
         add("androidTestImplementation", Deps.extJunit)
         add("androidTestImplementation", Deps.espressoCore)
     }
-
+    add("implementation", project(":common-export"))
+    add("implementation", Deps.arouterApi)
     add("kapt", Deps.arouterCompiler)
-
     add("implementation", Deps.hiltAndroid)
     add("kapt", Deps.hiltAndroidCompiler)
     add("implementation", Deps.androidHiltLifecycleViewmodel)

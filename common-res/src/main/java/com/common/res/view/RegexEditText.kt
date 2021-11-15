@@ -1,7 +1,9 @@
 package com.common.res.view
 
 import android.content.Context
-import android.text.*
+import android.text.InputFilter
+import android.text.Spanned
+import android.text.TextUtils
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
 import com.common.res.R

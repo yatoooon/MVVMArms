@@ -1,12 +1,10 @@
 package com.common.res.aop;
 
-import android.app.ActivityManager;
 import android.app.Application;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import androidx.core.content.ContextCompat;
-
 
 import com.common.res.App;
 import com.common.res.R;

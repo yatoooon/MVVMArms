@@ -1,9 +1,6 @@
 package com.common.core.base.ibase;
 
-import android.os.Bundle;
-
 import androidx.annotation.LayoutRes;
-import androidx.annotation.Nullable;
 
 import com.common.core.base.BaseActivity;
 import com.common.core.base.BaseFragment;

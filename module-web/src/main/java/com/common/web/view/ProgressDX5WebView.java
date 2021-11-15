@@ -11,8 +11,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.tencent.smtt.sdk.WebView;
 import com.common.web.R;
+import com.tencent.smtt.sdk.WebView;
 
 public class ProgressDX5WebView extends DX5WebView {
     private ProgressBar mProgressBar;

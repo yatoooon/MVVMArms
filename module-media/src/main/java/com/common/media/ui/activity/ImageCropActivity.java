@@ -13,10 +13,10 @@ import androidx.core.content.FileProvider;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
+import com.common.export.arouter.RouterHub;
 import com.common.media.R;
 import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
-import com.common.export.arouter.RouterHub;
 import com.hjq.permissions.Permission;
 import com.tencent.bugly.crashreport.CrashReport;
 
@@ -42,9 +42,6 @@ public final class ImageCropActivity extends BaseActivity {
     public static final String INTENT_KEY_OUT_FILE_NAME = "fileName";
     public static final String INTENT_KEY_OUT_ERROR = "error";
 
-    public static void start(BaseActivity activity, File file, OnCropListener listener) {
-        start(activity, file, 0, 0, listener);
-    }
 
     @Log
     @Permissions({Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE})

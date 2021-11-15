@@ -3,9 +3,6 @@ package com.common.export.arouter
 //路由组件路径
 object RouterHub {
 
-    const val MAIN: String = "/main"
-    const val UNIAPP: String = "/uniapp"
-    const val PUBLIC_MAIN: String = "$MAIN/MainActivity"
     const val SERVICE = "/service"
 
 
@@ -22,7 +19,7 @@ object RouterHub {
 
 
     const val WEB: String = "/web"
-    const val WEB_SERVICE: String = "$WEB$SERVICE/WebframeService"
+    const val WEB_SERVICE: String = "$WEB$SERVICE/IWebService"
     const val PUBLIC_WEBPAGEACTIVITY: String = "$WEB/WebPageActivity"
     const val PUBLIC_WEBPAGEFRAGMENT: String = "$WEB/WebPageFrgment"
 
@@ -38,6 +35,7 @@ object RouterHub {
 
 
     const val MEDIA: String = "/media"
+    const val MEDIA_SERVICE: String = "$MEDIA$SERVICE/IMediaService"
     const val PUBLIC_MEDIA_IMAGESELECTACTIVITY: String = "$MEDIA/ImageSelectActivity"
     const val PUBLIC_MEDIA_IMAGEPREVIEWACTIVITY: String = "$MEDIA/ImagePreviewActivity"
     const val PUBLIC_MEDIA_IMAGECROPACTIVITY: String = "$MEDIA/ImageCropActivity"

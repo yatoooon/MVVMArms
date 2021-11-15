@@ -15,24 +15,24 @@ import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.listener.OnItemLongClickListener;
 import com.common.core.base.BaseActivity;
+import com.common.export.arouter.RouterHub;
+import com.common.export.callback.OnPhotoSelectListener;
+import com.common.media.BR;
 import com.common.media.R;
 import com.common.media.databinding.MediaImageSelectActivityBinding;
-import com.common.media.BR;
+import com.common.media.ui.dialog.AlbumDialog;
 import com.common.res.action.StatusAction;
 import com.common.res.adapter.BaseAdapter;
 import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
 import com.common.res.aop.SingleClick;
-import com.common.media.ui.dialog.AlbumDialog;
 import com.common.res.layout.StatusLayout;
-import com.common.export.arouter.RouterHub;
 import com.common.res.manager.ThreadPoolManager;
 import com.common.res.view.FloatActionButton;
 import com.common.res.view.GridSpaceDecoration;
@@ -62,10 +62,6 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
     private static final String INTENT_KEY_IN_MAX_SELECT = "maxSelect";
 
     private static final String INTENT_KEY_OUT_IMAGE_LIST = "imageList";
-
-    public static void start(BaseActivity activity, OnPhotoSelectListener listener) {
-        start(activity, 1, listener);
-    }
 
     @Log
     @Permissions({Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE})
@@ -196,7 +192,6 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
     }
 
 
-
     @SingleClick
     @Override
     public void onRightClick(View view) {
@@ -279,7 +274,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
         if (view.getId() == R.id.fab_image_select_floating) {
             if (mSelectImage.isEmpty()) {
                 // 点击拍照
-                CameraActivity.start(this, new CameraActivity.OnCameraListener() {
+                CameraActivity.start(this, false, new CameraActivity.OnCameraListener() {
                     @Override
                     public void onSelected(File file) {
                         // 当前选中图片的数量必须小于最大选中数
@@ -464,24 +459,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
     }
 
 
-    /**
-     * 图片选择监听
-     */
-    public interface OnPhotoSelectListener {
 
-        /**
-         * 选择回调
-         *
-         * @param data 图片列表
-         */
-        void onSelected(List<String> data);
-
-        /**
-         * 取消回调
-         */
-        default void onCancel() {
-        }
-    }
 
     @BindingAdapter(value = {"imagePath"})
     public static void customCheck(CheckBox checkBox, String imagePath) {

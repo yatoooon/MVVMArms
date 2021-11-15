@@ -1,5 +1,7 @@
 package com.common.web.view;
 
+import static android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
@@ -46,8 +48,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
-import static android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW;
 
 
 /**

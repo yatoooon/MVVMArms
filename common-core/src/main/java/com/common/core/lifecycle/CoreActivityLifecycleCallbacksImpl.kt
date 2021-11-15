@@ -4,9 +4,6 @@ import android.app.Activity
 import android.app.Application.ActivityLifecycleCallbacks
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import com.common.core.base.BaseActivity
 import com.common.res.R
 import com.common.res.immersionbar.BindImmersionBar

@@ -9,7 +9,6 @@ import android.provider.MediaStore;
 
 import androidx.core.content.FileProvider;
 
-
 import com.common.core.base.BaseActivity;
 import com.common.media.R;
 import com.common.res.aop.Log;
@@ -23,10 +22,10 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2019/12/18
- *    desc   : 拍摄图片、视频
+ * author : Android 轮子哥
+ * github : https://github.com/getActivity/AndroidProject
+ * time   : 2019/12/18
+ * desc   : 拍摄图片、视频
  */
 public final class CameraActivity extends BaseActivity {
 
@@ -34,10 +33,6 @@ public final class CameraActivity extends BaseActivity {
     public static final String INTENT_KEY_IN_VIDEO = "video";
 
     public static final String INTENT_KEY_OUT_ERROR = "error";
-
-    public static void start(BaseActivity activity, OnCameraListener listener) {
-        start(activity, false, listener);
-    }
 
     @Log
     @Permissions({Permission.WRITE_EXTERNAL_STORAGE, Permission.READ_EXTERNAL_STORAGE, Permission.CAMERA})
@@ -80,7 +75,8 @@ public final class CameraActivity extends BaseActivity {
     }
 
     @Override
-    public void initView() {}
+    public void initView() {
+    }
 
     @Override
     public void initData() {
@@ -153,20 +149,21 @@ public final class CameraActivity extends BaseActivity {
         /**
          * 选择回调
          *
-         * @param file          文件
+         * @param file 文件
          */
         void onSelected(File file);
 
         /**
          * 错误回调
          *
-         * @param details       错误详情
+         * @param details 错误详情
          */
         void onError(String details);
 
         /**
          * 取消回调
          */
-        default void onCancel() {}
+        default void onCancel() {
+        }
     }
 }

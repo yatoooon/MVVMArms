@@ -1,21 +1,20 @@
 package com.common.res.layout
 
 import android.content.Context
-import androidx.annotation.AttrRes
-import android.widget.FrameLayout
-import com.airbnb.lottie.LottieAnimationView
-import com.common.res.layout.StatusLayout.OnRetryListener
-import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
-import androidx.annotation.RawRes
-import androidx.annotation.StringRes
-import android.view.LayoutInflater
-import com.common.res.R
-import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.view.LayoutInflater
+import android.view.View.OnClickListener
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.annotation.AttrRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.RawRes
+import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
+import com.airbnb.lottie.LottieAnimationView
+import com.common.res.R
 import com.common.res.layout.StatusLayout
 
 /**

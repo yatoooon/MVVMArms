@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-
 import com.common.res.R;
 import com.common.res.aop.SingleClick;
 import com.common.res.view.CountdownView;

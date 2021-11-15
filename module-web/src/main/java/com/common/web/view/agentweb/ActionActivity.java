@@ -17,6 +17,8 @@
 
 package com.common.web.view.agentweb;
 
+import static android.provider.MediaStore.EXTRA_OUTPUT;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -28,8 +30,6 @@ import androidx.annotation.Nullable;
 
 import java.io.File;
 import java.util.List;
-
-import static android.provider.MediaStore.EXTRA_OUTPUT;
 
 
 /**

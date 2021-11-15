@@ -5,7 +5,6 @@ import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;

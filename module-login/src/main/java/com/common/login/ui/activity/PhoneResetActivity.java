@@ -11,15 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
+import com.common.export.arouter.RouterHub;
 import com.common.login.R;
 import com.common.res.aop.Log;
 import com.common.res.aop.SingleClick;
 import com.common.res.dialog.TipsDialog;
 import com.common.res.manager.InputTextManager;
-import com.common.export.arouter.RouterHub;
 import com.common.res.view.CountdownView;
 import com.hjq.toast.ToastUtils;
 

@@ -5,7 +5,6 @@ import com.common.res.net.BaseResponse
 import com.common.template.data.entity.TemplateEntity
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface TemplateService {
     @GET("article/list/{page}/json")

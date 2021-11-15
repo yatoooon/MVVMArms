@@ -4,9 +4,9 @@ import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.BaseFragment
+import com.common.export.arouter.RouterHub
 import com.common.res.aop.Permissions
 import com.common.res.ext.loadImage
-import com.common.export.arouter.RouterHub
 import com.common.res.utils.bindViewClickListener
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentMessageBinding

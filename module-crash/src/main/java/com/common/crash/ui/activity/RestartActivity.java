@@ -7,8 +7,8 @@ import android.content.Intent;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
 import com.common.crash.R;
-import com.common.export.arouter.RouterUtilKt;
 import com.common.export.arouter.RouterHub;
+import com.common.export.arouter.RouterUtilKt;
 
 /**
  * author : Android 轮子哥

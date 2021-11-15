@@ -34,8 +34,13 @@ import androidx.annotation.StyleRes;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.PopupWindowCompat;
 
-import com.common.res.action.*;
-
+import com.common.res.action.ActivityAction;
+import com.common.res.action.AnimAction;
+import com.common.res.action.ClickAction;
+import com.common.res.action.HandlerAction;
+import com.common.res.action.KeyboardAction;
+import com.common.res.action.ResourcesAction;
+import com.common.res.action.ToastAction;
 
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;

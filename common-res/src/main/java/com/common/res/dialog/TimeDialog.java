@@ -2,13 +2,9 @@ package com.common.res.dialog;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.common.res.BR;
 import com.common.res.R;

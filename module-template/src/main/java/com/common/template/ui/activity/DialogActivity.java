@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
+import com.common.export.arouter.RouterHub;
 import com.common.res.aop.SingleClick;
 import com.common.res.dialog.BaseDialog;
 import com.common.res.dialog.DateDialog;
@@ -26,7 +27,6 @@ import com.common.res.dialog.WaitDialog;
 import com.common.res.dialog.address.AddressDialog;
 import com.common.res.dialog.popup.ListPopup;
 import com.common.res.manager.DialogManager;
-import com.common.export.arouter.RouterHub;
 import com.common.res.umeng.Platform;
 import com.common.res.umeng.UmengClient;
 import com.common.res.umeng.UmengShare;

@@ -1,4 +1,4 @@
-package com.common.export.arouter.data;
+package com.common.export.data;
 
 import android.content.pm.ActivityInfo;
 import android.os.Parcel;

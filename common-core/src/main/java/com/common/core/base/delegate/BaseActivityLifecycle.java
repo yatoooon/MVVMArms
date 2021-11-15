@@ -4,14 +4,11 @@ import static com.common.core.base.delegate.BaseApplicationLifecycleDelegate.mAp
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks;
 
 import com.common.core.config.CoreConfigModule;

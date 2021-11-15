@@ -37,7 +37,6 @@ import com.common.res.action.ActivityAction;
 import com.common.res.dialog.MessageDialog;
 import com.common.res.layout.SimpleLayout;
 
-
 import java.io.File;
 import java.util.Formatter;
 import java.util.Locale;

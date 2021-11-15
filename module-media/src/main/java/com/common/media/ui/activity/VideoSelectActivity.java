@@ -28,8 +28,8 @@ import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.listener.OnItemLongClickListener;
 import com.common.core.base.BaseActivity;
-
-import com.common.export.arouter.data.VideoPlayBuilder;
+import com.common.export.arouter.RouterHub;
+import com.common.export.data.VideoPlayBuilder;
 import com.common.media.BR;
 import com.common.media.R;
 import com.common.media.ui.dialog.AlbumDialog;
@@ -39,9 +39,8 @@ import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
 import com.common.res.aop.SingleClick;
 import com.common.res.layout.StatusLayout;
-import com.common.export.arouter.RouterHub;
-import com.common.res.utils.CacheUtil;
 import com.common.res.manager.ThreadPoolManager;
+import com.common.res.utils.CacheUtil;
 import com.common.res.view.FloatActionButton;
 import com.common.res.view.GridSpaceDecoration;
 import com.common.res.view.PlayerView;
@@ -73,9 +72,6 @@ public final class VideoSelectActivity extends BaseActivity
 
     private static final String INTENT_KEY_OUT_VIDEO_LIST = "videoList";
 
-    public static void start(BaseActivity activity, OnVideoSelectListener listener) {
-        start(activity, 1, listener);
-    }
 
     @Log
     @Permissions({Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE})
@@ -151,7 +147,6 @@ public final class VideoSelectActivity extends BaseActivity
     public int getLayoutId() {
         return R.layout.media_video_select_activity;
     }
-
 
 
     @Override

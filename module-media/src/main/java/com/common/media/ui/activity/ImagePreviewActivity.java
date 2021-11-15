@@ -14,13 +14,13 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.common.core.base.BaseActivity;
+import com.common.export.arouter.RouterHub;
 import com.common.media.BR;
 import com.common.media.R;
 import com.common.res.adapter.BaseAdapter;
 import com.common.res.adapter.RecyclerPagerAdapter;
 import com.common.res.aop.Log;
 import com.common.res.immersionbar.BindImmersionBar;
-import com.common.export.arouter.RouterHub;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,15 +43,6 @@ public final class ImagePreviewActivity extends BaseActivity
     private static final String INTENT_KEY_IN_IMAGE_LIST = "imageList";
     private static final String INTENT_KEY_IN_IMAGE_INDEX = "imageIndex";
 
-    public static void start(Context context, String url) {
-        ArrayList<String> images = new ArrayList<>(1);
-        images.add(url);
-        start(context, images);
-    }
-
-    public static void start(Context context, List<String> urls) {
-        start(context, urls, 0);
-    }
 
     @Log
     public static void start(Context context, List<String> urls, int index) {
