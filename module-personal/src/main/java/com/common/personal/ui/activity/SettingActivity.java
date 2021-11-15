@@ -1,6 +1,6 @@
 package com.common.personal.ui.activity;
 
-import static com.common.res.router.RouterUtilKt.routerNavigation;
+import static com.common.export.arouter.RouterUtilKt.routerNavigation;
 
 import android.view.Gravity;
 import android.view.View;
@@ -17,7 +17,7 @@ import com.common.res.dialog.UpdateDialog;
 import com.common.res.ext.Context_ExtensionKt;
 import com.common.res.layout.SettingBar;
 import com.common.res.manager.ThreadPoolManager;
-import com.common.res.router.RouterHub;
+import com.common.export.arouter.RouterHub;
 import com.common.res.utils.AppManager;
 import com.common.res.utils.CacheUtil;
 import com.common.res.view.SwitchButton;

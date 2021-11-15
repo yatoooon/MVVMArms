@@ -13,7 +13,7 @@ import com.common.core.base.BaseActivity;
 import com.common.login.R;
 import com.common.res.aop.SingleClick;
 import com.common.res.manager.InputTextManager;
-import com.common.res.router.RouterHub;
+import com.common.export.arouter.RouterHub;
 import com.common.res.view.CountdownView;
 
 

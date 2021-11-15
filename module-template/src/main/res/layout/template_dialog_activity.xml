@@ -8,6 +8,7 @@
     tools:context=".ui.activity.DialogActivity">
 
     <com.hjq.bar.TitleBar
+        android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:rightIcon="@drawable/template_add_ic"

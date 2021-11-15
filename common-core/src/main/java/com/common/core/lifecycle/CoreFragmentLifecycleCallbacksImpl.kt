@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.common.res.R
 import com.gyf.immersionbar.ImmersionBar
+import com.hjq.bar.TitleBar
 import timber.log.Timber
 
 class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCallbacks() {
@@ -29,17 +30,12 @@ class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCall
     ) {
         Timber.i("%s - onFragmentViewCreated", f.toString())
         //设置全局toolbar和title
-        val toolbar = v.findViewById<View>(R.id.res_toolbar)
-        if (toolbar != null) {
-            ImmersionBar.setTitleBarMarginTop(f, toolbar) //activity默认是沉浸状态栏所以要加上
-            val tvTitle = toolbar.findViewById<TextView>(R.id.res_tv_title)
-            //找到 Toolbar 的标题栏并设置标题名
-            if (tvTitle != null && !TextUtils.isEmpty(f.arguments?.getString("title"))) {
-                tvTitle.text = f.arguments?.getString("title")
+        val titleBar = v.findViewById<TitleBar>(R.id.titleBar)
+        if (titleBar != null) {
+            ImmersionBar.setTitleBarMarginTop(f, titleBar) //activity默认是沉浸状态栏所以要加上
+            if (!TextUtils.isEmpty(f.arguments?.getString("title"))) {
+                titleBar.title = f.arguments?.getString("title")
             }
-            val ivBack = toolbar.findViewById<ImageView>(R.id.res_iv_back)
-            ivBack.visibility = View.GONE
-            ivBack?.setOnClickListener { f.activity?.onBackPressed() }
         }
     }
 

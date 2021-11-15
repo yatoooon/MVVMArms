@@ -12,7 +12,10 @@
         android:orientation="vertical"
         tools:ignore="MissingDefaultResource">
 
-        <include layout="@layout/res_layout_top_common" />
+         <com.hjq.bar.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
         <com.common.res.layout.NoScrollViewPager
             android:id="@+id/viewpager"

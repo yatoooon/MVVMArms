@@ -1,8 +1,5 @@
-package com.common.res.router.data;
+package com.common.export.arouter.data;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -63,6 +60,35 @@ public final class VideoPlayBuilder implements Parcelable {
         autoPlay = in.readByte() != 0;
         autoOver = in.readByte() != 0;
     }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(videoSource);
+        dest.writeString(videoTitle);
+        dest.writeInt(playProgress);
+        dest.writeByte((byte) (gestureEnabled ? 1 : 0));
+        dest.writeByte((byte) (loopPlay ? 1 : 0));
+        dest.writeByte((byte) (autoPlay ? 1 : 0));
+        dest.writeByte((byte) (autoOver ? 1 : 0));
+        dest.writeInt(activityOrientation);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<VideoPlayBuilder> CREATOR = new Creator<VideoPlayBuilder>() {
+        @Override
+        public VideoPlayBuilder createFromParcel(Parcel in) {
+            return new VideoPlayBuilder(in);
+        }
+
+        @Override
+        public VideoPlayBuilder[] newArray(int size) {
+            return new VideoPlayBuilder[size];
+        }
+    };
 
     public VideoPlayBuilder setVideoSource(File file) {
         videoSource = file.getPath();
@@ -161,32 +187,5 @@ public final class VideoPlayBuilder implements Parcelable {
 //        context.startActivity(intent);
 //    }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(videoSource);
-        dest.writeString(videoTitle);
-        dest.writeInt(activityOrientation);
-        dest.writeInt(playProgress);
-        dest.writeByte(gestureEnabled ? (byte) 1 : (byte) 0);
-        dest.writeByte(loopPlay ? (byte) 1 : (byte) 0);
-        dest.writeByte(autoPlay ? (byte) 1 : (byte) 0);
-        dest.writeByte(autoOver ? (byte) 1 : (byte) 0);
-    }
-
-    public static final Parcelable.Creator<VideoPlayBuilder> CREATOR = new Parcelable.Creator<VideoPlayBuilder>() {
-        @Override
-        public VideoPlayBuilder createFromParcel(Parcel source) {
-            return new VideoPlayBuilder(source);
-        }
-
-        @Override
-        public VideoPlayBuilder[] newArray(int size) {
-            return new VideoPlayBuilder[size];
-        }
-    };
 }

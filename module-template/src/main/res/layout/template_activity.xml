@@ -12,7 +12,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/res_layout_top_common" />
+        <com.hjq.bar.TitleBar
+            android:id="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/srl_refresh"
@@ -32,10 +35,10 @@
                     android:id="@+id/progress_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:layout_gravity="center"
                     android:indeterminateTint="@color/colorPrimary"
-                    android:indeterminateTintMode="src_atop" />
+                    android:indeterminateTintMode="src_atop"
+                    android:visibility="gone" />
             </FrameLayout>
 
 

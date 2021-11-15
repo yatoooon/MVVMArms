@@ -12,7 +12,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/res_layout_top_common" />
+        <com.hjq.bar.TitleBar
+            android:id="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftIcon="@null" />
 
         <LinearLayout
             android:layout_width="match_parent"

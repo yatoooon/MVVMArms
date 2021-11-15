@@ -2,15 +2,11 @@ package com.common.web.ui.activity
 
 import android.content.Context
 import android.content.Intent
-import android.text.TextUtils
-import android.view.View
-import androidx.databinding.DataBindingUtil
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.BaseActivity
 import com.common.res.entity.SendEventEntity
 import com.common.res.event.WEBFRAME_EVENT
-import com.common.res.router.RouterHub
-import com.common.res.utils.bindViewClickListener
+import com.common.export.arouter.RouterHub
 import com.common.res.utils.eventBusPost
 import com.common.web.R
 import com.common.web.databinding.WebActivityWebpageBinding

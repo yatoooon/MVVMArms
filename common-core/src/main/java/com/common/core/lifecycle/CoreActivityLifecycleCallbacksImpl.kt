@@ -12,6 +12,7 @@ import com.common.res.R
 import com.common.res.immersionbar.BindImmersionBar
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
+import com.hjq.bar.TitleBar
 import timber.log.Timber
 
 //添加生命周期的打印信息
@@ -51,17 +52,13 @@ class CoreActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
                 }
             }
         }
-        //全局设置toolbar 和 title
-        val toolbar = activity.findViewById<View>(R.id.res_toolbar)
-        if (toolbar != null) {
-            val tvTitle = toolbar.findViewById<TextView>(R.id.res_tv_title)
+        //全局设置titleBar的title
+        val titleBar = activity.findViewById<TitleBar>(R.id.titleBar)
+        if (titleBar != null) {
             //找到 Toolbar 的标题栏并设置标题名
-            //找到 Toolbar 的标题栏并设置标题名
-            if (tvTitle != null && !TextUtils.isEmpty(activity.intent.getStringExtra("title"))) {
-                tvTitle.text = activity.intent.getStringExtra("title")
+            if (!TextUtils.isEmpty(activity.intent.getStringExtra("title"))) {
+                titleBar.title = activity.intent.getStringExtra("title")
             }
-            val ivBack = toolbar.findViewById<ImageView>(R.id.res_iv_back)
-            ivBack?.setOnClickListener { v: View? -> activity.onBackPressed() }
         }
     }
 

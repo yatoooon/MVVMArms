@@ -47,6 +47,7 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(":common-res")
+    api project(":common-export")
     kapt Deps.arouterCompiler
     kapt Deps.lifecycleCompiler
     kapt Deps.roomCompiler

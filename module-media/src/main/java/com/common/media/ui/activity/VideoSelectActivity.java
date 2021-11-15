@@ -29,24 +29,22 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.listener.OnItemLongClickListener;
 import com.common.core.base.BaseActivity;
 
+import com.common.export.arouter.data.VideoPlayBuilder;
 import com.common.media.BR;
 import com.common.media.R;
 import com.common.media.ui.dialog.AlbumDialog;
 import com.common.res.action.StatusAction;
-import com.common.res.action.TitleBarAction;
 import com.common.res.adapter.BaseAdapter;
 import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
 import com.common.res.aop.SingleClick;
 import com.common.res.layout.StatusLayout;
-import com.common.res.router.RouterHub;
-import com.common.res.router.data.VideoPlayBuilder;
+import com.common.export.arouter.RouterHub;
 import com.common.res.utils.CacheUtil;
 import com.common.res.manager.ThreadPoolManager;
 import com.common.res.view.FloatActionButton;
 import com.common.res.view.GridSpaceDecoration;
 import com.common.res.view.PlayerView;
-import com.hjq.bar.TitleBar;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -66,7 +64,7 @@ import java.util.Set;
  */
 @Route(path = RouterHub.PUBLIC_MEDIA_VIDEOSELECTACTIVITY)
 public final class VideoSelectActivity extends BaseActivity
-        implements StatusAction, Runnable, TitleBarAction,
+        implements StatusAction, Runnable,
         OnItemClickListener,
         OnItemLongClickListener,
         OnItemChildClickListener {
@@ -154,11 +152,7 @@ public final class VideoSelectActivity extends BaseActivity
         return R.layout.media_video_select_activity;
     }
 
-    @Nullable
-    @Override
-    public TitleBar getTitleBar() {
-        return obtainTitleBar(getContentView());
-    }
+
 
     @Override
     public void initView() {

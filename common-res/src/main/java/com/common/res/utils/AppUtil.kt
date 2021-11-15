@@ -2,8 +2,6 @@ package com.common.res.utils
 
 import android.os.Bundle
 import com.common.res.config.AppConfig
-import com.common.res.router.RouterHub
-import com.common.res.router.routerNavigation
 
 /**
  * 登出

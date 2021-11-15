@@ -3,19 +3,15 @@ package com.common.splash.ui.activity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
-import android.widget.CheckBox;
-import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-import androidx.databinding.BindingAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
+import com.common.export.arouter.RouterUtilKt;
 import com.common.res.adapter.BaseAdapter;
 import com.common.res.aop.SingleClick;
-import com.common.res.router.RouterHub;
-import com.common.res.router.RouterUtilKt;
+import com.common.export.arouter.RouterHub;
 import com.common.splash.BR;
 import com.common.splash.R;
 

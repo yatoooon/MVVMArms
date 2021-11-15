@@ -6,10 +6,10 @@ import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
+import com.common.export.arouter.data.VideoPlayBuilder;
 import com.common.media.R;
 import com.common.res.immersionbar.BindImmersionBar;
-import com.common.res.router.RouterHub;
-import com.common.res.router.data.VideoPlayBuilder;
+import com.common.export.arouter.RouterHub;
 import com.common.res.view.PlayerView;
 
 

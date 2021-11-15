@@ -1,21 +1,16 @@
 package com.common.template.ui.fragment
 
 import android.content.res.ColorStateList
-import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.mvvm.BaseVMFragment
 import com.common.core.base.mvvm.BaseViewModel
 import com.common.res.adapter.FragmentViewPager2Adapter
-import com.common.res.callback.LoadingCallBack
-import com.common.res.immersionbar.BindImmersionBar
 import com.common.res.layout.XCollapsingToolbarLayout
-import com.common.res.router.RouterHub
+import com.common.export.arouter.RouterHub
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator

@@ -389,7 +389,6 @@
     <dimen name="res_dp_720">720dp</dimen>
 
 
-    <dimen name="res_toolbar_height">50dp</dimen>
     <!-- 默认分割线大小 -->
     <dimen name="res_line_size">1px</dimen>
 

@@ -10,7 +10,7 @@ import com.common.home.R
 import com.common.home.databinding.HomeActivityMainBinding
 import com.common.res.adapter.FragmentViewPager2Adapter
 import com.common.res.immersionbar.BindImmersionBar
-import com.common.res.router.RouterHub
+import com.common.export.arouter.RouterHub
 import com.common.res.utils.AppManager
 import com.common.res.utils.DoubleClickUtils.isOnDoubleClick
 import dagger.hilt.android.AndroidEntryPoint

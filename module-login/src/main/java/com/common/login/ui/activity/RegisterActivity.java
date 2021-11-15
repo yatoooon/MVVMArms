@@ -15,7 +15,7 @@ import com.common.login.R;
 import com.common.res.aop.Log;
 import com.common.res.aop.SingleClick;
 import com.common.res.manager.InputTextManager;
-import com.common.res.router.RouterHub;
+import com.common.export.arouter.RouterHub;
 import com.common.res.view.CountdownView;
 import com.common.res.view.SubmitButton;
 import com.gyf.immersionbar.ImmersionBar;

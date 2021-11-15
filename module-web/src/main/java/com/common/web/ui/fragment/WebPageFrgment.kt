@@ -1,26 +1,21 @@
 package com.common.web.ui.fragment
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.LinearLayout
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.BaseFragment
 import com.common.res.config.Constants.H5_URL
 import com.common.res.entity.SendEventEntity
 import com.common.res.event.WEBFRAME_EVENT
-import com.common.res.router.RouterHub
+import com.common.export.arouter.RouterHub
 import com.common.res.utils.eventBusObserve
 import com.common.web.R
 import com.common.web.databinding.WebFragmentWebpageBinding
 import com.common.web.jsapi.JsApi
 import com.common.web.utils.CookieUtil
 import com.common.web.view.BaseDWebView
-import com.common.web.view.CommonIndicator
 import com.common.web.view.DX5WebView
-import com.common.web.view.LoadingView
 import com.common.web.view.agentweb.AgentWeb
 import com.common.web.view.agentweb.DefaultWebClient
 import java.net.MalformedURLException

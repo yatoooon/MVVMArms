@@ -18,7 +18,7 @@ import com.common.res.aop.Log;
 import com.common.res.aop.SingleClick;
 import com.common.res.dialog.TipsDialog;
 import com.common.res.manager.InputTextManager;
-import com.common.res.router.RouterHub;
+import com.common.export.arouter.RouterHub;
 
 
 /**

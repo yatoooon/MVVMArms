@@ -5,8 +5,8 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.res.utils.AppManager
-import com.common.res.router.RouterHub
-import com.common.res.router.service.IWebFrameService
+import com.common.export.arouter.RouterHub
+import com.common.export.arouter.service.IWebFrameService
 import com.common.web.ui.activity.WebPageActivity
 import com.common.web.ui.fragment.WebPageFrgment
 

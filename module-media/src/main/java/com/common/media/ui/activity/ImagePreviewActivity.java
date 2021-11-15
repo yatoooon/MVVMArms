@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -21,9 +20,7 @@ import com.common.res.adapter.BaseAdapter;
 import com.common.res.adapter.RecyclerPagerAdapter;
 import com.common.res.aop.Log;
 import com.common.res.immersionbar.BindImmersionBar;
-import com.common.res.router.RouterHub;
-import com.gyf.immersionbar.BarHide;
-import com.gyf.immersionbar.ImmersionBar;
+import com.common.export.arouter.RouterHub;
 
 import java.util.ArrayList;
 import java.util.Collections;

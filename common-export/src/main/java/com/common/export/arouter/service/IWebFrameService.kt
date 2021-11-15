@@ -1,4 +1,4 @@
-package com.common.res.router.service
+package com.common.export.arouter.service
 
 import android.content.Context
 import androidx.fragment.app.Fragment

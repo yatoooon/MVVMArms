@@ -1,4 +1,4 @@
-package com.common.web.app
+package com.common.web.lifecycle
 
 import android.app.Application
 import android.content.Context

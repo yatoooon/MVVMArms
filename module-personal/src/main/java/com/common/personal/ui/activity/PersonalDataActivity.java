@@ -19,7 +19,7 @@ import com.common.res.dialog.InputDialog;
 import com.common.res.glide.config.ImageConfigImpl;
 import com.common.res.layout.SettingBar;
 import com.common.res.other.FileContentResolver;
-import com.common.res.router.RouterHub;
+import com.common.export.arouter.RouterHub;
 import com.common.res.utils.ArmsUtil;
 
 

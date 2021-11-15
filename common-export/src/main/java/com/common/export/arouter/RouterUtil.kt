@@ -1,4 +1,4 @@
-package com.common.res.router
+package com.common.export.arouter
 
 import android.content.Context
 import android.os.Bundle

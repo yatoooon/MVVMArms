@@ -1,4 +1,4 @@
-package com.common.res.router
+package com.common.export.arouter
 
 //路由组件路径
 object RouterHub {

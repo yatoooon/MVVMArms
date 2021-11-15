@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.core.BuildConfig;
-import com.common.res.router.RouterHub;
-import com.common.res.router.RouterUtilKt;
+import com.common.export.arouter.RouterUtilKt;
+import com.common.export.arouter.RouterHub;
 
 
 /**

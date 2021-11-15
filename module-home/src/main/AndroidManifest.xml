@@ -4,9 +4,6 @@
     package="com.common.home">
 
     <application android:name=".app.HomeApp">
-        <meta-data
-            android:name="com.common.home.lifecycle.HomeConfiguration"
-            android:value="CoreConfigModule" />
         <activity
             android:name="com.common.home.ui.activity.MainActivity"
             android:launchMode="singleTask"

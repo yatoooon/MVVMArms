@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -58,6 +59,7 @@ public final class ListPopup {
 
             RecyclerView recyclerView = new RecyclerView(context);
             recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             setContentView(recyclerView);
 
             recyclerView.setAdapter(mAdapter);

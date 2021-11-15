@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
-import com.common.res.action.TitleBarAction;
 import com.common.res.aop.SingleClick;
 import com.common.res.dialog.BaseDialog;
 import com.common.res.dialog.DateDialog;
@@ -27,12 +26,11 @@ import com.common.res.dialog.WaitDialog;
 import com.common.res.dialog.address.AddressDialog;
 import com.common.res.dialog.popup.ListPopup;
 import com.common.res.manager.DialogManager;
-import com.common.res.router.RouterHub;
+import com.common.export.arouter.RouterHub;
 import com.common.res.umeng.Platform;
 import com.common.res.umeng.UmengClient;
 import com.common.res.umeng.UmengShare;
 import com.common.template.R;
-import com.hjq.bar.TitleBar;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 
@@ -48,7 +46,7 @@ import java.util.List;
  *    desc   : 对话框使用案例
  */
 @Route(path = RouterHub.PUBLIC_DIALOG_ACTIVITY)
-public final class DialogActivity extends BaseActivity implements TitleBarAction {
+public final class DialogActivity extends BaseActivity {
 
     /** 等待对话框 */
     private BaseDialog mWaitDialog;
@@ -518,12 +516,6 @@ public final class DialogActivity extends BaseActivity implements TitleBarAction
             DialogManager.getInstance(this).addShow(dialog1);
             DialogManager.getInstance(this).addShow(dialog2);
         }
-    }
-
-    @Nullable
-    @Override
-    public TitleBar getTitleBar() {
-        return obtainTitleBar(getContentView());
     }
 
     @Override

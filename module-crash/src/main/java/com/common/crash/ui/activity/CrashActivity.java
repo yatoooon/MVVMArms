@@ -24,7 +24,7 @@ import com.common.core.base.BaseActivity;
 import com.common.crash.R;
 import com.common.res.aop.SingleClick;
 import com.common.res.ext.Context_ExtensionKt;
-import com.common.res.router.RouterHub;
+import com.common.export.arouter.RouterHub;
 import com.common.res.manager.ThreadPoolManager;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.permissions.Permission;
@@ -279,7 +279,7 @@ public final class CrashActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         // 重启应用
-        RestartActivity.restart(this);
+        RestartActivity.restart();
         finish();
     }
 

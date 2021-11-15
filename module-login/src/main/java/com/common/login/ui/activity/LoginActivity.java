@@ -20,20 +20,18 @@ import androidx.annotation.Nullable;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
 import com.common.login.R;
-import com.common.res.action.TitleBarAction;
 import com.common.res.aop.Log;
 import com.common.res.aop.SingleClick;
 import com.common.res.glide.config.ImageConfigImpl;
 import com.common.res.manager.InputTextManager;
 import com.common.res.other.KeyboardWatcher;
-import com.common.res.router.RouterHub;
+import com.common.export.arouter.RouterHub;
 import com.common.res.umeng.Platform;
 import com.common.res.umeng.UmengClient;
 import com.common.res.umeng.UmengLogin;
 import com.common.res.utils.ArmsUtil;
 import com.common.res.view.SubmitButton;
 import com.common.sample.WXEntryActivity;
-import com.hjq.bar.TitleBar;
 
 /**
  * author : Android 轮子哥
@@ -43,7 +41,7 @@ import com.hjq.bar.TitleBar;
  */
 @Route(path = RouterHub.PUBLIC_LOGIN_LOGINACTIVITY)
 public final class LoginActivity extends BaseActivity
-        implements UmengLogin.OnLoginListener, TitleBarAction,
+        implements UmengLogin.OnLoginListener,
         KeyboardWatcher.SoftKeyboardStateListener,
         TextView.OnEditorActionListener {
 
@@ -141,11 +139,7 @@ public final class LoginActivity extends BaseActivity
         mPasswordView.setText(getString(INTENT_KEY_IN_PASSWORD));
     }
 
-    @Nullable
-    @Override
-    public TitleBar getTitleBar() {
-        return obtainTitleBar(getContentView());
-    }
+
 
     @Override
     public void onRightClick(View view) {

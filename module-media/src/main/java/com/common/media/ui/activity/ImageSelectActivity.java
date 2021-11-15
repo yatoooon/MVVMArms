@@ -11,7 +11,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,18 +26,16 @@ import com.common.media.R;
 import com.common.media.databinding.MediaImageSelectActivityBinding;
 import com.common.media.BR;
 import com.common.res.action.StatusAction;
-import com.common.res.action.TitleBarAction;
 import com.common.res.adapter.BaseAdapter;
 import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
 import com.common.res.aop.SingleClick;
 import com.common.media.ui.dialog.AlbumDialog;
 import com.common.res.layout.StatusLayout;
-import com.common.res.router.RouterHub;
+import com.common.export.arouter.RouterHub;
 import com.common.res.manager.ThreadPoolManager;
 import com.common.res.view.FloatActionButton;
 import com.common.res.view.GridSpaceDecoration;
-import com.hjq.bar.TitleBar;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 
@@ -57,7 +54,7 @@ import java.util.Set;
  */
 @Route(path = RouterHub.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
 public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActivityBinding>
-        implements StatusAction, Runnable, TitleBarAction,
+        implements StatusAction, Runnable,
         OnItemClickListener,
         OnItemLongClickListener,
         OnItemChildClickListener {
@@ -198,11 +195,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
         return mStatusLayout;
     }
 
-    @Nullable
-    @Override
-    public TitleBar getTitleBar() {
-        return obtainTitleBar(getContentView());
-    }
+
 
     @SingleClick
     @Override
@@ -286,8 +279,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
         if (view.getId() == R.id.fab_image_select_floating) {
             if (mSelectImage.isEmpty()) {
                 // 点击拍照
-                // TODO: 2021/11/3
-               /* CameraActivity.start(this, new CameraActivity.OnCameraListener() {
+                CameraActivity.start(this, new CameraActivity.OnCameraListener() {
                     @Override
                     public void onSelected(File file) {
                         // 当前选中图片的数量必须小于最大选中数
@@ -306,7 +298,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
                     public void onError(String details) {
                         toast(details);
                     }
-                });*/
+                });
                 return;
             }
 
@@ -365,8 +357,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
 
     @Override
     public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-        // TODO: 2021/11/3
-//        ImagePreviewActivity.start(getActivity(), mAdapter.getData(), position);
+        ImagePreviewActivity.start(getActivity(), mAdapter.getData(), position);
     }
 
     @Override

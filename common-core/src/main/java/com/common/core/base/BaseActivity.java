@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
@@ -22,6 +23,7 @@ import com.common.res.action.*;
 import com.common.res.dialog.BaseDialog;
 import com.common.res.dialog.WaitDialog;
 import com.common.res.immersionbar.BindImmersionBar;
+import com.hjq.bar.TitleBar;
 
 import java.util.List;
 import java.util.Random;
@@ -40,7 +42,7 @@ import java.util.Random;
  * //-------------------------
  */
 public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompatActivity implements IView, ILoading, BindImmersionBar, ActivityAction, ClickAction,
-        HandlerAction, BundleAction, KeyboardAction, ToastAction {
+        HandlerAction, BundleAction, KeyboardAction, ToastAction, TitleBarAction {
 
 
     private VDB mBinding;
@@ -84,8 +86,22 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
             } else {
                 setContentView(getLayoutId());
             }
+            if (getTitleBar() != null) {
+                getTitleBar().setOnTitleBarListener(this);
+            }
             initSoftKeyboard();
         }
+    }
+
+    @Nullable
+    @Override
+    public TitleBar getTitleBar() {
+        return obtainTitleBar(getContentView());
+    }
+
+    @Override
+    public void onLeftClick(View view) {
+        onBackPressed();
     }
 
     /**

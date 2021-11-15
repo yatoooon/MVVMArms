@@ -150,7 +150,7 @@
         <entry key="module-template/src/main/res/layout/template_dialog_activity.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_fragment_found.xml" value="0.1027984619140625" />
         <entry key="module-template/src/main/res/layout/template_fragment_home.xml" value="0.1" />
-        <entry key="module-template/src/main/res/layout/template_fragment_message.xml" value="0.2578125" />
+        <entry key="module-template/src/main/res/layout/template_fragment_message.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_fragment_mine.xml" value="0.24322916666666666" />
         <entry key="module-template/src/main/res/layout/template_fragment_mine2.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_fragment_status.xml" value="0.1" />

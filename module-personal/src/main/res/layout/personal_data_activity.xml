@@ -8,6 +8,7 @@
     >
 
     <com.hjq.bar.TitleBar
+        android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="@string/res_personal_data_title" />
