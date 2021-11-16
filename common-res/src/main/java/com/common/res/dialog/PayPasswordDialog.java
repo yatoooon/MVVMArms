@@ -87,7 +87,7 @@ public final class PayPasswordDialog {
             setOnClickListener(mCloseView);
 
             mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
-            mAdapter.setNewInstance(Arrays.asList(KEYBOARD_TEXT));
+            mAdapter.setList(Arrays.asList(KEYBOARD_TEXT));
             mAdapter.setOnItemClickListener(this);
             mRecyclerView.setAdapter(mAdapter);
         }

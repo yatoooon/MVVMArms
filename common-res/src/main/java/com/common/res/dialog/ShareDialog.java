@@ -67,7 +67,7 @@ public final class ShareDialog {
 
             mCopyLink = new ShareBean(getDrawable(R.drawable.res_share_link_ic), getString(R.string.res_share_platform_link), null);
 
-            mAdapter.setNewInstance(data);
+            mAdapter.setList(data);
             mAdapter.setOnItemClickListener(this);
 
             mRecyclerView = findViewById(R.id.rv_share_list);

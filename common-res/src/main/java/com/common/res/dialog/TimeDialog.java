@@ -70,9 +70,9 @@ public final class TimeDialog {
                 secondData.add((i < 10 ? "0" : "") + i + " " + getString(R.string.res_common_second));
             }
 
-            mHourAdapter.setNewInstance(hourData);
-            mMinuteAdapter.setNewInstance(minuteData);
-            mSecondAdapter.setNewInstance(secondData);
+            mHourAdapter.setList(hourData);
+            mMinuteAdapter.setList(minuteData);
+            mSecondAdapter.setList(secondData);
 
             mHourManager = new PickerLayoutManager.Builder(context)
                     .build();

@@ -86,9 +86,9 @@ public final class DateDialog {
                 dayData.add(i + " " + getString(R.string.res_common_day));
             }
 
-            mYearAdapter.setNewInstance(yearData);
-            mMonthAdapter.setNewInstance(monthData);
-            mDayAdapter.setNewInstance(dayData);
+            mYearAdapter.setList(yearData);
+            mMonthAdapter.setList(monthData);
+            mDayAdapter.setList(dayData);
 
             mYearManager = new PickerLayoutManager.Builder(context)
                     .build();
@@ -241,7 +241,7 @@ public final class DateDialog {
                 for (int i = 1; i <= day; i++) {
                     dayData.add(i + " " + getString(R.string.res_common_day));
                 }
-                mDayAdapter.setNewInstance(dayData);
+                mDayAdapter.setList(dayData);
             }
         }
 

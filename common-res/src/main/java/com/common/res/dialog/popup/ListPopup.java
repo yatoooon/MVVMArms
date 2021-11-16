@@ -98,7 +98,7 @@ public final class ListPopup {
 
         @SuppressWarnings("all")
         public Builder setList(List data) {
-            mAdapter.setNewInstance(data);
+            mAdapter.setList(data);
             return this;
         }
 

@@ -91,21 +91,22 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                         ARouter.getInstance().navigation(IMediaService::class.java)
                             .startImageSelectActivity(
                                 mActivity, 3
-                            ) { toast(it.toString())}
+                            ) { toast(it.toString()) }
                     }
                     btnMineImagePreview -> {
                         val images = ArrayList<String>()
                         images.add("https://www.baidu.com/img/bd_logo.png")
                         images.add("https://avatars1.githubusercontent.com/u/28616817")
-                        ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_IMAGEPREVIEWACTIVITY)
-                            .withStringArrayList("imageList", images)
-                            .withInt("imageIndex", 0)
-                            .navigation()
+                        ARouter.getInstance().navigation(
+                            IMediaService::class.java
+                        ).startImagePreviewActivity(mActivity, images, 0)
+
                     }
                     btnMineVideoSelect -> {
-                        ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_VIDEOSELECTACTIVITY)
-                            .withInt("maxSelect", 1)
-                            .navigation()
+                        ARouter.getInstance().navigation(IMediaService::class.java)
+                            .startVideoSelectActivity(mActivity, 1) {
+                                toast(it.toString())
+                            }
                     }
                     btnMineVideoPlay -> {
                         val builder = VideoPlayBuilder()

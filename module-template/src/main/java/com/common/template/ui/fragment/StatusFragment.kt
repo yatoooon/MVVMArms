@@ -36,7 +36,7 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
     override fun initObserve() {
         viewModel.statusList.observe(this, {
             if (statusAdapter.isFirstPage) {
-                statusAdapter.setNewInstance(it)
+                statusAdapter.setList(it)
                 binding.srlRefresh.isRefreshing = false
             } else {
                 statusAdapter.addData(it)

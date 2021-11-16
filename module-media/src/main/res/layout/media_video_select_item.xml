@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.common.media.ui.activity.VideoSelectActivity.VideoBean" />
+            type="com.common.export.data.VideoBean" />
     </data>
 
     <com.common.res.layout.RatioFrameLayout
@@ -43,8 +43,7 @@
                 android:clickable="false"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                app:buttonCompat="@drawable/res_checkbox_selector"
-                app:videoBean="@{item}" />
+                app:buttonCompat="@drawable/res_checkbox_selector" />
 
         </FrameLayout>
 

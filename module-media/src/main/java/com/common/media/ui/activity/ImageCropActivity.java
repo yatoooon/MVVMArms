@@ -14,6 +14,7 @@ import androidx.core.content.FileProvider;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
 import com.common.export.arouter.RouterHub;
+import com.common.export.callback.OnCropListener;
 import com.common.media.R;
 import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
@@ -203,30 +204,5 @@ public final class ImageCropActivity extends BaseActivity {
         return Bitmap.CompressFormat.JPEG;
     }
 
-    /**
-     * 裁剪图片监听
-     */
-    public interface OnCropListener {
 
-        /**
-         * 裁剪成功回调
-         *
-         * @param fileUri  文件路径
-         * @param fileName 文件名称
-         */
-        void onSucceed(Uri fileUri, String fileName);
-
-        /**
-         * 错误回调
-         *
-         * @param details 错误详情
-         */
-        void onError(String details);
-
-        /**
-         * 取消回调
-         */
-        default void onCancel() {
-        }
-    }
 }

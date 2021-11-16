@@ -101,7 +101,7 @@ public final class ImagePreviewActivity extends BaseActivity
             finish();
             return;
         }
-        mAdapter.setNewInstance(images);
+        mAdapter.setList(images);
         mAdapter.setOnItemClickListener(this);
         mViewPager.setAdapter(new RecyclerPagerAdapter(mAdapter));
         if (images.size() != 1) {

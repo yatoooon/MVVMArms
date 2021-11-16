@@ -73,7 +73,7 @@ public final class SelectDialog {
 
         @SuppressWarnings("all")
         public Builder setList(List data) {
-            mAdapter.setNewInstance(data);
+            mAdapter.setList(data);
             mRecyclerView.addOnLayoutChangeListener(this);
             return this;
         }

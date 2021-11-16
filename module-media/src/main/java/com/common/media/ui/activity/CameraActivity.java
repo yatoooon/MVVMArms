@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import androidx.core.content.FileProvider;
 
 import com.common.core.base.BaseActivity;
+import com.common.export.callback.OnCameraListener;
 import com.common.media.R;
 import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
@@ -141,29 +142,5 @@ public final class CameraActivity extends BaseActivity {
                 (video ? ".mp4" : ".jpg"));
     }
 
-    /**
-     * 拍照选择监听
-     */
-    public interface OnCameraListener {
 
-        /**
-         * 选择回调
-         *
-         * @param file 文件
-         */
-        void onSelected(File file);
-
-        /**
-         * 错误回调
-         *
-         * @param details 错误详情
-         */
-        void onError(String details);
-
-        /**
-         * 取消回调
-         */
-        default void onCancel() {
-        }
-    }
 }

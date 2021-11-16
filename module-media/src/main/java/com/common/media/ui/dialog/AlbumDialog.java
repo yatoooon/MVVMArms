@@ -68,7 +68,7 @@ public final class AlbumDialog {
         }
 
         public Builder setData(List<AlbumInfo> data) {
-            mAdapter.setNewInstance(data);
+            mAdapter.setList(data);
             // 滚动到选中的位置
             for (int i = 0; i < data.size(); i++) {
                 if (data.get(i).isSelect()) {

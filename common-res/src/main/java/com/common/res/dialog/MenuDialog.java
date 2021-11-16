@@ -103,7 +103,7 @@ public final class MenuDialog {
 
         @SuppressWarnings("all")
         public Builder setList(List data) {
-            mAdapter.setNewInstance(data);
+            mAdapter.setList(data);
             mRecyclerView.addOnLayoutChangeListener(this);
             return this;
         }

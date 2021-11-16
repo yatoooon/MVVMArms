@@ -60,13 +60,13 @@ public final class CrashHandler implements Thread.UncaughtExceptionHandler {
         boolean deadlyCrash = currentCrashTime - lastCrashTime < 1000 * 60 * 5;
 
         if (BuildConfig.DEBUG) {
-            ARouter.getInstance().build("crash/CrashActivity")
+            ARouter.getInstance().build("/crash/CrashActivity")
                     .withSerializable("throwable", throwable)
                     .navigation();
         } else {
             if (!deadlyCrash) {
                 // 如果不是致命的异常就自动重启应用
-                ARouter.getInstance().build("crash/RestartActivity")
+                ARouter.getInstance().build("/crash/RestartActivity")
                         .navigation();
             }
         }

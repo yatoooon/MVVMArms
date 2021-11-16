@@ -39,7 +39,7 @@ public final class RecyclerViewAdapter extends BaseAdapter<List<AddressDialog.Ad
             mListener.onSelected(holder.getBindingAdapterPosition(), position);
         });
         recyclerView.setAdapter(mAdapter);
-        mAdapter.setNewInstance(getItem(holder.getBindingAdapterPosition()));
+        mAdapter.setList(getItem(holder.getBindingAdapterPosition()));
     }
 
 

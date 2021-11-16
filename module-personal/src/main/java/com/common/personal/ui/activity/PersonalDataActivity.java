@@ -14,6 +14,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.core.base.BaseActivity;
 import com.common.export.arouter.RouterHub;
+import com.common.export.arouter.service.IMediaService;
+import com.common.export.callback.OnCropListener;
 import com.common.personal.R;
 import com.common.res.aop.SingleClick;
 import com.common.res.dialog.InputDialog;
@@ -104,10 +106,7 @@ public final class PersonalDataActivity extends BaseActivity {
             if (mAvatarUrl != null) {
                 ArrayList<String> strings = new ArrayList<>();
                 strings.add(mAvatarUrl.toString());
-                ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_IMAGEPREVIEWACTIVITY)
-                        .withStringArrayList("imageList", strings)
-                        .withInt("imageIndex", 0)
-                        .navigation();
+                ARouter.getInstance().navigation(IMediaService.class).startImagePreviewActivity(this, strings, 0);
             } else {
                 // 选择头像
                 onClick(mAvatarLayout);
@@ -163,11 +162,31 @@ public final class PersonalDataActivity extends BaseActivity {
      * 裁剪图片
      */
     private void cropImageFile(File sourceFile) {
-        ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_IMAGECROPACTIVITY)
-                .withString("imagePath", sourceFile.toString())
-                .withInt("cropRatioX", 1)
-                .withInt("cropRatioY", 1)
-                .navigation(this, getImageCropRequestCode());
+        ARouter.getInstance().navigation(IMediaService.class).startImageCropActivity(this, sourceFile, 1, 1, new OnCropListener() {
+            @Override
+            public void onSucceed(Uri fileUri, String fileName) {
+                File outputFile;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    outputFile = new FileContentResolver(getActivity(), fileUri, fileName);
+                } else {
+                    try {
+                        outputFile = new File(new URI(fileUri.toString()));
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                        outputFile = new File(fileUri.toString());
+                    }
+                }
+                updateCropImage(outputFile, true);
+            }
+
+            @Override
+            public void onError(String details) {
+                // 没有的话就不裁剪，直接上传原图片
+                // 但是这种情况极其少见，可以忽略不计
+                updateCropImage(sourceFile, false);
+            }
+        });
+
     }
 
     /**

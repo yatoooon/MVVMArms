@@ -20,8 +20,10 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.listener.OnItemLongClickListener;
+import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.common.core.base.BaseActivity;
 import com.common.export.arouter.RouterHub;
+import com.common.export.callback.OnCameraListener;
 import com.common.export.callback.OnPhotoSelectListener;
 import com.common.media.BR;
 import com.common.media.R;
@@ -108,7 +110,14 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
     private RecyclerView mRecyclerView;
     private FloatActionButton mFloatingView;
 
-    private BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.media_image_select_item, BR.item);
+    private BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.media_image_select_item, BR.item) {
+        @Override
+        protected void convert(@NonNull BaseDataBindingHolder<?> holder, String item) {
+            super.convert(holder, item);
+            ((CheckBox) holder.findView(R.id.iv_image_select_check)).setChecked(mSelectImage.contains(item));
+
+        }
+    };
 
     /**
      * 最大选中
@@ -117,7 +126,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
     /**
      * 选中列表
      */
-    private static final ArrayList<String> mSelectImage = new ArrayList<>();
+    private final ArrayList<String> mSelectImage = new ArrayList<>();
 
     /**
      * 全部图片
@@ -221,9 +230,9 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
                         // 滚动回第一个位置
                         mRecyclerView.scrollToPosition(0);
                         if (position == 0) {
-                            mAdapter.setNewInstance(mAllImage);
+                            mAdapter.setList(mAllImage);
                         } else {
-                            mAdapter.setNewInstance(mAllAlbum.get(bean.getName()));
+                            mAdapter.setList(mAllAlbum.get(bean.getName()));
                         }
                         // 执行列表动画
                         mRecyclerView.setLayoutAnimation(AnimationUtils.loadLayoutAnimation(getActivity(), R.anim.res_layout_from_right));
@@ -274,7 +283,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
         if (view.getId() == R.id.fab_image_select_floating) {
             if (mSelectImage.isEmpty()) {
                 // 点击拍照
-                CameraActivity.start(this, false, new CameraActivity.OnCameraListener() {
+                CameraActivity.start(this, false, new OnCameraListener() {
                     @Override
                     public void onSelected(File file) {
                         // 当前选中图片的数量必须小于最大选中数
@@ -432,7 +441,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
             // 滚动回第一个位置
             mRecyclerView.scrollToPosition(0);
             // 设置新的列表数据
-            mAdapter.setNewInstance(mAllImage);
+            mAdapter.setList(mAllImage);
 
             if (mSelectImage.isEmpty()) {
                 mFloatingView.setImageResource(R.drawable.res_camera_ic);
@@ -456,13 +465,5 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
                 setRightTitle(R.string.res_image_select_all);
             }
         }, 500);
-    }
-
-
-
-
-    @BindingAdapter(value = {"imagePath"})
-    public static void customCheck(CheckBox checkBox, String imagePath) {
-        checkBox.setChecked(mSelectImage.contains(imagePath));
     }
 }
