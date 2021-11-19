@@ -102,8 +102,8 @@ object Deps {
 
     //tools
     const val dagger2 = "com.google.dagger:dagger:2.38.1"
-    const val hiltAndroid = "com.google.dagger:hilt-android:2.30.1-alpha"
-    const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:2.30.1-alpha"
+    const val hiltAndroid = "com.google.dagger:hilt-android:2.31.1-alpha"
+    const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:2.31.1-alpha"
     const val androidHiltLifecycleViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
     const val androidHiltCompiler = "androidx.hilt:hilt-compiler:1.0.0-alpha02"
 

@@ -1,4 +1,4 @@
-package com.common.core.base.livedata;
+package com.common.res.livedata;
 
 import android.text.TextUtils;
 

@@ -11,11 +11,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.common.core.base.BaseFragment;
-import com.common.core.base.livedata.MessageEvent;
-import com.common.core.base.livedata.StatusEvent;
+import com.common.res.livedata.MessageEvent;
+import com.common.res.livedata.StatusEvent;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+
+import timber.log.Timber;
 
 
 /**
@@ -38,8 +40,6 @@ public abstract class BaseVMFragment<VDB extends ViewDataBinding, VM extends Bas
     private VM mViewModel;
 
 
-
-
     /**
      * 初始化 {@link #mViewModel}
      */
@@ -49,6 +49,10 @@ public abstract class BaseVMFragment<VDB extends ViewDataBinding, VM extends Bas
         if (mViewModel != null) {
             getLifecycle().addObserver(mViewModel);
             registerLoadingEvent();
+            registerMessageEvent(message -> {
+                Timber.d("message:%s", message);
+                toast(message);
+            });
         }
     }
 
@@ -110,9 +114,9 @@ public abstract class BaseVMFragment<VDB extends ViewDataBinding, VM extends Bas
             @Override
             public void onChanged(@Nullable Boolean isLoading) {
                 if (isLoading != null && isLoading) {
-                    showDialog();
+                    showLoadingDialog();
                 } else {
-                    hideLoading();
+                    hideLoadingDialog();
                 }
             }
         });

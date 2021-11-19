@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.common.home">
 
-    <application android:name=".app.HomeApp">
+    <application>
         <activity
             android:name="com.common.home.ui.activity.MainActivity"
             android:launchMode="singleTask"

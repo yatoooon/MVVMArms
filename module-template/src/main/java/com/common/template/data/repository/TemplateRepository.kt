@@ -9,8 +9,8 @@ import javax.inject.Inject
 
 class TemplateRepository @Inject constructor() : BaseRepository() {
 
-    suspend fun getArticleList(page: Int) = apiCall {
-        TemplatePagingSource(getRetrofitService(TemplateService::class.java)).getArticleList(page)
+    suspend fun getArticleList(page: Int,pageSize:Int) = apiCall {
+        TemplatePagingSource(getRetrofitService(TemplateService::class.java)).getArticleList(page,pageSize)
     }
 
 }

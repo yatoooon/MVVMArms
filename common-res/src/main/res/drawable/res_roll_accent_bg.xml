@@ -225,7 +225,7 @@
 
             <item>
                 <shape android:shape="oval">
-                    <solid android:color="@color/res_common_accent_color"/>
+                    <solid android:color="@color/res_accent_color"/>
                 </shape>
             </item>
         </layer-list>

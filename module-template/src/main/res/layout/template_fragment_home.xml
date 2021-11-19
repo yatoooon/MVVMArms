@@ -87,9 +87,9 @@
                 android:id="@+id/rv_home_tab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabIndicatorColor="@color/res_common_accent_color"
+                app:tabIndicatorColor="@color/res_accent_color"
                 app:tabIndicatorHeight="@dimen/res_dp_2"
-                app:tabSelectedTextColor="@color/res_common_accent_color"
+                app:tabSelectedTextColor="@color/res_accent_color"
                 app:tabTextColor="@color/res_black25" />
 
         </com.google.android.material.appbar.AppBarLayout>

@@ -12,6 +12,6 @@
     <item android:drawable="@color/res_common_button_pressed_color" android:state_focused="true" />
 
     <!-- 默认状态 -->
-    <item android:drawable="@color/res_common_accent_color" />
+    <item android:drawable="@color/res_accent_color" />
 
 </selector>

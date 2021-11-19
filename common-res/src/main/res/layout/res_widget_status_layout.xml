@@ -44,7 +44,7 @@
         android:visibility="invisible"
         app:shape="rectangle"
         app:shape_radius="@dimen/res_dp_5"
-        app:shape_solidColor="@color/res_common_accent_color"
+        app:shape_solidColor="@color/res_accent_color"
         app:shape_solidPressedColor="@color/res_common_button_pressed_color"
         tools:visibility="visible" />
 

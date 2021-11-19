@@ -155,7 +155,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         }
         removeCallbacks();
         if (isShowLoading()) {
-            hideLoading();
+            hideLoadingDialog();
         }
         mDialog = null;
     }
@@ -202,7 +202,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     }
 
     @Override
-    public void showDialog() {
+    public void showLoadingDialog() {
         if (isFinishing() || isDestroyed()) {
             return;
         }
@@ -225,7 +225,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     }
 
     @Override
-    public void hideLoading() {
+    public void hideLoadingDialog() {
         if (isFinishing() || isDestroyed()) {
             return;
         }

@@ -5,8 +5,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.common.core.base.mvvm.BaseViewModel
-import com.common.res.entity.ListEntity
-import com.common.res.net.BaseResponse
+import com.common.res.net.Resource
 import com.common.template.data.entity.TemplateEntity
 import com.common.template.data.repository.TemplateRepository
 import kotlinx.coroutines.launch
@@ -20,12 +19,12 @@ class TemplateViewModel @ViewModelInject constructor(
     private val templateRepository: TemplateRepository
 ) : BaseViewModel(application) {
 
-    val articleListLiveData: MutableLiveData<BaseResponse<ListEntity<TemplateEntity>>> = MutableLiveData()
+    var articleListLiveData: MutableLiveData<Resource<TemplateEntity?>> = MutableLiveData()
 
-    fun getArticleList(page:Int) {
+    fun getArticleList(page: Int, pageSize: Int) {
         viewModelScope.launch {
-            templateRepository.getArticleList(page).apply {
-                articleListLiveData.postValue(this)
+            templateRepository.getArticleList(page, pageSize).let {
+                articleListLiveData.postValue(it)
             }
         }
     }

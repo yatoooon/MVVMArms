@@ -24,7 +24,7 @@
             android:paddingVertical="@dimen/res_dp_12"
             android:text="@{item}"
             app:shape_textColor="@color/res_black25"
-            app:shape_textSelectedColor="@color/res_common_accent_color"
+            app:shape_textSelectedColor="@color/res_accent_color"
             tools:text="我是标签"
             tools:textSize="@dimen/res_sp_15" />
 
@@ -35,7 +35,7 @@
             android:layout_gravity="bottom|center_horizontal"
             android:layout_marginBottom="@dimen/res_dp_5"
             app:shape="oval"
-            app:shape_solidColor="@color/res_common_accent_color" />
+            app:shape_solidColor="@color/res_accent_color" />
 
     </FrameLayout>
 </layout>

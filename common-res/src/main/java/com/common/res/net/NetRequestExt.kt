@@ -1,71 +1,27 @@
 package com.common.res.net
 
-import androidx.lifecycle.MutableLiveData
-import com.common.res.state.State
-import com.common.res.state.StateType
+import com.common.res.App
+import com.common.res.utils.checkNetworkStatus
 
 
-//网络请求
 /**
- * 发起网络请求
+ * 包装类
  */
-suspend fun <T> apiCall(call: suspend () -> BaseResponse<T>): BaseResponse<T> {
+suspend fun <T> apiCall(call: suspend () -> T): Resource<T?> {
     return try {
-        var response = call()
-        if (response.errorCode == 0) {
-            response.state = State(StateType.SUCCESS)
+        if (checkNetworkStatus(App.getApp())) {
+            val entity = call()
+            if (entity != null) {
+                Resource.success(entity)
+            } else {
+                Resource.failure("返回null")
+            }
         } else {
-            var message: String = response.errorMsg ?: "未知错误"
-            response.state = State(StateType.ERROR, message)
+            Resource.failure("请检查网络连接")
         }
-        response
     } catch (e: Exception) {
         e.printStackTrace()
-        BaseResponse(state = State(StateType.ERROR, "网络出现问题啦"))
+        Resource.error(e)
     }
 }
 
-/**
- * 发起网络请求并POST请求状态
- */
-suspend fun <T> apiCallWithState(call: suspend () -> BaseResponse<T>, loadState: MutableLiveData<State>? = null): T? {
-    var result = apiCall(call)
-    if (result.state?.code == StateType.SUCCESS) {
-        return result.data
-    } else {
-        loadState?.postValue(result.state)
-    }
-    return null
-}
-
-/**
- * 发起上传请求
- */
-suspend fun <T> apiCallUpload(call: suspend () -> T, loadState: MutableLiveData<State>? = null): T? {
-    var result = try {
-        var response: BaseResponse<T> = BaseResponse(state = State(StateType.SUCCESS))
-        var result = call()
-        response.data = result
-        response
-    } catch (e: Exception) {
-        e.printStackTrace()
-        BaseResponse(state = State(StateType.ERROR, "网络出现问题啦"))
-    }
-    if (result.state?.code == StateType.SUCCESS) {
-        return result.data
-    } else {
-        loadState?.postValue(result.state)
-    }
-    return null
-}
-
-/**
- * 返回结果包装类
- */
-class BaseResponse<T>(
-    var errorCode: Int? = -1,
-    var errorMsg: String? = null,
-    var data: T? = null,
-    var state: State? = null,
-    var isRefresh: Boolean = false,
-)

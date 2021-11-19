@@ -19,7 +19,7 @@
         app:leftIcon="@null"
         app:rightBackground="@null"
         app:rightTitle="@string/res_login_register"
-        app:rightTitleColor="@color/res_common_accent_color"
+        app:rightTitleColor="@color/res_accent_color"
         app:rightTitleSize="@dimen/res_sp_14"
         app:title="" />
 
@@ -77,7 +77,7 @@
             android:layout_marginTop="@dimen/res_dp_15"
             android:layout_marginEnd="@dimen/res_dp_60"
             android:text="@string/res_login_forget"
-            android:textColor="@color/res_common_accent_color" />
+            android:textColor="@color/res_accent_color" />
 
         <com.common.res.view.SubmitButton
             android:id="@+id/btn_login_commit"

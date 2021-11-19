@@ -142,7 +142,7 @@ dependencies {
     implementation Deps.hiltAndroid
     implementation Deps.androidHiltLifecycleViewmodel
 
-    //debugImplementation Deps.leakcanary
+    debugImplementation Deps.leakcanary
 
 
 

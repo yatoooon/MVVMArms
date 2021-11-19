@@ -6,12 +6,12 @@
 
 
     <!-- App 样式中引用的颜色 -->
-    <color name="res_common_primary_color">#0277BD</color>
-    <color name="res_common_primary_dark_color">#004C8C</color>
-    <color name="res_common_accent_color">#0277BD</color>
-    <color name="res_common_window_background_color">#F4F4F4</color>
-    <color name="res_common_text_color">#333333</color>
-    <color name="res_common_text_hint_color">@color/res_panda</color>
+    <color name="res_primary_color">#0277BD</color>
+    <color name="res_primary_dark_color">#004C8C</color>
+    <color name="res_accent_color">#0277BD</color>
+    <color name="res_window_background_color">#F4F4F4</color>
+    <color name="res_text_color">#333333</color>
+    <color name="res_text_hint_color">@color/res_panda</color>
 
     <!-- 按钮按压时的颜色 -->
     <color name="res_common_button_pressed_color">#AA5A8DDF</color>

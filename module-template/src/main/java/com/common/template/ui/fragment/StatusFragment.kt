@@ -23,27 +23,27 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
         }
     }
 
-    private val statusAdapter = BaseAdapter<String>(R.layout.template_item_status)
+    private val mAdapter = BaseAdapter<String>(R.layout.template_item_status)
 
     override fun getLayoutId(): Int {
         return R.layout.template_fragment_status
     }
 
     override fun initData() {
-        viewModel.getData(statusAdapter.page)
+        viewModel.getData(mAdapter.page)
     }
 
     override fun initObserve() {
         viewModel.statusList.observe(this, {
-            if (statusAdapter.isFirstPage) {
-                statusAdapter.setList(it)
+            if (mAdapter.isFirstPage) {
+                mAdapter.setList(it)
                 binding.srlRefresh.isRefreshing = false
             } else {
-                statusAdapter.addData(it)
-                if (statusAdapter.itemCount > 100) {
-                    statusAdapter.loadMoreModule.loadMoreEnd(false)
+                mAdapter.addData(it)
+                if (mAdapter.itemCount > 100) {
+                    mAdapter.loadMoreModule.loadMoreEnd(false)
                 } else {
-                    statusAdapter.loadMoreModule.loadMoreComplete()
+                    mAdapter.loadMoreModule.loadMoreComplete()
                 }
             }
         })
@@ -52,18 +52,18 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
 
     override fun initView() {
         binding.srlRefresh.setOnRefreshListener { refresh() }
-        statusAdapter.loadMoreModule.setOnLoadMoreListener { loadMore() }
-        statusAdapter.loadMoreModule.isAutoLoadMore = true
-        binding.recyclerView.adapter = statusAdapter
-        binding.srlRefresh.setColorSchemeResources(R.color.res_common_primary_color)
-        statusAdapter.addHeaderView(
+        mAdapter.loadMoreModule.setOnLoadMoreListener { loadMore() }
+        mAdapter.loadMoreModule.isAutoLoadMore = true
+        binding.recyclerView.adapter = mAdapter
+        binding.srlRefresh.setColorSchemeResources(R.color.res_primary_color)
+        mAdapter.addHeaderView(
             requireContext().inflateLayout(R.layout.template_item_status)
                 .apply {
                     findViewById<TextView>(R.id.tv_item).apply {
                         text = "我是头布局"
                         textColor = ContextCompat.getColor(
                             requireContext(),
-                            R.color.res_common_primary_color
+                            R.color.res_primary_color
                         )
                         setOnClickListener { toast("点击了头布局") }
                     }
@@ -80,7 +80,7 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
                           setOnClickListener { toast("点击了尾布局") }
                       }
                   })*/
-        statusAdapter.setOnItemClickListener { adapter, view, position ->
+        mAdapter.setOnItemClickListener { adapter, view, position ->
             toast("点击第" + position + "个条目")
         }
     }
@@ -88,7 +88,7 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
 
     private fun refresh() {
         postDelayed({
-            statusAdapter.reset()
+            mAdapter.reset()
             initData()
         }, 200)
 
@@ -96,8 +96,8 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
 
     private fun loadMore() {
         postDelayed({
-            statusAdapter.nextPage()
-            viewModel.getData(statusAdapter.page * PAGE_SIZE)
+            mAdapter.nextPage()
+            viewModel.getData(mAdapter.page * PAGE_SIZE)
         }, 200)
 
     }

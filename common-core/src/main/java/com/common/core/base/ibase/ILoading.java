@@ -9,11 +9,11 @@ public interface ILoading {
     /**
      * 显示加载
      */
-    void showDialog();
+    void showLoadingDialog();
 
     /**
      * 隐藏加载
      */
-    void hideLoading();
+    void hideLoadingDialog();
 
 }

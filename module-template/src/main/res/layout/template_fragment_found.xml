@@ -245,7 +245,7 @@
                         app:shape_angle="0"
                         app:shape_centerX="0.5"
                         app:shape_centerY="0.5"
-                        app:shape_endColor="@color/res_common_accent_color"
+                        app:shape_endColor="@color/res_accent_color"
                         app:shape_radius="@dimen/res_dp_20"
                         app:shape_startColor="@color/res_common_button_pressed_color" />
 
@@ -357,7 +357,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/res_dp_10"
-                        android:background="@color/res_common_accent_color"
+                        android:background="@color/res_accent_color"
                         app:res_sizeRatio="2:1">
 
                         <androidx.appcompat.widget.AppCompatTextView

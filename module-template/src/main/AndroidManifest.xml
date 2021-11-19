@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.common.template">
 
-    <application android:name=".app.TemplateApp">
+    <application>
+
         <meta-data
             android:name="com.common.template.lifecycle.TemplateConfiguration"
             android:value="CoreConfigModule" />

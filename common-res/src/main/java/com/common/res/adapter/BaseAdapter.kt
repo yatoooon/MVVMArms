@@ -22,16 +22,16 @@ open class BaseAdapter<T>(layoutId: Int, private val variableId: Int = BR.item) 
          const val PAGE_SIZE = 20
     }
 
-    var page = 0
+    var page = 1
 
     fun nextPage() {
         page++
     }
 
     fun reset() {
-        page = 0
+        page = 1
     }
 
     val isFirstPage: Boolean
-        get() = page == 0
+        get() = page == 1
 }

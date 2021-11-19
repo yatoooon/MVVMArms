@@ -49,7 +49,7 @@ public abstract class PermissionCallback implements OnPermissionCallback {
                 .setTitle(R.string.res_common_permission_alert)
                 .setMessage(getPermissionHint(activity, permissions))
                 .setConfirm(R.string.res_common_permission_goto)
-                .setCancel(null)
+                .setCancel("")
                 .setCancelable(false)
                 .setListener(dialog -> XXPermissions.startPermissionActivity(activity, permissions))
                 .show();

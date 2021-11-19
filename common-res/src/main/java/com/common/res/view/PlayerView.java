@@ -613,7 +613,7 @@ public final class PlayerView extends SimpleLayout
         new MessageDialog.Builder(getActivity())
                 .setMessage(message)
                 .setConfirm(R.string.res_common_confirm)
-                .setCancel(null)
+                .setCancel("")
                 .setCancelable(false)
                 .setListener(dialog -> onCompletion(player))
                 .show();

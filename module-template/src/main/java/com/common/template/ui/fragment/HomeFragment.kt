@@ -25,7 +25,7 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel>(
 
     private val fragments = mutableListOf<Fragment>(
         StatusFragment.newInstance(),
-        StatusFragment.newInstance()
+        TemplateFragment.newInstance()
     )
 
     override fun getLayoutId(): Int {

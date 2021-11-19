@@ -210,18 +210,18 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     }
 
     @Override
-    public void showDialog() {
+    public void showLoadingDialog() {
         FragmentActivity activity = requireActivity();
         if (activity instanceof BaseActivity) {
-            ((BaseActivity<?>) activity).showDialog();
+            ((BaseActivity<?>) activity).showLoadingDialog();
         }
     }
 
     @Override
-    public void hideLoading() {
+    public void hideLoadingDialog() {
         FragmentActivity activity = requireActivity();
         if (activity instanceof BaseActivity) {
-            ((BaseActivity<?>) activity).hideLoading();
+            ((BaseActivity<?>) activity).hideLoadingDialog();
         }
     }
 

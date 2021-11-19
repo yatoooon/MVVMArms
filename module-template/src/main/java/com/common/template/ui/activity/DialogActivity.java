@@ -174,7 +174,7 @@ public final class DialogActivity extends BaseActivity {
             new MenuDialog.Builder(this)
                     .setGravity(Gravity.CENTER)
                     // 设置 null 表示不显示取消按钮
-                    //.setCancel(null)
+                    //.setCancel("")
                     // 设置点击按钮后不关闭对话框
                     //.setAutoDismiss(false)
                     .setList(data)

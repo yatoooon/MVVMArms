@@ -13,9 +13,9 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
 import com.common.core.base.ibase.IViewModel;
-import com.common.core.base.livedata.MessageEvent;
-import com.common.core.base.livedata.SingleLiveEvent;
-import com.common.core.base.livedata.StatusEvent;
+import com.common.res.livedata.MessageEvent;
+import com.common.res.livedata.SingleLiveEvent;
+import com.common.res.livedata.StatusEvent;
 
 /**
  * MVVMFrame 框架基于Google官方的 JetPack 构建，在使用MVVMFrame时，需遵循一些规范：
@@ -297,7 +297,7 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     }
 
     /**
-     * 调用此类会同步通知执行{@link BaseVMActivity#showDialog()}或{@link BaseVMFragment#showDialog()}或
+     * 调用此类会同步通知执行{@link BaseVMActivity#showLoadingDialog()}或{@link BaseVMFragment#showLoadingDialog()}或
      */
     @MainThread
     public void showLoading() {
@@ -305,7 +305,7 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     }
 
     /**
-     * 调用此类会同步通知执行{@link BaseVMActivity#showDialog()}或{@link BaseVMFragment#showDialog()}或
+     * 调用此类会同步通知执行{@link BaseVMActivity#showLoadingDialog()}或{@link BaseVMFragment#showLoadingDialog()}或
      */
     public void showLoading(boolean post) {
         if (post) {
@@ -316,7 +316,7 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     }
 
     /**
-     * 调用此类会同步通知执行{@link BaseVMActivity#hideLoading()}或{@link BaseVMFragment#hideLoading()}或
+     * 调用此类会同步通知执行{@link BaseVMActivity#hideLoadingDialog()}或{@link BaseVMFragment#hideLoadingDialog()}或
      */
     @MainThread
     public void hideLoading() {
@@ -325,7 +325,7 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
 
 
     /**
-     * 调用此类会同步通知执行{@link BaseVMActivity#hideLoading()}或{@link BaseVMFragment#hideLoading()}或
+     * 调用此类会同步通知执行{@link BaseVMActivity#hideLoadingDialog()}或{@link BaseVMFragment#hideLoadingDialog()}或
      *
      * @param post 如果为{@code true}则可以在子线程调用，相当于调用{@link MutableLiveData#postValue(Object)}，
      *             如果为{@code false} 相当于调用{@link MutableLiveData#setValue(Object)}
