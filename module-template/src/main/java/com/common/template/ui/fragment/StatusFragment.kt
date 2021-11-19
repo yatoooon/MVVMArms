@@ -30,12 +30,12 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
     }
 
     override fun initData() {
-        viewModel.getData(mAdapter.page)
+        viewModel.getData(mAdapter.page, PAGE_SIZE)
     }
 
     override fun initObserve() {
         viewModel.statusList.observe(this, {
-            if (mAdapter.isFirstPage) {
+            if (mAdapter.isFirstPage()) {
                 mAdapter.setList(it)
                 binding.srlRefresh.isRefreshing = false
             } else {
@@ -97,7 +97,7 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
     private fun loadMore() {
         postDelayed({
             mAdapter.nextPage()
-            viewModel.getData(mAdapter.page * PAGE_SIZE)
+            viewModel.getData(mAdapter.page, PAGE_SIZE)
         }, 200)
 
     }

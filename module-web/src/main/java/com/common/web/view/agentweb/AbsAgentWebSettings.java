@@ -65,7 +65,7 @@ public abstract class AbsAgentWebSettings implements IAgentWebSettings, WebListe
         mWebSettings.setSupportZoom(true);
         mWebSettings.setBuiltInZoomControls(false);
         mWebSettings.setSavePassword(false);
-        if (AgentWebUtils.checkNetwork(webView.getContext())) {
+        if (AgentWebUtils.checkNetwork(webView.getContext().getApplicationContext())) {
             //根据cache-control获取数据。
             mWebSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
         } else {
@@ -111,8 +111,8 @@ public abstract class AbsAgentWebSettings implements IAgentWebSettings, WebListe
         mWebSettings.setDefaultFontSize(16);
         mWebSettings.setMinimumFontSize(12);//设置 WebView 支持的最小字体大小，默认为 8
         mWebSettings.setGeolocationEnabled(true);
-        String dir = AgentWebConfig.getCachePath(webView.getContext());
-        LogUtils.i(TAG, "dir:" + dir + "   appcache:" + AgentWebConfig.getCachePath(webView.getContext()));
+        String dir = AgentWebConfig.getCachePath(webView.getContext().getApplicationContext());
+        LogUtils.i(TAG, "dir:" + dir + "   appcache:" + AgentWebConfig.getCachePath(webView.getContext().getApplicationContext()));
         //设置数据库路径  api19 已经废弃,这里只针对 webkit 起作用
         mWebSettings.setGeolocationDatabasePath(dir);
         mWebSettings.setDatabasePath(dir);

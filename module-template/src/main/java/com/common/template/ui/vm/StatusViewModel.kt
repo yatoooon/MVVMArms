@@ -12,9 +12,9 @@ class StatusViewModel @ViewModelInject constructor(
 
     var statusList = MutableLiveData<ArrayList<String>>()
 
-    fun getData(pageStart: Int) {
+    fun getData(page: Int, pageSize: Int) {
         val arrayListOf: ArrayList<String> = arrayListOf()
-        for (index in pageStart until pageStart + BaseAdapter.PAGE_SIZE) {
+        for (index in (page - 1) * pageSize until page * pageSize) {
             arrayListOf.add("这是第" + index.toString() + "个条目")
         }
         statusList.postValue(arrayListOf)

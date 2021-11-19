@@ -18,8 +18,8 @@ open class BaseAdapter<T>(layoutId: Int, private val variableId: Int = BR.item) 
         }
     }
 
-    companion object{
-         const val PAGE_SIZE = 20
+    companion object {
+        const val PAGE_SIZE = 20
     }
 
     var page = 1
@@ -32,6 +32,5 @@ open class BaseAdapter<T>(layoutId: Int, private val variableId: Int = BR.item) 
         page = 1
     }
 
-    val isFirstPage: Boolean
-        get() = page == 1
+    fun isFirstPage() = page == 1
 }

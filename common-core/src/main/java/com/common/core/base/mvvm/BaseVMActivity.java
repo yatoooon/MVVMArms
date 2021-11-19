@@ -47,7 +47,6 @@ public abstract class BaseVMActivity<VDB extends ViewDataBinding, VM extends Bas
         mViewModel = createViewModel();
         if (mViewModel != null) {
             getLifecycle().addObserver(mViewModel);
-            registerLoadingEvent();
             registerMessageEvent(message -> {
                 Timber.d("message:%s", message);
                 toast(message);
@@ -101,23 +100,6 @@ public abstract class BaseVMActivity<VDB extends ViewDataBinding, VM extends Bas
             mViewModel = null;
         }
     }
-
-    /**
-     * 注册状态加载事件
-     */
-    protected void registerLoadingEvent() {
-        getViewModel().getLoadingEvent().observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(@Nullable Boolean isLoading) {
-                if (isLoading != null && isLoading) {
-                    showLoadingDialog();
-                } else {
-                    hideLoadingDialog();
-                }
-            }
-        });
-    }
-
 
     /**
      * 注册消息事件

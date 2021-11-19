@@ -5,7 +5,11 @@ import android.widget.Adapter
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.alibaba.android.arouter.launcher.ARouter
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.common.core.base.mvvm.BaseVMFragment
+import com.common.export.arouter.RouterHub
 import com.common.res.action.StatusAction
 import com.common.res.adapter.BaseAdapter
 import com.common.res.adapter.BaseAdapter.Companion.PAGE_SIZE
@@ -37,7 +41,7 @@ class TemplateFragment : BaseVMFragment<TemplateFragmentBinding, TemplateViewMod
         return R.layout.template_fragment
     }
 
-    private val mAdapter = BaseAdapter<Item>(R.layout.template_item)
+    private val mAdapter: BaseAdapter<Item> = BaseAdapter<Item>(R.layout.template_item)
 
     override fun initData() {
         showLoading()
@@ -52,7 +56,7 @@ class TemplateFragment : BaseVMFragment<TemplateFragmentBinding, TemplateViewMod
                 }
                 StatusEvent.Status.SUCCESS -> {
                     showComplete()
-                    if (mAdapter.isFirstPage) {
+                    if (mAdapter.isFirstPage()) {
                         mAdapter.setList(it.data!!.items)
                         binding.srlRefresh.isRefreshing = false
                     } else {
@@ -96,8 +100,13 @@ class TemplateFragment : BaseVMFragment<TemplateFragmentBinding, TemplateViewMod
                       }
                   })*/
         mAdapter.setOnItemClickListener { adapter, view, position ->
-            toast("点击第" + position + "个条目")
+            val data: Item = mAdapter.data.get(position)
+            ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEACTIVITY)
+                .withString("url", data.html_url)
+                .withString("title", data.name)
+                .navigation()
         }
+
     }
 
 

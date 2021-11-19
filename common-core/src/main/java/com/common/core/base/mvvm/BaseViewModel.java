@@ -57,11 +57,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
     private final StatusEvent mStatusEvent = new StatusEvent();
 
     /**
-     * 加载状态
-     */
-    private final SingleLiveEvent<Boolean> mLoadingEvent = new SingleLiveEvent<>();
-
-    /**
      * 提供自定义单一消息事件
      */
     private final SingleLiveEvent<Message> mSingleLiveEvent = new SingleLiveEvent<>();
@@ -110,17 +105,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
 
     }
 
-
-    /**
-     * 暴露给观察者提供加载事件，{@link BaseVMActivity} 或 {@link BaseVMFragment} 已默认注册加载事件，
-     * 只需调用{@link #showLoading()} 或 {@link #hideLoading()}即可在{@link BaseVMActivity}
-     * 或 {@link BaseVMFragment} 中收到订阅事件
-     *
-     * @return {@link #mLoadingEvent}
-     */
-    public SingleLiveEvent<Boolean> getLoadingEvent() {
-        return mLoadingEvent;
-    }
 
     /**
      * 暴露给观察者提供消息事件，通过注册{@link BaseVMActivity#registerMessageEvent(MessageEvent.MessageObserver)}或
@@ -293,48 +277,6 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
             mSingleLiveEvent.postValue(message);
         } else {
             mSingleLiveEvent.setValue(message);
-        }
-    }
-
-    /**
-     * 调用此类会同步通知执行{@link BaseVMActivity#showLoadingDialog()}或{@link BaseVMFragment#showLoadingDialog()}或
-     */
-    @MainThread
-    public void showLoading() {
-        showLoading(false);
-    }
-
-    /**
-     * 调用此类会同步通知执行{@link BaseVMActivity#showLoadingDialog()}或{@link BaseVMFragment#showLoadingDialog()}或
-     */
-    public void showLoading(boolean post) {
-        if (post) {
-            mLoadingEvent.postValue(true);
-        } else {
-            mLoadingEvent.setValue(true);
-        }
-    }
-
-    /**
-     * 调用此类会同步通知执行{@link BaseVMActivity#hideLoadingDialog()}或{@link BaseVMFragment#hideLoadingDialog()}或
-     */
-    @MainThread
-    public void hideLoading() {
-        hideLoading(false);
-    }
-
-
-    /**
-     * 调用此类会同步通知执行{@link BaseVMActivity#hideLoadingDialog()}或{@link BaseVMFragment#hideLoadingDialog()}或
-     *
-     * @param post 如果为{@code true}则可以在子线程调用，相当于调用{@link MutableLiveData#postValue(Object)}，
-     *             如果为{@code false} 相当于调用{@link MutableLiveData#setValue(Object)}
-     */
-    public void hideLoading(boolean post) {
-        if (post) {
-            mLoadingEvent.postValue(false);
-        } else {
-            mLoadingEvent.setValue(false);
         }
     }
 

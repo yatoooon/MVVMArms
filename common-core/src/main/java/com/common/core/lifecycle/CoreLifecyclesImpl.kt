@@ -8,13 +8,9 @@ import com.coder.zzq.smartshow.core.SmartShow
 import com.common.core.base.delegate.BaseApplicationLifecycle
 import com.common.core.other.CrashHandler
 import com.common.res.BuildConfig
-import com.common.res.callback.EmptyCallBack
-import com.common.res.callback.ErrorCallBack
-import com.common.res.callback.LoadingCallBack
 import com.common.res.layout.RefreshLottieHeader
 import com.common.res.umeng.UmengClient
 import com.hjq.toast.ToastUtils
-import com.kingja.loadsir.core.LoadSir
 import com.liulishuo.filedownloader.FileDownloader
 import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection
 import com.orhanobut.logger.AndroidLogAdapter
@@ -45,14 +41,7 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
         startKoin {
             androidLogger()
             androidContext(application)
-
         }
-        //初始化LoadSir
-        LoadSir.beginBuilder()
-            .addCallback(ErrorCallBack())
-            .addCallback(LoadingCallBack())
-            .addCallback(EmptyCallBack())
-            .commit()
         //初始化SmartShow
         SmartShow.init(application)
         //初始化SmartRefreshLayout,设置全局默认配置（优先级最低，会被其他设置覆盖）
