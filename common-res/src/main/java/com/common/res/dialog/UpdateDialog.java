@@ -200,17 +200,17 @@ public final class UpdateDialog {
 //                            mCloseView.setVisibility(View.GONE);
 //                            // 显示进度条
 //                            mProgressView.setVisibility(View.VISIBLE);
-//                            mUpdateView.setText(R.string.update_status_start);
+//                            mUpdateView.setText(R.string.res_update_status_start);
 //                        }
 //
 //                        @Override
 //                        public void onProgress(File file, int progress) {
-//                            mUpdateView.setText(String.format(getString(R.string.update_status_running), progress));
+//                            mUpdateView.setText(String.format(getString(R.string.res_update_status_running), progress));
 //                            mProgressView.setProgress(progress);
 //                            // 更新下载通知
 //                            notificationManager.notify(notificationId, notificationBuilder
 //                                    // 设置通知的文本
-//                                    .setContentText(String.format(getString(R.string.update_status_running), progress))
+//                                    .setContentText(String.format(getString(R.string.res_update_status_running), progress))
 //                                    // 设置下载的进度
 //                                    .setProgress(100, progress, false)
 //                                    // 设置点击通知后是否自动消失
@@ -226,7 +226,7 @@ public final class UpdateDialog {
 //                            // 显示下载成功通知
 //                            notificationManager.notify(notificationId, notificationBuilder
 //                                    // 设置通知的文本
-//                                    .setContentText(String.format(getString(R.string.update_status_successful), 100))
+//                                    .setContentText(String.format(getString(R.string.res_update_status_successful), 100))
 //                                    // 设置下载的进度
 //                                    .setProgress(100, 100, false)
 //                                    // 设置通知点击之后的意图
@@ -236,7 +236,7 @@ public final class UpdateDialog {
 //                                    // 是否正在交互中
 //                                    .setOngoing(false)
 //                                    .build());
-//                            mUpdateView.setText(R.string.update_status_successful);
+//                            mUpdateView.setText(R.string.res_update_status_successful);
 //                            // 标记成下载完成
 //                            mDownloadComplete = true;
 //                            // 安装 Apk
@@ -248,7 +248,7 @@ public final class UpdateDialog {
 //                        public void onError(File file, Exception e) {
 //                            // 清除通知
 //                            notificationManager.cancel(notificationId);
-//                            mUpdateView.setText(R.string.update_status_failed);
+//                            mUpdateView.setText(R.string.res_update_status_failed);
 //                            // 删除下载的文件
 //                            file.delete();
 //                        }

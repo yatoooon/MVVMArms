@@ -116,7 +116,7 @@ public final class PersonalDataActivity extends BaseActivity {
                     // 标题可以不用填写
                     .setTitle(getString(R.string.res_personal_data_name_hint))
                     .setContent(mNameView.getRightText())
-                    //.setHint(getString(R.string.personal_data_name_hint))
+                    //.setHint(getString(R.string.res_personal_data_name_hint))
                     //.setConfirm("确定")
                     // 设置 null 表示不显示取消按钮
                     //.setCancel("取消")

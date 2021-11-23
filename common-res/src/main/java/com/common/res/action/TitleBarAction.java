@@ -48,16 +48,16 @@ public interface TitleBarAction extends OnTitleBarListener {
     /**
      * 设置标题栏的标题
      */
-    default void setTitle(@StringRes int id) {
+    default void setBarTitle(@StringRes int id) {
         if (getTitleBar() != null) {
-            setTitle(getTitleBar().getResources().getString(id));
+            setBarTitle(getTitleBar().getResources().getString(id));
         }
     }
 
     /**
      * 设置标题栏的标题
      */
-    default void setTitle(CharSequence title) {
+    default void setBarTitle(CharSequence title) {
         if (getTitleBar() != null) {
             getTitleBar().setTitle(title);
         }

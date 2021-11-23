@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/web_white"
-        android:orientation="vertical">
 
-        <RelativeLayout
-            android:background="@color/web_white"
-            android:id="@+id/webview_container"
+
+    <com.common.res.layout.StatusLayout
+        android:id="@+id/hl_browser_hint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/sl_browser_refresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            app:srlEnableHeaderTranslationContent="false"
+            app:srlEnableLoadMore="false"
+            app:srlEnablePreviewInEditMode="false"
+            app:srlPrimaryColor="#444444">
+
+            <com.common.web.view.BrowserView
+                android:id="@+id/wv_browser_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+    </com.common.res.layout.StatusLayout>
+
 </layout>

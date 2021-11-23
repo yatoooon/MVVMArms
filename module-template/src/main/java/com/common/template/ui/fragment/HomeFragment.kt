@@ -6,6 +6,7 @@ import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.mvvm.BaseVMFragment
 import com.common.core.base.mvvm.BaseViewModel
 import com.common.export.arouter.RouterHub
@@ -25,7 +26,10 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel>(
 
     private val fragments = mutableListOf<Fragment>(
         StatusFragment.newInstance(),
-        TemplateFragment.newInstance()
+        TemplateFragment.newInstance(),
+        ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEFRAGMENT)
+            .withString("url", "https://github.com/yatoooon")
+            .navigation() as Fragment
     )
 
     override fun getLayoutId(): Int {
@@ -44,9 +48,14 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel>(
         mPagerAdapter.setFragments(fragments)
         binding.ctlHomeBar.setOnScrimsListener(this)
         binding.vpHomePager.adapter = mPagerAdapter
+        binding.vpHomePager.isUserInputEnabled = false
         binding.vpHomePager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         TabLayoutMediator(binding.rvHomeTab, binding.vpHomePager) { tab, position ->
-            tab.text = "列表" + (position + 1)
+            if (position < 2) {
+                tab.text = "列表" + (position + 1)
+            } else {
+                tab.text = "网页"
+            }
         }.attach()
     }
 

@@ -85,7 +85,7 @@
 # 保留继承的
 -keep public class * extends android.support.v4.**
 -keep public class * extends android.support.v7.**
--keep public class * extends android.support.annotation.**
+-keep public class * extends androidx.annotation.**
 
 #androidx包使用混淆
 -keep class com.google.android.material.** {*;}

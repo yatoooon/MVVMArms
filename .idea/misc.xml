@@ -163,6 +163,8 @@
         <entry key="module-template/src/main/res/layout/template_item_status.xml" value="0.25" />
         <entry key="module-template/src/main/res/layout/template_layout_item.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_status_activity.xml" value="0.1" />
+        <entry key="module-web/src/main/res/drawable/progress_gradient_bg.xml" value="0.17685185185185184" />
+        <entry key="module-web/src/main/res/drawable/web_shape_webframe_dialog_bg.xml" value="0.15416666666666667" />
         <entry key="module-web/src/main/res/layout/web_activity_config.xml" value="0.31265508684863524" />
         <entry key="module-web/src/main/res/layout/web_activity_tabpage.xml" value="0.31265508684863524" />
         <entry key="module-web/src/main/res/layout/web_activity_webpage.xml" value="0.31265508684863524" />

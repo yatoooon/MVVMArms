@@ -214,5 +214,7 @@ dependencies {
     api Deps.timber
 
     api 'org.aspectj:aspectjrt:1.9.6'
+    api 'com.github.Justson:Downloader:v4.1.9'
+
 
 }

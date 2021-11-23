@@ -15,7 +15,7 @@ import androidx.core.view.ViewCompat
  * time   : 2020/08/18
  * desc   : 支持嵌套滚动的 WebView
  */
-class NestedScrollWebView : WebView, NestedScrollingChild {
+open class NestedScrollWebView : WebView, NestedScrollingChild {
     private var mChildHelper: NestedScrollingChildHelper? = null
     private var mLastMotionY = 0
     private val mScrollOffset = IntArray(2)

@@ -1,0 +1,22 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background">
+        <shape>
+            <gradient
+                android:centerColor="@color/res_transparent"
+                android:endColor="@color/res_transparent"
+                android:startColor="@color/res_transparent" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <gradient
+                    android:centerColor="@color/res_accent_color"
+                    android:endColor="@color/res_common_button_pressed_color"
+                    android:startColor="@color/res_transparent" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>
