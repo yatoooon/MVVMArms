@@ -37,7 +37,7 @@ public class CheckNetAspect {
     public void aroundJoinPoint(ProceedingJoinPoint joinPoint, CheckNet checkNet) throws Throwable {
         Application application = App.getApp();
         if (application != null) {
-            ConnectivityManager manager = ContextCompat.getSystemService(application, ConnectivityManager.class);
+            ConnectivityManager manager = ContextCompat.getSystemService(application.getApplicationContext(), ConnectivityManager.class);
             if (manager != null) {
                 NetworkInfo info = manager.getActiveNetworkInfo();
                 // 判断网络是否连接

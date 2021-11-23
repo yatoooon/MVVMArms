@@ -159,11 +159,11 @@ public final class BrowserView extends NestedScrollWebView
         switch (event) {
             case ON_RESUME:
                 onResume();
-                resumeTimers();
+//                resumeTimers();
                 break;
             case ON_STOP:
                 onPause();
-                pauseTimers();
+//                pauseTimers();
                 break;
             case ON_DESTROY:
                 onDestroy();
