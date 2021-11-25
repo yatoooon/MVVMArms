@@ -9,10 +9,6 @@
             android:value="CoreConfigModule" />
 
         <activity
-            android:name=".ui.activity.TemplateActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.activity.StatusActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
