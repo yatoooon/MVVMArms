@@ -5,7 +5,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.common.core.base.mvvm.BaseViewModel
-import com.common.res.net.Resource
+import com.common.res.http.net.Resource
 import com.common.template.data.entity.TemplateEntity
 import com.common.template.data.repository.TemplateRepository
 import kotlinx.coroutines.launch

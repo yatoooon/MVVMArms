@@ -1,4 +1,4 @@
-package com.common.res.net
+package com.common.res.http.net
 
 import com.common.res.livedata.StatusEvent
 

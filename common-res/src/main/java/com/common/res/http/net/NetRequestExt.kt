@@ -1,6 +1,6 @@
-package com.common.res.net
+package com.common.res.http.net
 
-import com.common.res.App
+import com.common.res.ResApp
 import com.common.res.utils.checkNetworkStatus
 
 
@@ -9,7 +9,7 @@ import com.common.res.utils.checkNetworkStatus
  */
 suspend fun <T> apiCall(call: suspend () -> T): Resource<T?> {
     return try {
-        if (checkNetworkStatus(App.getApp())) {
+        if (checkNetworkStatus(ResApp.getApp())) {
             val entity = call()
             if (entity != null) {
                 Resource.success(entity)

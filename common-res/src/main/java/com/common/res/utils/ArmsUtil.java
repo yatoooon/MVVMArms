@@ -13,7 +13,7 @@ import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 
-import com.common.res.App;
+import com.common.res.ResApp;
 import com.common.res.component.AppComponent;
 
 import java.nio.charset.StandardCharsets;
@@ -318,7 +318,7 @@ public class ArmsUtil {
 
 
     public static AppComponent obtainAppComponent() {
-        return App.getApp().getAppComponent();
+        return ResApp.getApp().getAppComponent();
     }
 
 }

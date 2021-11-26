@@ -4,18 +4,18 @@ import android.app.Application;
 
 import com.common.res.component.AppComponent;
 
-public abstract class App extends Application {
+public abstract class ResApp extends Application {
     public abstract AppComponent getAppComponent();
 
-    static App app;
+    static ResApp resApp;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        app = this;
+        resApp = this;
     }
 
-    public static App getApp() {
-        return app;
+    public static ResApp getApp() {
+        return resApp;
     }
 }

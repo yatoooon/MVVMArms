@@ -16,7 +16,7 @@ import com.common.res.adapter.BaseAdapter.Companion.PAGE_SIZE
 import com.common.res.ext.inflateLayout
 import com.common.res.layout.StatusLayout
 import com.common.res.livedata.StatusEvent
-import com.common.res.net.Resource
+import com.common.res.http.net.Resource
 import com.common.res.utils.showLoadingDialog
 import com.common.template.R
 import com.common.template.data.entity.Item
