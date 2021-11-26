@@ -6,7 +6,10 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.BaseFragment
 import com.common.export.arouter.RouterHub
 import com.common.res.aop.Permissions
+import com.common.res.ext.dp2px
+import com.common.res.ext.load
 import com.common.res.ext.loadImage
+import com.common.res.utils.ArmsUtil
 import com.common.res.utils.bindViewClickListener
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentMessageBinding
@@ -41,22 +44,20 @@ class MessageFragment : BaseFragment<TemplateFragmentMessageBinding>() {
                 when (this) {
                     btnMessageImage1 -> {
                         binding.ivMessageImage.visibility = View.VISIBLE
-                        loadImage(binding.ivMessageImage, "https://www.baidu.com/img/bd_logo.png")
+                        binding.ivMessageImage.load("https://www.baidu.com/img/bd_logo.png")
                     }
                     btnMessageImage2 -> {
                         binding.ivMessageImage.visibility = View.VISIBLE
-                        loadImage(
-                            binding.ivMessageImage,
+                        binding.ivMessageImage.load(
                             "https://www.baidu.com/img/bd_logo.png",
                             isCircle = true
                         )
                     }
                     btnMessageImage3 -> {
                         binding.ivMessageImage.visibility = View.VISIBLE
-                        loadImage(
-                            binding.ivMessageImage,
+                        binding.ivMessageImage.load(
                             "https://www.baidu.com/img/bd_logo.png",
-                            imageRadius = 200
+                            imageRadius = context.dp2px(20)
                         )
                     }
                     btnMessageToast -> {

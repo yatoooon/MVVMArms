@@ -82,41 +82,26 @@ dependencies {
 
     api Deps.logger
     api Deps.glide
-    api Deps.recyclerview
-    api Deps.constraintlayout
-    api Deps.tbssdk
-    api Deps.vlayout
     api Deps.smartkey
     api Deps.cardview
-    api Deps.titlebar
     api Deps.autosize
-    api Deps.easyFloat
-    api Deps.rvAdapter
     api Deps.circleindicator
     api Deps.bottombar
-    api Deps.bgaQrcode
     api Deps.arouterApi
     api Deps.mmkvStatic
     api Deps.immersionbar
-    api Deps.ycbannerlib
-    api Deps.labelsView
     api Deps.lottie
     api Deps.shapeView
+    api Deps.pictureSelector
     api Deps.titleBar
     api Deps.toastUtils
     api Deps.XXPermissions
-    api Deps.dropDownMenu
-    api Deps.filedownloader
     api Deps.progressmanager
-    api Deps.pictureSelector
-    api Deps.androidPdfViewer
-    api Deps.circleProgressbar
     api Deps.retrofitUrlManager
     api Deps.bottomNavigationViewEx
     api Deps.smartRefreshLayoutKernel
     api Deps.smartRefreshHeaderClassics
     api Deps.baseRecyclerViewAdapterHelper
-    api Deps.paging3
 
     api Deps.umengCommon
     api Deps.umengAsms
@@ -144,9 +129,6 @@ dependencies {
 
     debugImplementation Deps.leakcanary
 
-
-
-
     //retrofit-helper
     api Deps.retrofit_helper
 
@@ -165,8 +147,6 @@ dependencies {
 
     //log
     api Deps.timber
-
-
 
     //coroutines
     api Deps.kotlinxCoroutinesCore
@@ -210,11 +190,8 @@ dependencies {
     api Deps.gson
     api Deps.jolyglotGson
     compileOnly Deps.javaxAnnotation
-    //test
-    api Deps.timber
 
-    api 'org.aspectj:aspectjrt:1.9.6'
-    api 'com.github.Justson:Downloader:v4.1.9'
+    api Deps.aspectjrt
 
 
 }

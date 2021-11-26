@@ -139,6 +139,7 @@ object Deps {
     const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
     const val androidJUnitRunner = "androidx.test.runner.AndroidJUnitRunner"
     const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.5"
+    const val aspectjrt = "org.aspectj:aspectjrt:1.9.6"
 
     const val umengCommon = "com.umeng.umsdk:common:9.4.2"
     const val umengAsms = "com.umeng.umsdk:asms:1.2.3"

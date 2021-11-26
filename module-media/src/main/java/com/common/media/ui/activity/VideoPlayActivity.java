@@ -12,6 +12,8 @@ import com.common.media.R;
 import com.common.res.immersionbar.BindImmersionBar;
 import com.common.res.view.PlayerView;
 
+import me.jessyan.autosize.internal.CancelAdapt;
+
 
 /**
  * author : Android 轮子哥
@@ -21,7 +23,7 @@ import com.common.res.view.PlayerView;
  */
 @Route(path = RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY)
 public class VideoPlayActivity extends BaseActivity
-        implements PlayerView.OnPlayListener {
+        implements PlayerView.OnPlayListener, CancelAdapt {
 
     public static final String INTENT_KEY_PARAMETERS = "parameters";
 

@@ -11,8 +11,6 @@ import com.common.res.BuildConfig
 import com.common.res.layout.RefreshLottieHeader
 import com.common.res.umeng.UmengClient
 import com.hjq.toast.ToastUtils
-import com.liulishuo.filedownloader.FileDownloader
-import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
@@ -58,14 +56,7 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
                 setFinishDuration(0)
             })
         }
-        //初始化Update
-        //初始化FileDownloader
-        val config = FileDownloadUrlConnection.Configuration().apply {
-            connectTimeout(20000)
-            readTimeout(20000)
-        }
-        FileDownloader.setupOnApplicationOnCreate(application)
-            .connectionCreator(FileDownloadUrlConnection.Creator(config)).commit()
+
 
         ToastUtils.init(application)
 

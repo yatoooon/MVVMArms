@@ -14,7 +14,7 @@
         tools:context=".ui.activity.StatusActivity">
 
         <com.hjq.bar.TitleBar
-        android:id="@+id/titleBar"
+        android:id="@+id/res_titleBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="界面状态案例" />

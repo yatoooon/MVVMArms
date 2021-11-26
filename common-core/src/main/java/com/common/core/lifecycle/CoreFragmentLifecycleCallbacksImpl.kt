@@ -28,7 +28,7 @@ class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCall
     ) {
         Timber.i("%s - onFragmentViewCreated", f.toString())
         //设置全局toolbar和title
-        val titleBar = v.findViewById<TitleBar>(R.id.titleBar)
+        val titleBar = v.findViewById<TitleBar>(R.id.res_titleBar)
         if (titleBar != null) {
             ImmersionBar.setTitleBarMarginTop(f, titleBar) //activity默认是沉浸状态栏所以要加上
             if (!TextUtils.isEmpty(f.arguments?.getString("title"))) {

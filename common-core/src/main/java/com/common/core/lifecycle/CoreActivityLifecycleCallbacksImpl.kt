@@ -50,7 +50,7 @@ class CoreActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
             }
         }
         //全局设置titleBar的title
-        val titleBar = activity.findViewById<TitleBar>(R.id.titleBar)
+        val titleBar = activity.findViewById<TitleBar>(R.id.res_titleBar)
         if (titleBar != null) {
             //找到 Toolbar 的标题栏并设置标题名
             if (!TextUtils.isEmpty(activity.intent.getStringExtra("title"))) {
