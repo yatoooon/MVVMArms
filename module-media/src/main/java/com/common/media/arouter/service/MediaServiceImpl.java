@@ -12,11 +12,11 @@ import com.common.export.callback.OnCameraListener;
 import com.common.export.callback.OnCropListener;
 import com.common.export.callback.OnPhotoSelectListener;
 import com.common.export.callback.OnVideoSelectListener;
-import com.common.media.ui.activity.CameraActivity;
-import com.common.media.ui.activity.ImageCropActivity;
-import com.common.media.ui.activity.ImagePreviewActivity;
-import com.common.media.ui.activity.ImageSelectActivity;
-import com.common.media.ui.activity.VideoSelectActivity;
+import com.common.media.mvvm.activity.CameraActivity;
+import com.common.media.mvvm.activity.ImageCropActivity;
+import com.common.media.mvvm.activity.ImagePreviewActivity;
+import com.common.media.mvvm.activity.ImageSelectActivity;
+import com.common.media.mvvm.activity.VideoSelectActivity;
 
 import java.io.File;
 import java.util.List;

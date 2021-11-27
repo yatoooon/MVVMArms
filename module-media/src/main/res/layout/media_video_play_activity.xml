@@ -6,4 +6,4 @@
     android:layout_height="match_parent"
     android:keepScreenOn="true"
     android:orientation="vertical"
-    tools:context=".ui.activity.VideoPlayActivity" />
+    tools:context=".mvvm.activity.VideoPlayActivity" />

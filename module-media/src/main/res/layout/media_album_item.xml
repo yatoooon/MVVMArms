@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.common.media.ui.dialog.AlbumDialog.AlbumInfo" />
+            type="com.common.media.mvvm.dialog.AlbumDialog.AlbumInfo" />
 
         <import type="android.view.View" />
 

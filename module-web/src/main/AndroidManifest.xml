@@ -4,7 +4,7 @@
     <application>
 
         <activity
-            android:name=".ui.activity.WebPageActivity"
+            android:name=".mvvm.activity.WebPageActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="stateHidden|adjustResize" />

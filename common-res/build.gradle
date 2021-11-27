@@ -122,10 +122,10 @@ dependencies {
     kapt Deps.androidHiltCompiler
 
 
-    implementation Deps.xUpdate
-    implementation Deps.okhttputils
-    implementation Deps.hiltAndroid
-    implementation Deps.androidHiltLifecycleViewmodel
+    api Deps.xUpdate
+    api Deps.okhttputils
+    api Deps.hiltAndroid
+    api Deps.androidHiltLifecycleViewmodel
 
     debugImplementation Deps.leakcanary
 

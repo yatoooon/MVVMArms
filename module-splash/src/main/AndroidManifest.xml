@@ -5,7 +5,7 @@
     <application>
         <!-- 闪屏页 -->
         <activity
-            android:name="com.common.splash.ui.activity.SplashActivity"
+            android:name="com.common.splash.mvvm.activity.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/res_SplashTheme">
@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.GuideActivity"
+            android:name=".mvvm.activity.GuideActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>

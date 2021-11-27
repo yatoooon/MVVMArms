@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.common.core.base.BaseFragment;
+import com.common.core.base.BaseModel;
 import com.common.res.livedata.MessageEvent;
 import com.common.res.livedata.StatusEvent;
 
@@ -68,20 +69,20 @@ public abstract class BaseVMFragment<VDB extends ViewDataBinding, VM extends Bas
         return vmClass;
     }
 
-    private Class getVMClass(Class<?> cls) {
+    private Class<VM> getVMClass(Class<?> cls) {
         Type type = cls.getGenericSuperclass();
         if (type instanceof ParameterizedType) {
             Type[] types = ((ParameterizedType) type).getActualTypeArguments();
             for (Type t : types) {
                 if (t instanceof Class) {
-                    Class vmClass = (Class) t;
+                    Class<VM> vmClass = (Class<VM>) t;
                     if (BaseViewModel.class.isAssignableFrom(vmClass)) {
                         return vmClass;
                     }
                 } else if (t instanceof ParameterizedType) {
                     Type rawType = ((ParameterizedType) t).getRawType();
                     if (rawType instanceof Class) {
-                        Class vmClass = (Class) rawType;
+                        Class<VM> vmClass = (Class) rawType;
                         if (BaseViewModel.class.isAssignableFrom(vmClass)) {
                             return vmClass;
                         }

@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:background="@color/res_white"
         android:orientation="vertical"
-        tools:context=".ui.activity.SplashActivity">
+        tools:context=".mvvm.activity.SplashActivity">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lav_splash_lottie"

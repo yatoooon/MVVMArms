@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.activity.VideoSelectActivity">
+    tools:context=".mvvm.activity.VideoSelectActivity">
 
     <com.hjq.bar.TitleBar
         android:id="@+id/res_titleBar"

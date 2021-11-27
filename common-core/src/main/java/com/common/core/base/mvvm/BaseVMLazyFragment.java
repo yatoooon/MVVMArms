@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 
+import com.common.core.base.BaseModel;
+
 /**
  * 懒加载Fragment
  *

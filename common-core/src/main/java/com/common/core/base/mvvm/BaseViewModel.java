@@ -6,12 +6,14 @@ import android.os.Message;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
+import androidx.hilt.lifecycle.ViewModelInject;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
+import com.common.core.base.BaseModel;
 import com.common.core.base.ibase.IViewModel;
 import com.common.res.livedata.MessageEvent;
 import com.common.res.livedata.SingleLiveEvent;
@@ -44,8 +46,12 @@ import com.common.res.livedata.StatusEvent;
  * <p>
  * 标准MVVM模式中的VM (ViewModel)层基类
  */
-public class BaseViewModel extends AndroidViewModel implements IViewModel {
+public class BaseViewModel<M extends BaseModel> extends AndroidViewModel implements IViewModel {
 
+    /**
+     * 请通过 {@link #getModel()} 获取，后续版本 {@link #mModel}可能会私有化
+     */
+    private M mModel;
 
     /**
      * 消息事件
@@ -61,11 +67,24 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
      */
     private final SingleLiveEvent<Message> mSingleLiveEvent = new SingleLiveEvent<>();
 
+
+    /**
+     * 继承者都将使用此构造
+     *
+     * @param application
+     * @param model
+     */
+    public BaseViewModel(@NonNull Application application, M model) {
+        super(application);
+        this.mModel = model;
+    }
+
     /**
      * 继承者都将使用此构造
      *
      * @param application
      */
+    @ViewModelInject
     public BaseViewModel(@NonNull Application application) {
         super(application);
     }
@@ -97,7 +116,10 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
 
     @Override
     public void onDestroy() {
-
+        if (mModel != null) {
+            mModel.onDestroy();
+            mModel = null;
+        }
     }
 
     @Override
@@ -105,6 +127,14 @@ public class BaseViewModel extends AndroidViewModel implements IViewModel {
 
     }
 
+    /**
+     * {@link M}
+     *
+     * @return {@link #mModel}
+     */
+    public M getModel() {
+        return this.mModel;
+    }
 
     /**
      * 暴露给观察者提供消息事件，通过注册{@link BaseVMActivity#registerMessageEvent(MessageEvent.MessageObserver)}或

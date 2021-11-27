@@ -4,11 +4,11 @@
 
     <application>
         <activity
-            android:name=".ui.activity.PersonalDataActivity"
+            android:name=".mvvm.activity.PersonalDataActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.SettingActivity"
+            android:name=".mvvm.activity.SettingActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>

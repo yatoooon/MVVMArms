@@ -5,14 +5,14 @@
     <application>
         <!-- 崩溃展示（必须在独立进程） -->
         <activity
-            android:name=".ui.activity.CrashActivity"
+            android:name=".mvvm.activity.CrashActivity"
             android:launchMode="singleTop"
             android:process=":crash"
             android:screenOrientation="landscape" />
 
         <!-- 重启应用（必须在独立进程） -->
         <activity
-            android:name=".ui.activity.RestartActivity"
+            android:name=".mvvm.activity.RestartActivity"
             android:launchMode="singleTop"
             android:process=":restart" />
     </application>

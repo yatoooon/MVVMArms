@@ -5,40 +5,40 @@
 
     <application>
         <activity
-            android:name=".ui.activity.ImageSelectActivity"
+            android:name=".mvvm.activity.ImageSelectActivity"
             android:label="@string/res_image_select_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.activity.VideoPlayActivity"
+            android:name=".mvvm.activity.VideoPlayActivity"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:theme="@style/res_FullScreenTheme" />
         <activity
-            android:name=".ui.activity.VideoSelectActivity"
+            android:name=".mvvm.activity.VideoSelectActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.VideoPlayActivity$Portrait"
+            android:name=".mvvm.activity.VideoPlayActivity$Portrait"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/res_FullScreenTheme" />
         <activity
-            android:name=".ui.activity.VideoPlayActivity$Landscape"
+            android:name=".mvvm.activity.VideoPlayActivity$Landscape"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:theme="@style/res_FullScreenTheme" />
         <activity
-            android:name=".ui.activity.ImagePreviewActivity"
+            android:name=".mvvm.activity.ImagePreviewActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.ImageCropActivity"
+            android:name=".mvvm.activity.ImageCropActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.CameraActivity"
+            android:name=".mvvm.activity.CameraActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 

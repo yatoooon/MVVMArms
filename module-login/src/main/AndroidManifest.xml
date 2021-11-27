@@ -4,23 +4,23 @@
 
     <application>
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name=".mvvm.activity.LoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.RegisterActivity"
+            android:name=".mvvm.activity.RegisterActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.PasswordResetActivity"
+            android:name=".mvvm.activity.PasswordResetActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.PasswordForgetActivity"
+            android:name=".mvvm.activity.PasswordForgetActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.PhoneResetActivity"
+            android:name=".mvvm.activity.PhoneResetActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>

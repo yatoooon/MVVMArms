@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.activity.StatusActivity">
+        tools:context=".mvvm.activity.StatusActivity">
 
         <com.hjq.bar.TitleBar
         android:id="@+id/res_titleBar"
@@ -25,7 +25,7 @@
             android:layout_height="match_parent">
 
             <fragment
-                android:name="com.common.template.ui.fragment.StatusFragment"
+                android:name="com.common.template.mvvm.fragment.StatusFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:ignore="MissingId"
