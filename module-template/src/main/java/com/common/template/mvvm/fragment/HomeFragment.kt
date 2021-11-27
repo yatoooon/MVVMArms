@@ -30,7 +30,8 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel<B
         RepositoryFragment.newInstance(),
         ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEFRAGMENT)
             .withString("url", "https://github.com/yatoooon")
-            .navigation() as Fragment
+            .navigation() as Fragment,
+        TemplateFragment.newInstance()
     )
 
     override fun getLayoutId(): Int {
@@ -54,8 +55,10 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel<B
         TabLayoutMediator(binding.rvHomeTab, binding.vpHomePager) { tab, position ->
             if (position < 2) {
                 tab.text = "列表" + (position + 1)
-            } else {
+            } else if (position == 2) {
                 tab.text = "网页"
+            } else if (position == 3) {
+                tab.text = "fragment模版"
             }
         }.attach()
     }

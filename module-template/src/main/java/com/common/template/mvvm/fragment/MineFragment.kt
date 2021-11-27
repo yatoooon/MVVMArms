@@ -13,6 +13,7 @@ import com.common.template.R
 import com.common.template.databinding.TemplateFragmentMineBinding
 import com.common.template.mvvm.activity.DialogActivity
 import com.common.template.mvvm.activity.StatusActivity
+import com.common.template.mvvm.activity.TemplateActivity
 import com.gyf.immersionbar.ImmersionBar
 import com.tencent.bugly.crashreport.CrashReport
 import java.util.*
@@ -47,7 +48,8 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                 btnMineImagePreview,
                 btnMineVideoSelect,
                 btnMineVideoPlay,
-                btnMineCrash
+                btnMineCrash,
+                btnMineTemplate
             ) {
                 when (this) {
 
@@ -125,6 +127,9 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                         CrashReport.closeBugly()
 
                         throw IllegalStateException("are you ok?")
+                    }
+                    btnMineTemplate -> {
+                        startActivity(TemplateActivity::class.java)
                     }
                 }
             }

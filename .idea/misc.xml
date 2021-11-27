@@ -145,17 +145,21 @@
         <entry key="module-template/src/main/res/drawable/home_example_bg.xml" value="0.27395833333333336" />
         <entry key="module-template/src/main/res/drawable/home_search_ic.xml" value="0.20092592592592592" />
         <entry key="module-template/src/main/res/drawable/template_add_ic.xml" value="0.12129629629629629" />
+        <entry key="module-template/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/found_fragment.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/home_activity_main.xml" value="0.22777777777777777" />
         <entry key="module-template/src/main/res/layout/home_content_main.xml" value="0.22777777777777777" />
         <entry key="module-template/src/main/res/layout/home_status_fragment.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_activity.xml" value="0.1111111111111111" />
+        <entry key="module-template/src/main/res/layout/template_activity_main.xml" value="0.1" />
+        <entry key="module-template/src/main/res/layout/template_activity_main1.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_dialog_activity.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_fragment.xml" value="0.2388888888888889" />
         <entry key="module-template/src/main/res/layout/template_fragment_found.xml" value="0.1027984619140625" />
         <entry key="module-template/src/main/res/layout/template_fragment_home.xml" value="0.1" />
+        <entry key="module-template/src/main/res/layout/template_fragment_main.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_fragment_message.xml" value="0.1" />
-        <entry key="module-template/src/main/res/layout/template_fragment_mine.xml" value="0.24322916666666666" />
+        <entry key="module-template/src/main/res/layout/template_fragment_mine.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_fragment_mine2.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_fragment_status.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_item.xml" value="0.165" />

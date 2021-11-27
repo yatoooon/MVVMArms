@@ -3,6 +3,7 @@
     package="com.common.template">
 
     <application>
+        <activity android:name=".mvvm.activity.TemplateActivity" />
 
         <meta-data
             android:name="com.common.template.lifecycle.TemplateConfiguration"
@@ -17,6 +18,5 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>
-
 
 </manifest>
