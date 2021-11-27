@@ -27,7 +27,7 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel<B
 
     private val fragments = mutableListOf<Fragment>(
         StatusFragment.newInstance(),
-        TemplateFragment.newInstance(),
+        RepositoryFragment.newInstance(),
         ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEFRAGMENT)
             .withString("url", "https://github.com/yatoooon")
             .navigation() as Fragment
