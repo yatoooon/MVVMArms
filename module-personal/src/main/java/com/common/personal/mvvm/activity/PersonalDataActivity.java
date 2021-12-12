@@ -19,6 +19,7 @@ import com.common.export.callback.OnCropListener;
 import com.common.personal.R;
 import com.common.res.aop.SingleClick;
 import com.common.res.dialog.InputDialog;
+import com.common.res.dialog.address.AddressDialog;
 import com.common.res.glide.config.ImageConfigImpl;
 import com.common.res.layout.SettingBar;
 import com.common.res.other.FileContentResolver;
@@ -129,24 +130,24 @@ public final class PersonalDataActivity extends BaseActivity {
                     })
                     .show();
         } else if (view == mAddressView) {
-//            new AddressDialog.Builder(this)
-//                    //.setTitle("选择地区")
-//                    // 设置默认省份
-//                    .setProvince(mProvince)
-//                    // 设置默认城市（必须要先设置默认省份）
-//                    .setCity(mCity)
-//                    // 不选择县级区域
-//                    //.setIgnoreArea()
-//                    .setListener((dialog, province, city, area) -> {
-//                        String address = province + city + area;
-//                        if (!mAddressView.getRightText().equals(address)) {
-//                            mProvince = province;
-//                            mCity = city;
-//                            mArea = area;
-//                            mAddressView.setRightText(address);
-//                        }
-//                    })
-//                    .show();
+            new AddressDialog.Builder(this)
+                    //.setTitle("选择地区")
+                    // 设置默认省份
+                    .setProvince(mProvince)
+                    // 设置默认城市（必须要先设置默认省份）
+                    .setCity(mCity)
+                    // 不选择县级区域
+                    //.setIgnoreArea()
+                    .setListener((dialog, province, city, area) -> {
+                        String address = province + city + area;
+                        if (!mAddressView.getRightText().equals(address)) {
+                            mProvince = province;
+                            mCity = city;
+                            mArea = area;
+                            mAddressView.setRightText(address);
+                        }
+                    })
+                    .show();
         }
     }
 

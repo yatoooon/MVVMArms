@@ -50,6 +50,7 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel<B
         mPagerAdapter.setFragments(fragments)
         binding.ctlHomeBar.setOnScrimsListener(this)
         binding.vpHomePager.adapter = mPagerAdapter
+        binding.vpHomePager.offscreenPageLimit = fragments.size
         binding.vpHomePager.isUserInputEnabled = false
         binding.vpHomePager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         TabLayoutMediator(binding.rvHomeTab, binding.vpHomePager) { tab, position ->

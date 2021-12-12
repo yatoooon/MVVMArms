@@ -153,15 +153,18 @@
         <entry key="module-template/src/main/res/layout/template_activity.xml" value="0.1111111111111111" />
         <entry key="module-template/src/main/res/layout/template_activity_main.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_activity_main1.xml" value="0.1" />
+        <entry key="module-template/src/main/res/layout/template_activity_template.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_dialog_activity.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_fragment.xml" value="0.2388888888888889" />
         <entry key="module-template/src/main/res/layout/template_fragment_found.xml" value="0.1027984619140625" />
         <entry key="module-template/src/main/res/layout/template_fragment_home.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_fragment_main.xml" value="0.1" />
-        <entry key="module-template/src/main/res/layout/template_fragment_message.xml" value="0.1" />
+        <entry key="module-template/src/main/res/layout/template_fragment_message.xml" value="0.25" />
         <entry key="module-template/src/main/res/layout/template_fragment_mine.xml" value="0.1" />
         <entry key="module-template/src/main/res/layout/template_fragment_mine2.xml" value="0.1" />
+        <entry key="module-template/src/main/res/layout/template_fragment_repository.xml" value="0.15106580166821132" />
         <entry key="module-template/src/main/res/layout/template_fragment_status.xml" value="0.1" />
+        <entry key="module-template/src/main/res/layout/template_fragment_template.xml" value="0.15092592592592594" />
         <entry key="module-template/src/main/res/layout/template_item.xml" value="0.165" />
         <entry key="module-template/src/main/res/layout/template_item_head.xml" value="0.22592592592592592" />
         <entry key="module-template/src/main/res/layout/template_item_status.xml" value="0.25" />
@@ -170,6 +173,7 @@
         <entry key="module-web/src/main/res/drawable/progress_gradient_bg.xml" value="0.17685185185185184" />
         <entry key="module-web/src/main/res/drawable/web_shape_webframe_dialog_bg.xml" value="0.15416666666666667" />
         <entry key="module-web/src/main/res/layout/web_activity_config.xml" value="0.31265508684863524" />
+        <entry key="module-web/src/main/res/layout/web_activity_main.xml" value="0.2578125" />
         <entry key="module-web/src/main/res/layout/web_activity_tabpage.xml" value="0.31265508684863524" />
         <entry key="module-web/src/main/res/layout/web_activity_webpage.xml" value="0.31265508684863524" />
         <entry key="module-web/src/main/res/layout/web_fragment_webpage.xml" value="0.22733612273361228" />

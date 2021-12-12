@@ -103,6 +103,7 @@
                     android:id="@+id/btn_mine_about"
                     style="@style/res_ButtonStyle"
                     android:layout_width="match_parent"
+                    android:visibility="gone"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/res_dp_30"
                     android:text="点我进入关于界面" />
