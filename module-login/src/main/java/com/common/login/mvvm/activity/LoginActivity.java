@@ -26,12 +26,14 @@ import com.common.res.aop.SingleClick;
 import com.common.res.glide.config.ImageConfigImpl;
 import com.common.res.manager.InputTextManager;
 import com.common.res.other.KeyboardWatcher;
-import com.common.res.umeng.Platform;
-import com.common.res.umeng.UmengClient;
-import com.common.res.umeng.UmengLogin;
+import com.common.umeng.Platform;
+import com.common.umeng.UmengClient;
+import com.common.umeng.UmengLogin;
 import com.common.res.utils.ArmsUtil;
 import com.common.res.view.SubmitButton;
 import com.common.sample.WXEntryActivity;
+import com.common.umeng.UmengShare;
+import com.umeng.socialize.UMShareAPI;
 
 /**
  * author : Android 轮子哥
@@ -138,7 +140,6 @@ public final class LoginActivity extends BaseActivity
         mPhoneView.setText(getString(INTENT_KEY_IN_PHONE));
         mPasswordView.setText(getString(INTENT_KEY_IN_PASSWORD));
     }
-
 
 
     @Override
@@ -324,4 +325,9 @@ public final class LoginActivity extends BaseActivity
         return false;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        UMShareAPI.get(this).release();
+    }
 }

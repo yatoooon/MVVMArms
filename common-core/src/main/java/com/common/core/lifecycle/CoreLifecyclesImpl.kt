@@ -9,7 +9,7 @@ import com.common.core.base.delegate.BaseApplicationLifecycle
 import com.common.core.other.CrashHandler
 import com.common.res.BuildConfig
 import com.common.res.layout.RefreshLottieHeader
-import com.common.res.umeng.UmengClient
+import com.common.umeng.UmengClient
 import com.hjq.toast.ToastUtils
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
@@ -96,8 +96,8 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
 
             override fun createStackElementTag(element: StackTraceElement): String {
                 val tag = "(" + element.fileName + ":" + element.lineNumber + ")"
-                // 日志 TAG 长度限制已经在 Android 7.0 被移除
-                return if (tag.length <= 23 || Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                // 日志 TAG 长度限制已经在 Android 8.0 被移除
+                return if (tag.length <= 23 || Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     tag
                 } else tag.substring(0, 23)
             }

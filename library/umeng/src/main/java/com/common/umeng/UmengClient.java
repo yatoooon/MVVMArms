@@ -1,4 +1,4 @@
-package com.common.res.umeng;
+package com.common.umeng;
 
 import android.app.Activity;
 import android.app.Application;
@@ -9,7 +9,6 @@ import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.common.res.BuildConfig;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
@@ -17,10 +16,10 @@ import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2019/04/03
- *    desc   : 友盟客户端
+ * author : Android 轮子哥
+ * github : https://github.com/getActivity/AndroidProject
+ * time   : 2019/04/03
+ * desc   : 友盟客户端
  */
 public final class UmengClient {
 
@@ -32,7 +31,7 @@ public final class UmengClient {
     public static void init(Application application, boolean logEnable) {
         preInit(application, logEnable);
         // 友盟统计：https://developer.umeng.com/docs/66632/detail/101814#h1-u521Du59CBu5316u53CAu901Au7528u63A5u53E32
-        UMConfigure.init(application, BuildConfig.UM_KEY,"umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
+        UMConfigure.init(application, BuildConfig.UM_KEY, "umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
         // 获取设备的 oaid
         UMConfigure.getOaid(application, oaid -> sDeviceOaid = oaid);
     }
@@ -41,7 +40,7 @@ public final class UmengClient {
      * 预初始化 SDK（在用户没有同意隐私协议前调用）
      */
     public static void preInit(Application application, boolean logEnable) {
-        UMConfigure.preInit(application, BuildConfig.UM_KEY,"umeng");
+        UMConfigure.preInit(application, BuildConfig.UM_KEY, "umeng");
         // 选用自动采集模式：https://developer.umeng.com/docs/119267/detail/118588#h1-u9875u9762u91C7u96C63
         MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
 
@@ -61,10 +60,10 @@ public final class UmengClient {
     /**
      * 分享
      *
-     * @param activity              Activity对象
-     * @param platform              分享平台
-     * @param action                分享意图
-     * @param listener              分享监听
+     * @param activity Activity对象
+     * @param platform 分享平台
+     * @param action   分享意图
+     * @param listener 分享监听
      */
     public static void share(Activity activity, Platform platform, ShareAction action, @Nullable UmengShare.OnShareListener listener) {
         if (!isAppInstalled(activity, platform.getPackageName())) {
@@ -83,9 +82,9 @@ public final class UmengClient {
     /**
      * 登录
      *
-     * @param activity              Activity对象
-     * @param platform              登录平台
-     * @param listener              登录监听
+     * @param activity Activity对象
+     * @param platform 登录平台
+     * @param listener 登录监听
      */
     public static void login(Activity activity, Platform platform, @Nullable UmengLogin.OnLoginListener listener) {
         if (!isAppInstalled(activity, platform)) {

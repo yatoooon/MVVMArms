@@ -51,6 +51,7 @@ class CountdownView : AppCompatTextView, Runnable {
      * 结束倒计时
      */
     fun stop() {
+        mCurrentSecond = 0
         text = mRecordText
         isEnabled = true
     }

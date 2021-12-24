@@ -3,12 +3,14 @@
     package="com.common.splash">
 
     <application>
+        <activity android:name=".mvvm.activity.MainTestActivity" />
         <!-- 闪屏页 -->
         <activity
-            android:name="com.common.splash.mvvm.activity.SplashActivity"
+            android:name=".mvvm.activity.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/res_SplashTheme">
+
             <!-- 程序入口 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

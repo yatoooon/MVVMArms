@@ -71,7 +71,7 @@ public interface StatusAction {
             NetworkInfo info = manager.getActiveNetworkInfo();
             // 判断网络是否连接
             if (info == null || !info.isConnected()) {
-                showLayout(R.drawable.res_status_nerwork_ic, R.string.res_status_layout_error_network, listener);
+                showLayout(R.drawable.res_status_network_ic, R.string.res_status_layout_error_network, listener);
                 return;
             }
         }

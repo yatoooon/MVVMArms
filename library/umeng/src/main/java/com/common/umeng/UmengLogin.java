@@ -1,4 +1,4 @@
-package com.common.res.umeng;
+package com.common.umeng;
 
 import androidx.annotation.Nullable;
 

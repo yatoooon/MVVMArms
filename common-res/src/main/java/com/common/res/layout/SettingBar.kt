@@ -325,13 +325,14 @@ class SettingBar(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defS
             LayoutParams.WRAP_CONTENT,
             Gravity.CENTER_VERTICAL
         )
-        val leftParams =
-            LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+
+        val leftParams = LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT)
         leftParams.gravity = Gravity.CENTER_VERTICAL
+        leftParams.weight = 1f
         leftView.layoutParams = leftParams
-        val rightParams = LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT)
+        val rightParams =
+            LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         rightParams.gravity = Gravity.CENTER_VERTICAL
-        rightParams.weight = 1f
         rightView.layoutParams = rightParams
         lineView.layoutParams =
             LayoutParams(LayoutParams.MATCH_PARENT, 1, Gravity.BOTTOM)
