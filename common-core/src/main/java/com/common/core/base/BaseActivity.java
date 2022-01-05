@@ -197,6 +197,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     /**
      * 当前加载对话框是否在显示中
      */
+    @Override
     public boolean isShowLoading() {
         return mDialog != null && mDialog.isShowing();
     }

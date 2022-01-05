@@ -191,6 +191,7 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         return mRootView;
     }
 
+    @Override
     public <T extends View> T findViewById(@IdRes int id) {
         return getRootView().findViewById(id);
     }

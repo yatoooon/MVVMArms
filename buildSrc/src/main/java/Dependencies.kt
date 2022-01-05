@@ -153,15 +153,3 @@ object Deps {
 
 }
 
-object Umeng {
-    const val UMENG_APP_KEY = "5cb16d93570df399fd0014e2"
-
-    const val QQ_APP_ID = "101828096"
-
-    const val QQ_APP_SECRET = "9dfd3300c3aa3c4596a07796c64914b2"
-
-    const val WX_APP_ID = "wxd35706cc9f46114c"
-
-    const val WX_APP_SECRET = "0c8c7cf831dd135a32b3e395ea459b5a"
-}
-
