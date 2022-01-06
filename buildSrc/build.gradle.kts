@@ -13,7 +13,7 @@ dependencies {
     implementation("com.android.tools.build:gradle:4.2.2")
 
     /* Depend on the kotlin plugin, since we want to access it in our plugin */
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
 
     implementation("com.google.dagger:hilt-android-gradle-plugin:2.38.1")
 
