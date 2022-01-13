@@ -4,7 +4,7 @@
     package="com.common.home">
 
     <application android:name=".app.HomeApp"
-        tools:replace="android:name,android:theme">
+        tools:replace="android:name">
         <activity
             android:name="com.common.home.mvvm.activity.MainActivity"
             android:launchMode="singleTask"
