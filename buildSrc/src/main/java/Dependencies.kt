@@ -1,4 +1,4 @@
-const val isRunAlone = false
+const val isRunAlone = true
 
 /**
  * 版本信息

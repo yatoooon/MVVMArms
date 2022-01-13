@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.common.media">
 
-    <application>
+    <application android:name=".app.MediaApp"
+        tools:replace="android:name">
         <activity
             android:name=".mvvm.activity.ImageSelectActivity"
             android:label="@string/res_image_select_title"

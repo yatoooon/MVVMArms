@@ -25,6 +25,18 @@
 
 
     <application
+        android:name=".ResApp"
         android:networkSecurityConfig="@xml/network_security_config"
-        tools:targetApi="n"/>
+        android:theme="@style/res_AppTheme"
+        tools:replace="android:name,android:theme"
+        tools:targetApi="n">
+        <activity android:name="com.common.res.launcher.LauncherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>

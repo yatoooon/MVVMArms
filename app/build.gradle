@@ -7,7 +7,6 @@ dependencies {
     implementation project(':module-home')
     implementation project(':module-splash')
     implementation project(':module-media')
-    implementation project(':module-crash')
     implementation project(':module-web')
     implementation project(':module-login')
     implementation project(':module-personal')

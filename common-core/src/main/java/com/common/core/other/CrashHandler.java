@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.core.BuildConfig;
+import com.common.core.base.BaseApplication;
+import com.common.core.crash.CrashActivity;
+import com.common.core.crash.RestartActivity;
 
 
 /**
@@ -60,14 +63,11 @@ public final class CrashHandler implements Thread.UncaughtExceptionHandler {
         boolean deadlyCrash = currentCrashTime - lastCrashTime < 1000 * 60 * 5;
 
         if (BuildConfig.DEBUG) {
-            ARouter.getInstance().build("/crash/CrashActivity")
-                    .withSerializable("throwable", throwable)
-                    .navigation();
+            CrashActivity.start(mApplication,throwable);
         } else {
             if (!deadlyCrash) {
                 // 如果不是致命的异常就自动重启应用
-                ARouter.getInstance().build("/crash/RestartActivity")
-                        .navigation();
+                RestartActivity.restart();
             }
         }
 

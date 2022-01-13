@@ -3,10 +3,24 @@
     package="com.common.core">
 
     <application
-        >
+        android:name=".base.BaseApplication"
+        android:theme="@style/res_AppTheme"
+        tools:replace="android:name,android:theme">
         <meta-data
             android:name="com.common.core.lifecycle.CoreConfigModule"
             android:value="CoreConfigModule" />
+
+        <activity
+            android:name="com.common.core.crash.CrashActivity"
+            android:launchMode="singleTop"
+            android:process=":crash"
+            android:screenOrientation="landscape" />
+
+        <!-- 重启应用（必须在独立进程） -->
+        <activity
+            android:name="com.common.core.crash.RestartActivity"
+            android:launchMode="singleTop"
+            android:process=":restart" />
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@
     android:id="@+id/dl_crash_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mvvm.activity.CrashActivity">
+    tools:context="com.common.core.crash.CrashActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/res_dp_10"
-                app:srcCompat="@drawable/crash_info_ic" />
+                app:srcCompat="@drawable/core_crash_info_ic" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_crash_title"
@@ -47,14 +47,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/res_dp_10"
-                app:srcCompat="@drawable/crash_share_ic" />
+                app:srcCompat="@drawable/core_crash_share_ic" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_crash_restart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/res_dp_10"
-                app:srcCompat="@drawable/crash_reboot_ic" />
+                app:srcCompat="@drawable/core_crash_reboot_ic" />
 
         </LinearLayout>
 

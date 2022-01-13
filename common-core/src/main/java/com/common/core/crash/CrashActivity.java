@@ -1,4 +1,4 @@
-package com.common.crash.mvvm.activity;
+package com.common.core.crash;
 
 import android.Manifest;
 import android.app.Application;
@@ -20,9 +20,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.common.core.R;
 import com.common.core.base.BaseActivity;
-import com.common.crash.R;
-import com.common.export.arouter.RouterHub;
 import com.common.res.aop.SingleClick;
 import com.common.res.ext.Context_ExtensionKt;
 import com.common.res.manager.ThreadPoolManager;
@@ -49,7 +48,6 @@ import java.util.regex.Pattern;
  * time   : 2019/06/27
  * desc   : 崩溃捕捉界面
  */
-@Route(path = RouterHub.PUBLIC_CRASH_CRASHACTIVITY)
 public final class CrashActivity extends BaseActivity {
 
     private static final String INTENT_KEY_IN_THROWABLE = "throwable";
@@ -83,7 +81,7 @@ public final class CrashActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.crash_activity;
+        return R.layout.core_crash_activity;
     }
 
     @Override

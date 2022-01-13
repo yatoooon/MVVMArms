@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/res_AppTheme"
-        tools:replace="android:name">
+        tools:replace="android:name,android:theme">
 
 
     </application>
