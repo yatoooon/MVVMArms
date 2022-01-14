@@ -8,6 +8,6 @@ dependencies {
     implementation project(':module-splash')
     implementation project(':module-media')
     implementation project(':module-web')
-//    implementation project(':module-login')
+    implementation project(':module-login')
     implementation project(':module-personal')
 }

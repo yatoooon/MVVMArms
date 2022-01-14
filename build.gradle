@@ -22,6 +22,9 @@ buildscript {
 
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.10'
 
+        classpath "com.tencent.shadow.core:gradle-plugin:$shadow_version"
+
+
     }
 }
 

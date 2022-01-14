@@ -11,6 +11,7 @@ import org.gradle.api.Project
 internal fun Project.configurePlugins(isAppModule: Boolean) {
     if (isAppModule || isRunAlone) {
         plugins.apply("com.android.application")
+        plugins.apply("com.tencent.shadow.plugin")
         plugins.apply("kotlin-android")
         plugins.apply("kotlin-kapt")
         plugins.apply("kotlin-parcelize")

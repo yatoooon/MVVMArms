@@ -48,8 +48,8 @@ public class SamplePluginManager extends FastPluginManager {
     public void enter(final Context context, long fromId, Bundle bundle, final EnterCallback callback) {
         if (fromId == Constant.FROM_ID_START_ACTIVITY) {
             bundle.putString(Constant.KEY_PLUGIN_ZIP_PATH, "/data/local/tmp/plugin-debug.zip");
-            bundle.putString(Constant.KEY_PLUGIN_PART_KEY, "sample-plugin");
-            bundle.putString(Constant.KEY_ACTIVITY_CLASSNAME, "com.tencent.shadow.sample.plugin.MainActivity");
+            bundle.putString(Constant.KEY_PLUGIN_PART_KEY, "login-plugin");
+            bundle.putString(Constant.KEY_ACTIVITY_CLASSNAME, "com.common.login.mvvm.activity.LoginActivity");
             onStartActivity(context, bundle, callback);
         } else if (fromId == Constant.FROM_ID_CALL_SERVICE) {
             callPluginService(context);
@@ -107,7 +107,7 @@ public class SamplePluginManager extends FastPluginManager {
 
     private void callPluginService(final Context context) {
         final String pluginZipPath = "/data/local/tmp/plugin-debug.zip";
-        final String partKey = "sample-plugin";
+        final String partKey = "login-plugin";
         final String className = "com.tencent.shadow.sample.plugin.MyService";
 
         Intent pluginIntent = new Intent();

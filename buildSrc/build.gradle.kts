@@ -4,6 +4,7 @@ plugins {
 repositories {
     google()
     jcenter()
+    mavenLocal()
     maven {
         setUrl("http://maven.aliyun.com/nexus/content/groups/public/")
     }
@@ -20,5 +21,7 @@ dependencies {
     /* Depend on the default Gradle API's since we want to build a custom plugin */
     implementation(gradleApi())
     implementation(localGroovy())
+
+
 
 }

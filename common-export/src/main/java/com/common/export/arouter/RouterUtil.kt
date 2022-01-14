@@ -4,10 +4,14 @@ import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
 import android.os.Parcelable
+import android.view.View
 import androidx.core.app.ActivityOptionsCompat
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.launcher.ARouter
+import com.common.core.base.BaseApplication
+import com.tencent.shadow.dynamic.host.EnterCallback
+import com.tencent.shadow.sample.introduce_shadow_lib.InitApplication
 import java.io.Serializable
 
 
@@ -50,6 +54,8 @@ private fun buildParams(postcard: Postcard, params: Map<String, Any?>?): Postcar
  * @compat ActivityOptionsCompat动画
  * @greenChannel 是否使用绿色通道(跳过所有的拦截器)
  */
+val FROM_ID_START_ACTIVITY = 1001
+val FROM_ID_CALL_SERVICE = 1002
 @JvmOverloads
 fun routerNavigation(
     path: String,
@@ -65,6 +71,33 @@ fun routerNavigation(
     compat: ActivityOptionsCompat? = null,
     greenChannel: Boolean = false,
 ) {
+
+    if(path.contains("LoginActivity")){
+        val pluginManager = InitApplication.getPluginManager()
+        //调用activity
+        pluginManager.enter(
+            BaseApplication.getApp().applicationContext,
+            FROM_ID_START_ACTIVITY.toLong(),
+            Bundle(),
+            object : EnterCallback {
+                override fun onShowLoadingView(view: View) {
+                }
+
+                override fun onCloseLoadingView() {
+                }
+
+                override fun onEnterComplete() {
+                }
+            })
+        //调用service
+//        pluginManager.enter(
+//            BaseApplication.getApp().applicationContext,
+//            FROM_ID_CALL_SERVICE.toLong(),
+//            null,
+//            null
+//        )
+        return
+    }
     if (path.isNullOrEmpty()) {
         buildParams(ARouter.getInstance().build(uri), params)
     } else {

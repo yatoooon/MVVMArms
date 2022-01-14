@@ -5,6 +5,14 @@ android {
             versionName "1.0.0"
             applicationId "com.common.sample"
             resValue "string", "app_name", "MVVMArms"
+            dimension "default"
+        }
+        plugin {
+            versionCode 1
+            versionName "1.0.0"
+            applicationId "com.common.sample"
+            resValue "string", "app_name", "MVVMArms"
+            dimension "default"
         }
     }
     aspectjx {
