@@ -1,8 +1,10 @@
 package com.common.core.lifecycle
 
 import android.app.Application
+import android.app.Application.getProcessName
 import android.content.Context
 import android.os.Build
+import android.webkit.WebView
 import com.alibaba.android.arouter.launcher.ARouter
 import com.coder.zzq.smartshow.core.SmartShow
 import com.common.core.base.delegate.BaseApplicationLifecycle
@@ -28,7 +30,9 @@ import timber.log.Timber
 class CoreLifecyclesImpl : BaseApplicationLifecycle {
 
     override fun attachBaseContext(base: Context) {
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            WebView.setDataDirectorySuffix(getProcessName())
+        }
     }
 
     override fun onCreate(application: Application) {
