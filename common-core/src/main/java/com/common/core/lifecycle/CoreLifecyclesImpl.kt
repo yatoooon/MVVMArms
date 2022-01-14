@@ -18,6 +18,7 @@ import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.mmkv.MMKV
+import com.tencent.shadow.sample.introduce_shadow_lib.InitApplication
 import com.umeng.analytics.MobclickAgent
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -70,6 +71,9 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
         //初始化友盟SDK
         UmengClient.init(application,true)
         MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO)
+
+        InitApplication.onApplicationCreate(application)
+
     }
 
     override fun onTerminate(application: Application) {

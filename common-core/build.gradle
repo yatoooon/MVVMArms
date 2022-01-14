@@ -53,4 +53,8 @@ dependencies {
     kapt Deps.hiltAndroidCompiler
     kapt Deps.glideCompiler
     kapt Deps.androidHiltCompiler
+
+    api project(':plugin:host')
+    //如果introduce-shadow-lib发布到Maven，在pom中写明此依赖，宿主就不用写这个依赖了。
+    api "com.tencent.shadow.dynamic:host:$shadow_version"
 }

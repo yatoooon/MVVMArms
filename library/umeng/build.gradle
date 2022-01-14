@@ -33,6 +33,10 @@ android {
                 'WX_SECRET': WX_APP_SECRET
         ])
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 // 友盟统计集成文档：https://developer.umeng.com/docs/119267/detail/118584

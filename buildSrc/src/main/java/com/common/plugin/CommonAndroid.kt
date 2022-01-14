@@ -38,7 +38,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             flavorDimensions("default")
             ndk {
                 // 设置支持的SO库架构
-                abiFilters.add(
+                abiFilters(
 //                    "armeabi",
 //                    "x86",
                     "armeabi-v7a"

@@ -36,7 +36,10 @@ class LauncherActivity : AppCompatActivity() {
         "PictureMultiCuttingActivity",
         "LeakActivity",
         "RequestStoragePermissionActivity",
-        "UpdateDialogActivity"
+        "UpdateDialogActivity",
+        "PluginSingleTask1ProxyActivity",
+        "PluginSingleInstance1ProxyActivity",
+        "PluginDefaultProxyActivity"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

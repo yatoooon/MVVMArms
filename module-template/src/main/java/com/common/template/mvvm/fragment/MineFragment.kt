@@ -1,6 +1,8 @@
 package com.common.template.mvvm.fragment
 
 import android.content.pm.ActivityInfo
+import android.os.Bundle
+import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.BaseFragment
@@ -16,11 +18,12 @@ import com.common.template.mvvm.activity.StatusActivity
 import com.common.template.mvvm.activity.TemplateActivity
 import com.gyf.immersionbar.ImmersionBar
 import com.tencent.bugly.crashreport.CrashReport
+import com.tencent.shadow.dynamic.host.EnterCallback
+import com.tencent.shadow.sample.introduce_shadow_lib.InitApplication
 import java.util.*
 
 @Route(path = RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MINE)
 class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
-
     override fun getLayoutId(): Int {
         return R.layout.template_fragment_mine
     }
