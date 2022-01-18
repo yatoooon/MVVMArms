@@ -86,7 +86,7 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel<B
                 if (shown) R.color.res_black else R.color.res_white
             )
         )
-        binding.tvHomeHint.setBackgroundResource(if (shown) R.drawable.home_search_bar_gray_bg else R.drawable.home_search_bar_transparent_bg)
+        binding.tvHomeHint.setBackgroundResource(if (shown) R.drawable.template_search_bar_gray_bg else R.drawable.template_search_bar_transparent_bg)
         binding.tvHomeHint.setTextColor(
             ContextCompat.getColor(
                 requireActivity(),

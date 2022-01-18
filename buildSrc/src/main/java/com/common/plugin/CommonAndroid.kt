@@ -84,6 +84,10 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             }
         }
 
+        lintOptions {
+            isAbortOnError = false
+            warning("InvalidPackage")
+        }
         sourceSets {
             getByName("main") {
                 if (isRunAlone) {

@@ -62,7 +62,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="@dimen/res_dp_20"
                             android:layout_weight="1"
-                            android:background="@drawable/home_search_bar_transparent_bg"
+                            android:background="@drawable/template_search_bar_transparent_bg"
                             android:gravity="center"
                             android:paddingVertical="@dimen/res_dp_5"
                             android:text="完善细节，追求完美"
@@ -74,7 +74,7 @@
                             android:layout_width="@dimen/res_dp_24"
                             android:layout_height="@dimen/res_dp_24"
                             android:layout_marginEnd="@dimen/res_dp_10"
-                            app:srcCompat="@drawable/home_search_ic"
+                            app:srcCompat="@drawable/template_search_ic"
                             app:tint="@color/res_white" />
 
                     </LinearLayout>

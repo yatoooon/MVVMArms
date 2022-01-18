@@ -47,9 +47,9 @@ public final class GuideActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        mAdapter.addData(R.drawable.guide_1_bg);
-        mAdapter.addData(R.drawable.guide_2_bg);
-        mAdapter.addData(R.drawable.guide_3_bg);
+        mAdapter.addData(R.drawable.splash_guide_1_bg);
+        mAdapter.addData(R.drawable.splash_guide_2_bg);
+        mAdapter.addData(R.drawable.splash_guide_3_bg);
         mViewPager.setAdapter(mAdapter);
         mViewPager.registerOnPageChangeCallback(mCallback);
         mIndicatorView.setViewPager(mViewPager);
