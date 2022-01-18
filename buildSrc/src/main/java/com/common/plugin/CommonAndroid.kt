@@ -5,6 +5,7 @@ import Versions
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.android.build.gradle.internal.dsl.SigningConfig
+import com.android.builder.internal.ClassFieldImpl
 import isRunAlone
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -53,7 +54,13 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                 }
             }
 
-
+            addBuildConfigField(
+                ClassFieldImpl(
+                    "Boolean",
+                    "isRunAlone",
+                    isRunAlone.toString()
+                )
+            )
 
 
         }
