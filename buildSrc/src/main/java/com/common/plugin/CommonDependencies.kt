@@ -2,6 +2,7 @@ package com.common.plugin
 
 import Deps
 import com.android.build.gradle.api.AndroidBasePlugin
+import isRunPlugin
 import org.gradle.api.Project
 
 /**
@@ -16,7 +17,9 @@ internal fun Project.configureDependencies() = dependencies.apply {
     if (project.containsAndroidPlugin()) {
         add("androidTestImplementation", Deps.extJunit)
         add("androidTestImplementation", Deps.espressoCore)
-        add("compileOnly", "com.tencent.shadow.core:runtime:local-669f8b5c-SNAPSHOT")
+        if (isRunPlugin){
+            add("compileOnly", "com.tencent.shadow.core:runtime:local-669f8b5c-SNAPSHOT")
+        }
     }
     add("implementation", project(":common-export"))
     add("implementation", Deps.arouterApi)

@@ -1,0 +1,38 @@
+apply plugin: 'com.tencent.shadow.plugin'
+
+shadow {
+    transform {
+//        useHostContext = ['abc']
+    }
+    packagePlugin {
+        def pluginName = project.name.split("-")[1] + "-plugin"
+
+        pluginTypes {
+            debug {
+                loaderApkConfig = new Tuple2('loader-debug.apk', ':shadow:plugin:loader:assembleDebug')
+                runtimeApkConfig = new Tuple2('runtime-debug.apk', ':shadow:plugin:runtime:assembleDebug')
+                pluginApks {
+                    pluginApk1 {
+                        businessName = pluginName
+                        //businessName相同的插件，context获取的Dir是相同的。businessName留空，表示和宿主相同业务，直接使用宿主的Dir。
+                        partKey = pluginName
+                        buildTask = 'assemblePluginDebug'
+                        apkName = project.name + '-plugin-debug.apk'
+                        apkPath = project.name + '/build/outputs/apk/plugin/debug/' + apkName
+                    }
+                }
+            }
+        }
+
+        loaderApkProjectPath = 'shadow/plugin/loader'
+        runtimeApkProjectPath = 'shadow/plugin/runtime'
+
+        archiveSuffix = ""
+        archivePrefix = pluginName
+        destinationDir = "${getRootProject().getBuildDir()}"
+
+        version = 4
+        compactVersion = [1, 2, 3]
+        uuidNickName = "1.1.5"
+    }
+}
