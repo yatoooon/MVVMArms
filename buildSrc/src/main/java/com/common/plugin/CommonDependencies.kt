@@ -2,6 +2,7 @@ package com.common.plugin
 
 import Deps
 import com.android.build.gradle.api.AndroidBasePlugin
+import isRunAlone
 import isRunPlugin
 import org.gradle.api.Project
 
@@ -21,7 +22,12 @@ internal fun Project.configureDependencies() = dependencies.apply {
             add("compileOnly", "com.tencent.shadow.core:runtime:local-669f8b5c-SNAPSHOT")
         }
     }
-    add("implementation", project(":common-export"))
+    // TODO: 2022/1/21 需要拆开res和java
+//    if (isRunPlugin){
+//        add("compileOnly", project(":common-export"))
+//    }else{
+        add("implementation", project(":common-export"))
+//    }
     add("implementation", Deps.arouterApi)
     add("kapt", Deps.arouterCompiler)
     add("implementation", Deps.hiltAndroid)
