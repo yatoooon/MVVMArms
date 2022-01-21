@@ -58,6 +58,10 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 
         }
 
+        dexOptions {
+            javaMaxHeapSize =  "4g"
+        }
+
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8

@@ -29,6 +29,7 @@ shadow {
 
         archiveSuffix = ""
         archivePrefix = pluginName
+
         destinationDir = "${getRootProject().getBuildDir()}"
 
         version = 4
