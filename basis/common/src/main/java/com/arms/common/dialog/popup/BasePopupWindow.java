@@ -38,14 +38,8 @@ import com.arms.common.action.ActivityAction;
 import com.arms.common.action.AnimAction;
 import com.arms.common.action.ClickAction;
 import com.arms.common.action.HandlerAction;
-import com.arms.common.action.KeyboardAction;
 import com.arms.common.action.ResourcesAction;
-import com.arms.common.action.ActivityAction;
-import com.arms.common.action.AnimAction;
-import com.arms.common.action.ClickAction;
-import com.arms.common.action.HandlerAction;
 import com.arms.common.action.KeyboardAction;
-import com.arms.common.action.ResourcesAction;
 
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
@@ -293,7 +287,7 @@ public class BasePopupWindow extends PopupWindow
         private View mContentView;
 
         /** 动画样式 */
-        private int mAnimations = BasePopupWindow.ANIM_DEFAULT;
+        private int mAnimations = ANIM_DEFAULT;
 
         /** 宽度和高度 */
         private int mWidth = WindowManager.LayoutParams.WRAP_CONTENT;
@@ -629,22 +623,22 @@ public class BasePopupWindow extends PopupWindow
             }
 
             // 如果当前没有设置动画效果，就设置一个默认的动画效果
-            if (mAnimations == BasePopupWindow.ANIM_DEFAULT) {
+            if (mAnimations == ANIM_DEFAULT) {
                 switch (mGravity) {
                     case Gravity.TOP:
-                        mAnimations = BasePopupWindow.ANIM_TOP;
+                        mAnimations = ANIM_TOP;
                         break;
                     case Gravity.BOTTOM:
-                        mAnimations = BasePopupWindow.ANIM_BOTTOM;
+                        mAnimations = ANIM_BOTTOM;
                         break;
                     case Gravity.LEFT:
-                        mAnimations = BasePopupWindow.ANIM_LEFT;
+                        mAnimations = ANIM_LEFT;
                         break;
                     case Gravity.RIGHT:
-                        mAnimations = BasePopupWindow.ANIM_RIGHT;
+                        mAnimations = ANIM_RIGHT;
                         break;
                     default:
-                        mAnimations = BasePopupWindow.ANIM_DEFAULT;
+                        mAnimations = ANIM_DEFAULT;
                         break;
                 }
             }

@@ -7,7 +7,13 @@
         <entry key="basis/common/src/main/res/layout/res_address_dialog_item_tv.xml" value="0.11775362318840579" />
         <entry key="basis/common/src/main/res/layout/res_share_item.xml" value="0.11775362318840579" />
         <entry key="basis/common/src/main/res/layout/safe_dialog.xml" value="0.13269927536231885" />
+        <entry key="basis/core/src/main/res/layout/core_content_activity.xml" value="0.13728470111448834" />
         <entry key="basis/core/src/main/res/layout/core_crash_activity.xml" value="0.13269927536231885" />
+        <entry key="basis/res/src/main/res/layout/res_address_dialog_item_tv.xml" value="0.1" />
+        <entry key="basis/res/src/main/res/layout/res_share_dialog.xml" value="0.11367753623188406" />
+        <entry key="basis/res/src/main/res/layout/res_share_item.xml" value="0.1" />
+        <entry key="basis/res/src/main/res/layout/res_tab_item_sliding.xml" value="0.13728470111448834" />
+        <entry key="basis/res/src/main/res/layout/res_widget_status_layout.xml" value="0.35640648011782033" />
         <entry key="module/media/src/main/res/layout/media_album_item.xml" value="0.1" />
         <entry key="module/media/src/main/res/layout/media_video_play_activity.xml" value="0.1" />
         <entry key="module/template/src/main/res/drawable/home_search_bar_gray_bg.xml" value="0.16458333333333333" />

@@ -1,8 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
 
 
 android {
@@ -21,7 +19,7 @@ android {
 
 
     //统一规范资源名称前缀，防止多个 module 之间资源冲突
-    resourcePrefix "res_"
+    resourcePrefix "common_"
 
     buildTypes {
         release {
@@ -51,113 +49,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':library:umeng')
-
-    api Deps.logger
-    api Deps.glide
-    api Deps.smartkey
-    api Deps.cardview
-    api Deps.autosize
-    api Deps.circleindicator
-    api Deps.bottombar
-    api Deps.arouterApi
-    api Deps.mmkvStatic
-    api Deps.immersionbar
-    api Deps.lottie
-    api Deps.shapeView
-    api Deps.pictureSelector
-    api Deps.titleBar
-    api Deps.toastUtils
-    api Deps.XXPermissions
-    api Deps.progressmanager
-    api Deps.retrofitUrlManager
-    api Deps.bottomNavigationViewEx
-    api Deps.smartRefreshLayoutKernel
-    api Deps.smartRefreshHeaderClassics
-    api Deps.baseRecyclerViewAdapterHelper
-
-
-    api Deps.buglyCrashReport
-    api Deps.buglyNativeCrashReport
-
-
+    api project(':basis:res')
     kapt Deps.arouterCompiler
     kapt Deps.lifecycleCompiler
     kapt Deps.roomCompiler
     kapt Deps.hiltAndroidCompiler
     kapt Deps.glideCompiler
     kapt Deps.androidHiltCompiler
-
-
-    api Deps.xUpdate
-    api Deps.okhttputils
-    api Deps.hiltAndroid
-    api Deps.androidHiltLifecycleViewmodel
-
-    debugImplementation Deps.leakcanary
-
-    //retrofit-helper
-    api Deps.retrofit_helper
-
-    //lifecycle
-    api Deps.lifecycleRuntimeKtx
-    api Deps.lifecycleExtensions
-    annotationProcessor Deps.lifecycleCompiler
-
-    //room
-    api Deps.room
-    annotationProcessor Deps.roomCompiler
-
-    //hilt
-    api Deps.hiltAndroid
-    annotationProcessor Deps.hiltAndroidCompiler
-
-    //log
-    api Deps.timber
-
-    //coroutines
-    api Deps.kotlinxCoroutinesCore
-    api Deps.kotlinxCoroutinesAndroid
-    //koin
-    api Deps.koinAndroid
-    api Deps.koinAndroidxScope
-    api Deps.koinAndroidxViewmodel
-    //anko
-    api Deps.anko
-    api Deps.ankoCommon
-    api Deps.kotlinStdlibJdk7
-    //androidx
-    api Deps.design
-    api Deps.coreKtx
-    api Deps.fragmentKtx
-    api Deps.annotationX
-    api Deps.appcompat
-    api Deps.recyclerview
-    api Deps.constraintlayout
-    //live bus
-    api Deps.liveEventBusX
-    //lifecycle
-    api Deps.lifecycleLivedataKtx
-    api Deps.lifecycleViewmodelKtx
-    api Deps.lifecycleRuntimeKtx
-    api Deps.lifecycleViewmodelSavedstate
-    //view
-    api Deps.lottie
-    api Deps.loadsir
-    api Deps.smartShowAll
-    //network
-    api Deps.okhttp
-    api Deps.retrofit
-    api Deps.retrofitConverterGson
-    //viewbinding
-    api Deps.viewbindingKtx
-    api Deps.viewbindingBaseKtx
-    api Deps.viewbindingBrvahKtx
-    //tools
-    api Deps.gson
-    api Deps.jolyglotGson
-    compileOnly Deps.javaxAnnotation
-
-    api Deps.aspectjrt
-
-
 }

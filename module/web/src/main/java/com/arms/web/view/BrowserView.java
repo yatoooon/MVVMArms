@@ -41,7 +41,7 @@ import com.arms.common.dialog.BaseDialog;
 import com.arms.common.dialog.InputDialog;
 import com.arms.common.dialog.MessageDialog;
 import com.arms.common.dialog.TipsDialog;
-import com.arms.common.layout.NestedScrollWebView;
+import com.arms.res.layout.NestedScrollWebView;
 import com.arms.common.utils.PermissionCallback;
 import com.arms.web.BuildConfig;
 import com.arms.web.R;

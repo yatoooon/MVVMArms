@@ -21,7 +21,7 @@ import com.arms.common.aop.SingleClick;
 import com.arms.common.dialog.InputDialog;
 import com.arms.common.dialog.address.AddressDialog;
 import com.arms.common.glide.config.ImageConfigImpl;
-import com.arms.common.layout.SettingBar;
+import com.arms.res.layout.SettingBar;
 import com.arms.common.other.FileContentResolver;
 import com.arms.common.utils.ArmsUtil;
 

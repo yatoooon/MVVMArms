@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.arms.common.aop.SingleClick;
 import com.arms.common.adapter.BaseAdapter;
 import com.arms.common.manager.PickerLayoutManager;
-import com.arms.common.BR;
+import com.arms.res.BR;
 import com.arms.common.R;
 
 import java.text.SimpleDateFormat;

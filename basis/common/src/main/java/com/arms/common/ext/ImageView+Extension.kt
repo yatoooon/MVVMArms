@@ -9,6 +9,7 @@ import com.arms.common.glide.config.ImageConfigImpl
 import com.arms.common.utils.ArmsUtil
 
 //ImageView 扩展
+@JvmOverloads
 fun ImageView.load(
         res: Any?,
         isCircle: Boolean = false,

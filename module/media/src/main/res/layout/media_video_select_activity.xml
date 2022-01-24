@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.arms.common.layout.StatusLayout
+        <com.arms.res.layout.StatusLayout
             android:id="@+id/hl_video_select_hint"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -31,9 +31,9 @@
                 tools:listitem="@layout/media_video_select_item"
                 tools:spanCount="2" />
 
-        </com.arms.common.layout.StatusLayout>
+        </com.arms.res.layout.StatusLayout>
 
-        <com.arms.common.view.FloatActionButton
+        <com.arms.res.view.FloatActionButton
             android:id="@+id/fab_video_select_floating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -13,7 +13,7 @@ import com.arms.export.arouter.RouterHub;
 import com.arms.common.action.StatusAction;
 import com.arms.common.aop.CheckNet;
 import com.arms.common.aop.Log;
-import com.arms.common.layout.StatusLayout;
+import com.arms.res.layout.StatusLayout;
 import com.arms.web.view.BrowserView;
 import com.arms.web.R;
 import com.arms.web.databinding.WebFragmentWebpageBinding;

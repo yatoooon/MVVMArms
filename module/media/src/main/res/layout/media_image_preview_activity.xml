@@ -7,7 +7,7 @@
     android:background="#363636"
     tools:context="com.arms.media.mvvm.activity.ImagePreviewActivity">
 
-    <com.arms.common.layout.PhotoViewPager
+    <com.arms.res.layout.PhotoViewPager
         android:id="@+id/vp_image_preview_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

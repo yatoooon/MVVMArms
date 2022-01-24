@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         app:title="@string/res_personal_data_title" />
 
-    <com.arms.common.layout.SettingBar
+    <com.arms.res.layout.SettingBar
         android:id="@+id/fl_person_data_avatar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,9 +30,9 @@
             tools:src="@drawable/res_avatar_placeholder_ic" />
 
 
-    </com.arms.common.layout.SettingBar>
+    </com.arms.res.layout.SettingBar>
 
-    <com.arms.common.layout.SettingBar
+    <com.arms.res.layout.SettingBar
         android:id="@+id/sb_person_data_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         app:res_bar_leftText="@string/res_personal_data_id"
         tools:res_bar_rightText="880634" />
 
-    <com.arms.common.layout.SettingBar
+    <com.arms.res.layout.SettingBar
         android:id="@+id/sb_person_data_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
         app:res_bar_rightTextHint="@string/res_personal_data_name_hint"
         tools:res_bar_rightText="Android 轮子哥" />
 
-    <com.arms.common.layout.SettingBar
+    <com.arms.res.layout.SettingBar
         android:id="@+id/sb_person_data_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

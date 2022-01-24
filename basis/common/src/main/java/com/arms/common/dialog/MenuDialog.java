@@ -18,7 +18,7 @@ import com.arms.common.adapter.BaseAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
-import com.arms.common.BR;
+import com.arms.res.BR;
 import com.arms.common.R;
 
 import java.util.ArrayList;

@@ -8,17 +8,22 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.arms.common.adapter.BaseAdapter;
+import com.arms.common.ext.ImageView_ExtensionKt;
+import com.arms.common.http.imageloader.ImageLoader;
+import com.arms.res.view.ScaleImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.arms.common.BR;
+import com.arms.res.BR;
 import com.arms.common.R;
 import com.arms.umeng.Platform;
 import com.arms.umeng.UmengClient;
 import com.arms.umeng.UmengShare;
+import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.hjq.toast.ToastUtils;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.ShareContent;
@@ -46,7 +51,17 @@ public final class ShareDialog {
             implements OnItemClickListener {
 
         private final RecyclerView mRecyclerView;
-        private final BaseAdapter<ShareBean> mAdapter = new BaseAdapter<ShareBean>(R.layout.res_share_item, BR.item);
+        private final BaseAdapter<ShareBean> mAdapter = new BaseAdapter<ShareBean>(R.layout.res_share_item, BR.item){
+
+            @Override
+            protected void convert(@NonNull BaseDataBindingHolder<?> holder, ShareBean item) {
+                super.convert(holder, item);
+                ScaleImageView ivShareImage = holder.findView(R.id.iv_share_image);
+                AppCompatTextView tvShareText = holder.findView(R.id.tv_share_text);
+                ImageView_ExtensionKt.load(ivShareImage,item.shareIcon);
+                tvShareText.setText(item.shareName);
+            }
+        };
 
         private final ShareAction mShareAction;
         private final ShareBean mCopyLink;

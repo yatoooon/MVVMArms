@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
 import com.arms.common.aop.SingleClick;
-import com.arms.common.view.RegexEditText;
+import com.arms.res.view.RegexEditText;
 import com.arms.common.R;
 
 

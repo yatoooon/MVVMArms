@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.arms.common.aop.SingleClick;
-import com.arms.common.view.CountdownView;
+import com.arms.res.view.CountdownView;
 import com.arms.common.R;
 import com.hjq.toast.ToastUtils;
 

@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.arms.common.layout.SettingBar
+            <com.arms.res.layout.SettingBar
                 android:id="@+id/sb_setting_language"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
                 app:res_bar_rightDrawable="@drawable/res_arrows_right_ic"
                 tools:bar_rightHint="@string/res_setting_language_simple" />
 
-            <com.arms.common.layout.SettingBar
+            <com.arms.res.layout.SettingBar
                 android:id="@+id/sb_setting_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,9 +51,9 @@
                     app:shape_radius="@dimen/res_dp_720"
                     app:shape_solidColor="#F85E5E" />
 
-            </com.arms.common.layout.SettingBar>
+            </com.arms.res.layout.SettingBar>
 
-            <com.arms.common.layout.SettingBar
+            <com.arms.res.layout.SettingBar
                 android:id="@+id/sb_setting_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 app:res_bar_rightDrawable="@drawable/res_arrows_right_ic"
                 tools:bar_rightText="181****1413" />
 
-            <com.arms.common.layout.SettingBar
+            <com.arms.res.layout.SettingBar
                 android:id="@+id/sb_setting_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 app:res_bar_rightDrawable="@drawable/res_arrows_right_ic"
                 tools:bar_rightText="密码强度较低" />
 
-            <com.arms.common.layout.SettingBar
+            <com.arms.res.layout.SettingBar
                 android:id="@+id/sb_setting_agreement"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,37 +78,37 @@
                 app:res_bar_leftText="@string/res_setting_agreement"
                 app:res_bar_rightDrawable="@drawable/res_arrows_right_ic" />
 
-            <com.arms.common.layout.SettingBar
+            <com.arms.res.layout.SettingBar
                 android:id="@+id/sb_setting_about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:res_bar_leftText="@string/res_setting_about"
                 app:res_bar_rightDrawable="@drawable/res_arrows_right_ic" />
 
-            <com.arms.common.layout.SettingBar
+            <com.arms.res.layout.SettingBar
                 android:id="@+id/sb_setting_auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/res_dp_15"
                 app:res_bar_leftText="@string/res_setting_auto">
 
-                <com.arms.common.view.SwitchButton
+                <com.arms.res.view.SwitchButton
                     android:id="@+id/sb_setting_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|center_vertical"
                     android:layout_marginHorizontal="@dimen/res_dp_15" />
 
-            </com.arms.common.layout.SettingBar>
+            </com.arms.res.layout.SettingBar>
 
-            <com.arms.common.layout.SettingBar
+            <com.arms.res.layout.SettingBar
                 android:id="@+id/sb_setting_cache"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:res_bar_leftText="@string/res_setting_cache"
                 app:res_bar_rightDrawable="@drawable/res_arrows_right_ic" />
 
-            <com.arms.common.layout.SettingBar
+            <com.arms.res.layout.SettingBar
                 android:id="@+id/sb_setting_exit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

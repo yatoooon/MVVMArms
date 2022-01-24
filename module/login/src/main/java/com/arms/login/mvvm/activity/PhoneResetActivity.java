@@ -19,7 +19,7 @@ import com.arms.common.aop.Log;
 import com.arms.common.aop.SingleClick;
 import com.arms.common.dialog.TipsDialog;
 import com.arms.common.manager.InputTextManager;
-import com.arms.common.view.CountdownView;
+import com.arms.res.view.CountdownView;
 import com.hjq.toast.ToastUtils;
 
 /**

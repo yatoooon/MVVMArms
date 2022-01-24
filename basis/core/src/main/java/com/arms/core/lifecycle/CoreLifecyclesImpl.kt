@@ -10,7 +10,7 @@ import com.coder.zzq.smartshow.core.SmartShow
 import com.arms.core.base.delegate.BaseApplicationLifecycle
 import com.arms.core.other.CrashHandler
 import com.arms.common.BuildConfig
-import com.arms.common.layout.RefreshLottieHeader
+import com.arms.res.layout.RefreshLottieHeader
 import com.arms.umeng.UmengClient
 import com.hjq.toast.ToastUtils
 import com.orhanobut.logger.AndroidLogAdapter

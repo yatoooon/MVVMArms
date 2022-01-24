@@ -14,7 +14,7 @@ import com.arms.export.arouter.RouterHub;
 import com.arms.login.R;
 import com.arms.common.aop.SingleClick;
 import com.arms.common.manager.InputTextManager;
-import com.arms.common.view.CountdownView;
+import com.arms.res.view.CountdownView;
 
 
 /**

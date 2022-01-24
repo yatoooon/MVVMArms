@@ -17,7 +17,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.arms.common.aop.SingleClick;
 import com.arms.common.dialog.BaseDialog;
-import com.arms.common.BR;
+import com.arms.res.BR;
 import com.arms.common.R;
 import com.tencent.bugly.crashreport.CrashReport;
 

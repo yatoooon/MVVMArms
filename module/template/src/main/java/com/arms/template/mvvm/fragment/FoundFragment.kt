@@ -6,7 +6,7 @@ import com.arms.core.base.mvvm.BaseVMFragment
 import com.arms.core.base.mvvm.BaseViewModel
 import com.arms.export.arouter.RouterHub
 import com.arms.common.ext.loadImage
-import com.arms.common.view.SwitchButton
+import com.arms.res.view.SwitchButton
 import com.arms.template.R
 import com.arms.template.databinding.TemplateFragmentFoundBinding
 import com.gyf.immersionbar.ImmersionBar

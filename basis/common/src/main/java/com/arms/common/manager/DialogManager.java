@@ -6,7 +6,6 @@ import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 
 import com.arms.common.dialog.BaseDialog;
-import com.arms.common.dialog.BaseDialog;
 
 import java.util.ArrayList;
 import java.util.HashMap;

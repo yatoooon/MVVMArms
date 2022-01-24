@@ -29,7 +29,7 @@
         android:paddingTop="@dimen/res_dp_10"
         android:paddingBottom="@dimen/res_dp_5">
 
-        <com.arms.common.view.ScaleImageView
+        <com.arms.res.view.ScaleImageView
             android:id="@+id/iv_album_icon"
             android:layout_width="@dimen/res_dp_80"
             android:layout_height="@dimen/res_dp_80"

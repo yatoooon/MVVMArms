@@ -3,7 +3,7 @@ package com.arms.common.adapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
-import com.arms.common.BR
+import com.arms.res.BR
 
 /**
  *

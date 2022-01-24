@@ -181,7 +181,7 @@ public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
     public int getWindowAnimations() {
         Window window = getWindow();
         if (window == null) {
-            return BaseDialog.ANIM_DEFAULT;
+            return ANIM_DEFAULT;
         }
         return window.getAttributes().windowAnimations;
     }
@@ -468,7 +468,7 @@ public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
         /** 主题样式 */
         private int mThemeId = R.style.res_BaseDialogTheme;
         /** 动画样式 */
-        private int mAnimStyle = BaseDialog.ANIM_DEFAULT;
+        private int mAnimStyle = ANIM_DEFAULT;
 
         /** 宽度和高度 */
         private int mWidth = WindowManager.LayoutParams.WRAP_CONTENT;
@@ -851,22 +851,22 @@ public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
             }
 
             // 如果当前没有设置动画效果，就设置一个默认的动画效果
-            if (mAnimStyle == BaseDialog.ANIM_DEFAULT) {
+            if (mAnimStyle == ANIM_DEFAULT) {
                 switch (mGravity) {
                     case Gravity.TOP:
-                        mAnimStyle = BaseDialog.ANIM_TOP;
+                        mAnimStyle = ANIM_TOP;
                         break;
                     case Gravity.BOTTOM:
-                        mAnimStyle = BaseDialog.ANIM_BOTTOM;
+                        mAnimStyle = ANIM_BOTTOM;
                         break;
                     case Gravity.LEFT:
-                        mAnimStyle = BaseDialog.ANIM_LEFT;
+                        mAnimStyle = ANIM_LEFT;
                         break;
                     case Gravity.RIGHT:
-                        mAnimStyle = BaseDialog.ANIM_RIGHT;
+                        mAnimStyle = ANIM_RIGHT;
                         break;
                     default:
-                        mAnimStyle = BaseDialog.ANIM_DEFAULT;
+                        mAnimStyle = ANIM_DEFAULT;
                         break;
                 }
             }
@@ -1103,7 +1103,7 @@ public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
             // 获取 Dialog 动画样式
             mDialogAnim = mDialog.getWindowAnimations();
             // 设置 Dialog 无动画效果
-            mDialog.setWindowAnimations(BaseDialog.ANIM_EMPTY);
+            mDialog.setWindowAnimations(ANIM_EMPTY);
         }
 
         @Override

@@ -20,7 +20,7 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:elevation="0px">
 
-            <com.arms.common.layout.XCollapsingToolbarLayout
+            <com.arms.res.layout.XCollapsingToolbarLayout
                 android:id="@+id/ctl_home_bar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/res_dp_256"
@@ -81,7 +81,7 @@
 
                 </androidx.appcompat.widget.Toolbar>
 
-            </com.arms.common.layout.XCollapsingToolbarLayout>
+            </com.arms.res.layout.XCollapsingToolbarLayout>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/rv_home_tab"

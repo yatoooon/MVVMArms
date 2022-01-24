@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <TextView
+        android:id="@+id/tv_address_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/res_transparent_selector"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/res_dp_20"
+        android:paddingTop="@dimen/res_dp_10"
+        android:paddingEnd="@dimen/res_dp_20"
+        android:paddingBottom="@dimen/res_dp_10"
+        android:textColor="#FF222222"
+        android:textSize="@dimen/res_sp_14" />
+</layout>

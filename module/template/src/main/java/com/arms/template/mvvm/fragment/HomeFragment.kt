@@ -12,7 +12,7 @@ import com.arms.core.base.mvvm.BaseVMFragment
 import com.arms.core.base.mvvm.BaseViewModel
 import com.arms.export.arouter.RouterHub
 import com.arms.common.adapter.FragmentViewPager2Adapter
-import com.arms.common.layout.XCollapsingToolbarLayout
+import com.arms.res.layout.XCollapsingToolbarLayout
 import com.arms.template.R
 import com.arms.template.databinding.TemplateFragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator

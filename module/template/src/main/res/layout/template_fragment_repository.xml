@@ -6,7 +6,7 @@
 
     </data>
 
-    <com.arms.common.layout.StatusLayout
+    <com.arms.res.layout.StatusLayout
         android:id="@+id/hl_status_hint"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -23,6 +23,6 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    </com.arms.common.layout.StatusLayout>
+    </com.arms.res.layout.StatusLayout>
 
 </layout>
