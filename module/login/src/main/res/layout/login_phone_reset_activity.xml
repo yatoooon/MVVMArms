@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".mvvm.activity.PhoneResetActivity">
+
+    <com.hjq.bar.TitleBar
+        android:id="@+id/res_titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/res_phone_reset_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/res_dp_20"
+        android:gravity="center_horizontal"
+        android:text="@string/res_phone_reset_change_hint"
+        android:textColor="#A4A4A4"
+        android:textSize="@dimen/res_sp_14" />
+
+    <com.basis.common.view.RegexEditText
+        android:id="@+id/et_phone_reset_phone"
+        style="@style/res_EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/res_white"
+        android:drawableStart="@drawable/login_phone_ic"
+        android:drawablePadding="@dimen/res_dp_15"
+        android:hint="@string/res_common_phone_input_hint"
+        android:inputType="number"
+        android:paddingHorizontal="@dimen/res_dp_20"
+        android:paddingVertical="@dimen/res_dp_18"
+        android:singleLine="true"
+        app:res_regexType="mobile" />
+
+    <View
+        style="@style/res_HorizontalLineStyle"
+        android:layout_marginHorizontal="@dimen/res_dp_20" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/res_white"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_phone_reset_code"
+            style="@style/res_EditTextStyle"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/res_white"
+            android:drawableStart="@drawable/login_safe_ic"
+            android:drawablePadding="@dimen/res_dp_15"
+            android:hint="@string/res_common_code_input_hint"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLength="@integer/res_sms_code_length"
+            android:paddingHorizontal="@dimen/res_dp_20"
+            android:paddingVertical="@dimen/res_dp_18"
+            android:singleLine="true" />
+
+        <com.basis.common.view.CountdownView
+            android:id="@+id/cv_phone_reset_countdown"
+            style="@style/res_CountdownViewStyle" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_phone_reset_commit"
+        style="@style/res_ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/res_dp_40"
+        android:layout_marginVertical="@dimen/res_dp_30"
+        android:text="@string/res_phone_reset_commit" />
+
+</LinearLayout>

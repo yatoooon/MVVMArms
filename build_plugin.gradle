@@ -5,7 +5,7 @@ shadow {
 //        useHostContext = ['abc']
     }
     packagePlugin {
-        def pluginName = project.name.split("-")[1] + "-plugin"
+        def pluginName = project.name+"-plugin"
 
         pluginTypes {
             debug {

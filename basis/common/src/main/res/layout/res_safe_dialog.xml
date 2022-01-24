@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/res_dp_10"
+    android:paddingVertical="@dimen/res_dp_8"
+    tools:background="@color/res_white"
+    >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_safe_phone"
+        style="@style/res_EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/res_dp_15"
+        android:hint="@string/res_common_phone_input_hint"
+        android:paddingHorizontal="@dimen/res_dp_20"
+        android:paddingVertical="@dimen/res_dp_10"
+        android:singleLine="true"
+        android:textSize="@dimen/res_sp_14"
+        tools:text="12345678910" />
+
+    <View
+        style="@style/res_HorizontalLineStyle"
+        android:layout_marginHorizontal="@dimen/res_dp_10" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/res_dp_10"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_safe_code"
+                style="@style/res_EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/res_dp_15"
+                android:ellipsize="end"
+                android:hint="@string/res_common_code_input_hint"
+                android:inputType="number"
+                android:maxLength="@integer/res_sms_code_length"
+                android:paddingHorizontal="@dimen/res_dp_20"
+                android:paddingVertical="@dimen/res_dp_10"
+                android:singleLine="true"
+                android:textSize="@dimen/res_sp_13" />
+
+            <View
+                style="@style/res_HorizontalLineStyle"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="@dimen/res_dp_10" />
+
+        </FrameLayout>
+
+        <com.basis.common.view.CountdownView
+            android:id="@+id/cv_safe_countdown"
+            style="@style/res_CountdownViewStyle"
+            android:layout_marginHorizontal="@dimen/res_dp_5" />
+
+    </LinearLayout>
+
+</LinearLayout>

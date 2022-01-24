@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-    implementation project(':common-export')
+    implementation project(':basis:export')
     compileOnly "com.tencent.shadow.core:runtime:$shadow_version"
 }
 

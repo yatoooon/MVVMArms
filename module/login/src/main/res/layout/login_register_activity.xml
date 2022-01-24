@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/res_white"
+    tools:context=".mvvm.activity.RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:layoutAnimation="@anim/res_layout_fall_down"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/res_dp_40"
+        tools:layoutAnimation="@null">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_register_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/res_dp_40"
+            android:text="@string/res_register_title"
+            android:textColor="@color/res_black60"
+            android:textSize="@dimen/res_sp_23" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/res_dp_20"
+            android:text="@string/res_register_hint"
+            android:textColor="@color/res_black20"
+            android:textSize="@dimen/res_sp_14" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/res_dp_40"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <com.basis.common.view.RegexEditText
+                    android:id="@+id/et_register_phone"
+                    style="@style/res_EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/res_common_phone_input_hint"
+                    android:inputType="textVisiblePassword"
+                    android:singleLine="true"
+                    app:res_regexType="mobile" />
+
+                <View
+                    style="@style/res_HorizontalLineStyle"
+                    android:layout_gravity="bottom" />
+            </FrameLayout>
+
+            <com.basis.common.view.CountdownView
+                android:id="@+id/cv_register_countdown"
+                style="@style/res_CountdownViewStyle" />
+        </LinearLayout>
+
+        <com.basis.common.view.RegexEditText
+            android:id="@+id/et_register_code"
+            style="@style/res_EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/res_dp_20"
+            android:hint="@string/res_common_code_input_hint"
+            android:inputType="textVisiblePassword"
+            android:maxLength="@integer/res_sms_code_length"
+            android:singleLine="true"
+            app:res_regexType="number" />
+
+        <View style="@style/res_HorizontalLineStyle" />
+
+        <com.basis.common.view.PasswordEditText
+            android:id="@+id/et_register_password1"
+            style="@style/res_EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/res_dp_20"
+            android:hint="@string/res_register_password_hint1"
+            android:maxLength="20"
+            android:singleLine="true" />
+
+        <View style="@style/res_HorizontalLineStyle" />
+
+        <com.basis.common.view.PasswordEditText
+            android:id="@+id/et_register_password2"
+            style="@style/res_EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/res_dp_20"
+            android:hint="@string/res_register_password_hint2"
+            android:imeOptions="actionDone"
+            android:maxLength="20"
+            android:singleLine="true" />
+
+        <View style="@style/res_HorizontalLineStyle" />
+
+        <com.basis.common.view.SubmitButton
+            android:id="@+id/btn_register_commit"
+            style="@style/res_ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/res_dp_30"
+            android:text="@string/res_register_title" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

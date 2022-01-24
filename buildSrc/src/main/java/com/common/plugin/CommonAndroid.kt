@@ -98,7 +98,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             }
         }
 
-        resourcePrefix(project.name.replace("module-", "") + "_")
+        resourcePrefix(project.name + "_")
 
 
         buildTypes {

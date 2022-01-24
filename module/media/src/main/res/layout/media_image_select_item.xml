@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="String" />
+    </data>
+
+    <com.basis.common.layout.RatioFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:res_sizeRatio="1:1">
+
+        <com.basis.common.view.ScaleImageView
+            android:id="@+id/iv_image_select_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/res_white"
+            android:scaleType="centerCrop"
+            app:res="@{item}"
+            tools:src="@drawable/res_example_bg" />
+
+        <FrameLayout
+            android:id="@+id/fl_image_select_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:paddingStart="@dimen/res_dp_20"
+            android:paddingTop="@dimen/res_dp_3"
+            android:paddingEnd="@dimen/res_dp_3"
+            android:paddingBottom="@dimen/res_dp_20">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/iv_image_select_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                app:buttonCompat="@drawable/res_checkbox_selector"
+                 />
+
+        </FrameLayout>
+
+    </com.basis.common.layout.RatioFrameLayout>
+</layout>

@@ -16,6 +16,6 @@ android {
         }
     }
     aspectjx {
-        include "com.common"
+        include "com.basis"
     }
 }

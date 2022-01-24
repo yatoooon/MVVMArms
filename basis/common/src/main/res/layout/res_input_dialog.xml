@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.basis.common.view.RegexEditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_input_message"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/res_dp_15"
+    android:layout_marginTop="@dimen/res_dp_15"
+    android:layout_marginBottom="@dimen/res_dp_10"
+    android:background="@drawable/res_dialog_input_bg"
+    android:paddingHorizontal="@dimen/res_dp_10"
+    android:paddingVertical="@dimen/res_dp_5"
+    android:singleLine="true"
+    android:textColor="#333333"
+    android:textSize="@dimen/res_sp_14" />

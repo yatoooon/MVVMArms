@@ -23,11 +23,11 @@ internal fun Project.configureDependencies() = dependencies.apply {
         }
     }
     // TODO: 2022/1/21 需要拆开res和java
-//    if (isRunPlugin){
-//        add("compileOnly", project(":common-export"))
-//    }else{
-        add("implementation", project(":common-export"))
-//    }
+    if (isRunPlugin){
+        add("compileOnly", project(":basis:export"))
+    }else{
+        add("implementation", project(":basis:export"))
+    }
     add("implementation", Deps.arouterApi)
     add("kapt", Deps.arouterCompiler)
     add("implementation", Deps.hiltAndroid)
