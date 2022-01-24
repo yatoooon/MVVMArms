@@ -1,24 +1,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.basis.core">
+    package="com.arms.core">
 
     <application
-        android:name="com.basis.core.base.BaseApplication"
+        android:name="com.arms.core.base.BaseApplication"
         android:theme="@style/res_AppTheme"
         tools:replace="android:name,android:theme">
         <meta-data
-            android:name="com.basis.core.lifecycle.CoreConfigModule"
+            android:name="com.arms.core.lifecycle.CoreConfigModule"
             android:value="CoreConfigModule" />
 
         <activity
-            android:name="com.basis.core.crash.CrashActivity"
+            android:name="com.arms.core.crash.CrashActivity"
             android:launchMode="singleTop"
             android:process=":crash"
             android:screenOrientation="landscape" />
 
         <!-- 重启应用（必须在独立进程） -->
         <activity
-            android:name="com.basis.core.crash.RestartActivity"
+            android:name="com.arms.core.crash.RestartActivity"
             android:launchMode="singleTop"
             android:process=":restart" />
     </application>

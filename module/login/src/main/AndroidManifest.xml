@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.login">
+    package="com.arms.login">
 
     <application
-        android:name=".app.LoginApp"
+        android:name="com.arms.login.app.LoginApp"
         tools:replace="android:name">
         <activity
-            android:name=".mvvm.activity.LoginActivity"
+            android:name="com.arms.login.mvvm.activity.LoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvvm.activity.RegisterActivity"
+            android:name="com.arms.login.mvvm.activity.RegisterActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvvm.activity.PasswordResetActivity"
+            android:name="com.arms.login.mvvm.activity.PasswordResetActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvvm.activity.PasswordForgetActivity"
+            android:name="com.arms.login.mvvm.activity.PasswordForgetActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvvm.activity.PhoneResetActivity"
+            android:name="com.arms.login.mvvm.activity.PhoneResetActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>

@@ -1,4 +1,4 @@
-package com.common.plugin
+package com.arms.plugin
 
 import Deps
 import Versions

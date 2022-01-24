@@ -1,6 +1,6 @@
-package com.common.sample.app
+package com.arms.sample.app
 
-import com.basis.core.base.BaseApplication
+import com.arms.core.base.BaseApplication
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

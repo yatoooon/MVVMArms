@@ -1,4 +1,4 @@
-package com.common.sample.app
+package com.arms.sample.app
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

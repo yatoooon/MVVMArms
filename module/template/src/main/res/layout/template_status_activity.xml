@@ -19,19 +19,19 @@
             android:layout_height="wrap_content"
             app:title="界面状态案例" />
 
-        <com.basis.common.layout.StatusLayout
+        <com.arms.common.layout.StatusLayout
             android:id="@+id/hl_status_hint"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <fragment
-                android:name="com.common.template.mvvm.fragment.StatusFragment"
+                android:name="com.arms.template.mvvm.fragment.StatusFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:ignore="MissingId"
                 tools:layout="@layout/template_fragment_status" />
 
-        </com.basis.common.layout.StatusLayout>
+        </com.arms.common.layout.StatusLayout>
 
     </LinearLayout>
 </layout>

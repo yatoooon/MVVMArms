@@ -1,5 +1,5 @@
 plugins {
-    id "com.common.plugin.app"
+    id "com.arms.plugin.app"
 }
 dependencies {
     implementation project(':module:splash')

@@ -1,4 +1,4 @@
-package com.common.splash
+package com.arms.splash
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

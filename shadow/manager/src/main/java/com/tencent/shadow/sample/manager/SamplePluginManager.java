@@ -49,7 +49,7 @@ public class SamplePluginManager extends FastPluginManager {
         if (fromId == Constant.FROM_ID_START_ACTIVITY) {
             bundle.putString(Constant.KEY_PLUGIN_ZIP_PATH, "/data/local/tmp/plugin-debug.zip");
             bundle.putString(Constant.KEY_PLUGIN_PART_KEY, "login-plugin");
-            bundle.putString(Constant.KEY_ACTIVITY_CLASSNAME, "com.common.login.mvvm.activity.LoginActivity");
+            bundle.putString(Constant.KEY_ACTIVITY_CLASSNAME, "com.arms.login.mvvm.activity.LoginActivity");
             onStartActivity(context, bundle, callback);
         } else if (fromId == Constant.FROM_ID_CALL_SERVICE) {
             callPluginService(context);

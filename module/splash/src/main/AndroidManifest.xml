@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.splash">
+    package="com.arms.splash">
 
-    <application android:name=".app.SplashApp"
+    <application android:name="com.arms.splash.app.SplashApp"
         tools:replace="android:name">
-        <activity android:name=".mvvm.activity.MainTestActivity" />
+        <activity android:name="com.arms.splash.mvvm.activity.MainTestActivity" />
         <!-- 闪屏页 -->
         <activity
-            android:name=".mvvm.activity.SplashActivity"
+            android:name="com.arms.splash.mvvm.activity.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/res_SplashTheme">
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".mvvm.activity.GuideActivity"
+            android:name="com.arms.splash.mvvm.activity.GuideActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>

@@ -57,7 +57,7 @@
 
                     </LinearLayout>
 
-                    <com.basis.common.layout.SettingBar
+                    <com.arms.common.layout.SettingBar
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -163,20 +163,20 @@
                         android:gravity="center"
                         android:orientation="horizontal">
 
-                        <com.basis.common.view.SwitchButton
+                        <com.arms.common.view.SwitchButton
                             android:id="@+id/sb_find_switch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/res_dp_10"
                             android:checked="true" />
 
-                        <com.basis.common.view.SwitchButton
+                        <com.arms.common.view.SwitchButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/res_dp_10"
                             android:checked="false" />
 
-                        <com.basis.common.view.SwitchButton
+                        <com.arms.common.view.SwitchButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/res_dp_10"
@@ -192,17 +192,17 @@
                         android:gravity="center"
                         android:orientation="horizontal">
 
-                        <com.basis.common.view.CountdownView
+                        <com.arms.common.view.CountdownView
                             android:id="@+id/cv_find_countdown"
                             style="@style/res_CountdownViewStyle" />
 
-                        <com.basis.common.view.CountdownView
+                        <com.arms.common.view.CountdownView
                             style="@style/res_CountdownViewStyle"
                             android:enabled="false" />
 
                     </LinearLayout>
 
-                    <com.basis.common.view.SimpleRatingBar
+                    <com.arms.common.view.SimpleRatingBar
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -210,7 +210,7 @@
                         app:res_grade="2.5"
                         app:res_gradeStep="half" />
 
-                    <com.basis.common.view.SimpleRatingBar
+                    <com.arms.common.view.SimpleRatingBar
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -218,7 +218,7 @@
                         app:res_grade="3"
                         app:res_gradeStep="one" />
 
-                    <com.basis.common.view.DrawableTextView
+                    <com.arms.common.view.DrawableTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -267,7 +267,7 @@
                         app:shape_shadowSize="10dp"
                         app:shape_solidColor="@color/res_white" />
 
-                    <com.basis.common.view.ClearEditText
+                    <com.arms.common.view.ClearEditText
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -275,7 +275,7 @@
                         android:layout_marginTop="@dimen/res_dp_10"
                         android:text="这是一个带清除的按钮的EditText" />
 
-                    <com.basis.common.view.PasswordEditText
+                    <com.arms.common.view.PasswordEditText
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -285,7 +285,7 @@
                         android:singleLine="true"
                         android:text="78797078" />
 
-                    <com.basis.common.view.RegexEditText
+                    <com.arms.common.view.RegexEditText
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -294,7 +294,7 @@
                         android:hint="这里只能输入手机号（只能以 1 开头）"
                         app:res_regexType="mobile" />
 
-                    <com.basis.common.view.RegexEditText
+                    <com.arms.common.view.RegexEditText
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -302,7 +302,7 @@
                         android:hint="这里只能输入中文（普通的中文字符）"
                         app:res_regexType="chinese" />
 
-                    <com.basis.common.view.RegexEditText
+                    <com.arms.common.view.RegexEditText
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -310,7 +310,7 @@
                         android:hint="这里只能输入英文（大写和小写的英文）"
                         app:res_regexType="english" />
 
-                    <com.basis.common.view.RegexEditText
+                    <com.arms.common.view.RegexEditText
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -318,7 +318,7 @@
                         android:hint="这里只能输入数字（只允许输入纯数字）"
                         app:res_regexType="number" />
 
-                    <com.basis.common.view.RegexEditText
+                    <com.arms.common.view.RegexEditText
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -326,7 +326,7 @@
                         android:hint="这里只能输入数量（非 0 开头的数字）"
                         app:res_regexType="count" />
 
-                    <com.basis.common.view.RegexEditText
+                    <com.arms.common.view.RegexEditText
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -334,7 +334,7 @@
                         android:hint="这里只能输入用户名（中文、英文、数字）"
                         app:res_regexType="name" />
 
-                    <com.basis.common.view.RegexEditText
+                    <com.arms.common.view.RegexEditText
                         style="@style/res_EditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -353,7 +353,7 @@
 
                     <View style="@style/res_HorizontalLineStyle" />
 
-                    <com.basis.common.layout.RatioFrameLayout
+                    <com.arms.common.layout.RatioFrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/res_dp_10"
@@ -367,7 +367,7 @@
                             android:text="这是一个宽高比 2:1 的FrameLayout"
                             android:textColor="@color/res_white" />
 
-                    </com.basis.common.layout.RatioFrameLayout>
+                    </com.arms.common.layout.RatioFrameLayout>
 
                 </LinearLayout>
 

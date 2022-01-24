@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.home">
+    package="com.arms.home">
 
-    <application android:name=".app.HomeApp"
+    <application android:name="com.arms.home.app.HomeApp"
         tools:replace="android:name">
         <activity
-            android:name="com.common.home.mvvm.activity.MainActivity"
+            android:name="com.arms.home.mvvm.activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />

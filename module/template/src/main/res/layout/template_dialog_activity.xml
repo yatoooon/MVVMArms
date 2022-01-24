@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".mvvm.activity.DialogActivity">
+    tools:context="com.arms.template.mvvm.activity.DialogActivity">
 
     <com.hjq.bar.TitleBar
         android:id="@+id/res_titleBar"

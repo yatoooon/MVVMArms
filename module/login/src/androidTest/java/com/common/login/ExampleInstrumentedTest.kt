@@ -1,4 +1,4 @@
-package com.common.login
+package com.arms.login
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.common.login.test", appContext.packageName)
+        assertEquals("com.arms.login.test", appContext.packageName)
     }
 }

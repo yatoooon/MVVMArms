@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#363636"
-    tools:context=".mvvm.activity.ImagePreviewActivity">
+    tools:context="com.arms.media.mvvm.activity.ImagePreviewActivity">
 
-    <com.basis.common.layout.PhotoViewPager
+    <com.arms.common.layout.PhotoViewPager
         android:id="@+id/vp_image_preview_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

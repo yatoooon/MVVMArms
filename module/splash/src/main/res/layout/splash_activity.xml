@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:background="@color/res_white"
         android:orientation="vertical"
-        tools:context=".mvvm.activity.SplashActivity">
+        tools:context="com.arms.splash.mvvm.activity.SplashActivity">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lav_splash_lottie"
@@ -24,7 +24,7 @@
             app:lottie_loop="false"
             app:lottie_rawRes="@raw/splash_welcome" />
 
-        <com.basis.common.view.SlantedTextView
+        <com.arms.common.view.SlantedTextView
             android:id="@+id/iv_splash_debug"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

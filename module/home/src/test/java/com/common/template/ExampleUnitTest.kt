@@ -1,4 +1,4 @@
-package com.common.template
+package com.arms.template
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

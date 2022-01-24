@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".mvvm.activity.PhoneResetActivity">
+    tools:context="com.arms.login.mvvm.activity.PhoneResetActivity">
 
     <com.hjq.bar.TitleBar
         android:id="@+id/res_titleBar"
@@ -22,7 +22,7 @@
         android:textColor="#A4A4A4"
         android:textSize="@dimen/res_sp_14" />
 
-    <com.basis.common.view.RegexEditText
+    <com.arms.common.view.RegexEditText
         android:id="@+id/et_phone_reset_phone"
         style="@style/res_EditTextStyle"
         android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:paddingVertical="@dimen/res_dp_18"
             android:singleLine="true" />
 
-        <com.basis.common.view.CountdownView
+        <com.arms.common.view.CountdownView
             android:id="@+id/cv_phone_reset_countdown"
             style="@style/res_CountdownViewStyle" />
 

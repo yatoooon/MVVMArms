@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/res_white"
-        tools:context="com.common.template.mvvm.fragment.HomeFragment">
+        tools:context="com.arms.template.mvvm.fragment.HomeFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:elevation="0px">
 
-            <com.basis.common.layout.XCollapsingToolbarLayout
+            <com.arms.common.layout.XCollapsingToolbarLayout
                 android:id="@+id/ctl_home_bar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/res_dp_256"
@@ -81,7 +81,7 @@
 
                 </androidx.appcompat.widget.Toolbar>
 
-            </com.basis.common.layout.XCollapsingToolbarLayout>
+            </com.arms.common.layout.XCollapsingToolbarLayout>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/rv_home_tab"

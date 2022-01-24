@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.personal">
+    package="com.arms.personal">
 
-    <application android:name=".app.PersonalApp"
+    <application android:name="com.arms.personal.app.PersonalApp"
         tools:replace="android:name">
         <activity
-            android:name=".mvvm.activity.PersonalDataActivity"
+            android:name="com.arms.personal.mvvm.activity.PersonalDataActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvvm.activity.SettingActivity"
+            android:name="com.arms.personal.mvvm.activity.SettingActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>

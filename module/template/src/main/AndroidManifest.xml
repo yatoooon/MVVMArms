@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.template">
+    package="com.arms.template">
 
     <application android:name=".app.TemplateApp"
         tools:replace="android:name">
         <activity android:name=".mvvm.activity.TemplateActivity" />
 
         <meta-data
-            android:name="com.common.template.lifecycle.TemplateConfiguration"
+            android:name="com.arms.template.lifecycle.TemplateConfiguration"
             android:value="CoreConfigModule" />
 
         <activity
@@ -16,7 +16,7 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvvm.activity.DialogActivity"
+            android:name="com.arms.template.mvvm.activity.DialogActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>

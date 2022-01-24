@@ -1,4 +1,4 @@
-package com.common.personal
+package com.arms.personal
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

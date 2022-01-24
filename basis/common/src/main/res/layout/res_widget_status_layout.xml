@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.basis.common.layout.NestedLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.arms.common.layout.NestedLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,7 +22,7 @@
         app:lottie_loop="true"
         tools:src="@drawable/res_status_network_ic" />
 
-    <com.basis.common.view.SmartTextView
+    <com.arms.common.view.SmartTextView
         android:id="@+id/iv_status_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,4 +53,4 @@
         android:layout_height="0px"
         android:layout_weight="1.5" />
 
-</com.basis.common.layout.NestedLinearLayout>
+</com.arms.common.layout.NestedLinearLayout>

@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.common.template.mvvm.model.entity.Item" />
+            type="com.arms.template.mvvm.model.entity.Item" />
     </data>
 
     <LinearLayout

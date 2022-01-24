@@ -5,7 +5,7 @@
     android:id="@+id/dl_crash_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.basis.core.crash.CrashActivity">
+    tools:context="com.arms.core.crash.CrashActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

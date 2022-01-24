@@ -7,15 +7,15 @@
 
         <variable
             name="item"
-            type="com.basis.export.data.VideoBean" />
+            type="com.arms.export.data.VideoBean" />
     </data>
 
-    <com.basis.common.layout.RatioFrameLayout
+    <com.arms.common.layout.RatioFrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:res_sizeRatio="1:1">
 
-        <com.basis.common.view.ScaleImageView
+        <com.arms.common.view.ScaleImageView
             android:id="@+id/iv_video_select_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -76,5 +76,5 @@
                 tools:text="10.24M" />
         </FrameLayout>
 
-    </com.basis.common.layout.RatioFrameLayout>
+    </com.arms.common.layout.RatioFrameLayout>
 </layout>

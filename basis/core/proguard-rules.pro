@@ -272,8 +272,8 @@
 -dontwarn org.jetbrains.annotations.**
 
 # MVVMFrame
--keep class com.basis.core.** { *; }
--keep interface com.basis.core.** { *; }
+-keep class com.arms.core.** { *; }
+-keep interface com.arms.core.** { *; }
 -dontwarn com.king.frame.**
 
 # RetrofitHelper

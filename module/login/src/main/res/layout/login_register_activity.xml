@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/res_white"
-    tools:context=".mvvm.activity.RegisterActivity">
+    tools:context="com.arms.login.mvvm.activity.RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
-                <com.basis.common.view.RegexEditText
+                <com.arms.common.view.RegexEditText
                     android:id="@+id/et_register_phone"
                     style="@style/res_EditTextStyle"
                     android:layout_width="match_parent"
@@ -61,12 +61,12 @@
                     android:layout_gravity="bottom" />
             </FrameLayout>
 
-            <com.basis.common.view.CountdownView
+            <com.arms.common.view.CountdownView
                 android:id="@+id/cv_register_countdown"
                 style="@style/res_CountdownViewStyle" />
         </LinearLayout>
 
-        <com.basis.common.view.RegexEditText
+        <com.arms.common.view.RegexEditText
             android:id="@+id/et_register_code"
             style="@style/res_EditTextStyle"
             android:layout_width="match_parent"
@@ -80,7 +80,7 @@
 
         <View style="@style/res_HorizontalLineStyle" />
 
-        <com.basis.common.view.PasswordEditText
+        <com.arms.common.view.PasswordEditText
             android:id="@+id/et_register_password1"
             style="@style/res_EditTextStyle"
             android:layout_width="match_parent"
@@ -92,7 +92,7 @@
 
         <View style="@style/res_HorizontalLineStyle" />
 
-        <com.basis.common.view.PasswordEditText
+        <com.arms.common.view.PasswordEditText
             android:id="@+id/et_register_password2"
             style="@style/res_EditTextStyle"
             android:layout_width="match_parent"
@@ -105,7 +105,7 @@
 
         <View style="@style/res_HorizontalLineStyle" />
 
-        <com.basis.common.view.SubmitButton
+        <com.arms.common.view.SubmitButton
             android:id="@+id/btn_register_commit"
             style="@style/res_ButtonStyle"
             android:layout_width="match_parent"

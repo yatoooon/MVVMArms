@@ -32,7 +32,7 @@
         app:cardCornerRadius="@dimen/res_dialog_ui_round_size"
         app:cardElevation="0px">
 
-        <com.basis.common.view.SmartTextView
+        <com.arms.common.view.SmartTextView
             android:id="@+id/tv_menu_cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

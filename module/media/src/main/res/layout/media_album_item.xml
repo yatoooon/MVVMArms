@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.common.media.mvvm.dialog.AlbumDialog.AlbumInfo" />
+            type="com.arms.media.mvvm.dialog.AlbumDialog.AlbumInfo" />
 
         <import type="android.view.View" />
 
@@ -29,7 +29,7 @@
         android:paddingTop="@dimen/res_dp_10"
         android:paddingBottom="@dimen/res_dp_5">
 
-        <com.basis.common.view.ScaleImageView
+        <com.arms.common.view.ScaleImageView
             android:id="@+id/iv_album_icon"
             android:layout_width="@dimen/res_dp_80"
             android:layout_height="@dimen/res_dp_80"

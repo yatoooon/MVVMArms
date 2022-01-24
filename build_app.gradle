@@ -3,19 +3,19 @@ android {
         sample {
             versionCode 1
             versionName "1.0.0"
-            applicationId "com.common.sample"
+            applicationId "com.arms.sample"
             resValue "string", "app_name", "MVVMArms"
             dimension "default"
         }
         plugin {
             versionCode 1
             versionName "1.0.0"
-            applicationId "com.common.sample"
+            applicationId "com.arms.sample"
             resValue "string", "app_name", "MVVMArms"
             dimension "default"
         }
     }
     aspectjx {
-        include "com.basis"
+        include "com.arms"
     }
 }

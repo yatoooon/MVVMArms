@@ -61,7 +61,7 @@
 
         </FrameLayout>
 
-        <com.basis.common.view.CountdownView
+        <com.arms.common.view.CountdownView
             android:id="@+id/cv_safe_countdown"
             style="@style/res_CountdownViewStyle"
             android:layout_marginHorizontal="@dimen/res_dp_5" />

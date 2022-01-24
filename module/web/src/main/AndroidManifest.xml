@@ -1,12 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.web">
+    package="com.arms.web">
 
-    <application android:name=".app.WebApp"
+    <application android:name="com.arms.web.app.WebApp"
         tools:replace="android:name">
 
         <activity
-            android:name=".mvvm.activity.WebPageActivity"
+            android:name="com.arms.web.mvvm.activity.WebPageActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="stateHidden|adjustResize" />
@@ -17,7 +17,7 @@
 
         <!-- 在组件集成宿主时, 由于宿主已经声明了 common-base 的公有 ConfigModule, 所以在这里只需要声明业务组件自己的 ConfigModule -->
         <meta-data
-            android:name="com.common.web.lifecycle.WebConfiguration"
+            android:name="com.arms.web.lifecycle.WebConfiguration"
             android:value="CoreConfigModule" />
     </application>
 </manifest>

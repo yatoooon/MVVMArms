@@ -1,4 +1,4 @@
-package com.common.login
+package com.arms.login
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

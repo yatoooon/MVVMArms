@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.basis.common">
+    package="com.arms.common">
 
     <!-- 网络相关 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -25,12 +25,12 @@
 
 
     <application
-        android:name="com.basis.common.ResApp"
+        android:name="com.arms.common.ResApp"
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/res_AppTheme"
         tools:replace="android:name,android:theme"
         tools:targetApi="n">
-        <activity android:name="com.basis.common.launcher.LauncherActivity">
+        <activity android:name="com.arms.common.launcher.LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
