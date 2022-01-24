@@ -10,14 +10,11 @@ import com.coder.zzq.smartshow.core.SmartShow
 import com.arms.core.base.delegate.BaseApplicationLifecycle
 import com.arms.core.other.CrashHandler
 import com.arms.common.BuildConfig
-import com.arms.res.layout.RefreshLottieHeader
 import com.arms.umeng.UmengClient
 import com.hjq.toast.ToastUtils
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
-import com.scwang.smart.refresh.footer.ClassicsFooter
-import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.mmkv.MMKV
 import com.tencent.shadow.sample.introduce_shadow_lib.InitApplication
@@ -47,20 +44,7 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
         }
         //初始化SmartShow
         SmartShow.init(application)
-        //初始化SmartRefreshLayout,设置全局默认配置（优先级最低，会被其他设置覆盖）
-        SmartRefreshLayout.setDefaultRefreshInitializer { _, layout -> //全局设置（优先级最低）
-            layout.setEnableAutoLoadMore(true)
-            layout.setEnableOverScrollDrag(false)
-            layout.setEnableOverScrollBounce(true)
-            layout.setEnableLoadMoreWhenContentNotFull(true)
-            layout.setEnableScrollContentWhenRefreshed(true)
-            layout.setFooterMaxDragRate(2.0f)
-            layout.setFooterHeight(20f)
-            layout.setRefreshHeader(RefreshLottieHeader(application))
-            layout.setRefreshFooter(ClassicsFooter(application).apply {
-                setFinishDuration(0)
-            })
-        }
+
 
 
         ToastUtils.init(application)

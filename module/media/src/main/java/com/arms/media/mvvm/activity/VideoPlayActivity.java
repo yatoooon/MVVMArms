@@ -10,7 +10,7 @@ import com.arms.export.arouter.RouterHub;
 import com.arms.export.data.VideoPlayBuilder;
 import com.arms.media.R;
 import com.arms.common.immersionbar.BindImmersionBar;
-import com.arms.res.view.PlayerView;
+import com.arms.common.widget.PlayerView;
 
 import me.jessyan.autosize.internal.CancelAdapt;
 

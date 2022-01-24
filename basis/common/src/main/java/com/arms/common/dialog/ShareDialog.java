@@ -18,7 +18,7 @@ import com.arms.common.http.imageloader.ImageLoader;
 import com.arms.res.view.ScaleImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.arms.res.BR;
+import com.arms.common.BR;
 import com.arms.common.R;
 import com.arms.umeng.Platform;
 import com.arms.umeng.UmengClient;

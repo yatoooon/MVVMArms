@@ -1,4 +1,4 @@
-package com.arms.res.view
+package com.arms.common.widget
 
 import android.animation.ValueAnimator
 import android.content.Context

@@ -60,7 +60,7 @@
 
         </com.hjq.shape.layout.ShapeFrameLayout>
 
-        <com.arms.res.view.PlayButton
+        <com.arms.common.widget.PlayButton
             android:id="@+id/iv_player_view_control"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,10 +1,9 @@
-package com.arms.res.view;
+package com.arms.common.widget;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -22,7 +21,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.annotation.DrawableRes;
@@ -34,7 +32,9 @@ import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.arms.res.R;
+import com.arms.common.R;
+import com.arms.common.action.ActivityAction;
+import com.arms.common.dialog.MessageDialog;
 import com.arms.res.layout.SimpleLayout;
 
 import java.io.File;
@@ -50,7 +50,7 @@ import java.util.Locale;
 public final class PlayerView extends SimpleLayout
         implements LifecycleEventObserver,
         SeekBar.OnSeekBarChangeListener,
-        View.OnClickListener,
+        View.OnClickListener, ActivityAction,
         MediaPlayer.OnPreparedListener,
         MediaPlayer.OnInfoListener,
         MediaPlayer.OnCompletionListener,
@@ -134,7 +134,7 @@ public final class PlayerView extends SimpleLayout
     public PlayerView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
-        LayoutInflater.from(getContext()).inflate(R.layout.res_widget_player_view, this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.common_widget_player_view, this, true);
         mTopLayout = findViewById(R.id.ll_player_view_top);
         mLeftView = findViewById(R.id.iv_player_view_left);
         mTitleView = findViewById(R.id.tv_player_view_title);
@@ -250,9 +250,9 @@ public final class PlayerView extends SimpleLayout
     public void lock() {
         mLockMode = true;
         mLockView.setImageResource(R.drawable.res_video_lock_close_ic);
-        mTopLayout.setVisibility(View.GONE);
-        mBottomLayout.setVisibility(View.GONE);
-        mControlView.setVisibility(View.GONE);
+        mTopLayout.setVisibility(GONE);
+        mBottomLayout.setVisibility(GONE);
+        mControlView.setVisibility(GONE);
         // 延迟隐藏控制面板
         removeCallbacks(mHideControllerRunnable);
         postDelayed(mHideControllerRunnable, CONTROLLER_TIME);
@@ -264,11 +264,11 @@ public final class PlayerView extends SimpleLayout
     public void unlock() {
         mLockMode = false;
         mLockView.setImageResource(R.drawable.res_video_lock_open_ic);
-        mTopLayout.setVisibility(View.VISIBLE);
+        mTopLayout.setVisibility(VISIBLE);
         if (mVideoView.isPlaying()) {
-            mBottomLayout.setVisibility(View.VISIBLE);
+            mBottomLayout.setVisibility(VISIBLE);
         }
-        mControlView.setVisibility(View.VISIBLE);
+        mControlView.setVisibility(VISIBLE);
         // 延迟隐藏控制面板
         removeCallbacks(mHideControllerRunnable);
         postDelayed(mHideControllerRunnable, CONTROLLER_TIME);
@@ -321,7 +321,7 @@ public final class PlayerView extends SimpleLayout
      */
     public void setOnPlayListener(@Nullable OnPlayListener listener) {
         mListener = listener;
-        mLeftView.setVisibility(mListener != null ? View.VISIBLE : View.INVISIBLE);
+        mLeftView.setVisibility(mListener != null ? VISIBLE : INVISIBLE);
     }
 
     /**
@@ -343,8 +343,8 @@ public final class PlayerView extends SimpleLayout
                 return;
             }
 
-            if (mTopLayout.getVisibility() == View.INVISIBLE) {
-                mTopLayout.setVisibility(View.VISIBLE);
+            if (mTopLayout.getVisibility() == INVISIBLE) {
+                mTopLayout.setVisibility(VISIBLE);
             }
         });
         topAnimator.start();
@@ -358,8 +358,8 @@ public final class PlayerView extends SimpleLayout
                 return;
             }
 
-            if (mBottomLayout.getVisibility() == View.INVISIBLE) {
-                mBottomLayout.setVisibility(View.VISIBLE);
+            if (mBottomLayout.getVisibility() == INVISIBLE) {
+                mBottomLayout.setVisibility(VISIBLE);
             }
         });
         bottomAnimator.start();
@@ -374,11 +374,11 @@ public final class PlayerView extends SimpleLayout
                 return;
             }
 
-            if (mLockView.getVisibility() == View.INVISIBLE) {
-                mLockView.setVisibility(View.VISIBLE);
+            if (mLockView.getVisibility() == INVISIBLE) {
+                mLockView.setVisibility(VISIBLE);
             }
-            if (mControlView.getVisibility() == View.INVISIBLE) {
-                mControlView.setVisibility(View.VISIBLE);
+            if (mControlView.getVisibility() == INVISIBLE) {
+                mControlView.setVisibility(VISIBLE);
             }
         });
         alphaAnimator.start();
@@ -403,8 +403,8 @@ public final class PlayerView extends SimpleLayout
                 return;
             }
 
-            if (mTopLayout.getVisibility() == View.VISIBLE) {
-                mTopLayout.setVisibility(View.INVISIBLE);
+            if (mTopLayout.getVisibility() == VISIBLE) {
+                mTopLayout.setVisibility(INVISIBLE);
             }
         });
         topAnimator.start();
@@ -418,8 +418,8 @@ public final class PlayerView extends SimpleLayout
                 return;
             }
 
-            if (mBottomLayout.getVisibility() == View.VISIBLE) {
-                mBottomLayout.setVisibility(View.INVISIBLE);
+            if (mBottomLayout.getVisibility() == VISIBLE) {
+                mBottomLayout.setVisibility(INVISIBLE);
             }
         });
         bottomAnimator.start();
@@ -434,11 +434,11 @@ public final class PlayerView extends SimpleLayout
                 return;
             }
 
-            if (mLockView.getVisibility() == View.VISIBLE) {
-                mLockView.setVisibility(View.INVISIBLE);
+            if (mLockView.getVisibility() == VISIBLE) {
+                mLockView.setVisibility(INVISIBLE);
             }
-            if (mControlView.getVisibility() == View.VISIBLE) {
-                mControlView.setVisibility(View.INVISIBLE);
+            if (mControlView.getVisibility() == VISIBLE) {
+                mControlView.setVisibility(INVISIBLE);
             }
         });
         alphaAnimator.start();
@@ -470,7 +470,7 @@ public final class PlayerView extends SimpleLayout
         // 从后台返回到前台：先调用 onWindowVisibilityChanged(View.INVISIBLE) 后调用 onWindowVisibilityChanged(View.VISIBLE)
         super.onWindowVisibilityChanged(visibility);
         // 这里修复了 Activity 从后台返回到前台时 VideoView 从头开始播放的问题
-        if (visibility != View.VISIBLE) {
+        if (visibility != VISIBLE) {
             return;
         }
         mVideoView.seekTo(mCurrentProgress);
@@ -610,14 +610,14 @@ public final class PlayerView extends SimpleLayout
         }
         message += "\n" + String.format(activity.getString(R.string.res_common_video_error_supplement), what, extra);
 
-//        new MessageDialog.Builder(getActivity())
-//                .setMessage(message)
-//                .setConfirm(R.string.res_common_confirm)
-//                .setCancel("")
-//                .setCancelable(false)
-//                .setListener(dialog -> onCompletion(player))
-//                .show();
-        Toast.makeText(getContext(),message,Toast.LENGTH_SHORT).show();
+        new MessageDialog.Builder(getActivity())
+                .setMessage(message)
+                .setConfirm(R.string.res_common_confirm)
+                .setCancel(null)
+                .setCancel("")
+                .setCancelable(false)
+                .setListener(dialog -> onCompletion(player))
+                .show();
         return true;
     }
 
@@ -652,7 +652,7 @@ public final class PlayerView extends SimpleLayout
 
         } else if (view == mControlView) {
 
-            if (mControlView.getVisibility() != View.VISIBLE) {
+            if (mControlView.getVisibility() != VISIBLE) {
                 return;
             }
 
@@ -696,23 +696,6 @@ public final class PlayerView extends SimpleLayout
         return mVideoHeight;
     }
 
-
-    /**
-     * 获取 Activity 对象
-     */
-    public Activity getActivity() {
-        Context context = getContext();
-        do {
-            if (context instanceof Activity) {
-                return (Activity) context;
-            } else if (context instanceof ContextWrapper) {
-                context = ((ContextWrapper) context).getBaseContext();
-            } else {
-                return null;
-            }
-        } while (context != null);
-        return null;
-    }
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -880,12 +863,12 @@ public final class PlayerView extends SimpleLayout
             mProgressView.setProgress(progress);
             mProgressView.setSecondaryProgress((int) (mVideoView.getBufferPercentage() / 100f * mVideoView.getDuration()));
             if (mVideoView.isPlaying()) {
-                if (!mLockMode && mBottomLayout.getVisibility() == View.GONE) {
-                    mBottomLayout.setVisibility(View.VISIBLE);
+                if (!mLockMode && mBottomLayout.getVisibility() == GONE) {
+                    mBottomLayout.setVisibility(VISIBLE);
                 }
             } else {
-                if (mBottomLayout.getVisibility() == View.VISIBLE) {
-                    mBottomLayout.setVisibility(View.GONE);
+                if (mBottomLayout.getVisibility() == VISIBLE) {
+                    mBottomLayout.setVisibility(GONE);
                 }
             }
             postDelayed(this, REFRESH_TIME);
@@ -920,14 +903,14 @@ public final class PlayerView extends SimpleLayout
      */
     private final Runnable mShowMessageRunnable = () -> {
         hideController();
-        mMessageLayout.setVisibility(View.VISIBLE);
+        mMessageLayout.setVisibility(VISIBLE);
     };
 
     /**
      * 隐藏提示
      */
     private final Runnable mHideMessageRunnable = () -> {
-        mMessageLayout.setVisibility(View.GONE);
+        mMessageLayout.setVisibility(GONE);
     };
 
     /**

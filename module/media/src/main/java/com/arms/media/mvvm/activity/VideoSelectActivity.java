@@ -43,7 +43,7 @@ import com.arms.common.manager.ThreadPoolManager;
 import com.arms.common.utils.CacheUtil;
 import com.arms.res.view.FloatActionButton;
 import com.arms.res.view.GridSpaceDecoration;
-import com.arms.res.view.PlayerView;
+import com.arms.common.widget.PlayerView;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 

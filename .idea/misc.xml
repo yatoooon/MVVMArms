@@ -4,15 +4,24 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.30256410256410254" />
+        <entry key="basis/common/src/main/res/layout/common_rv_item.xml" value="0.11141304347826086" />
+        <entry key="basis/common/src/main/res/layout/common_widget_player_view.xml" value="0.1" />
+        <entry key="basis/common/src/main/res/layout/common_widget_status_layout.xml" value="0.1" />
         <entry key="basis/common/src/main/res/layout/res_address_dialog_item_tv.xml" value="0.11775362318840579" />
         <entry key="basis/common/src/main/res/layout/res_share_item.xml" value="0.11775362318840579" />
         <entry key="basis/common/src/main/res/layout/safe_dialog.xml" value="0.13269927536231885" />
         <entry key="basis/core/src/main/res/layout/core_content_activity.xml" value="0.13728470111448834" />
         <entry key="basis/core/src/main/res/layout/core_crash_activity.xml" value="0.13269927536231885" />
+        <entry key="basis/core/src/main/res/layout/core_progress_dialog.xml" value="0.13728470111448834" />
+        <entry key="basis/core/src/main/res/layout/res_widget_status_layout.xml" value="0.1" />
         <entry key="basis/res/src/main/res/layout/res_address_dialog_item_tv.xml" value="0.1" />
+        <entry key="basis/res/src/main/res/layout/res_rv_item.xml" value="0.1" />
+        <entry key="basis/res/src/main/res/layout/res_select_item.xml" value="0.1" />
         <entry key="basis/res/src/main/res/layout/res_share_dialog.xml" value="0.11367753623188406" />
         <entry key="basis/res/src/main/res/layout/res_share_item.xml" value="0.1" />
         <entry key="basis/res/src/main/res/layout/res_tab_item_sliding.xml" value="0.13728470111448834" />
+        <entry key="basis/res/src/main/res/layout/res_time_dialog.xml" value="0.1" />
+        <entry key="basis/res/src/main/res/layout/res_widget_player_view.xml" value="0.13949275362318841" />
         <entry key="basis/res/src/main/res/layout/res_widget_status_layout.xml" value="0.35640648011782033" />
         <entry key="module/media/src/main/res/layout/media_album_item.xml" value="0.1" />
         <entry key="module/media/src/main/res/layout/media_video_play_activity.xml" value="0.1" />
@@ -22,7 +31,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
