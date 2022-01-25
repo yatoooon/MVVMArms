@@ -12,6 +12,7 @@ import android.webkit.WebView;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -20,12 +21,10 @@ import com.arms.export.arouter.RouterHub;
 import com.arms.common.action.StatusAction;
 import com.arms.common.aop.CheckNet;
 import com.arms.common.aop.Log;
-import com.arms.res.layout.StatusLayout;
+import com.arms.common.layout.StatusLayout;
 import com.arms.web.view.BrowserView;
 import com.arms.web.R;
-import com.scwang.smart.refresh.layout.SmartRefreshLayout;
-import com.scwang.smart.refresh.layout.api.RefreshLayout;
-import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
+
 
 /**
  * author : Android 轮子哥
@@ -35,7 +34,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
  */
 @Route(path = RouterHub.PUBLIC_WEBPAGEACTIVITY)
 public final class WebPageActivity extends BaseActivity
-        implements StatusAction, OnRefreshListener {
+        implements StatusAction, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String INTENT_KEY_IN_URL = "url";
 
@@ -55,7 +54,7 @@ public final class WebPageActivity extends BaseActivity
 
     private StatusLayout mStatusLayout;
     private ProgressBar mProgressBar;
-    private SmartRefreshLayout mRefreshLayout;
+    private SwipeRefreshLayout mRefreshLayout;
     private BrowserView mBrowserView;
 
     @Override
@@ -113,12 +112,9 @@ public final class WebPageActivity extends BaseActivity
         mBrowserView.reload();
     }
 
-    /**
-     * {@link OnRefreshListener}
-     */
 
     @Override
-    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+    public void onRefresh() {
         reload();
     }
 
@@ -147,7 +143,7 @@ public final class WebPageActivity extends BaseActivity
         @Override
         public void onPageFinished(WebView view, String url) {
             mProgressBar.setVisibility(View.GONE);
-            mRefreshLayout.finishRefresh();
+            mRefreshLayout.setRefreshing(false);
             showComplete();
         }
     }

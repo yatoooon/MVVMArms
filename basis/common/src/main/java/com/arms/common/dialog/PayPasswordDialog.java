@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.arms.common.aop.SingleClick;
-import com.arms.res.view.PasswordView;
+import com.arms.common.view.PasswordView;
 import com.arms.common.adapter.BaseAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
@@ -53,7 +53,7 @@ public final class PayPasswordDialog {
 
         private final PasswordView mPasswordView;
         private final RecyclerView mRecyclerView;
-        private final BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.res_pay_password_item, BR.item) {
+        private final BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.common_pay_password_item, BR.item) {
             @Override
             protected void convert(@NonNull BaseDataBindingHolder<?> holder, String item) {
                 super.convert(holder, item);
@@ -75,7 +75,7 @@ public final class PayPasswordDialog {
 
         public Builder(Context context) {
             super(context);
-            setContentView(R.layout.res_pay_password_dialog);
+            setContentView(R.layout.common_pay_password_dialog);
             setCancelable(false);
 
             mTitleView = findViewById(R.id.tv_pay_title);

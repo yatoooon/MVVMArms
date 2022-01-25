@@ -14,8 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.arms.common.adapter.BaseAdapter;
 import com.arms.common.ext.ImageView_ExtensionKt;
-import com.arms.common.http.imageloader.ImageLoader;
-import com.arms.res.view.ScaleImageView;
+import com.arms.common.view.ScaleImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.arms.common.BR;
@@ -51,7 +50,7 @@ public final class ShareDialog {
             implements OnItemClickListener {
 
         private final RecyclerView mRecyclerView;
-        private final BaseAdapter<ShareBean> mAdapter = new BaseAdapter<ShareBean>(R.layout.res_share_item, BR.item){
+        private final BaseAdapter<ShareBean> mAdapter = new BaseAdapter<ShareBean>(R.layout.common_share_item, BR.item){
 
             @Override
             protected void convert(@NonNull BaseDataBindingHolder<?> holder, ShareBean item) {
@@ -72,7 +71,7 @@ public final class ShareDialog {
         public Builder(Activity activity) {
             super(activity);
 
-            setContentView(R.layout.res_share_dialog);
+            setContentView(R.layout.common_share_dialog);
 
             List<ShareBean> data = new ArrayList<>();
             data.add(new ShareBean(getDrawable(R.drawable.res_share_wechat_ic), getString(R.string.res_share_platform_wechat), Platform.WECHAT));

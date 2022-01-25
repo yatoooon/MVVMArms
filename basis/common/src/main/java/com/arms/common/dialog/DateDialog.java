@@ -40,9 +40,9 @@ public final class DateDialog {
         private final PickerLayoutManager mMonthManager;
         private final PickerLayoutManager mDayManager;
 
-        private final BaseAdapter<String> mYearAdapter = new BaseAdapter<>(R.layout.res_picker_item, BR.item);
-        private final BaseAdapter<String> mMonthAdapter = new BaseAdapter<>(R.layout.res_picker_item, BR.item);
-        private final BaseAdapter<String> mDayAdapter = new BaseAdapter<>(R.layout.res_picker_item, BR.item);
+        private final BaseAdapter<String> mYearAdapter = new BaseAdapter<>(R.layout.common_picker_item, BR.item);
+        private final BaseAdapter<String> mMonthAdapter = new BaseAdapter<>(R.layout.common_picker_item, BR.item);
+        private final BaseAdapter<String> mDayAdapter = new BaseAdapter<>(R.layout.common_picker_item, BR.item);
 
         private OnListener mListener;
 
@@ -58,7 +58,7 @@ public final class DateDialog {
             super(context);
             mStartYear = startYear;
 
-            setCustomView(R.layout.res_date_dialog);
+            setCustomView(R.layout.common_date_dialog);
             setTitle(R.string.res_time_title);
 
             mYearView = findViewById(R.id.rv_date_year);

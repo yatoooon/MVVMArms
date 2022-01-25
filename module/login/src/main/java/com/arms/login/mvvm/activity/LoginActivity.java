@@ -30,7 +30,7 @@ import com.arms.umeng.Platform;
 import com.arms.umeng.UmengClient;
 import com.arms.umeng.UmengLogin;
 import com.arms.common.utils.ArmsUtil;
-import com.arms.res.view.SubmitButton;
+import com.arms.common.view.SubmitButton;
 import com.arms.sample.WXEntryActivity;
 import com.umeng.socialize.UMShareAPI;
 

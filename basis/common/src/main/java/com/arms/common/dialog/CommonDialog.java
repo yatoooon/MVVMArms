@@ -37,7 +37,7 @@ public final class CommonDialog {
         public Builder(Context context) {
             super(context);
 
-            setContentView(R.layout.res_ui_dialog);
+            setContentView(R.layout.common_ui_dialog);
             setAnimStyle(BaseDialog.ANIM_IOS);
             setGravity(Gravity.CENTER);
 

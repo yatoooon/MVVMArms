@@ -11,7 +11,7 @@
             android:name="com.arms.splash.mvvm.activity.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/res_SplashTheme">
+            >
 
             <!-- 程序入口 -->
             <intent-filter>

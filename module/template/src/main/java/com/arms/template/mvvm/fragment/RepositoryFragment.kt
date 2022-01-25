@@ -7,7 +7,7 @@ import com.arms.core.base.mvvm.BaseVMFragment
 import com.arms.export.arouter.RouterHub
 import com.arms.common.adapter.BaseAdapter
 import com.arms.common.adapter.BaseAdapter.Companion.PAGE_SIZE
-import com.arms.res.layout.StatusLayout
+import com.arms.common.layout.StatusLayout
 import com.arms.common.livedata.StatusEvent
 import com.arms.template.R
 import com.arms.template.mvvm.model.entity.Item

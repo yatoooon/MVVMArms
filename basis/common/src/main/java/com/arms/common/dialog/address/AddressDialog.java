@@ -52,7 +52,7 @@ public final class AddressDialog {
 
         private final ViewPager2 mViewPager;
 
-        private final TabAdapter mTabAdapter = new TabAdapter(R.layout.res_tab_item_sliding, BR.item);
+        private final TabAdapter mTabAdapter = new TabAdapter(R.layout.common_tab_item_sliding, BR.item);
         private final RecyclerViewAdapter mAdapter;
         private final ViewPager2.OnPageChangeCallback mCallback;
 
@@ -68,11 +68,11 @@ public final class AddressDialog {
         @SuppressWarnings("all")
         public Builder(Context context) {
             super(context);
-            setContentView(R.layout.res_address_dialog);
+            setContentView(R.layout.common_address_dialog);
             setHeight(getResources().getDisplayMetrics().heightPixels / 2);
 
             mViewPager = findViewById(R.id.vp_address_pager);
-            mAdapter = new RecyclerViewAdapter(R.layout.res_address_dialog_item_rv, BR.item);
+            mAdapter = new RecyclerViewAdapter(R.layout.common_address_dialog_item_rv, BR.item);
             mAdapter.setOnSelectListener(this);
             mViewPager.setAdapter(mAdapter);
 

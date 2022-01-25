@@ -29,7 +29,7 @@ public final class MessageDialog {
 
         public Builder(Context context) {
             super(context);
-            setCustomView(R.layout.res_message_dialog);
+            setCustomView(R.layout.common_message_dialog);
             mMessageView = findViewById(R.id.tv_message_message);
         }
 

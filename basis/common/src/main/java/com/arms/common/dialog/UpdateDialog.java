@@ -59,7 +59,7 @@ public final class UpdateDialog {
         public Builder(Context context) {
             super(context);
 
-            setContentView(R.layout.res_update_dialog);
+            setContentView(R.layout.common_update_dialog);
             setAnimStyle(BaseDialog.ANIM_BOTTOM);
             setCancelable(false);
 

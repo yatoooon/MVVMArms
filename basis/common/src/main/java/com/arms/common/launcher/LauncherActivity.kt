@@ -43,7 +43,7 @@ class LauncherActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.res_activity_launcher)
+        setContentView(R.layout.common_activity_launcher)
         val linearLayout = findViewById<LinearLayout>(R.id.root)
         packageManager.getPackageInfo(
             packageName, PackageManager.GET_ACTIVITIES

@@ -49,13 +49,13 @@ public final class SelectDialog {
         public Builder(Context context) {
             super(context);
 
-            setCustomView(R.layout.res_select_dialog);
+            setCustomView(R.layout.common_select_dialog);
             mRecyclerView = findViewById(R.id.rv_select_list);
             mRecyclerView.setItemAnimator(null);
             mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-            mAdapter = new SelectAdapter(R.layout.res_select_item, BR.item);
+            mAdapter = new SelectAdapter(R.layout.common_select_item, BR.item);
             mRecyclerView.setAdapter(mAdapter);
         }
 

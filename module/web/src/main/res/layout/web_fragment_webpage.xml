@@ -9,27 +9,22 @@
 
 
 
-    <com.arms.res.layout.StatusLayout
+    <com.arms.common.layout.StatusLayout
         android:id="@+id/hl_browser_hint"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/sl_browser_refresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srlEnableHeaderTranslationContent="false"
-            app:srlEnableLoadMore="false"
-            app:srlEnablePreviewInEditMode="false"
-            app:srlPrimaryColor="#444444">
+            android:layout_height="wrap_content">
 
             <com.arms.web.view.BrowserView
                 android:id="@+id/wv_browser_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
-
-    </com.arms.res.layout.StatusLayout>
+    </com.arms.common.layout.StatusLayout>
 
 </layout>

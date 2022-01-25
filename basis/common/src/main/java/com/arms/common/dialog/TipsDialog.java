@@ -34,7 +34,7 @@ public final class TipsDialog {
 
         public Builder(Context context) {
             super(context);
-            setContentView(R.layout.res_tips_dialog);
+            setContentView(R.layout.common_tips_dialog);
             setAnimStyle(BaseDialog.ANIM_TOAST);
             setBackgroundDimEnabled(false);
             setCancelable(false);

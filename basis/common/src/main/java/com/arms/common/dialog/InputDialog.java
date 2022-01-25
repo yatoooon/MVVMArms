@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
 import com.arms.common.aop.SingleClick;
-import com.arms.res.view.RegexEditText;
+import com.arms.common.view.RegexEditText;
 import com.arms.common.R;
 
 
@@ -34,7 +34,7 @@ public final class InputDialog {
 
         public Builder(Context context) {
             super(context);
-            setCustomView(R.layout.res_input_dialog);
+            setCustomView(R.layout.common_input_dialog);
 
             mInputView = findViewById(R.id.tv_input_message);
             mInputView.setOnEditorActionListener(this);

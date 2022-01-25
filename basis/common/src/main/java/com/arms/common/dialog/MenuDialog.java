@@ -46,7 +46,7 @@ public final class MenuDialog {
         private final RecyclerView mRecyclerView;
         private final TextView mCancelView;
 
-        private final BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.res_menu_item, BR.item) {
+        private final BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.common_menu_item, BR.item) {
             @Override
             protected void convert(@NonNull BaseDataBindingHolder<?> holder, String item) {
                 super.convert(holder, item);
@@ -61,7 +61,7 @@ public final class MenuDialog {
 
         public Builder(Context context) {
             super(context);
-            setContentView(R.layout.res_menu_dialog);
+            setContentView(R.layout.common_menu_dialog);
             setAnimStyle(BaseDialog.ANIM_BOTTOM);
 
             mRecyclerView = findViewById(R.id.rv_menu_list);

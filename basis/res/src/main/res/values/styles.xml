@@ -12,7 +12,7 @@
         <!-- 默认文本颜色，Button、TextView 的文字颜色 -->
         <item name="android:textColor">@color/res_text_color</item>
         <!-- 默认字体大小，Button、TextView 的字体大小 -->
-        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textSize">@dimen/res_sp_14</item>
         <!-- 默认提示颜色，Button、TextView 的提示文字颜色 -->
         <item name="android:textColorHint">@color/res_text_hint_color</item>
         <!-- ActionMode 覆盖 Actionbar 不被顶下来 -->

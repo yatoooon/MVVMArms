@@ -33,10 +33,10 @@ import com.arms.common.adapter.BaseAdapter;
 import com.arms.common.aop.Log;
 import com.arms.common.aop.Permissions;
 import com.arms.common.aop.SingleClick;
-import com.arms.res.layout.StatusLayout;
+import com.arms.common.layout.StatusLayout;
 import com.arms.common.manager.ThreadPoolManager;
-import com.arms.res.view.FloatActionButton;
-import com.arms.res.view.GridSpaceDecoration;
+import com.arms.common.view.FloatActionButton;
+import com.arms.common.view.GridSpaceDecoration;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 

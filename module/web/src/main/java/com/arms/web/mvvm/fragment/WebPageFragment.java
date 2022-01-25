@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.arms.core.base.BaseFragment;
@@ -13,14 +14,12 @@ import com.arms.export.arouter.RouterHub;
 import com.arms.common.action.StatusAction;
 import com.arms.common.aop.CheckNet;
 import com.arms.common.aop.Log;
-import com.arms.res.layout.StatusLayout;
+import com.arms.common.layout.StatusLayout;
 import com.arms.web.view.BrowserView;
 import com.arms.web.R;
 import com.arms.web.databinding.WebFragmentWebpageBinding;
 import com.arms.web.mvvm.activity.WebPageActivity;
-import com.scwang.smart.refresh.layout.SmartRefreshLayout;
-import com.scwang.smart.refresh.layout.api.RefreshLayout;
-import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
+
 
 /**
  *    author : Android 轮子哥
@@ -30,7 +29,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
  */
 @Route(path = RouterHub.PUBLIC_WEBPAGEFRAGMENT)
 public final class WebPageFragment extends BaseFragment<WebFragmentWebpageBinding>
-        implements StatusAction, OnRefreshListener {
+        implements StatusAction, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String INTENT_KEY_IN_URL = "url";
 
@@ -44,7 +43,7 @@ public final class WebPageFragment extends BaseFragment<WebFragmentWebpageBindin
     }
 
     private StatusLayout mStatusLayout;
-    private SmartRefreshLayout mRefreshLayout;
+    private SwipeRefreshLayout mRefreshLayout;
     private BrowserView mBrowserView;
 
     @Override
@@ -85,12 +84,9 @@ public final class WebPageFragment extends BaseFragment<WebFragmentWebpageBindin
         mBrowserView.reload();
     }
 
-    /**
-     * {@link OnRefreshListener}
-     */
 
     @Override
-    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+    public void onRefresh() {
         reload();
     }
 
@@ -116,7 +112,7 @@ public final class WebPageFragment extends BaseFragment<WebFragmentWebpageBindin
          */
         @Override
         public void onPageFinished(WebView view, String url) {
-            mRefreshLayout.finishRefresh();
+            mRefreshLayout.setRefreshing(false);
             showComplete();
         }
 

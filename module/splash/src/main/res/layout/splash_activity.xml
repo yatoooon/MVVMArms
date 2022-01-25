@@ -24,7 +24,7 @@
             app:lottie_loop="false"
             app:lottie_rawRes="@raw/splash_welcome" />
 
-        <com.arms.res.view.SlantedTextView
+        <com.arms.common.view.SlantedTextView
             android:id="@+id/iv_splash_debug"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -103,7 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/res_white"
-                android:textSize="@dimen/sp_14"
+                android:textSize="@dimen/res_sp_14"
                 tools:text="00:00" />
 
             <androidx.appcompat.widget.AppCompatSeekBar
@@ -126,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/res_white"
-                android:textSize="@dimen/sp_14"
+                android:textSize="@dimen/res_sp_14"
                 tools:text="10:00" />
 
         </com.hjq.shape.layout.ShapeLinearLayout>
@@ -163,7 +163,7 @@
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/progress" />
 
-            <com.arms.res.view.SmartTextView
+            <com.arms.common.view.SmartTextView
                 android:id="@+id/tv_player_view_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
                 android:layout_marginTop="@dimen/res_dp_5"
                 android:maxLines="3"
                 android:textColor="@color/res_white"
-                android:textSize="@dimen/sp_14"
+                android:textSize="@dimen/res_sp_14"
                 tools:text="@string/res_common_loading" />
         </LinearLayout>
 

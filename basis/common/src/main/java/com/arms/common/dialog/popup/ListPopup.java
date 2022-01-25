@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.arms.common.action.AnimAction;
 import com.arms.common.adapter.BaseAdapter;
-import com.arms.res.view.ArrowDrawable;
+import com.arms.common.view.ArrowDrawable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
@@ -40,7 +40,7 @@ public final class ListPopup {
         private OnListener mListener;
         private boolean mAutoDismiss = true;
 
-        private final BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.res_popup_item, BR.item){
+        private final BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.common_popup_item, BR.item){
             @Override
             protected void convert(@NonNull BaseDataBindingHolder<?> holder, String item) {
                 super.convert(holder, item);

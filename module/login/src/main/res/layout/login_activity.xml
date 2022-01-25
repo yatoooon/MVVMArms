@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.arms.res.view.ClearEditText
+        <com.arms.common.view.ClearEditText
             android:id="@+id/et_login_phone"
             style="@style/res_EditTextStyle"
             android:layout_width="match_parent"
@@ -52,7 +52,7 @@
             style="@style/res_HorizontalLineStyle"
             android:layout_marginHorizontal="@dimen/res_dp_40" />
 
-        <com.arms.res.view.PasswordEditText
+        <com.arms.common.view.PasswordEditText
             android:id="@+id/et_login_password"
             style="@style/res_EditTextStyle"
             android:layout_width="match_parent"
@@ -79,7 +79,7 @@
             android:text="@string/res_login_forget"
             android:textColor="@color/res_accent_color" />
 
-        <com.arms.res.view.SubmitButton
+        <com.arms.common.view.SubmitButton
             android:id="@+id/btn_login_commit"
             style="@style/res_ButtonStyle"
             android:layout_width="match_parent"
@@ -126,7 +126,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.arms.res.view.ScaleImageView
+        <com.arms.common.view.ScaleImageView
             android:id="@+id/iv_login_qq"
             android:layout_width="@dimen/res_dp_35"
             android:layout_height="@dimen/res_dp_35"
@@ -136,7 +136,7 @@
             app:res_scaleRatio="1.2"
             app:srcCompat="@drawable/login_qq_ic" />
 
-        <com.arms.res.view.ScaleImageView
+        <com.arms.common.view.ScaleImageView
             android:id="@+id/iv_login_wechat"
             android:layout_width="@dimen/res_dp_35"
             android:layout_height="@dimen/res_dp_35"

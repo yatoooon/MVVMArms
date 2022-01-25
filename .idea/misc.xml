@@ -7,8 +7,12 @@
         <entry key="basis/common/src/main/res/layout/common_rv_item.xml" value="0.11141304347826086" />
         <entry key="basis/common/src/main/res/layout/common_widget_player_view.xml" value="0.1" />
         <entry key="basis/common/src/main/res/layout/common_widget_status_layout.xml" value="0.1" />
+        <entry key="basis/common/src/main/res/layout/res_activity_launcher.xml" value="0.1" />
         <entry key="basis/common/src/main/res/layout/res_address_dialog_item_tv.xml" value="0.11775362318840579" />
+        <entry key="basis/common/src/main/res/layout/res_custom_dialog.xml" value="0.1" />
         <entry key="basis/common/src/main/res/layout/res_share_item.xml" value="0.11775362318840579" />
+        <entry key="basis/common/src/main/res/layout/res_time_dialog.xml" value="0.13728470111448834" />
+        <entry key="basis/common/src/main/res/layout/res_widget_status_layout.xml" value="0.1" />
         <entry key="basis/common/src/main/res/layout/safe_dialog.xml" value="0.13269927536231885" />
         <entry key="basis/core/src/main/res/layout/core_content_activity.xml" value="0.13728470111448834" />
         <entry key="basis/core/src/main/res/layout/core_crash_activity.xml" value="0.13269927536231885" />
@@ -23,11 +27,19 @@
         <entry key="basis/res/src/main/res/layout/res_time_dialog.xml" value="0.1" />
         <entry key="basis/res/src/main/res/layout/res_widget_player_view.xml" value="0.13949275362318841" />
         <entry key="basis/res/src/main/res/layout/res_widget_status_layout.xml" value="0.35640648011782033" />
+        <entry key="module/home/src/main/res/layout/home_content_main.xml" value="0.1" />
+        <entry key="module/login/src/main/res/layout/login_activity.xml" value="0.13949275362318841" />
         <entry key="module/media/src/main/res/layout/media_album_item.xml" value="0.1" />
+        <entry key="module/media/src/main/res/layout/media_image_preview_activity.xml" value="0.13949275362318841" />
         <entry key="module/media/src/main/res/layout/media_video_play_activity.xml" value="0.1" />
+        <entry key="module/personal/src/main/res/layout/personal_setting_activity.xml" value="0.13949275362318841" />
+        <entry key="module/splash/src/main/res/layout/splash_activity.xml" value="0.1" />
         <entry key="module/template/src/main/res/drawable/home_search_bar_gray_bg.xml" value="0.16458333333333333" />
         <entry key="module/template/src/main/res/drawable/template_search_bar_transparent_bg.xml" value="0.16458333333333333" />
         <entry key="module/template/src/main/res/drawable/template_search_ic.xml" value="0.16458333333333333" />
+        <entry key="module/template/src/main/res/layout/template_fragment_found.xml" value="0.1" />
+        <entry key="module/web/src/main/res/layout/web_activity_webpage.xml" value="0.1" />
+        <entry key="module/web/src/main/res/layout/web_fragment_webpage.xml" value="0.13949275362318841" />
       </map>
     </option>
   </component>

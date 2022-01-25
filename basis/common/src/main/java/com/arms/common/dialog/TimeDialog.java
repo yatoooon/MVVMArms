@@ -34,9 +34,9 @@ public final class TimeDialog {
         private final PickerLayoutManager mMinuteManager;
         private final PickerLayoutManager mSecondManager;
 
-        private final BaseAdapter<String> mHourAdapter=new BaseAdapter<String>(R.layout.res_picker_item, BR.item);
-        private final BaseAdapter<String> mMinuteAdapter=new BaseAdapter<String>(R.layout.res_picker_item, BR.item);
-        private final BaseAdapter<String> mSecondAdapter=new BaseAdapter<String>(R.layout.res_picker_item, BR.item);
+        private final BaseAdapter<String> mHourAdapter=new BaseAdapter<String>(R.layout.common_picker_item, BR.item);
+        private final BaseAdapter<String> mMinuteAdapter=new BaseAdapter<String>(R.layout.common_picker_item, BR.item);
+        private final BaseAdapter<String> mSecondAdapter=new BaseAdapter<String>(R.layout.common_picker_item, BR.item);
 
         @Nullable
         private OnListener mListener;
@@ -44,7 +44,7 @@ public final class TimeDialog {
         @SuppressWarnings("all")
         public Builder(Context context) {
             super(context);
-            setCustomView(R.layout.res_time_dialog);
+            setCustomView(R.layout.common_time_dialog);
             setTitle(R.string.res_time_title);
 
             mHourView = findViewById(R.id.rv_time_hour);

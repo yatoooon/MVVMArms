@@ -5,8 +5,8 @@ import com.arms.common.action.StatusAction
 import com.arms.common.dialog.BaseDialog
 import com.arms.common.dialog.MenuDialog
 import com.arms.core.base.BaseActivity
-import com.arms.res.layout.StatusLayout
-import com.arms.res.layout.StatusLayout.OnRetryListener
+import com.arms.common.layout.StatusLayout
+import com.arms.common.layout.StatusLayout.OnRetryListener
 import com.arms.template.R
 import com.arms.template.databinding.TemplateStatusActivityBinding
 

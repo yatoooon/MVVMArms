@@ -15,8 +15,8 @@ import com.arms.login.R;
 import com.arms.common.aop.Log;
 import com.arms.common.aop.SingleClick;
 import com.arms.common.manager.InputTextManager;
-import com.arms.res.view.CountdownView;
-import com.arms.res.view.SubmitButton;
+import com.arms.common.view.CountdownView;
+import com.arms.common.view.SubmitButton;
 import com.gyf.immersionbar.ImmersionBar;
 
 

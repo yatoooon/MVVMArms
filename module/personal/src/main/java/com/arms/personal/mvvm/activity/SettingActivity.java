@@ -16,11 +16,11 @@ import com.arms.common.dialog.MenuDialog;
 import com.arms.common.dialog.SafeDialog;
 import com.arms.common.dialog.UpdateDialog;
 import com.arms.common.ext.Context_ExtensionKt;
-import com.arms.res.layout.SettingBar;
+import com.arms.common.layout.SettingBar;
 import com.arms.common.manager.ThreadPoolManager;
 import com.arms.common.utils.AppManager;
 import com.arms.common.utils.CacheUtil;
-import com.arms.res.view.SwitchButton;
+import com.arms.common.view.SwitchButton;
 
 
 /**

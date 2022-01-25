@@ -10,7 +10,7 @@ import androidx.annotation.RawRes;
 import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 
-import com.arms.res.layout.StatusLayout;
+import com.arms.common.layout.StatusLayout;
 import com.arms.common.R;
 
 

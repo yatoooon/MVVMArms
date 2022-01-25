@@ -17,7 +17,7 @@ shadow {
                         buildTask = 'assemblePluginDebug'
                         dependsOn = ['base-plugin']
                         apkName = project.name + '-plugin-debug.apk'
-                        apkPath = project.name + '/build/outputs/apk/plugin/debug/' + apkName
+                        apkPath = 'module/'+project.name + '/build/outputs/apk/plugin/debug/' + apkName
                     }
                 }
             }

@@ -15,7 +15,7 @@
             android:name="com.arms.media.mvvm.activity.VideoPlayActivity"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
-            android:theme="@style/res_FullScreenTheme" />
+             />
         <activity
             android:name="com.arms.media.mvvm.activity.VideoSelectActivity"
             android:launchMode="singleTop"
@@ -24,12 +24,12 @@
             android:name="com.arms.media.mvvm.activity.VideoPlayActivity$Portrait"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/res_FullScreenTheme" />
+            />
         <activity
             android:name="com.arms.media.mvvm.activity.VideoPlayActivity$Landscape"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
-            android:theme="@style/res_FullScreenTheme" />
+             />
         <activity
             android:name="com.arms.media.mvvm.activity.ImagePreviewActivity"
             android:launchMode="singleTop"

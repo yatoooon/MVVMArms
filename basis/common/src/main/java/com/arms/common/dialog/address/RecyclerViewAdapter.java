@@ -1,6 +1,5 @@
 package com.arms.common.dialog.address;
 
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -33,7 +32,7 @@ public final class RecyclerViewAdapter extends BaseAdapter<List<AddressDialog.Ad
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setNestedScrollingEnabled(true);
         recyclerView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        BaseAdapter<AddressDialog.AddressBean> mAdapter = new BaseAdapter<AddressDialog.AddressBean>(R.layout.res_address_dialog_item_tv, BR.item){
+        BaseAdapter<AddressDialog.AddressBean> mAdapter = new BaseAdapter<AddressDialog.AddressBean>(R.layout.common_address_dialog_item_tv, BR.item){
             @Override
             protected void convert(@NonNull BaseDataBindingHolder<?> holder, AddressDialog.AddressBean item) {
                 super.convert(holder, item);

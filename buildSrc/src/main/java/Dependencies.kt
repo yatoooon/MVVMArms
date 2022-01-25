@@ -1,5 +1,5 @@
-const val isRunAlone = false
-const val isRunPlugin = false
+const val isRunAlone = true
+const val isRunPlugin = true
 
 /**
  * 版本信息

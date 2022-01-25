@@ -41,10 +41,10 @@ import com.arms.common.dialog.BaseDialog;
 import com.arms.common.dialog.InputDialog;
 import com.arms.common.dialog.MessageDialog;
 import com.arms.common.dialog.TipsDialog;
-import com.arms.res.layout.NestedScrollWebView;
-import com.arms.common.utils.PermissionCallback;
+import com.arms.common.layout.NestedScrollWebView;
 import com.arms.web.BuildConfig;
 import com.arms.web.R;
+import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 
@@ -59,7 +59,7 @@ import timber.log.Timber;
  * time   : 2019/09/24
  * desc   : 基于原生 WebView 封装
  */
-public final class BrowserView extends NestedScrollWebView
+public final class BrowserView extends WebView
         implements LifecycleEventObserver, ActivityAction {
 
     static {
@@ -438,13 +438,9 @@ public final class BrowserView extends NestedScrollWebView
                             XXPermissions.with(activity)
                                     .permission(Permission.ACCESS_FINE_LOCATION)
                                     .permission(Permission.ACCESS_COARSE_LOCATION)
-                                    .request(new PermissionCallback() {
-
-                                        @Override
-                                        public void onGranted(List<String> permissions, boolean all) {
-                                            if (all) {
-                                                callback.invoke(origin, true, true);
-                                            }
+                                    .request((permissions, all) -> {
+                                        if (all) {
+                                            callback.invoke(origin, true, true);
                                         }
                                     });
                         }
@@ -474,7 +470,7 @@ public final class BrowserView extends NestedScrollWebView
 
             XXPermissions.with(activity)
                     .permission(Permission.Group.STORAGE)
-                    .request(new PermissionCallback() {
+                    .request(new OnPermissionCallback() {
                         @Override
                         public void onGranted(List<String> permissions, boolean all) {
                             if (all) {
@@ -484,7 +480,6 @@ public final class BrowserView extends NestedScrollWebView
 
                         @Override
                         public void onDenied(List<String> permissions, boolean never) {
-                            super.onDenied(permissions, never);
                             callback.onReceiveValue(null);
                         }
                     });

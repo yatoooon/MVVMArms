@@ -35,7 +35,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.arms.common.R;
 import com.arms.common.action.ActivityAction;
 import com.arms.common.dialog.MessageDialog;
-import com.arms.res.layout.SimpleLayout;
+import com.arms.common.layout.SimpleLayout;
 
 import java.io.File;
 import java.util.Formatter;

@@ -482,20 +482,20 @@ public final class DialogActivity extends BaseActivity {
         } else if (viewId == R.id.btn_dialog_custom) {
 
             // 自定义对话框
-            new BaseDialog.Builder<>(this)
-                    .setContentView(R.layout.res_custom_dialog)
-                    .setAnimStyle(BaseDialog.ANIM_SCALE)
+//            new BaseDialog.Builder<>(this)
+//                    .setContentView(R.layout.res_custom_dialog)
+//                    .setAnimStyle(BaseDialog.ANIM_SCALE)
 //                    .setText(id, "我是预设置的文本")
-                    .setOnClickListener(R.id.btn_dialog_custom_ok, (BaseDialog.OnClickListener<Button>) (dialog, button) -> dialog.dismiss())
-                    .setOnCreateListener(dialog -> toast("Dialog 创建了"))
-                    .addOnShowListener(dialog -> toast("Dialog 显示了"))
-                    .addOnCancelListener(dialog -> toast("Dialog 取消了"))
-                    .addOnDismissListener(dialog -> toast("Dialog 销毁了"))
-                    .setOnKeyListener((dialog, event) -> {
-                        toast("按键代码：" + event.getKeyCode());
-                        return false;
-                    })
-                    .show();
+//                    .setOnClickListener(R.id.btn_dialog_custom_ok, (BaseDialog.OnClickListener<Button>) (dialog, button) -> dialog.dismiss())
+//                    .setOnCreateListener(dialog -> toast("Dialog 创建了"))
+//                    .addOnShowListener(dialog -> toast("Dialog 显示了"))
+//                    .addOnCancelListener(dialog -> toast("Dialog 取消了"))
+//                    .addOnDismissListener(dialog -> toast("Dialog 销毁了"))
+//                    .setOnKeyListener((dialog, event) -> {
+//                        toast("按键代码：" + event.getKeyCode());
+//                        return false;
+//                    })
+//                    .show();
 
         } else if (viewId == R.id.btn_dialog_multi) {
 

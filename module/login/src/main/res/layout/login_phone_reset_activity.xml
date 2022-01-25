@@ -22,7 +22,7 @@
         android:textColor="#A4A4A4"
         android:textSize="@dimen/res_sp_14" />
 
-    <com.arms.res.view.RegexEditText
+    <com.arms.common.view.RegexEditText
         android:id="@+id/et_phone_reset_phone"
         style="@style/res_EditTextStyle"
         android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:paddingVertical="@dimen/res_dp_18"
             android:singleLine="true" />
 
-        <com.arms.res.view.CountdownView
+        <com.arms.common.view.CountdownView
             android:id="@+id/cv_phone_reset_countdown"
             style="@style/res_CountdownViewStyle" />
 

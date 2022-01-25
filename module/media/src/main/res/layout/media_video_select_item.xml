@@ -10,12 +10,12 @@
             type="com.arms.export.data.VideoBean" />
     </data>
 
-    <com.arms.res.layout.RatioFrameLayout
+    <com.arms.common.layout.RatioFrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:res_sizeRatio="1:1">
 
-        <com.arms.res.view.ScaleImageView
+        <com.arms.common.view.ScaleImageView
             android:id="@+id/iv_video_select_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -76,5 +76,5 @@
                 tools:text="10.24M" />
         </FrameLayout>
 
-    </com.arms.res.layout.RatioFrameLayout>
+    </com.arms.common.layout.RatioFrameLayout>
 </layout>

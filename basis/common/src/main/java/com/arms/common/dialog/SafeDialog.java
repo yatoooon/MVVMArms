@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.arms.common.aop.SingleClick;
-import com.arms.res.view.CountdownView;
+import com.arms.common.view.CountdownView;
 import com.arms.common.R;
 import com.hjq.toast.ToastUtils;
 
@@ -36,7 +36,7 @@ public final class SafeDialog {
         public Builder(Context context) {
             super(context);
             setTitle(R.string.res_safe_title);
-            setCustomView(R.layout.res_safe_dialog);
+            setCustomView(R.layout.common_safe_dialog);
             mPhoneView = findViewById(R.id.tv_safe_phone);
             mCodeView = findViewById(R.id.et_safe_code);
             mCountdownView = findViewById(R.id.cv_safe_countdown);
