@@ -1,6 +1,7 @@
 package com.arms.template.mvvm.fragment
 
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.launcher.ARouter
 import com.arms.common.action.StatusAction
 import com.arms.core.base.mvvm.BaseVMFragment
@@ -75,6 +76,7 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
         binding.srlRefresh.setOnRefreshListener { refresh() }
         mAdapter.loadMoreModule.setOnLoadMoreListener { loadMore() }
         mAdapter.loadMoreModule.isAutoLoadMore = true
+        binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = mAdapter
         binding.srlRefresh.setColorSchemeResources(R.color.res_primary_color)
         /*  statusAdapter.addFooterView(

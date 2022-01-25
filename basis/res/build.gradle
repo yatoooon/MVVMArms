@@ -38,6 +38,4 @@ android {
 }
 
 dependencies {
-//    api Deps.appcompat
-//    api Deps.design
 }

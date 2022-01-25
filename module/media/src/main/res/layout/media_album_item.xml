@@ -80,7 +80,7 @@
             android:visibility="@{item.select?View.VISIBLE:View.GONE}"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            app:buttonCompat="@drawable/res_radiobutton_selector" />
+            android:button="@drawable/res_radiobutton_selector" />
 
     </LinearLayout>
 </layout>

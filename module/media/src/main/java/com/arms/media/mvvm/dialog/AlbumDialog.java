@@ -5,6 +5,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.arms.common.ext.Context_ExtensionKt;
@@ -43,6 +44,7 @@ public final class AlbumDialog {
             setContentView(R.layout.media_album_dialog);
 
             mRecyclerView = findViewById(R.id.rv_album_list);
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             mRecyclerView.getShapeDrawableBuilder().setShape(ShapeType.RECTANGLE);
             mRecyclerView.getShapeDrawableBuilder().setRadius(Context_ExtensionKt.dp2px(context, 20));
             mRecyclerView.getShapeDrawableBuilder().setSolidColor(R.color.res_white);

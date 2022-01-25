@@ -3,6 +3,7 @@ package com.arms.template.mvvm.fragment
 import android.os.Bundle
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.arms.core.base.mvvm.BaseVMFragment
 import com.arms.common.adapter.BaseAdapter
 import com.arms.common.adapter.BaseAdapter.Companion.PAGE_SIZE
@@ -54,6 +55,7 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
         binding.srlRefresh.setOnRefreshListener { refresh() }
         mAdapter.loadMoreModule.setOnLoadMoreListener { loadMore() }
         mAdapter.loadMoreModule.isAutoLoadMore = true
+        binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = mAdapter
         binding.srlRefresh.setColorSchemeResources(R.color.res_primary_color)
         mAdapter.addHeaderView(

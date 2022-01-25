@@ -45,6 +45,7 @@
         <entry key="module/media/src/main/res/layout/media_image_select_activity.xml" value="0.13632246376811594" />
         <entry key="module/media/src/main/res/layout/media_video_play_activity.xml" value="0.1" />
         <entry key="module/media/src/main/res/layout/media_video_select_activity.xml" value="0.12273550724637682" />
+        <entry key="module/media/src/main/res/layout/media_video_select_item.xml" value="0.11684782608695653" />
         <entry key="module/personal/src/main/res/layout/personal_data_activity.xml" value="0.13632246376811594" />
         <entry key="module/personal/src/main/res/layout/personal_setting_activity.xml" value="0.13949275362318841" />
         <entry key="module/splash/src/main/res/layout/splash_activity.xml" value="0.1" />
@@ -57,6 +58,8 @@
         <entry key="module/template/src/main/res/layout/template_fragment_found.xml" value="0.1" />
         <entry key="module/template/src/main/res/layout/template_fragment_home.xml" value="0.1" />
         <entry key="module/template/src/main/res/layout/template_fragment_message.xml" value="0.12273550724637682" />
+        <entry key="module/template/src/main/res/layout/template_fragment_repository.xml" value="0.1" />
+        <entry key="module/template/src/main/res/layout/template_fragment_status.xml" value="0.11684782608695653" />
         <entry key="module/template/src/main/res/layout/template_status_activity.xml" value="0.12273550724637682" />
         <entry key="module/web/src/main/res/layout/web_activity_webpage.xml" value="0.1" />
         <entry key="module/web/src/main/res/layout/web_fragment_webpage.xml" value="0.13949275362318841" />

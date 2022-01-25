@@ -8,7 +8,6 @@
     android:layout_gravity="bottom"
     android:layoutAnimation="@anim/res_layout_from_bottom"
     android:orientation="vertical"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:itemCount="4"
     tools:layoutAnimation="@null"
     tools:listitem="@layout/media_album_item" />
