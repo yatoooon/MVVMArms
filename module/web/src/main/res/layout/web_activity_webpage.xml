@@ -9,8 +9,7 @@
     <com.hjq.bar.TitleBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:rightIconHeight="@dimen/res_dp_20"
-        app:title="@string/res_web_title" />
+         />
 
     <ProgressBar
         android:id="@+id/pb_browser_progress"

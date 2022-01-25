@@ -4,7 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.30256410256410254" />
+        <entry key="basis/common/src/main/res/layout/common_address_dialog.xml" value="0.13728470111448834" />
+        <entry key="basis/common/src/main/res/layout/common_layout_refresh_header.xml" value="0.13728470111448834" />
+        <entry key="basis/common/src/main/res/layout/common_pay_password_dialog.xml" value="0.13728470111448834" />
         <entry key="basis/common/src/main/res/layout/common_rv_item.xml" value="0.11141304347826086" />
+        <entry key="basis/common/src/main/res/layout/common_share_dialog.xml" value="0.13728470111448834" />
+        <entry key="basis/common/src/main/res/layout/common_tab_item_sliding.xml" value="0.13728470111448834" />
+        <entry key="basis/common/src/main/res/layout/common_wait_dialog.xml" value="0.13728470111448834" />
         <entry key="basis/common/src/main/res/layout/common_widget_player_view.xml" value="0.1" />
         <entry key="basis/common/src/main/res/layout/common_widget_status_layout.xml" value="0.1" />
         <entry key="basis/common/src/main/res/layout/res_activity_launcher.xml" value="0.1" />
@@ -29,15 +35,29 @@
         <entry key="basis/res/src/main/res/layout/res_widget_status_layout.xml" value="0.35640648011782033" />
         <entry key="module/home/src/main/res/layout/home_content_main.xml" value="0.1" />
         <entry key="module/login/src/main/res/layout/login_activity.xml" value="0.13949275362318841" />
+        <entry key="module/login/src/main/res/layout/login_password_forget_activity.xml" value="0.12273550724637682" />
+        <entry key="module/login/src/main/res/layout/login_password_reset_activity.xml" value="0.12273550724637682" />
+        <entry key="module/login/src/main/res/layout/login_phone_reset_activity.xml" value="0.12273550724637682" />
+        <entry key="module/login/src/main/res/layout/login_register_activity.xml" value="0.12273550724637682" />
+        <entry key="module/media/src/main/res/layout/media_album_dialog.xml" value="0.13728470111448834" />
         <entry key="module/media/src/main/res/layout/media_album_item.xml" value="0.1" />
         <entry key="module/media/src/main/res/layout/media_image_preview_activity.xml" value="0.13949275362318841" />
+        <entry key="module/media/src/main/res/layout/media_image_select_activity.xml" value="0.13632246376811594" />
         <entry key="module/media/src/main/res/layout/media_video_play_activity.xml" value="0.1" />
+        <entry key="module/media/src/main/res/layout/media_video_select_activity.xml" value="0.12273550724637682" />
+        <entry key="module/personal/src/main/res/layout/personal_data_activity.xml" value="0.13632246376811594" />
         <entry key="module/personal/src/main/res/layout/personal_setting_activity.xml" value="0.13949275362318841" />
         <entry key="module/splash/src/main/res/layout/splash_activity.xml" value="0.1" />
+        <entry key="module/splash/src/main/res/layout/splash_guide_activity.xml" value="0.13728470111448834" />
         <entry key="module/template/src/main/res/drawable/home_search_bar_gray_bg.xml" value="0.16458333333333333" />
         <entry key="module/template/src/main/res/drawable/template_search_bar_transparent_bg.xml" value="0.16458333333333333" />
         <entry key="module/template/src/main/res/drawable/template_search_ic.xml" value="0.16458333333333333" />
+        <entry key="module/template/src/main/res/layout/template_activity_template.xml" value="0.1" />
+        <entry key="module/template/src/main/res/layout/template_dialog_activity.xml" value="0.13632246376811594" />
         <entry key="module/template/src/main/res/layout/template_fragment_found.xml" value="0.1" />
+        <entry key="module/template/src/main/res/layout/template_fragment_home.xml" value="0.1" />
+        <entry key="module/template/src/main/res/layout/template_fragment_message.xml" value="0.12273550724637682" />
+        <entry key="module/template/src/main/res/layout/template_status_activity.xml" value="0.12273550724637682" />
         <entry key="module/web/src/main/res/layout/web_activity_webpage.xml" value="0.1" />
         <entry key="module/web/src/main/res/layout/web_fragment_webpage.xml" value="0.13949275362318841" />
       </map>

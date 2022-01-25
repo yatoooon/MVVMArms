@@ -7,10 +7,6 @@
     android:layout_gravity="bottom"
     android:background="@color/res_white"
     android:orientation="vertical"
-    app:shape="rectangle"
-    app:shape_solidColor="@color/res_white"
-    app:shape_topLeftRadius="@dimen/res_dp_20"
-    app:shape_topRightRadius="@dimen/res_dp_20"
     >
 
     <androidx.appcompat.widget.AppCompatTextView

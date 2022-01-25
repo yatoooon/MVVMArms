@@ -70,6 +70,7 @@ public final class PersonalDataActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        setBarTitle(R.string.res_personal_data_title);
         mAvatarLayout = findViewById(R.id.fl_person_data_avatar);
         mAvatarView = findViewById(R.id.iv_person_data_avatar);
         mIdView = findViewById(R.id.sb_person_data_id);

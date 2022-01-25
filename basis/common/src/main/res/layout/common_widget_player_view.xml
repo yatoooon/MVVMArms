@@ -27,11 +27,6 @@
             android:layout_gravity="top"
             android:orientation="horizontal"
             android:visibility="invisible"
-            app:shape="rectangle"
-            app:shape_angle="270"
-            app:shape_centerColor="@color/res_black20"
-            app:shape_endColor="@color/res_transparent"
-            app:shape_startColor="#AA000000"
             tools:visibility="visible">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -41,7 +36,7 @@
                 android:layout_gravity="center_vertical"
                 android:padding="@dimen/res_dp_10"
                 android:visibility="invisible"
-                app:srcCompat="@drawable/res_arrows_left_ic"
+                android:src="@drawable/res_arrows_left_ic"
                 app:tint="@color/res_white"
                 tools:visibility="visible" />
 
@@ -76,10 +71,6 @@
             android:layout_marginStart="@dimen/res_dp_5"
             android:padding="@dimen/res_dp_10"
             android:visibility="invisible"
-            app:shape="oval"
-            app:shape_solidColor="@color/res_black30"
-            app:shape_solidPressedColor="@color/res_black60"
-            app:srcCompat="@drawable/res_video_lock_open_ic"
             tools:visibility="visible" />
 
         <com.hjq.shape.layout.ShapeLinearLayout
@@ -91,11 +82,6 @@
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/res_dp_15"
             android:visibility="invisible"
-            app:shape="rectangle"
-            app:shape_angle="90"
-            app:shape_centerColor="@color/res_black20"
-            app:shape_endColor="@color/res_transparent"
-            app:shape_startColor="#AA000000"
             tools:visibility="visible">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -159,9 +145,7 @@
                 android:id="@+id/lav_player_view_lottie"
                 android:layout_width="@dimen/res_dp_70"
                 android:layout_height="@dimen/res_dp_70"
-                app:lottie_autoPlay="false"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/progress" />
+               />
 
             <com.arms.common.view.SmartTextView
                 android:id="@+id/tv_player_view_message"

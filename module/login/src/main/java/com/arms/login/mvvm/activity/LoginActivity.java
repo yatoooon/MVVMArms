@@ -91,6 +91,12 @@ public final class LoginActivity extends BaseActivity
     public void initView() {
         if (getTitleBar() != null) {
             getTitleBar().setOnTitleBarListener(this);
+            getTitleBar().setLeftIcon(null);
+            getTitleBar().setRightBackground(null);
+            getTitleBar().setRightTitle(R.string.res_login_register);
+            getTitleBar().setRightTitleColor(R.color.res_accent_color);
+            getTitleBar().setRightTitleSize(14);
+            getTitleBar().setTitle("");
         }
         mLogoView = findViewById(R.id.iv_login_logo);
         mBodyLayout = findViewById(R.id.ll_login_body);

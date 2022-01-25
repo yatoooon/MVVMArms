@@ -15,7 +15,7 @@
             android:id="@+id/res_titleBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:leftIcon="@null" />
+             />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"

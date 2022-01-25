@@ -40,15 +40,17 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2018/12/02
- *    desc   : 对话框使用案例
+ * author : Android 轮子哥
+ * github : https://github.com/getActivity/AndroidProject
+ * time   : 2018/12/02
+ * desc   : 对话框使用案例
  */
 @Route(path = RouterHub.PUBLIC_DIALOG_ACTIVITY)
 public final class DialogActivity extends BaseActivity {
 
-    /** 等待对话框 */
+    /**
+     * 等待对话框
+     */
     private BaseDialog mWaitDialog;
 
     @Override
@@ -58,6 +60,8 @@ public final class DialogActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        setRightIcon(R.drawable.template_add_ic);
+        setBarTitle("对话框案例");
         setOnClickListener(R.id.btn_dialog_message, R.id.btn_dialog_input,
                 R.id.btn_dialog_bottom_menu, R.id.btn_dialog_center_menu,
                 R.id.btn_dialog_single_select, R.id.btn_dialog_more_select,

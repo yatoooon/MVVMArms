@@ -91,6 +91,7 @@ public final class ImagePreviewActivity extends BaseActivity
     public void initView() {
         mViewPager = findViewById(R.id.vp_image_preview_pager);
         mCircleIndicatorView = findViewById(R.id.ci_image_preview_indicator);
+        mCircleIndicatorView.changeIndicatorResource(R.drawable.res_image_preview_indicator);
         mTextIndicatorView = findViewById(R.id.tv_image_preview_indicator);
     }
 

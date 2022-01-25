@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -32,20 +33,24 @@ import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieDrawable;
 import com.arms.common.R;
 import com.arms.common.action.ActivityAction;
 import com.arms.common.dialog.MessageDialog;
 import com.arms.common.layout.SimpleLayout;
+import com.hjq.shape.drawable.ShapeType;
+import com.hjq.shape.layout.ShapeFrameLayout;
+import com.hjq.shape.view.ShapeImageView;
 
 import java.io.File;
 import java.util.Formatter;
 import java.util.Locale;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2019/02/16
- *    desc   : 视频播放控件
+ * author : Android 轮子哥
+ * github : https://github.com/getActivity/AndroidProject
+ * time   : 2019/02/16
+ * desc   : 视频播放控件
  */
 public final class PlayerView extends SimpleLayout
         implements LifecycleEventObserver,
@@ -56,67 +61,107 @@ public final class PlayerView extends SimpleLayout
         MediaPlayer.OnCompletionListener,
         MediaPlayer.OnErrorListener {
 
-    /** 刷新间隔 */
+    /**
+     * 刷新间隔
+     */
     private static final int REFRESH_TIME = 1000;
-    /** 面板隐藏间隔 */
+    /**
+     * 面板隐藏间隔
+     */
     private static final int CONTROLLER_TIME = 3000;
-    /** 提示对话框隐藏间隔 */
+    /**
+     * 提示对话框隐藏间隔
+     */
     private static final int DIALOG_TIME = 500;
-    /** 动画执行时间 */
+    /**
+     * 动画执行时间
+     */
     private static final int ANIM_TIME = 500;
 
-    private final ViewGroup mTopLayout;
+    private final ShapeFrameLayout mTopLayout;
     private final TextView mTitleView;
     private final View mLeftView;
 
-    private final ViewGroup mBottomLayout;
+    private final ShapeFrameLayout mBottomLayout;
     private final TextView mPlayTime;
     private final TextView mTotalTime;
     private final SeekBar mProgressView;
 
     private final VideoView mVideoView;
     private final PlayButton mControlView;
-    private final ImageView mLockView;
+    private final ShapeImageView mLockView;
 
     private ViewGroup mMessageLayout;
     private final LottieAnimationView mLottieView;
     private final TextView mMessageView;
 
-    /** 视频宽度 */
+    /**
+     * 视频宽度
+     */
     private int mVideoWidth;
-    /** 视频高度 */
+    /**
+     * 视频高度
+     */
     private int mVideoHeight;
 
-    /** 锁定面板 */
+    /**
+     * 锁定面板
+     */
     private boolean mLockMode;
-    /** 显示面板 */
+    /**
+     * 显示面板
+     */
     private boolean mControllerShow = false;
 
-    /** 触摸按下的 X 坐标 */
+    /**
+     * 触摸按下的 X 坐标
+     */
     private float mViewDownX;
-    /** 触摸按下的 Y 坐标 */
+    /**
+     * 触摸按下的 Y 坐标
+     */
     private float mViewDownY;
-    /** 手势开关 */
+    /**
+     * 手势开关
+     */
     private boolean mGestureEnabled;
-    /** 当前播放进度 */
+    /**
+     * 当前播放进度
+     */
     private int mCurrentProgress;
-    /** 返回监听器 */
+    /**
+     * 返回监听器
+     */
     @Nullable
     private OnPlayListener mListener;
 
-    /** 音量管理器 */
+    /**
+     * 音量管理器
+     */
     private final AudioManager mAudioManager;
-    /** 最大音量值 */
+    /**
+     * 最大音量值
+     */
     private int mMaxVoice;
-    /** 当前音量值 */
+    /**
+     * 当前音量值
+     */
     private int mCurrentVolume;
-    /** 当前亮度值 */
+    /**
+     * 当前亮度值
+     */
     private float mCurrentBrightness;
-    /** 当前窗口对象 */
+    /**
+     * 当前窗口对象
+     */
     private Window mWindow;
-    /** 调整秒数 */
+    /**
+     * 调整秒数
+     */
     private int mAdjustSecond;
-    /** 触摸方向 */
+    /**
+     * 触摸方向
+     */
     private int mTouchOrientation = -1;
 
     public PlayerView(@NonNull Context context) {
@@ -136,20 +181,36 @@ public final class PlayerView extends SimpleLayout
 
         LayoutInflater.from(getContext()).inflate(R.layout.common_widget_player_view, this, true);
         mTopLayout = findViewById(R.id.ll_player_view_top);
+        mTopLayout.getShapeDrawableBuilder().setShape(ShapeType.RECTANGLE);
+        mTopLayout.getShapeDrawableBuilder().setAngle(270);
+        mTopLayout.getShapeDrawableBuilder().setGradientColor(new int[]{Color.parseColor("#AA000000"),
+                R.color.res_black20,R.color.res_transparent});
         mLeftView = findViewById(R.id.iv_player_view_left);
         mTitleView = findViewById(R.id.tv_player_view_title);
 
         mBottomLayout = findViewById(R.id.ll_player_view_bottom);
+
+        mBottomLayout.getShapeDrawableBuilder().setShape(ShapeType.RECTANGLE);
+        mBottomLayout.getShapeDrawableBuilder().setAngle(90);
+        mBottomLayout.getShapeDrawableBuilder().setGradientColor(new int[]{Color.parseColor("#AA000000"),
+                R.color.res_black20,R.color.res_transparent});
         mPlayTime = findViewById(R.id.tv_player_view_play_time);
         mTotalTime = findViewById(R.id.tv_player_view_total_time);
         mProgressView = findViewById(R.id.sb_player_view_progress);
 
         mVideoView = findViewById(R.id.vv_player_view_video);
         mLockView = findViewById(R.id.iv_player_view_lock);
+        mLockView.setImageResource(R.drawable.res_video_lock_open_ic);
+        mLockView.getShapeDrawableBuilder()
+                .setShape(ShapeType.OVAL)
+                .setSolidColor(R.color.res_black30)
+        .setSolidPressedColor(R.color.res_black60);
         mControlView = findViewById(R.id.iv_player_view_control);
 
         mMessageLayout = findViewById(R.id.cv_player_view_message);
         mLottieView = findViewById(R.id.lav_player_view_lottie);
+        mLottieView.setRepeatCount(LottieDrawable.INFINITE);
+        mLottieView.setAnimation(R.raw.progress);
         mMessageView = findViewById(R.id.tv_player_view_message);
 
         mLeftView.setOnClickListener(this);
@@ -941,31 +1002,37 @@ public final class PlayerView extends SimpleLayout
         /**
          * 点击了返回按钮（可在此处处理返回事件）
          */
-        default void onClickBack(PlayerView view) {}
+        default void onClickBack(PlayerView view) {
+        }
 
         /**
          * 点击了锁定按钮
          */
-        default void onClickLock(PlayerView view) {}
+        default void onClickLock(PlayerView view) {
+        }
 
         /**
          * 点击了播放按钮
          */
-        default void onClickPlay(PlayerView view) {}
+        default void onClickPlay(PlayerView view) {
+        }
 
         /**
          * 播放开始（可在此处设置播放进度）
          */
-        default void onPlayStart(PlayerView view) {}
+        default void onPlayStart(PlayerView view) {
+        }
 
         /**
          * 播放进度发生改变
          */
-        default void onPlayProgress(PlayerView view) {}
+        default void onPlayProgress(PlayerView view) {
+        }
 
         /**
          * 播放结束（可在此处结束播放或者循环播放）
          */
-        default void onPlayEnd(PlayerView view) {}
+        default void onPlayEnd(PlayerView view) {
+        }
     }
 }

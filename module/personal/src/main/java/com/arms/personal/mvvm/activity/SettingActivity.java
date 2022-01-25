@@ -2,6 +2,7 @@ package com.arms.personal.mvvm.activity;
 
 import static com.arms.export.arouter.RouterUtilKt.routerNavigation;
 
+import android.graphics.Color;
 import android.view.Gravity;
 import android.view.View;
 
@@ -21,6 +22,8 @@ import com.arms.common.manager.ThreadPoolManager;
 import com.arms.common.utils.AppManager;
 import com.arms.common.utils.CacheUtil;
 import com.arms.common.view.SwitchButton;
+import com.hjq.shape.drawable.ShapeType;
+import com.hjq.shape.view.ShapeTextView;
 
 
 /**
@@ -46,7 +49,12 @@ public final class SettingActivity extends BaseActivity
 
     @Override
     public void initView() {
+        setBarTitle(getString(R.string.res_setting_title));
         mLanguageView = findViewById(R.id.sb_setting_language);
+        ShapeTextView stvNew = findViewById(R.id.stv_new);
+        stvNew.getShapeDrawableBuilder().setShape(ShapeType.RECTANGLE);
+        stvNew.getShapeDrawableBuilder().setRadius(Context_ExtensionKt.dp2px(getContext(), 720));
+        stvNew.getShapeDrawableBuilder().setSolidColor(Color.parseColor("#F85E5E"));
         mPhoneView = findViewById(R.id.sb_setting_phone);
         mPasswordView = findViewById(R.id.sb_setting_password);
         mCleanCacheView = findViewById(R.id.sb_setting_cache);
@@ -59,6 +67,7 @@ public final class SettingActivity extends BaseActivity
                 R.id.sb_setting_password, R.id.sb_setting_agreement, R.id.sb_setting_about,
                 R.id.sb_setting_cache, R.id.sb_setting_auto, R.id.sb_setting_exit);
     }
+
 
     @Override
     public void initData() {
@@ -109,13 +118,13 @@ public final class SettingActivity extends BaseActivity
         } else if (viewId == R.id.sb_setting_phone) {
 
             new SafeDialog.Builder(this)
-                    .setListener((dialog, phone, code) -> ARouter.getInstance().build(RouterHub.PUBLIC_LOGIN_PHONERESETACTIVITY).withString("code",code).navigation())
+                    .setListener((dialog, phone, code) -> ARouter.getInstance().build(RouterHub.PUBLIC_LOGIN_PHONERESETACTIVITY).withString("code", code).navigation())
                     .show();
 
         } else if (viewId == R.id.sb_setting_password) {
 
             new SafeDialog.Builder(this)
-                    .setListener((dialog, phone, code) -> ARouter.getInstance().build(RouterHub.PUBLIC_LOGIN_PASSWORDRESETACTIVITY).withString("code",code).navigation())
+                    .setListener((dialog, phone, code) -> ARouter.getInstance().build(RouterHub.PUBLIC_LOGIN_PASSWORDRESETACTIVITY).withString("code", code).navigation())
                     .show();
 
         } else if (viewId == R.id.sb_setting_agreement) {

@@ -10,8 +10,7 @@
     <com.hjq.bar.TitleBar
         android:id="@+id/res_titleBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="@string/res_video_select_title" />
+        android:layout_height="wrap_content" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -42,7 +41,7 @@
             android:layout_marginBottom="@dimen/res_dp_20"
             android:background="@drawable/res_roll_accent_bg"
             android:padding="@dimen/res_dp_20"
-            app:srcCompat="@drawable/res_camera_ic" />
+            android:src="@drawable/res_camera_ic" />
     </FrameLayout>
 
 </LinearLayout>

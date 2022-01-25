@@ -12,10 +12,12 @@ import android.webkit.WebView;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextKt;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.arms.common.ext.Context_ExtensionKt;
 import com.arms.core.base.BaseActivity;
 import com.arms.export.arouter.RouterHub;
 import com.arms.common.action.StatusAction;
@@ -64,6 +66,8 @@ public final class WebPageActivity extends BaseActivity
 
     @Override
     public void initView() {
+        getTitleBar().setLeftIconSize(Context_ExtensionKt.dp2px(this,20),Context_ExtensionKt.dp2px(this,20));
+        setBarTitle(R.string.res_web_title);
         mStatusLayout = findViewById(R.id.hl_browser_hint);
         mProgressBar = findViewById(R.id.pb_browser_progress);
         mRefreshLayout = findViewById(R.id.sl_browser_refresh);

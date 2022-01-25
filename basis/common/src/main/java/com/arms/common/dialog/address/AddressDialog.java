@@ -19,6 +19,9 @@ import com.arms.common.aop.SingleClick;
 import com.arms.common.dialog.BaseDialog;
 import com.arms.common.BR;
 import com.arms.common.R;
+import com.arms.common.ext.Context_ExtensionKt;
+import com.hjq.shape.drawable.ShapeType;
+import com.hjq.shape.layout.ShapeLinearLayout;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import org.json.JSONArray;
@@ -71,6 +74,10 @@ public final class AddressDialog {
             setContentView(R.layout.common_address_dialog);
             setHeight(getResources().getDisplayMetrics().heightPixels / 2);
 
+            ShapeLinearLayout sll = findViewById(R.id.sll);
+            sll.getShapeDrawableBuilder().setShape(ShapeType.RECTANGLE)
+                    .setSolidColor(R.color.res_white)
+                    .setRadius(Context_ExtensionKt.dp2px(context, 20), Context_ExtensionKt.dp2px(context, 20), 0, 0);
             mViewPager = findViewById(R.id.vp_address_pager);
             mAdapter = new RecyclerViewAdapter(R.layout.common_address_dialog_item_rv, BR.item);
             mAdapter.setOnSelectListener(this);

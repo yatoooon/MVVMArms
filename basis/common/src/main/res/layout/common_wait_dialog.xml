@@ -20,11 +20,10 @@
         android:padding="@dimen/res_dp_10">
 
         <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lav"
             android:layout_width="@dimen/res_dp_70"
             android:layout_height="@dimen/res_dp_70"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/progress" />
+             />
 
         <com.arms.common.view.SmartTextView
             android:id="@+id/tv_wait_message"

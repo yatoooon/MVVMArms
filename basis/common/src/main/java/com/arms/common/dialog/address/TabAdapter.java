@@ -12,6 +12,8 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.arms.common.R;
+import com.hjq.shape.drawable.ShapeType;
+import com.hjq.shape.view.ShapeTextView;
 import com.hjq.shape.view.ShapeView;
 
 
@@ -93,9 +95,12 @@ public final class TabAdapter extends BaseAdapter<String> implements OnItemClick
     @Override
     protected void convert(@NonNull BaseDataBindingHolder<?> holder, String item) {
         super.convert(holder, item);
-        TextView mTitleView = (TextView) holder.findView(R.id.tv_tab_sliding_title);
+        ShapeTextView mTitleView = (ShapeTextView) holder.findView(R.id.tv_tab_sliding_title);
         ShapeView mLineView = (ShapeView) holder.findView(R.id.v_tab_sliding_line);
-        mTitleView.setText(item);
+        mLineView.getShapeDrawableBuilder().setShape(ShapeType.OVAL);
+        mLineView.getShapeDrawableBuilder().setSolidColor(R.color.res_accent_color);
+        mTitleView.getTextColorBuilder().setTextColor(R.color.res_black25);
+        mTitleView.getTextColorBuilder().setTextSelectedColor(R.color.res_accent_color);
         mTitleView.setSelected(mSelectedPosition == holder.getBindingAdapterPosition());
         mLineView.setVisibility(mSelectedPosition == holder.getBindingAdapterPosition() ? View.VISIBLE : View.INVISIBLE);
     }

@@ -18,8 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/res_dp_10"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
         tools:src="@drawable/res_status_network_ic" />
 
     <com.arms.common.view.SmartTextView
@@ -42,11 +40,7 @@
         android:textColor="@color/res_white"
         android:textSize="@dimen/res_sp_13"
         android:visibility="invisible"
-        app:shape="rectangle"
-        app:shape_radius="@dimen/res_dp_5"
-        app:shape_solidColor="@color/res_accent_color"
-        app:shape_solidPressedColor="@color/res_common_button_pressed_color"
-        tools:visibility="visible" />
+        />
 
     <View
         android:layout_width="wrap_content"

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.arms.common.ext.Context_ExtensionKt;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.arms.media.BR;
@@ -14,14 +15,16 @@ import com.arms.media.R;
 import com.arms.common.adapter.BaseAdapter;
 import com.arms.common.dialog.BaseDialog;
 import com.arms.common.dialog.BottomSheetDialog;
+import com.hjq.shape.drawable.ShapeType;
+import com.hjq.shape.layout.ShapeRecyclerView;
 
 import java.util.List;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2019/07/27
- *    desc   : 相册专辑选取对话框
+ * author : Android 轮子哥
+ * github : https://github.com/getActivity/AndroidProject
+ * time   : 2019/07/27
+ * desc   : 相册专辑选取对话框
  */
 public final class AlbumDialog {
 
@@ -31,14 +34,18 @@ public final class AlbumDialog {
         @Nullable
         private OnListener mListener;
 
-        private final RecyclerView mRecyclerView;
+        private final ShapeRecyclerView mRecyclerView;
 
         private final BaseAdapter<AlbumInfo> mAdapter = new BaseAdapter<AlbumInfo>(R.layout.media_album_item, BR.item);
 
         public Builder(Context context) {
             super(context);
             setContentView(R.layout.media_album_dialog);
+
             mRecyclerView = findViewById(R.id.rv_album_list);
+            mRecyclerView.getShapeDrawableBuilder().setShape(ShapeType.RECTANGLE);
+            mRecyclerView.getShapeDrawableBuilder().setRadius(Context_ExtensionKt.dp2px(context, 20));
+            mRecyclerView.getShapeDrawableBuilder().setSolidColor(R.color.res_white);
             mAdapter.setOnItemClickListener(new OnItemClickListener() {
                 @Override
                 public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
@@ -85,7 +92,6 @@ public final class AlbumDialog {
         }
 
 
-
         @NonNull
         @Override
         protected BaseDialog createDialog(Context context, int themeId) {
@@ -96,19 +102,26 @@ public final class AlbumDialog {
     }
 
 
-
     /**
      * 专辑信息类
      */
     public static class AlbumInfo {
 
-        /** 封面 */
+        /**
+         * 封面
+         */
         private String icon;
-        /** 名称 */
+        /**
+         * 名称
+         */
         private String name;
-        /** 备注 */
+        /**
+         * 备注
+         */
         private String remark;
-        /** 选中 */
+        /**
+         * 选中
+         */
         private boolean select;
 
         public AlbumInfo(String icon, String name, String remark, boolean select) {

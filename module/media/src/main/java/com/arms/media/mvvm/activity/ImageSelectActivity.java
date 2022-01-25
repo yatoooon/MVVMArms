@@ -150,6 +150,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
     public void initView() {
         if (getTitleBar() != null) {
             getTitleBar().setOnTitleBarListener(this);
+            getTitleBar().setTitle(R.string.res_image_select_title);
         }
         mStatusLayout = findViewById(R.id.hl_image_select_hint);
         mRecyclerView = findViewById(R.id.rv_image_select_list);

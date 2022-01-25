@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import androidx.annotation.StringRes;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieDrawable;
 import com.arms.common.R;
 
 
@@ -30,6 +32,10 @@ public final class WaitDialog {
             setCancelable(false);
 
             mMessageView = findViewById(R.id.tv_wait_message);
+            LottieAnimationView lav =  findViewById(R.id.lav);
+            lav.setRepeatCount(LottieDrawable.INFINITE);
+            lav.setAnimation(R.raw.progress);
+            lav.playAnimation();
         }
 
         public Builder setMessage(@StringRes int id) {

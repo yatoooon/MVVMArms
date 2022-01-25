@@ -16,7 +16,7 @@
             android:id="@+id/res_titleBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:leftIcon="@null" />
+             />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                             android:id="@+id/iv_find_circle"
                             android:layout_width="@dimen/res_dp_90"
                             android:layout_height="@dimen/res_dp_90"
-                            app:srcCompat="@drawable/res_example_bg"
+                            android:src="@drawable/res_example_bg"
                             tools:scaleType="centerCrop" />
 
                         <androidx.appcompat.widget.AppCompatImageView
@@ -52,7 +52,7 @@
                             android:layout_width="@dimen/res_dp_90"
                             android:layout_height="@dimen/res_dp_90"
                             android:layout_marginStart="@dimen/res_dp_20"
-                            app:srcCompat="@drawable/res_example_bg"
+                            android:src="@drawable/res_example_bg"
                             tools:scaleType="centerCrop" />
 
                     </LinearLayout>
@@ -231,6 +231,7 @@
                         app:res_drawableWidth="@dimen/res_dp_20" />
 
                     <com.hjq.shape.view.ShapeTextView
+                        android:id="@+id/stv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -241,15 +242,10 @@
                         android:text="支持在布局直接定义 Shape 的 TextView"
                         android:textColor="@color/res_white"
                         android:textSize="@dimen/res_sp_13"
-                        app:shape="rectangle"
-                        app:shape_angle="0"
-                        app:shape_centerX="0.5"
-                        app:shape_centerY="0.5"
-                        app:shape_endColor="@color/res_accent_color"
-                        app:shape_radius="@dimen/res_dp_20"
-                        app:shape_startColor="@color/res_common_button_pressed_color" />
+                        />
 
                     <com.hjq.shape.view.ShapeTextView
+                        android:id="@+id/stv_bg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/res_dp_20"
@@ -261,11 +257,7 @@
                         android:text="我是带阴影背景的控件"
                         android:textColor="@android:color/black"
                         android:textSize="14sp"
-                        app:shape="rectangle"
-                        app:shape_radius="@dimen/res_dp_10"
-                        app:shape_shadowColor="@color/res_black10"
-                        app:shape_shadowSize="10dp"
-                        app:shape_solidColor="@color/res_white" />
+                        />
 
                     <com.arms.common.view.ClearEditText
                         style="@style/res_EditTextStyle"

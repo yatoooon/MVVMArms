@@ -23,10 +23,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/res_dp_50"
             android:visibility="invisible"
-            app:ci_drawable="@drawable/res_image_preview_indicator"
-            app:ci_height="@dimen/res_dp_5"
-            app:ci_margin="@dimen/res_dp_5"
-            app:ci_width="@dimen/res_dp_5"
             tools:visibility="visible" />
 
         <androidx.appcompat.widget.AppCompatTextView

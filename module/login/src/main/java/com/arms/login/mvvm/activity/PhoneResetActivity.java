@@ -61,6 +61,7 @@ public final class PhoneResetActivity extends BaseActivity
 
     @Override
     public void initView() {
+        setBarTitle(R.string.res_phone_reset_title);
         mPhoneView = findViewById(R.id.et_phone_reset_phone);
         mCodeView = findViewById(R.id.et_phone_reset_code);
         mCountdownView = findViewById(R.id.cv_phone_reset_countdown);

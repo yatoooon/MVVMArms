@@ -14,10 +14,9 @@
         tools:context=".mvvm.activity.StatusActivity">
 
         <com.hjq.bar.TitleBar
-        android:id="@+id/res_titleBar"
+            android:id="@+id/res_titleBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:title="界面状态案例" />
+            android:layout_height="wrap_content" />
 
         <com.arms.common.layout.StatusLayout
             android:id="@+id/hl_status_hint"

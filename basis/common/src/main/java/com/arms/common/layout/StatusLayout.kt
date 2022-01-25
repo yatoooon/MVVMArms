@@ -14,7 +14,12 @@ import androidx.annotation.RawRes
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieDrawable
 import com.arms.common.R
+import com.arms.common.ext.dp2px
+import com.hjq.shape.drawable.ShapeType
+import com.hjq.shape.view.ShapeButton
+import com.hjq.shape.view.ShapeTextView
 
 /**
  * author : Android 轮子哥
@@ -37,7 +42,7 @@ class StatusLayout @JvmOverloads constructor(
     private var mTextView: TextView? = null
 
     /** 重试按钮  */
-    private var mRetryView: TextView? = null
+    private var mRetryView: ShapeButton? = null
 
     /** 重试监听  */
     private var mListener: OnRetryListener? = null
@@ -130,9 +135,20 @@ class StatusLayout @JvmOverloads constructor(
     private fun initLayout() {
         mMainLayout = LayoutInflater.from(context)
             .inflate(R.layout.common_widget_status_layout, this, false) as ViewGroup
-        mLottieView = mMainLayout!!.findViewById(R.id.iv_status_icon)
+        (mMainLayout!!.findViewById(R.id.iv_status_icon) as LottieAnimationView ).apply {
+            mLottieView = this
+            repeatCount = LottieDrawable.INFINITE
+            playAnimation()
+        }
         mTextView = mMainLayout!!.findViewById(R.id.iv_status_text)
-        mRetryView = mMainLayout!!.findViewById(R.id.iv_status_retry)
+        (mMainLayout!!.findViewById(R.id.iv_status_retry) as ShapeButton).apply {
+            mRetryView = this
+            shapeDrawableBuilder.shape = ShapeType.RECTANGLE
+            shapeDrawableBuilder.setRadius(context.dp2px(5).toFloat())
+            shapeDrawableBuilder.solidColor = R.color.res_accent_color
+            shapeDrawableBuilder.solidPressedColor = R.color.res_common_button_pressed_color
+        }
+
         if (mMainLayout!!.background == null) {
             // 默认使用 windowBackground 作为背景
             val typedArray =

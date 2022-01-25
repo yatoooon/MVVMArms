@@ -158,6 +158,7 @@ public final class VideoSelectActivity extends BaseActivity
     public void initView() {
         if (getTitleBar() != null) {
             getTitleBar().setOnTitleBarListener(this);
+            getTitleBar().setTitle(R.string.res_video_select_title);
         }
         mStatusLayout = findViewById(R.id.hl_video_select_hint);
         mRecyclerView = findViewById(R.id.rv_video_select_list);

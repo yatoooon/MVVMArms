@@ -39,6 +39,7 @@ public final class PasswordForgetActivity extends BaseActivity
 
     @Override
     public void initView() {
+        setBarTitle(R.string.res_password_forget_title);
         mPhoneView = findViewById(R.id.et_password_forget_phone);
         mCodeView = findViewById(R.id.et_password_forget_code);
         mCountdownView = findViewById(R.id.cv_password_forget_countdown);

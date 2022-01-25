@@ -15,20 +15,14 @@
         android:id="@+id/res_titleBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/res_dp_50"
-        app:barStyle="transparent"
-        app:leftIcon="@null"
-        app:rightBackground="@null"
-        app:rightTitle="@string/res_login_register"
-        app:rightTitleColor="@color/res_accent_color"
-        app:rightTitleSize="@dimen/res_sp_14"
-        app:title="" />
+         />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_login_logo"
         android:layout_width="@dimen/res_dp_120"
         android:layout_height="@dimen/res_dp_120"
         android:layout_marginVertical="@dimen/res_dp_10"
-        app:srcCompat="@drawable/app_logo" />
+        android:src="@drawable/app_logo" />
 
     <LinearLayout
         android:id="@+id/ll_login_body"
@@ -134,7 +128,7 @@
             android:layout_marginVertical="@dimen/res_dp_20"
             android:layout_weight="1"
             app:res_scaleRatio="1.2"
-            app:srcCompat="@drawable/login_qq_ic" />
+            android:src="@drawable/login_qq_ic" />
 
         <com.arms.common.view.ScaleImageView
             android:id="@+id/iv_login_wechat"
@@ -144,7 +138,7 @@
             android:layout_marginVertical="@dimen/res_dp_20"
             android:layout_weight="1"
             app:res_scaleRatio="1.2"
-            app:srcCompat="@drawable/login_wechat_ic" />
+            android:src="@drawable/login_wechat_ic" />
     </LinearLayout>
 
 </LinearLayout>

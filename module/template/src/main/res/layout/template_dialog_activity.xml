@@ -11,8 +11,7 @@
         android:id="@+id/res_titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:rightIcon="@drawable/template_add_ic"
-        app:title="对话框案例" />
+         />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

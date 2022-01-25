@@ -4,6 +4,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -53,6 +55,7 @@ public final class GuideActivity extends BaseActivity {
         mViewPager.setAdapter(mAdapter);
         mViewPager.registerOnPageChangeCallback(mCallback);
         mIndicatorView.setViewPager(mViewPager);
+        mIndicatorView.changeIndicatorResource(R.drawable.splash_guide_indicator_selected,R.drawable.splash_guide_indicator_unselected);
     }
 
     @SingleClick

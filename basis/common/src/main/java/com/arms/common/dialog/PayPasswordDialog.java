@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.arms.common.aop.SingleClick;
+import com.arms.common.ext.Context_ExtensionKt;
 import com.arms.common.view.PasswordView;
 import com.arms.common.adapter.BaseAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -19,6 +20,8 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.arms.common.BR;
 import com.arms.common.R;
+import com.hjq.shape.drawable.ShapeType;
+import com.hjq.shape.layout.ShapeLinearLayout;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -77,7 +80,10 @@ public final class PayPasswordDialog {
             super(context);
             setContentView(R.layout.common_pay_password_dialog);
             setCancelable(false);
-
+            ShapeLinearLayout sll = findViewById(R.id.sll);
+            sll.getShapeDrawableBuilder().setShape(ShapeType.RECTANGLE)
+                    .setSolidColor(R.color.res_white)
+                    .setRadius(Context_ExtensionKt.dp2px(context, 20), Context_ExtensionKt.dp2px(context, 20), 0, 0);
             mTitleView = findViewById(R.id.tv_pay_title);
             mCloseView = findViewById(R.id.iv_pay_close);
             mSubTitleView = findViewById(R.id.tv_pay_sub_title);

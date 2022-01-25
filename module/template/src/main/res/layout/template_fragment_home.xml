@@ -33,7 +33,7 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     app:layout_collapseMode="parallax"
-                    app:srcCompat="@drawable/res_example_bg" />
+                    android:src="@drawable/res_example_bg" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/tb_home_title"
@@ -74,7 +74,7 @@
                             android:layout_width="@dimen/res_dp_24"
                             android:layout_height="@dimen/res_dp_24"
                             android:layout_marginEnd="@dimen/res_dp_10"
-                            app:srcCompat="@drawable/template_search_ic"
+                            android:src="@drawable/template_search_ic"
                             app:tint="@color/res_white" />
 
                     </LinearLayout>

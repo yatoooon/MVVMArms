@@ -29,6 +29,7 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
 
 
     override fun initView() {
+        leftIcon = null
         binding.apply {
             bindViewClickListener(
                 btnMineDialog,

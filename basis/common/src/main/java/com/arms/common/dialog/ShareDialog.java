@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.arms.common.adapter.BaseAdapter;
+import com.arms.common.ext.Context_ExtensionKt;
 import com.arms.common.ext.ImageView_ExtensionKt;
 import com.arms.common.view.ScaleImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -23,6 +24,8 @@ import com.arms.umeng.Platform;
 import com.arms.umeng.UmengClient;
 import com.arms.umeng.UmengShare;
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
+import com.hjq.shape.drawable.ShapeType;
+import com.hjq.shape.layout.ShapeLinearLayout;
 import com.hjq.toast.ToastUtils;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.ShareContent;
@@ -72,7 +75,10 @@ public final class ShareDialog {
             super(activity);
 
             setContentView(R.layout.common_share_dialog);
-
+            ShapeLinearLayout sll = findViewById(R.id.sll);
+            sll.getShapeDrawableBuilder().setShape(ShapeType.RECTANGLE)
+                    .setSolidColor(R.color.res_white)
+                    .setRadius(Context_ExtensionKt.dp2px(activity.getApplicationContext(), 20), Context_ExtensionKt.dp2px(activity.getApplicationContext(), 20), 0, 0);
             List<ShareBean> data = new ArrayList<>();
             data.add(new ShareBean(getDrawable(R.drawable.res_share_wechat_ic), getString(R.string.res_share_platform_wechat), Platform.WECHAT));
             data.add(new ShareBean(getDrawable(R.drawable.res_share_moment_ic), getString(R.string.res_share_platform_moment), Platform.CIRCLE));

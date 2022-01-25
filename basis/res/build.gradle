@@ -38,10 +38,6 @@ android {
 }
 
 dependencies {
-    api Deps.circleindicator
-    api Deps.lottie
-    api Deps.shapeView
-    api Deps.appcompat
-    api Deps.design
-    api Deps.titleBar
+//    api Deps.appcompat
+//    api Deps.design
 }

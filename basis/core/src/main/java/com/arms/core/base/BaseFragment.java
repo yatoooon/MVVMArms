@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 
+import com.arms.common.action.TitleBarAction;
 import com.arms.core.base.ibase.ILoading;
 import com.arms.core.base.ibase.IView;
 import com.arms.common.action.ActivityAction;
@@ -25,6 +26,7 @@ import com.arms.common.action.HandlerAction;
 import com.arms.common.action.KeyboardAction;
 import com.arms.common.action.ResourcesAction;
 import com.arms.common.action.ToastAction;
+import com.hjq.bar.TitleBar;
 
 import java.util.List;
 
@@ -42,7 +44,7 @@ import java.util.List;
  * //-------------------------
  */
 public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading,
-        ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction, ToastAction {
+        ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction, ToastAction , TitleBarAction {
 
 
 
@@ -279,4 +281,9 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         mActivity.finish();
     }
 
+    @Nullable
+    @Override
+    public TitleBar getTitleBar() {
+        return obtainTitleBar((ViewGroup) getRootView());
+    }
 }

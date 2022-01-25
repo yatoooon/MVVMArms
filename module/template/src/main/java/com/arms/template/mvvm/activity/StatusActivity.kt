@@ -24,6 +24,7 @@ class StatusActivity : BaseActivity<TemplateStatusActivityBinding>(),
     }
 
     override fun initView() {
+        setBarTitle("界面状态案例")
         mStatusLayout = findViewById(R.id.hl_status_hint)
     }
 

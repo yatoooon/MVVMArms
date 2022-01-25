@@ -36,6 +36,9 @@ class SplashActivity : BaseActivity<SplashActivityBinding>() {
 
     override fun initView() {
         super.initView()
+        binding.lavSplashLottie.repeatCount = 0
+        binding.lavSplashLottie.setAnimation(R.raw.splash_welcome)
+        binding.lavSplashLottie.playAnimation()
         binding.lavSplashLottie.addAnimatorListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator?) {
                 binding.lavSplashLottie.removeAnimatorListener(this)

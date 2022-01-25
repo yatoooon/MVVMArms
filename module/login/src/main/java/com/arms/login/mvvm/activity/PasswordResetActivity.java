@@ -65,6 +65,7 @@ public final class PasswordResetActivity extends BaseActivity
 
     @Override
     public void initView() {
+        setBarTitle(R.string.res_password_reset_title);
         mFirstPassword = findViewById(R.id.et_password_reset_password1);
         mSecondPassword = findViewById(R.id.et_password_reset_password2);
         mCommitView = findViewById(R.id.btn_password_reset_commit);
