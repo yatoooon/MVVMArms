@@ -23,16 +23,37 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import timber.log.Timber
+import android.app.ActivityManager
+import android.app.ActivityManager.RunningAppProcessInfo
+import android.os.Process
+
 
 class CoreLifecyclesImpl : BaseApplicationLifecycle {
 
     override fun attachBaseContext(base: Context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            WebView.setDataDirectorySuffix(getProcessName())
+            var processName = getProcessName()
+            if (base.packageName != processName) {
+                println("base.packageName:" + base.packageName + "processName:" + processName)
+                try {
+                    val factoryClass = Class.forName("android.webkit.WebViewFactory")
+                    val declaredField = factoryClass.getDeclaredField("sProviderInstance")
+                    declaredField.isAccessible = true
+                    val sProviderInstance: Any? = declaredField.get(null)
+                    if (sProviderInstance != null) {
+                        return
+                    }
+                    WebView.setDataDirectorySuffix(processName)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
         }
     }
 
     override fun onCreate(application: Application) {
+
+
         initLogger()
         initARouter(application)
         //初始化MMKV
@@ -57,9 +78,10 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
         CrashHandler.register(application)
 
         //初始化友盟SDK
-        UmengClient.init(application,true)
+        UmengClient.init(application, true)
         MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO)
 
+        //插件化
         InitApplication.onApplicationCreate(application)
 
     }

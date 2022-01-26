@@ -173,6 +173,15 @@
                     android:layout_marginBottom="@dimen/res_dp_30"
                     android:text="点我进入模版生成页" />
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_mine_common"
+                    style="@style/res_ButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/res_dp_30"
+                    android:layout_marginBottom="@dimen/res_dp_30"
+                    android:text="点我加载通用插件" />
+
 
             </LinearLayout>
 

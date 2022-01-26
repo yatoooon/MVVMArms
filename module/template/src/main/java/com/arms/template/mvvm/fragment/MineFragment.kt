@@ -1,6 +1,8 @@
 package com.arms.template.mvvm.fragment
 
 import android.content.pm.ActivityInfo
+import android.os.Bundle
+import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.arms.core.base.BaseFragment
@@ -16,6 +18,10 @@ import com.arms.template.mvvm.activity.StatusActivity
 import com.arms.template.mvvm.activity.TemplateActivity
 import com.gyf.immersionbar.ImmersionBar
 import com.tencent.bugly.crashreport.CrashReport
+import com.tencent.shadow.dynamic.host.EnterCallback
+import com.tencent.shadow.dynamic.host.PluginManager
+import com.tencent.shadow.sample.introduce_shadow_lib.Constant
+import com.tencent.shadow.sample.introduce_shadow_lib.InitApplication
 import java.util.*
 
 @Route(path = RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MINE)
@@ -49,7 +55,8 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                 btnMineVideoSelect,
                 btnMineVideoPlay,
                 btnMineCrash,
-                btnMineTemplate
+                btnMineTemplate,
+                btnMineCommon
             ) {
                 when (this) {
 
@@ -81,13 +88,30 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                         routerNavigation(RouterHub.PUBLIC_PERSONAL_SETTINGACTIVITY)
                     }
                     btnMineGuide -> {
-                        routerNavigation(RouterHub.PUBLIC_SPLASH_GUIDEACTIVITY)
+                        val bundle = Bundle()
+                        bundle.putString(Constant.KEY_PLUGIN_ZIP_PATH,"/data/local/tmp/splash-plugin-debug.zip")
+                        bundle.putString(Constant.KEY_PLUGIN_PART_KEY,"splash-plugin")
+                        bundle.putString(Constant.KEY_ACTIVITY_CLASSNAME,"com.arms.splash.mvvm.activity.SplashActivity")
+                        InitApplication.getPluginManager().enter(context,Constant.FROM_ID_START_ACTIVITY,
+                            bundle,object :EnterCallback{
+                                override fun onShowLoadingView(view: View?) {
+                                    toast("login插件加载中")
+                                }
+
+                                override fun onCloseLoadingView() {
+                                }
+
+                                override fun onEnterComplete() {
+                                    toast("login插件完成")
+                                }
+                            })
+//                        routerNavigation(RouterHub.PUBLIC_SPLASH_GUIDEACTIVITY)
                     }
                     btnMineBrowser -> {
-                        ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEACTIVITY)
-                            .withString("url", "www.baidu.com")
-                            .withString("title", "百度一下")
-                            .navigation()
+//                        ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEACTIVITY)
+//                            .withString("url", "www.baidu.com")
+//                            .withString("title", "百度一下")
+//                            .navigation()
                     }
                     btnMineImageSelect -> {
                         ARouter.getInstance().navigation(IMediaService::class.java)
@@ -130,6 +154,29 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                     }
                     btnMineTemplate -> {
                         startActivity(TemplateActivity::class.java)
+                    }
+                    btnMineCommon -> {
+                        val bundle = Bundle()
+                        bundle.putString(Constant.KEY_PLUGIN_ZIP_PATH, "/data/local/tmp/base-plugin-debug.zip")
+                        bundle.putString(Constant.KEY_PLUGIN_PART_KEY, "base-plugin")
+                        val pluginManager = InitApplication.getPluginManager()
+                        pluginManager.enter(
+                            context,
+                            Constant.FROM_LOAD_PLUGIN,
+                           bundle,
+                            object : EnterCallback {
+                                override fun onShowLoadingView(view: View?) {
+                                    showLoadingDialog()
+                                }
+
+                                override fun onCloseLoadingView() {
+                                    hideLoadingDialog()
+                                }
+
+                                override fun onEnterComplete() {
+                                    toast("插件成功加载")
+                                }
+                            })
                     }
                 }
             }

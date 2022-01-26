@@ -3,20 +3,19 @@ package com.arms.common;
 import android.app.Application;
 
 import com.arms.common.component.AppComponent;
-import com.arms.common.component.AppComponent;
 
-public abstract class ResApp extends Application {
+public abstract class CommonApp extends Application {
     public abstract AppComponent getAppComponent();
 
-    static ResApp resApp;
+    static CommonApp commonApp;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        resApp = this;
+        commonApp = this;
     }
 
-    public static ResApp getApp() {
-        return resApp;
+    public static CommonApp getApp() {
+        return commonApp;
     }
 }

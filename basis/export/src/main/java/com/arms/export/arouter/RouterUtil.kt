@@ -11,6 +11,7 @@ import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.launcher.ARouter
 import com.arms.core.base.BaseApplication
 import com.tencent.shadow.dynamic.host.EnterCallback
+import com.tencent.shadow.sample.introduce_shadow_lib.Constant
 import com.tencent.shadow.sample.introduce_shadow_lib.InitApplication
 import java.io.Serializable
 
@@ -56,6 +57,7 @@ private fun buildParams(postcard: Postcard, params: Map<String, Any?>?): Postcar
  */
 val FROM_ID_START_ACTIVITY = 1001
 val FROM_ID_CALL_SERVICE = 1002
+
 @JvmOverloads
 fun routerNavigation(
     path: String,
@@ -72,32 +74,29 @@ fun routerNavigation(
     greenChannel: Boolean = false,
 ) {
 
-    if(path.contains("LoginActivity")){
-        val pluginManager = InitApplication.getPluginManager()
-        //调用activity
-        pluginManager.enter(
-            BaseApplication.getApp().applicationContext,
-            FROM_ID_START_ACTIVITY.toLong(),
-            Bundle(),
-            object : EnterCallback {
-                override fun onShowLoadingView(view: View) {
-                }
-
-                override fun onCloseLoadingView() {
-                }
-
-                override fun onEnterComplete() {
-                }
-            })
-        //调用service
+//    if (path.contains("LoginActivity")) {
+//        val pluginManager = InitApplication.getPluginManager()
+//        //调用activity
+//        val bundle = Bundle()
+//        bundle.putString(Constant.KEY_PLUGIN_ZIP_PATH, "/data/local/tmp/login-plugin-debug.zip")
+//        bundle.putString(Constant.KEY_PLUGIN_PART_KEY, "login-plugin")
+//        bundle.putString(Constant.KEY_ACTIVITY_CLASSNAME, "com.arms.login.mvvm.activity.LoginActivity")
 //        pluginManager.enter(
 //            BaseApplication.getApp().applicationContext,
-//            FROM_ID_CALL_SERVICE.toLong(),
-//            null,
-//            null
-//        )
-        return
-    }
+//            FROM_ID_START_ACTIVITY.toLong(),
+//            bundle,
+//            object : EnterCallback {
+//                override fun onShowLoadingView(view: View) {
+//                }
+//
+//                override fun onCloseLoadingView() {
+//                }
+//
+//                override fun onEnterComplete() {
+//                }
+//            })
+//        return
+//    }
     if (path.isNullOrEmpty()) {
         buildParams(ARouter.getInstance().build(uri), params)
     } else {

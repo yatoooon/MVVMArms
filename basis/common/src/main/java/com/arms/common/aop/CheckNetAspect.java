@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 
 import androidx.core.content.ContextCompat;
 
-import com.arms.common.ResApp;
+import com.arms.common.CommonApp;
 import com.arms.common.R;
 import com.hjq.toast.ToastUtils;
 
@@ -35,7 +35,7 @@ public class CheckNetAspect {
      */
     @Around("method() && @annotation(checkNet)")
     public void aroundJoinPoint(ProceedingJoinPoint joinPoint, CheckNet checkNet) throws Throwable {
-        Application application = ResApp.getApp();
+        Application application = CommonApp.getApp();
         if (application != null) {
             ConnectivityManager manager = ContextCompat.getSystemService(application.getApplicationContext(), ConnectivityManager.class);
             if (manager != null) {

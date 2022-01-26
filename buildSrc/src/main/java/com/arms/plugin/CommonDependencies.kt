@@ -19,7 +19,7 @@ internal fun Project.configureDependencies() = dependencies.apply {
         add("androidTestImplementation", Deps.extJunit)
         add("androidTestImplementation", Deps.espressoCore)
         if (isRunPlugin){
-            add("compileOnly", "com.tencent.shadow.core:runtime:local-669f8b5c-SNAPSHOT")
+            add("compileOnly", "com.tencent.shadow.core:runtime:local-eaa97982-SNAPSHOT")
         }
     }
     // TODO: 2022/1/21 需要拆开res和java

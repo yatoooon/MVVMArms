@@ -46,10 +46,9 @@ public class SamplePluginManager extends FastPluginManager {
 
     @Override
     public void enter(final Context context, long fromId, Bundle bundle, final EnterCallback callback) {
-        if (fromId == Constant.FROM_ID_START_ACTIVITY) {
-            bundle.putString(Constant.KEY_PLUGIN_ZIP_PATH, "/data/local/tmp/plugin-debug.zip");
-            bundle.putString(Constant.KEY_PLUGIN_PART_KEY, "login-plugin");
-            bundle.putString(Constant.KEY_ACTIVITY_CLASSNAME, "com.arms.login.mvvm.activity.LoginActivity");
+        if (fromId == Constant.FROM_LOAD_BASE_PLUGIN) {
+            onLoadPlugin(context, bundle, callback);
+        } else if (fromId == Constant.FROM_ID_START_ACTIVITY) {
             onStartActivity(context, bundle, callback);
         } else if (fromId == Constant.FROM_ID_CALL_SERVICE) {
             callPluginService(context);
@@ -58,6 +57,36 @@ public class SamplePluginManager extends FastPluginManager {
         }
     }
 
+    private void onLoadPlugin(final Context context, Bundle bundle, final EnterCallback callback) {
+        final String pluginZipPath = bundle.getString(Constant.KEY_PLUGIN_ZIP_PATH);
+        final String partKey = bundle.getString(Constant.KEY_PLUGIN_PART_KEY);
+        if (callback != null) {
+            final View view = LayoutInflater.from(mCurrentContext).inflate(R.layout.activity_load_plugin, null);
+            callback.onShowLoadingView(view);
+        }
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    InstalledPlugin installedPlugin = installPlugin(pluginZipPath, null, true);//这个调用是阻塞的
+                    loadPlugin(installedPlugin.UUID,partKey);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                if (callback != null) {
+                    Handler uiHandler = new Handler(Looper.getMainLooper());
+                    uiHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callback.onCloseLoadingView();
+                            callback.onEnterComplete();
+                        }
+                    });
+                }
+            }
+        });
+    }
     private void onStartActivity(final Context context, Bundle bundle, final EnterCallback callback) {
         final String pluginZipPath = bundle.getString(Constant.KEY_PLUGIN_ZIP_PATH);
         final String partKey = bundle.getString(Constant.KEY_PLUGIN_PART_KEY);

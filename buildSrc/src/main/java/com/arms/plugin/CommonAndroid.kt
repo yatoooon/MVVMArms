@@ -53,9 +53,6 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                 }
             }
 
-
-
-
         }
 
         dexOptions {

@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 android {
     compileSdkVersion Versions.compileSdk
 
@@ -35,7 +34,4 @@ android {
     }
 
 
-}
-
-dependencies {
 }

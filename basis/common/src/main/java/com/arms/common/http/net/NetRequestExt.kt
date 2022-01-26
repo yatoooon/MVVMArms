@@ -1,6 +1,6 @@
 package com.arms.common.http.net
 
-import com.arms.common.ResApp.getApp
+import com.arms.common.CommonApp.getApp
 import com.arms.common.utils.checkNetworkStatus
 
 

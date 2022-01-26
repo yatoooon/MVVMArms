@@ -46,8 +46,7 @@ shadow {
                     pluginApk1 {
                         businessName = pluginName//businessName相同的插件，context获取的Dir是相同的。businessName留空，表示和宿主相同业务，直接使用宿主的Dir。
                         partKey = pluginName
-                        buildTask = 'assembleDebug'
-                        apkName = 'base-plugin-debug.apk'
+                        buildTask = 'assemblePluginDebug'
                         apkPath = 'shadow/plugin/base/build/outputs/apk/plugin/debug/base-plugin-debug.apk'
                     }
                 }

@@ -17,6 +17,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 
+import com.arms.core.R;
 import com.arms.core.base.ibase.ILoading;
 import com.arms.core.base.ibase.IView;
 import com.arms.common.action.ActivityAction;
@@ -30,6 +31,8 @@ import com.arms.common.dialog.BaseDialog;
 import com.arms.common.dialog.WaitDialog;
 import com.arms.common.immersionbar.BindImmersionBar;
 import com.hjq.bar.TitleBar;
+
+import org.jetbrains.anko.ThemeKt;
 
 import java.util.List;
 import java.util.Random;
@@ -70,6 +73,13 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
      * 对话框数量
      */
     private int mDialogCount;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        newBase.setTheme(R.style.Theme_AppCompat_DayNight_NoActionBar);
+        super.attachBaseContext(newBase);
+    }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

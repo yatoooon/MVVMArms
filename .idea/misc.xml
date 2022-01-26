@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.30256410256410254" />
+        <entry key="basis/common/src/main/res/layout/common_activity_launcher.xml" value="0.1" />
         <entry key="basis/common/src/main/res/layout/common_address_dialog.xml" value="0.13728470111448834" />
         <entry key="basis/common/src/main/res/layout/common_layout_refresh_header.xml" value="0.13728470111448834" />
         <entry key="basis/common/src/main/res/layout/common_pay_password_dialog.xml" value="0.13728470111448834" />
@@ -58,11 +59,13 @@
         <entry key="module/template/src/main/res/layout/template_fragment_found.xml" value="0.1" />
         <entry key="module/template/src/main/res/layout/template_fragment_home.xml" value="0.1" />
         <entry key="module/template/src/main/res/layout/template_fragment_message.xml" value="0.12273550724637682" />
+        <entry key="module/template/src/main/res/layout/template_fragment_mine.xml" value="0.13728470111448834" />
         <entry key="module/template/src/main/res/layout/template_fragment_repository.xml" value="0.1" />
         <entry key="module/template/src/main/res/layout/template_fragment_status.xml" value="0.11684782608695653" />
         <entry key="module/template/src/main/res/layout/template_status_activity.xml" value="0.12273550724637682" />
         <entry key="module/web/src/main/res/layout/web_activity_webpage.xml" value="0.1" />
         <entry key="module/web/src/main/res/layout/web_fragment_webpage.xml" value="0.13949275362318841" />
+        <entry key="shadow/manager/src/main/res/layout/activity_load_plugin.xml" value="0.13728470111448834" />
       </map>
     </option>
   </component>

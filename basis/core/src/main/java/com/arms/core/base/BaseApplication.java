@@ -3,7 +3,7 @@ package com.arms.core.base;
 import android.content.Context;
 
 import com.arms.core.base.delegate.BaseApplicationLifecycleDelegate;
-import com.arms.common.ResApp;
+import com.arms.common.CommonApp;
 import com.arms.common.aop.Log;
 import com.arms.common.component.AppComponent;
 
@@ -15,7 +15,7 @@ import javax.inject.Inject;
 /**
  *
  */
-public class BaseApplication extends ResApp {
+public class BaseApplication extends CommonApp {
 
     @Inject
     AppComponent appComponent;
