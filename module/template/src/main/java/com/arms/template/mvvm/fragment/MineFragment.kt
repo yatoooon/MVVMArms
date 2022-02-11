@@ -67,7 +67,25 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                         startActivity(StatusActivity::class.java)
                     }
                     btnMineLogin -> {
-                        routerNavigation(RouterHub.PUBLIC_LOGIN_LOGINACTIVITY)
+//                        routerNavigation(RouterHub.PUBLIC_LOGIN_LOGINACTIVITY)
+
+                        val bundle = Bundle()
+                        bundle.putString(Constant.KEY_PLUGIN_ZIP_PATH,"/data/local/tmp/login-plugin-debug.zip")
+                        bundle.putString(Constant.KEY_PLUGIN_PART_KEY,"login-plugin")
+                        bundle.putString(Constant.KEY_ACTIVITY_CLASSNAME,"com.arms.login.mvvm.activity.LoginActivity")
+                        InitApplication.getPluginManager().enter(context,Constant.FROM_ID_START_ACTIVITY,
+                            bundle,object :EnterCallback{
+                                override fun onShowLoadingView(view: View?) {
+                                    toast("login插件加载中")
+                                }
+
+                                override fun onCloseLoadingView() {
+                                }
+
+                                override fun onEnterComplete() {
+                                    toast("login插件完成")
+                                }
+                            })
                     }
                     btnMineRegister -> {
                         routerNavigation(RouterHub.PUBLIC_LOGIN_REGISTERACTIVITY)

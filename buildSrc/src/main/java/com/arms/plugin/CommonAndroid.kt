@@ -9,6 +9,7 @@ import com.android.build.gradle.internal.dsl.SigningConfig
 import com.android.builder.core.DefaultDexOptions
 import com.android.builder.core.DexOptions
 import isRunAlone
+import isRunPlugin
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
@@ -37,9 +38,10 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
         defaultConfig {
             versionCode = 1
             versionName = "1.0.0"
-            applicationId = "com.arms.sample"
-            resValue("string", "app_name", "MVVMArms")
-
+            if (isAppModule || isRunAlone || isRunPlugin) {
+                applicationId = "com.arms.sample"
+                resValue("string", "app_name", "MVVMArms")
+            }
             minSdk = Versions.minSdk
             targetSdk = Versions.targetSdk
             testInstrumentationRunner = Deps.androidJUnitRunner
@@ -56,6 +58,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                     argument("AROUTER_MODULE_NAME", project.name)
                 }
             }
+
 
         }
 

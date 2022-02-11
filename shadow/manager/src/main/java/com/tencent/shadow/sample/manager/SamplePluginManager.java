@@ -47,7 +47,7 @@ public class SamplePluginManager extends FastPluginManager {
     @Override
     public void enter(final Context context, long fromId, Bundle bundle, final EnterCallback callback) {
         if (fromId == Constant.FROM_LOAD_BASE_PLUGIN) {
-            onLoadPlugin(context, bundle, callback);
+            onLoadPlugin(bundle, callback);
         } else if (fromId == Constant.FROM_ID_START_ACTIVITY) {
             onStartActivity(context, bundle, callback);
         } else if (fromId == Constant.FROM_ID_CALL_SERVICE) {
@@ -57,7 +57,7 @@ public class SamplePluginManager extends FastPluginManager {
         }
     }
 
-    private void onLoadPlugin(final Context context, Bundle bundle, final EnterCallback callback) {
+    private void onLoadPlugin( Bundle bundle, final EnterCallback callback) {
         final String pluginZipPath = bundle.getString(Constant.KEY_PLUGIN_ZIP_PATH);
         final String partKey = bundle.getString(Constant.KEY_PLUGIN_PART_KEY);
         if (callback != null) {

@@ -1,5 +1,5 @@
 apply plugin: 'com.ibotta.gradle.aop'
 
 aopWeave {
-    filter = "com/arms"
+    filter = "com/arms/sample"
 }
