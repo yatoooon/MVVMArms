@@ -22,10 +22,9 @@ internal fun Project.configurePlugins(isAppModule: Boolean) {
         plugins.apply("kotlin-android")
         plugins.apply("kotlin-kapt")
         plugins.apply("dagger.hilt.android.plugin")
-        plugins.apply("android-aspectjx")
         var options = mutableMapOf<String, String>().apply {
             @Suppress("MISSING_DEPENDENCY_CLASS")
-            put("from", "${project.rootDir}/build_app.gradle")
+            put("from", "${project.rootDir}/build_aspectjx.gradle")
         }
         apply(options)
     } else {

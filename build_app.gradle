@@ -1,5 +1,0 @@
-android {
-    aspectjx {
-        include "com.arms"
-    }
-}

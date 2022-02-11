@@ -6,6 +6,8 @@ import com.android.build.gradle.AppExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.android.build.gradle.internal.dsl.SigningConfig
+import com.android.builder.core.DefaultDexOptions
+import com.android.builder.core.DexOptions
 import isRunAlone
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -34,22 +36,18 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 
         defaultConfig {
             versionCode = 1
-            versionName  = "1.0.0"
-            applicationId  = "com.arms.sample"
-            resValue("string","app_name","MVVMArms")
+            versionName = "1.0.0"
+            applicationId = "com.arms.sample"
+            resValue("string", "app_name", "MVVMArms")
 
-            minSdkVersion(Versions.minSdk)
-            targetSdkVersion(Versions.targetSdk)
+            minSdk = Versions.minSdk
+            targetSdk = Versions.targetSdk
             testInstrumentationRunner = Deps.androidJUnitRunner
             multiDexEnabled = true
             ndk {
                 // 设置支持的SO库架构
-                abiFilters(
-//                    "armeabi",
-//                    "x86",
-                    "armeabi-v7a"
-//                    "x86_64"
-//                    "arm64-v8a"
+                abiFilters.addAll(
+                    arrayListOf("armeabi-v7a", "arm64-v8a")
                 )
             }
 
@@ -59,10 +57,6 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                 }
             }
 
-        }
-
-        dexOptions {
-            javaMaxHeapSize =  "4g"
         }
 
         compileOptions {
@@ -85,7 +79,6 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
         }
 
         resourcePrefix(project.name + "_")
-
 
         buildTypes {
             @Suppress("MISSING_DEPENDENCY_CLASS")
@@ -111,8 +104,12 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
         }
 
         packagingOptions {
-            exclude("META-INF/NOTICE.txt")
-            // ...
+            excludes.add("META-INF/NOTICE.txt")
+        }
+
+        lintOptions {
+            isCheckReleaseBuilds = false
+            isAbortOnError = false
         }
     }
 }

@@ -20,6 +20,18 @@ shadow {
                     }
                 }
             }
+            release {
+                pluginApks {
+                    pluginApk1 {
+                        businessName = pluginName
+                        //businessName相同的插件，context获取的Dir是相同的。businessName留空，表示和宿主相同业务，直接使用宿主的Dir。
+                        partKey = pluginName
+                        buildTask = 'assemblePluginRelease'
+                        dependsOn = ['base-plugin']
+                        apkPath = 'module/'+project.name + '/build/outputs/apk/plugin/release/' + project.name + '-plugin-release.apk'
+                    }
+                }
+            }
         }
         uuid = '1234567890'
 
