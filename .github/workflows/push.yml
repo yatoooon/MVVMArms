@@ -38,7 +38,7 @@ jobs:
       - name: cat pom
         working-directory: shadow-src
         run: cat build/pom/common-pom.xml
-      - name: assembleDebug
-        run: ./gradlew assembleDebug
+      - name: manager assembleDebug
+        run: ./gradlew :shadow:manager:assembleDebug
       - name: stop gradle deamon for actions/cache
         run: ./gradlew --stop
