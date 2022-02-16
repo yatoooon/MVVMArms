@@ -1,0 +1,44 @@
+name: build on push
+
+on:
+  push:
+    branches: [ feature_plugin ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    env:
+      DISABLE_TENCENT_MAVEN_MIRROR: true
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: checkout shadow
+        uses: actions/checkout@v2
+        with:
+          repository: 'Tencent/Shadow'
+          fetch-depth: 0
+          path: 'shadow-src'
+      - name: checkout shadow version
+        working-directory: shadow-src
+        run: git checkout eaa97982
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - name: revert gradle wrapper mirror setting
+        working-directory: shadow-src
+        run: echo 'distributionUrl=https\://services.gradle.org/distributions/gradle-7.0.2-bin.zip' >  gradle/wrapper/gradle-wrapper.properties
+      - name: publish shadow to local
+        working-directory: shadow-src
+        run: CI=false ./gradlew publish
+      - name: cat pom
+        working-directory: shadow-src
+        run: cat build/pom/common-pom.xml
+      - name: assembleDebug
+        run: ./gradlew assembleDebug
+      - name: stop gradle deamon for actions/cache
+        run: ./gradlew --stop
