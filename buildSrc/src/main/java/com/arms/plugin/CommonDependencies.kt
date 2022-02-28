@@ -2,8 +2,8 @@ package com.arms.plugin
 
 import Deps
 import com.android.build.gradle.api.AndroidBasePlugin
-import isRunAlone
-import isRunPlugin
+import Deploys.isRunAlone
+import Deploys.isRunPlugin
 import org.gradle.api.Project
 
 /**
@@ -13,29 +13,23 @@ import org.gradle.api.Project
  */
 internal fun Project.configureDependencies() = dependencies.apply {
     add("implementation", (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar")))))
-    add("testImplementation", Deps.junit)
 
-    if (project.containsAndroidPlugin()) {
-        add("androidTestImplementation", Deps.extJunit)
-        add("androidTestImplementation", Deps.espressoCore)
-        if (isRunPlugin){
-            add("compileOnly", "com.tencent.shadow.core:runtime:local-eaa97982-SNAPSHOT")
-        }
-    }
-    // TODO: 2022/1/21 需要拆开res和java
-    if (isRunPlugin){
+    if (isRunPlugin) {
         add("implementation", project(":basis:res"))
+        add("compileOnly", "com.tencent.shadow.core:runtime:local-abf3916a-SNAPSHOT")
         add("compileOnly", project(":basis:export"))
-    }else{
+        add("compileOnly", Deps.arouterApi)
+        add("compileOnly", Deps.hiltAndroid)
+        add("compileOnly", Deps.androidHiltLifecycleViewmodel)
+    } else {
         add("implementation", project(":basis:export"))
+        add("implementation", Deps.arouterApi)
+        add("implementation", Deps.hiltAndroid)
+        add("implementation", Deps.androidHiltLifecycleViewmodel)
     }
-    add("implementation", Deps.arouterApi)
     add("kapt", Deps.arouterCompiler)
-    add("implementation", Deps.hiltAndroid)
     add("kapt", Deps.hiltAndroidCompiler)
-    add("implementation", Deps.androidHiltLifecycleViewmodel)
     add("kapt", Deps.androidHiltCompiler)
-
 }
 
 internal fun Project.containsAndroidPlugin(): Boolean {

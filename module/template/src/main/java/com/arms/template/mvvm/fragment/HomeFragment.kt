@@ -3,6 +3,7 @@ package com.arms.template.mvvm.fragment
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
@@ -65,6 +66,10 @@ class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel<B
         binding.rvHomeTab.setSelectedTabIndicatorColor(getColor(R.color.res_accent_color))
         binding.rvHomeTab.setSelectedTabIndicatorHeight(requireActivity().dp2px(2))
         binding.ctlHomeBar.setOnScrimsListener(this)
+        val layoutParams = binding.vpHomePager.layoutParams as CoordinatorLayout.LayoutParams
+        layoutParams.behavior = AppBarLayout.ScrollingViewBehavior()
+
+
         binding.vpHomePager.adapter = mPagerAdapter
         binding.vpHomePager.offscreenPageLimit = fragments.size
         binding.vpHomePager.isUserInputEnabled = false

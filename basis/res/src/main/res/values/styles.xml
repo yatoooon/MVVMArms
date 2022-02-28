@@ -1,14 +1,14 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="res_AppTheme" parent="android:Theme.Material.NoActionBar">
+    <style name="res_AppTheme" parent="@style/Theme.AppCompat.DayNight.NoActionBar">
         <!-- 窗口背景颜色 -->
         <item name="android:windowBackground">@color/res_window_background_color</item>
         <!-- 应用的主要色调，ActionBar Toolbar 默认使用该颜色 -->
-<!--        <item name="colorPrimary">@color/res_primary_color</item>-->
+        <item name="colorPrimary">@color/res_primary_color</item>
         <!-- 应用的主要暗色调，状态栏默认使用该颜色 -->
-<!--        <item name="colorPrimaryDark">@color/res_primary_dark_color</item>-->
+        <item name="colorPrimaryDark">@color/res_primary_dark_color</item>
         <!-- 应用的强调色，CheckBox RadioButton Switch 等一般控件的选中效果默认采用该颜色 -->
-<!--        <item name="colorAccent">@color/res_accent_color</item>-->
+        <item name="colorAccent">@color/res_accent_color</item>
         <!-- 默认文本颜色，Button、TextView 的文字颜色 -->
         <item name="android:textColor">@color/res_text_color</item>
         <!-- 默认字体大小，Button、TextView 的字体大小 -->
@@ -16,10 +16,10 @@
         <!-- 默认提示颜色，Button、TextView 的提示文字颜色 -->
         <item name="android:textColorHint">@color/res_text_hint_color</item>
         <!-- ActionMode 覆盖 Actionbar 不被顶下来 -->
-<!--        <item name="windowActionModeOverlay">true</item>-->
+        <item name="windowActionModeOverlay">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <!-- ActionMode 的颜色 -->
-<!--        <item name="actionModeBackground">@color/res_primary_color</item>-->
+        <item name="actionModeBackground">@color/res_primary_color</item>
         <!-- 解决 Android 5.1 及以上版本 Button 英文字符串自动变大写的问题 -->
         <item name="android:textAllCaps">false</item>
         <!-- 解决 ImageView 不能自动等比拉伸图片的问题 -->
@@ -32,20 +32,20 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
-  <!-- 全屏主题样式 -->
-    <style name="res_FullScreenTheme" parent="res_AppTheme">
+    <!-- 全屏主题样式 -->
+    <style name="res_FullScreenTheme" parent="@style/res_AppTheme">
         <item name="android:windowFullscreen">true</item>
     </style>
 
     <!-- 闪屏页主题样式 -->
-    <style name="res_SplashTheme" parent="res_FullScreenTheme">
+    <style name="res_SplashTheme" parent="@style/res_FullScreenTheme">
         <!-- https://www.jianshu.com/p/d0d907754603 -->
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowDisablePreview">true</item>
     </style>
 
     <!-- 默认按钮样式 -->
-    <style name="res_ButtonStyle" parent="android:Widget.Material.Button.Borderless">
+    <style name="res_ButtonStyle" parent="@style/Widget.AppCompat.Button.Borderless">
         <item name="android:paddingStart">@dimen/res_dp_20</item>
         <item name="android:paddingEnd">@dimen/res_dp_20</item>
         <item name="android:paddingTop">@dimen/res_dp_10</item>
@@ -58,7 +58,7 @@
     </style>
 
     <!-- 直角按钮样式 -->
-    <style name="res_RectButtonStyle" parent="res_ButtonStyle">
+    <style name="res_RectButtonStyle" parent="@style/res_ButtonStyle">
         <item name="android:paddingStart">@dimen/res_dp_10</item>
         <item name="android:paddingEnd">@dimen/res_dp_10</item>
         <item name="android:paddingTop">@dimen/res_dp_5</item>
@@ -112,7 +112,7 @@
 
 
     <!-- 对话框默认主题 -->
-    <style name="res_BaseDialogTheme" parent="android:Theme.Material.Dialog.Alert"><!-- @android:style/Theme.Dialog -->
+    <style name="res_BaseDialogTheme" parent="@style/Theme.AppCompat.DayNight.Dialog.Alert"><!-- @android:style/Theme.Dialog -->
         <!-- 无边框 -->
         <item name="android:windowFrame">@null</item>
         <!-- 浮在 Activity 之上 -->
@@ -131,11 +131,11 @@
         <!-- Base.Theme.AppCompat.Light.Dialog.Alert 特有的属性，用于指定默认宽度，这里需要禁用 -->
         <item name="android:windowMinWidthMajor">0dp</item>
         <item name="android:windowMinWidthMinor">0dp</item>
-      <!--  &lt;!&ndash; 解决 ActionBar 占位导致 Dialog 无法全屏显示的问题 &ndash;&gt;
+        <!-- 解决 ActionBar 占位导致 Dialog 无法全屏显示的问题 -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        &lt;!&ndash; ActionMode 覆盖 Actionbar，不顶下来 &ndash;&gt;
-        <item name="windowActionModeOverlay">true</item>-->
+        <!-- ActionMode 覆盖 Actionbar，不顶下来 -->
+        <item name="windowActionModeOverlay">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <!-- 不感知敏感的切换 -->
         <!--<item name="android:configChanges">orientation|screenSize|keyboardHidden</item>-->

@@ -10,6 +10,10 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="${applicationId}.lifecycle-process"
+            tools:node="remove" />
     </application>
 
 

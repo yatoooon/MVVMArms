@@ -8,8 +8,6 @@ import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.android.build.gradle.internal.dsl.SigningConfig
 import com.android.builder.core.DefaultDexOptions
 import com.android.builder.core.DexOptions
-import isRunAlone
-import isRunPlugin
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
@@ -24,7 +22,7 @@ import java.io.File
  */
 internal fun Project.configureAndroid(isAppModule: Boolean) {
     val extension =
-        if (isAppModule || isRunAlone)
+        if (isAppModule || Deploys.isRunAlone)
             extensions.getByType<AppExtension>()
         else
             extensions.getByType<LibraryExtension>()
@@ -32,19 +30,24 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 
     extension.run {
 
-        buildToolsVersion(Versions.buildTool)
         compileSdkVersion(Versions.compileSdk)
 
         defaultConfig {
             versionCode = 1
             versionName = "1.0.0"
-            if (isAppModule || isRunAlone || isRunPlugin) {
+            if (isAppModule || Deploys.isRunAlone || Deploys.isRunPlugin) {
                 applicationId = "com.arms.sample"
                 resValue("string", "app_name", "MVVMArms")
+                if (Deploys.isRunPlugin) {
+                    aaptOptions.additionalParameters(
+                        "--package-id",
+                        "0x7E",
+                        "--allow-reserved-package-id"
+                    )
+                }
             }
             minSdk = Versions.minSdk
             targetSdk = Versions.targetSdk
-            testInstrumentationRunner = Deps.androidJUnitRunner
             multiDexEnabled = true
             ndk {
                 // 设置支持的SO库架构
@@ -71,7 +74,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             kotlinOptions.jvmTarget = "1.8"
         }
 
-        if (isAppModule || isRunAlone) {
+        if (isAppModule || Deploys.isRunAlone) {
             extensions.getByType<BaseAppModuleExtension>().buildFeatures {
                 dataBinding = true
             }
@@ -84,25 +87,25 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
         resourcePrefix(project.name + "_")
 
         buildTypes {
-            @Suppress("MISSING_DEPENDENCY_CLASS")
-            val signingConfig = SigningConfig("sample").apply {
-                storeFile = File("${project.rootDir}/buildSrc/sample.jks")
-                storePassword = "123456"
-                keyAlias = "sample"
-                keyPassword = "123456"
-            }
+//            @Suppress("MISSING_DEPENDENCY_CLASS")
+//            val signingConfig = SigningConfig("sample").apply {
+//                storeFile = File("${project.rootDir}/buildSrc/sample.jks")
+//                storePassword = "123456"
+//                keyAlias = "sample"
+//                keyPassword = "123456"
+//            }
             getByName("debug") {
                 isMinifyEnabled = false
                 proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-                setSigningConfig(signingConfig)
+//                setSigningConfig(signingConfig)
             }
             getByName("release") {
                 isMinifyEnabled = false
-                if (isAppModule || isRunAlone) {
+                if (isAppModule || Deploys.isRunAlone) {
                     isShrinkResources = false
                 }
                 proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-                setSigningConfig(signingConfig)
+//                setSigningConfig(signingConfig)
             }
         }
 
@@ -114,5 +117,6 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             isCheckReleaseBuilds = false
             isAbortOnError = false
         }
+
     }
 }

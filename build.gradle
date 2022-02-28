@@ -1,7 +1,7 @@
 apply from: './buildSrc/build_version.gradle'
 
 buildscript {
-    ext.shadow_version = 'local-eaa97982-SNAPSHOT'
+    ext.shadow_version = 'local-abf3916a-SNAPSHOT'
     repositories {
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
         google()

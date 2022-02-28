@@ -115,10 +115,6 @@ dependencies {
     //coroutines
     api Deps.kotlinxCoroutinesCore
     api Deps.kotlinxCoroutinesAndroid
-    //koin
-    api Deps.koinAndroid
-    api Deps.koinAndroidxScope
-    api Deps.koinAndroidxViewmodel
     //anko
     api Deps.anko
     api Deps.ankoCommon

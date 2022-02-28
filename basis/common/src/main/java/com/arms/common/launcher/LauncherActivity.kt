@@ -8,12 +8,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toDrawable
+import androidx.fragment.app.FragmentActivity
 import com.arms.common.R
 import org.jetbrains.anko.padding
 
-class LauncherActivity : AppCompatActivity() {
+class LauncherActivity : FragmentActivity() {
 
 
     val activitys = arrayListOf(

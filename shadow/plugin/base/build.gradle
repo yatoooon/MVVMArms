@@ -2,18 +2,20 @@ apply plugin: 'com.android.application'
 
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.arms.sample"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildFeatures {
+        dataBinding = true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -25,6 +27,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // 将插件的资源ID分区改为和宿主0x7F不同的值
+    aaptOptions {
+        additionalParameters "--package-id", "0x7E", "--allow-reserved-package-id"
     }
 }
 

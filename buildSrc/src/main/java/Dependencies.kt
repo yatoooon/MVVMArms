@@ -1,14 +1,16 @@
-const val isRunAlone = true
-const val isRunPlugin = true
+object Deploys{
+    const val isRunAlone = false
+    const val isRunPlugin = false
+}
+
 
 /**
  * 版本信息
  */
 object Versions {
     const val minSdk = 21
-    const val targetSdk = 30
-    const val compileSdk = 30
-    const val buildTool = "30.0.2"
+    const val targetSdk = 31
+    const val compileSdk = 31
 }
 
 /**
@@ -28,7 +30,8 @@ object Deps {
     const val kotlinStdlibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
 
     //androidx
-    const val appcompat = "androidx.appcompat:appcompat:1.3.1"
+    const val appcompat = "androidx.appcompat:appcompat:1.4.1"
+    const val appcompatResources = "androidx.appcompat:appcompat-resources:1.4.1"
     const val design = "com.google.android.material:material:1.4.0"
     const val cardview = "androidx.cardview:cardview:1.0.0"
     const val annotationX = "androidx.annotation:annotation:1.2.0"
@@ -45,7 +48,7 @@ object Deps {
 
     const val lifecycleViewmodelSavedstate =
         "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1"
-    const val coreKtx = "androidx.core:core-ktx:1.6.0"
+    const val coreKtx = "androidx.core:core-ktx:1.3.0"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:1.3.6"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.0"
 
@@ -98,6 +101,7 @@ object Deps {
     const val rvAdapter = "com.gitee.cbfg5210:RVAdapter:0.3.5"
     const val circleindicator = "me.relex:circleindicator:2.1.6"
     const val bottombar = "me.majiajie:pager-bottom-tab-strip:2.4.0"
+    const val flycoTabLayout = "io.github.h07000223:flycoTabLayout:3.0.0"
 
 
     //tools
@@ -138,7 +142,7 @@ object Deps {
     const val extJunit = "androidx.test.ext:junit:1.1.3"
     const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
     const val androidJUnitRunner = "androidx.test.runner.AndroidJUnitRunner"
-    const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.5"
+    const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.9.1"
     const val aspectjrt = "org.aspectj:aspectjrt:1.9.6"
 
     const val umengCommon = "com.umeng.umsdk:common:9.4.2"

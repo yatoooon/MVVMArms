@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 
 import com.arms.core.R;
@@ -73,12 +74,6 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
      * 对话框数量
      */
     private int mDialogCount;
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        newBase.setTheme(R.style.Theme_AppCompat_DayNight_NoActionBar);
-        super.attachBaseContext(newBase);
-    }
 
 
     @Override

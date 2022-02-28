@@ -26,5 +26,10 @@
             android:name="com.arms.login.mvvm.activity.PhoneResetActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="${applicationId}.lifecycle-process"
+            tools:node="remove" />
     </application>
 </manifest>

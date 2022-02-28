@@ -10,6 +10,7 @@ import com.coder.zzq.smartshow.core.SmartShow
 import com.arms.core.base.delegate.BaseApplicationLifecycle
 import com.arms.core.other.CrashHandler
 import com.arms.common.BuildConfig
+import com.arms.common.utils.ProcessUtil
 import com.arms.umeng.UmengClient
 import com.hjq.toast.ToastUtils
 import com.orhanobut.logger.AndroidLogAdapter
@@ -19,16 +20,14 @@ import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.mmkv.MMKV
 import com.tencent.shadow.sample.introduce_shadow_lib.InitApplication
 import com.umeng.analytics.MobclickAgent
-import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
-import org.koin.core.context.startKoin
 import timber.log.Timber
-import android.app.ActivityManager
-import android.app.ActivityManager.RunningAppProcessInfo
-import android.os.Process
 
 
 class CoreLifecyclesImpl : BaseApplicationLifecycle {
+
+    companion object {
+        public var loadPlugin: Boolean = false
+    }
 
     override fun attachBaseContext(base: Context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -58,11 +57,6 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
         initARouter(application)
         //初始化MMKV
         MMKV.initialize(application)
-        //初始化Koin
-        startKoin {
-            androidLogger()
-            androidContext(application)
-        }
         //初始化SmartShow
         SmartShow.init(application)
 
@@ -82,7 +76,9 @@ class CoreLifecyclesImpl : BaseApplicationLifecycle {
         MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO)
 
         //插件化
-        InitApplication.onApplicationCreate(application)
+        if (!loadPlugin){
+            InitApplication.onApplicationCreate(application)
+        }
 
     }
 

@@ -30,7 +30,8 @@
         android:theme="@style/res_AppTheme"
         tools:replace="android:name,android:theme"
         tools:targetApi="n">
-        <activity android:name="com.arms.common.launcher.LauncherActivity">
+        <activity android:name="com.arms.common.launcher.LauncherActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

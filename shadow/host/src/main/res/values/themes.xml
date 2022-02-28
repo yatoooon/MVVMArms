@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="PluginContainerActivity" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+    <style name="PluginContainerActivity" parent="@style/res_AppTheme">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowNoTitle">true</item>
