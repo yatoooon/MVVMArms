@@ -5,9 +5,12 @@
 
     <application android:name=".app.SplashApp"
         tools:replace="android:name">
-        <activity android:name=".mvvm.activity.MainTestActivity" />
+        <activity
+            android:exported="false"
+            android:name=".mvvm.activity.MainTestActivity" />
         <!-- 闪屏页 -->
         <activity
+            android:exported="true"
             android:name=".mvvm.activity.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
@@ -22,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.GuideActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />

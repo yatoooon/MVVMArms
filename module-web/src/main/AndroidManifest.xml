@@ -6,6 +6,7 @@
         tools:replace="android:name">
 
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.WebPageActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:hardwareAccelerated="true"

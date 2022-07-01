@@ -5,17 +5,22 @@
 
     <application android:name=".app.TemplateApp"
         tools:replace="android:name">
-        <activity android:name=".mvvm.activity.TemplateActivity" />
+        <activity
+            android:exported="false"
+            android:name=".mvvm.activity.TemplateActivity" />
+
 
         <meta-data
             android:name="com.common.template.lifecycle.TemplateConfiguration"
             android:value="CoreConfigModule" />
 
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.StatusActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.DialogActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />

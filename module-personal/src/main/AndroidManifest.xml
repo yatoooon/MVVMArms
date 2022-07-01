@@ -6,10 +6,12 @@
     <application android:name=".app.PersonalApp"
         tools:replace="android:name">
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.PersonalDataActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.SettingActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />

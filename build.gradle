@@ -7,18 +7,18 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
-        maven { url 'https://dl.bintray.com/umsdk/release' }
         maven { url "https://jitpack.io" }
+        maven { url 'https://jcenter.bintray.com/umsdk/release' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21'
+        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0'
         //Gradle Android Maven plugin
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         //This plugin is available from Bintray's JCenter repository and from the Gradle Plugin Portal
         classpath "com.github.ben-manes:gradle-versions-plugin:0.36.0"
 
-        classpath "com.google.dagger:hilt-android-gradle-plugin:2.38.1"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.42"
 
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.10'
 
@@ -32,7 +32,7 @@ allprojects {
         mavenCentral()
         maven { url "https://jitpack.io" }
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'https://dl.bintray.com/umsdk/release' }
+        maven { url 'https://jcenter.bintray.com/umsdk/release' }
     }
 }
 

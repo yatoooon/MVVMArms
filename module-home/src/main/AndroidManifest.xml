@@ -6,6 +6,7 @@
     <application android:name=".app.HomeApp"
         tools:replace="android:name">
         <activity
+            android:exported="false"
             android:name="com.common.home.mvvm.activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"

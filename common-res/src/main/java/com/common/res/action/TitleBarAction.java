@@ -26,7 +26,6 @@ public interface TitleBarAction extends OnTitleBarListener {
      *
      * @param view     被点击的左项View
      */
-    @Override
     default void onLeftClick(View view) {}
 
     /**
@@ -34,7 +33,6 @@ public interface TitleBarAction extends OnTitleBarListener {
      *
      * @param view     被点击的标题View
      */
-    @Override
     default void onTitleClick(View view) {}
 
     /**
@@ -42,7 +40,6 @@ public interface TitleBarAction extends OnTitleBarListener {
      *
      * @param view     被点击的右项View
      */
-    @Override
     default void onRightClick(View view) {}
 
     /**

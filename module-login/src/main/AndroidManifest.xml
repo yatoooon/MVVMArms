@@ -7,22 +7,27 @@
         android:name=".app.LoginApp"
         tools:replace="android:name">
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.LoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.RegisterActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.PasswordResetActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.PasswordForgetActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.PhoneResetActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />

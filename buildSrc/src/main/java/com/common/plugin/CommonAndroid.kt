@@ -1,12 +1,14 @@
 package com.common.plugin
 
+import Deploys
+import Deploys.isRunAlone
 import Deps
 import Versions
+import com.android.build.gradle.AppExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.android.build.gradle.internal.dsl.SigningConfig
 import com.android.builder.internal.ClassFieldImpl
-import isRunAlone
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
@@ -21,21 +23,28 @@ import java.io.File
  */
 internal fun Project.configureAndroid(isAppModule: Boolean) {
     val extension =
-        if (isAppModule || isRunAlone)
-            extensions.getByType<BaseAppModuleExtension>()
+        if (isAppModule || Deploys.isRunAlone)
+            extensions.getByType<AppExtension>()
         else
             extensions.getByType<LibraryExtension>()
 
+
     extension.run {
 
-        buildToolsVersion(Versions.buildTool)
+//        buildToolsVersion(Versions.buildTool)
         compileSdkVersion(Versions.compileSdk)
 
         defaultConfig {
+            versionCode = 1
+            versionName = "1.0.0"
+            if (isAppModule || Deploys.isRunAlone || Deploys.isRunPlugin) {
+                applicationId = "com.arms.sample"
+                resValue("string", "app_name", "MVVMArms")
+            }
             minSdkVersion(Versions.minSdk)
-            targetSdkVersion(Versions.targetSdk)
+//            targetSdkVersion(Versions.targetSdk)
             testInstrumentationRunner = Deps.androidJUnitRunner
-            multiDexEnabled = true
+//            multiDexEnabled = true
             flavorDimensions("default")
             ndk {
                 // 设置支持的SO库架构
@@ -54,17 +63,21 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                 }
             }
 
-            addBuildConfigField(
-                ClassFieldImpl(
-                    "Boolean",
-                    "isRunAlone",
-                    isRunAlone.toString()
-                )
-            )
+
+//            addBuildConfigField(
+//                ClassFieldImpl(
+//                    "Boolean",
+//                    "isRunAlone",
+//                    isRunAlone.toString()
+//                )
+//            )
 
 
         }
 
+        dexOptions {
+            javaMaxHeapSize =  "4g"
+        }
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
@@ -119,7 +132,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             getByName("debug") {
                 isMinifyEnabled = false
                 proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-                setSigningConfig(signingConfig)
+//                setSigningConfig(signingConfig)
             }
             getByName("release") {
                 isMinifyEnabled = false
@@ -127,7 +140,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                     isShrinkResources = false
                 }
                 proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-                setSigningConfig(signingConfig)
+//                setSigningConfig(signingConfig)
             }
         }
 

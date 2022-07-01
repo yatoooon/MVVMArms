@@ -43,6 +43,7 @@
 
         <!-- QQ 回调 -->
         <activity
+            android:exported="true"
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
             android:noHistory="true"
@@ -58,6 +59,7 @@
         </activity>
 
         <activity
+            android:exported="false"
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"

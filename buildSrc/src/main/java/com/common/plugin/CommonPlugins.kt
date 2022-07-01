@@ -1,6 +1,7 @@
 package com.common.plugin
 
-import isRunAlone
+import Deploys.isRunAlone
+import Deploys.isRunPlugin
 import org.gradle.api.Project
 
 /**

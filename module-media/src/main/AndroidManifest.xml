@@ -6,39 +6,47 @@
     <application android:name=".app.MediaApp"
         tools:replace="android:name">
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.ImageSelectActivity"
             android:label="@string/res_image_select_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.VideoPlayActivity"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:theme="@style/res_FullScreenTheme" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.VideoSelectActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.VideoPlayActivity$Portrait"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/res_FullScreenTheme" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.VideoPlayActivity$Landscape"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:theme="@style/res_FullScreenTheme" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.ImagePreviewActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.ImageCropActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
+            android:exported="false"
             android:name=".mvvm.activity.CameraActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
