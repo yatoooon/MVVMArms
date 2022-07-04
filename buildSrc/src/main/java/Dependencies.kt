@@ -68,7 +68,7 @@ object Deps {
     //view
     const val autosize = "me.jessyan:autosize:1.2.1"
     const val baseRecyclerViewAdapterHelper =
-        "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7"
+        "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6"
     const val titlebar = "com.wuhenzhizao:titlebar:1.2.0"
     const val smartShowAll = "com.github.the-pig-of-jungle.smart-show:all:3.0.3"
     const val smartRefreshLayoutKernel = "com.scwang.smart:refresh-layout-kernel:2.0.3"
