@@ -37,7 +37,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
         defaultConfig {
             versionCode = 1
             versionName = "1.0.0"
-            if (isAppModule || Deploys.isRunAlone || Deploys.isRunPlugin) {
+            if (isAppModule || isRunAlone) {
                 applicationId = "com.arms.sample"
                 resValue("string", "app_name", "MVVMArms")
             }

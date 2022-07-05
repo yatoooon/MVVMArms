@@ -18,6 +18,9 @@ open class BaseAdapter<T>(layoutId: Int, private val variableId: Int = BR.item) 
         }
     }
 
+
+
+
     companion object {
         const val PAGE_SIZE = 20
     }

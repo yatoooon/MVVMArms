@@ -1,7 +1,6 @@
 package com.common.plugin
 
 import Deploys.isRunAlone
-import Deploys.isRunPlugin
 import org.gradle.api.Project
 
 /**

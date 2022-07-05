@@ -10,7 +10,7 @@ import androidx.collection.LruCache;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.common.core.base.ibase.IRepository;
+import com.common.res.action.ibase.IRepository;
 import com.common.core.config.Constants;
 import com.common.core.config.inter.AppliesOptions;
 import com.common.res.utils.Preconditions;

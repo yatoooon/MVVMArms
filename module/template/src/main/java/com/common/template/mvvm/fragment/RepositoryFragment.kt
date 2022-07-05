@@ -7,8 +7,8 @@ import com.common.export.arouter.RouterHub
 import com.common.res.action.StatusAction
 import com.common.res.adapter.BaseAdapter
 import com.common.res.adapter.BaseAdapter.Companion.PAGE_SIZE
+import com.common.res.http.net.launchAndCollect
 import com.common.res.layout.StatusLayout
-import com.common.res.livedata.StatusEvent
 import com.common.template.R
 import com.common.template.mvvm.model.entity.Item
 import com.common.template.databinding.TemplateFragmentRepositoryBinding
@@ -34,41 +34,10 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
     private val mAdapter: BaseAdapter<Item> = BaseAdapter<Item>(R.layout.template_item)
 
     override fun initData() {
-        showLoading()
-        viewModel.getArticleList(mAdapter.page, PAGE_SIZE)
+        getArticleData()
     }
 
     override fun initObserve() {
-        viewModel.articleListLiveData.observe(this, {
-            when (it.status) {
-                StatusEvent.Status.LOADING -> {
-                    showLoading()
-                }
-                StatusEvent.Status.SUCCESS -> {
-                    showComplete()
-                    if (mAdapter.isFirstPage()) {
-                        mAdapter.setList(it.data!!.items)
-                        binding.srlRefresh.isRefreshing = false
-                    } else {
-                        mAdapter.addData(it.data!!.items)
-                        if (it.data?.items?.size == 0) {
-                            mAdapter.loadMoreModule.loadMoreEnd(false)
-                        } else {
-                            mAdapter.loadMoreModule.loadMoreComplete()
-                        }
-                    }
-                }
-                StatusEvent.Status.ERROR, StatusEvent.Status.FAILURE -> {
-                    binding.srlRefresh.isRefreshing = false
-                    mAdapter.loadMoreModule.loadMoreComplete()
-                    showError(object : StatusLayout.OnRetryListener {
-                        override fun onRetry(layout: StatusLayout?) {
-                            initData()
-                        }
-                    })
-                }
-            }
-        })
     }
 
     override fun initView() {
@@ -96,18 +65,48 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
                 .withString("title", data.name)
                 .navigation()
         }
+        showLoading()
 
     }
 
 
     private fun refresh() {
         mAdapter.reset()
-        viewModel.getArticleList(mAdapter.page, PAGE_SIZE)
+        getArticleData()
     }
 
     private fun loadMore() {
         mAdapter.nextPage()
-        viewModel.getArticleList(mAdapter.page, PAGE_SIZE)
+        getArticleData()
+    }
+
+    private fun getArticleData() {
+        launchAndCollect({ viewModel.getArticleList(mAdapter.page, PAGE_SIZE) },
+            {
+                onSuccess = {
+                    showComplete()
+                    if (mAdapter.isFirstPage()) {
+                        mAdapter.setList(it!!.items)
+                        binding.srlRefresh.isRefreshing = false
+                    } else {
+                        mAdapter.addData(it!!.items)
+                        if (it.items.size == 0) {
+                            mAdapter.loadMoreModule.loadMoreEnd(false)
+                        } else {
+                            mAdapter.loadMoreModule.loadMoreComplete()
+                        }
+                    }
+                }
+                onError = {
+                    binding.srlRefresh.isRefreshing = false
+                    mAdapter.loadMoreModule.loadMoreFail()
+                    showError(object : StatusLayout.OnRetryListener {
+                        override fun onRetry(layout: StatusLayout?) {
+                            initData()
+                        }
+                    })
+                }
+            })
     }
 
     override fun getStatusLayout(): StatusLayout {

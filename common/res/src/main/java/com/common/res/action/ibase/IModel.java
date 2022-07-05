@@ -1,4 +1,4 @@
-package com.common.core.base.ibase;
+package com.common.res.action.ibase;
 
 
 import androidx.lifecycle.Lifecycle;

@@ -16,8 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 
-import com.common.core.base.ibase.ILoading;
-import com.common.core.base.ibase.IView;
+import com.common.res.action.ibase.ILoading;
+import com.common.res.action.ibase.IView;
 import com.common.res.action.ActivityAction;
 import com.common.res.action.BundleAction;
 import com.common.res.action.ClickAction;

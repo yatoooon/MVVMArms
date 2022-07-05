@@ -1,6 +1,5 @@
 object Deploys{
-    const val isRunAlone = false
-    const val isRunPlugin = false
+    const val isRunAlone = true
 }
 
 /**

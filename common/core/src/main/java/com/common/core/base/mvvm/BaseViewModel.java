@@ -14,7 +14,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
 import com.common.core.base.BaseModel;
-import com.common.core.base.ibase.IViewModel;
+import com.common.res.action.ibase.IViewModel;
 import com.common.res.livedata.MessageEvent;
 import com.common.res.livedata.SingleLiveEvent;
 import com.common.res.livedata.StatusEvent;

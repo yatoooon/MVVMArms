@@ -1,4 +1,4 @@
-package com.common.core.base.ibase;
+package com.common.res.action.ibase;
 
 import android.content.Context;
 
@@ -7,12 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.common.core.base.BaseRepository;
-
-/**
- * 统一管理数据业务层，实现类见{@link BaseRepository}
- *
- */
 public interface IRepository {
     /**
      * 提供上下文{@link Context}

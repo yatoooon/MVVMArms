@@ -5,8 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.common.core.base.ibase.IModel;
-import com.common.core.base.ibase.IRepository;
+import com.common.res.action.ibase.IModel;
+import com.common.res.action.ibase.IRepository;
 import com.common.core.config.Constants;
 
 import javax.inject.Inject;

@@ -31,10 +31,10 @@ public class StatusEvent extends SingleLiveEvent<Integer> {
     /**
      * 状态
      */
-    @IntDef({Status.LOADING, Status.SUCCESS, Status.FAILURE, Status.ERROR})
+    @IntDef({Status.EMPTY, Status.SUCCESS, Status.FAILURE, Status.ERROR})
     @Retention(RetentionPolicy.SOURCE)
     public @interface Status {
-        int LOADING = 0;
+        int EMPTY = 0;
         int SUCCESS = 1;
         int FAILURE = 2;
         int ERROR = 3;

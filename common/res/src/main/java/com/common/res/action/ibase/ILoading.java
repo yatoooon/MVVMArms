@@ -1,9 +1,11 @@
-package com.common.core.base.ibase;
+package com.common.res.action.ibase;
+
+import androidx.lifecycle.LifecycleOwner;
 
 /**
  *
  */
-public interface ILoading {
+public interface ILoading extends LifecycleOwner {
 
     boolean isShowLoading();
     /**
