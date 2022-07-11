@@ -7,9 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.common.core.base.BaseModel
-import com.common.core.base.mvvm.BaseVMFragment
-import com.common.core.base.mvvm.BaseViewModel
+import com.common.core.base.BaseFragment
 import com.common.export.arouter.RouterHub
 import com.common.res.adapter.FragmentViewPager2Adapter
 import com.common.res.layout.XCollapsingToolbarLayout
@@ -19,7 +17,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.gyf.immersionbar.ImmersionBar
 
 @Route(path = RouterHub.PUBLIC_TEMPLATE_FRAGMENT_HOME)
-class HomeFragment : BaseVMFragment<TemplateFragmentHomeBinding, BaseViewModel<BaseModel>>(),
+class HomeFragment : BaseFragment<TemplateFragmentHomeBinding>(),
     XCollapsingToolbarLayout.OnScrimsListener {
 
 

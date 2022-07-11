@@ -100,6 +100,7 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         initView();
         initViewModel();
         initObserve();
+        initData();
     }
 
     @Override
@@ -107,7 +108,6 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         super.onResume();
         if (!mLoading) {
             mLoading = true;
-            initData();
             onFragmentResume(true);
             return;
         }

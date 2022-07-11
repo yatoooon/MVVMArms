@@ -1,5 +1,5 @@
 object Deploys{
-    const val isRunAlone = true
+    const val isRunAlone = false
 }
 
 /**

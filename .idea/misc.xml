@@ -198,6 +198,11 @@
         <entry key="module-web/src/main/res/layout/web_layout_radiobutton.xml" value="0.3734375" />
         <entry key="module-web/src/main/res/layout/web_layout_toolbar.xml" value="0.25" />
         <entry key="module/media/src/main/res/layout/media_album_item.xml" value="0.1105072463768116" />
+        <entry key="module/template/src/main/res/layout/template_activity_template.xml" value="0.11803444782168186" />
+        <entry key="module/template/src/main/res/layout/template_fragment_repository.xml" value="0.11803444782168186" />
+        <entry key="module/template/src/main/res/layout/template_fragment_status.xml" value="0.11803444782168186" />
+        <entry key="module/template/src/main/res/layout/template_fragment_template.xml" value="0.11803444782168186" />
+        <entry key="module/template/src/main/res/layout/template_item.xml" value="0.11803444782168186" />
         <entry key="shadow/plugin/app/src/main/res/layout/activity_plugin.xml" value="0.12864583333333332" />
       </map>
     </option>

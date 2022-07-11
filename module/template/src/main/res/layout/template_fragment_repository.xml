@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="model"
+            type="com.common.template.mvvm.vm.RepositoryViewModel" />
     </data>
 
     <com.common.res.layout.StatusLayout

@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="model"
+            type="com.common.template.mvvm.vm.TemplateViewModel" />
 
     </data>
 
@@ -30,6 +33,12 @@
             app:layout_constraintTop_toBottomOf="@+id/res_titleBar" />
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/res_titleBar"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
+            android:text="@={model.testactivity}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

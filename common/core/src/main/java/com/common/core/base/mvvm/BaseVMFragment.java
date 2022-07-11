@@ -46,6 +46,12 @@ public abstract class BaseVMFragment<VDB extends ViewDataBinding, VM extends Bas
     public void initViewModel() {
         mViewModel = createViewModel();
         if (mViewModel != null) {
+            try {
+                getBinding().getClass().getMethod("setModel", mViewModel.getClass()).invoke(getBinding(), mViewModel);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Timber.d("BaseVMFragment #initViewModel() 对 .xml 文件设置model值失败,原因-->>%s", e.getMessage());
+            }
             getLifecycle().addObserver(mViewModel);
             registerMessageEvent(message -> {
                 Timber.d("message:%s", message);
