@@ -14,18 +14,6 @@ class TemplateActivity : BaseVMActivity<TemplateActivityTemplateBinding, Templat
     }
 
     override fun initData() {
-        viewModel.testactivity.value = "aaaaaaaaaa"
-        viewModel.test.value = "dhwajkdhjkawh"
-    }
-
-    override fun initObserve() {
-        super.initObserve()
-        println("aaaaaaaaaa")
-        viewModel.test.observe(this){
-            println("ccccccccc")
-            println("it:"+it)
-        }
-        println("bbbbbbbbbbbb")
 
     }
 }

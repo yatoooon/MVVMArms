@@ -1,44 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <variable
-            name="model"
-            type="com.common.template.mvvm.vm.TemplateViewModel" />
 
     </data>
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.hjq.bar.TitleBar
-            android:id="@+id/res_titleBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="一键生成activity模版"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/res_titleBar" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/res_titleBar"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_height="wrap_content"
-            android:text="@={model.testactivity}" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </LinearLayout>
 </layout>

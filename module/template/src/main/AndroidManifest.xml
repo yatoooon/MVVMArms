@@ -3,25 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.common.template">
 
-    <application android:name=".app.TemplateApp"
+    <application
+        android:name=".app.TemplateApp"
         tools:replace="android:name">
         <activity
-            android:exported="false"
-            android:name=".mvvm.activity.TemplateActivity" />
-
+            android:name=".mvvm.activity.TemplateActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.common.template.lifecycle.TemplateConfiguration"
             android:value="CoreConfigModule" />
 
         <activity
-            android:exported="false"
             android:name=".mvvm.activity.StatusActivity"
+            android:exported="false"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:exported="false"
             android:name=".mvvm.activity.DialogActivity"
+            android:exported="false"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>

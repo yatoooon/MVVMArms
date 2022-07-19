@@ -5,4 +5,5 @@ import com.common.core.base.BaseRepository
 import javax.inject.Inject
 
 class TemplateModel @Inject constructor(repository: BaseRepository) : BaseModel(repository) {
+
 }
