@@ -13,10 +13,8 @@ import com.common.core.base.BaseActivity;
 import com.common.res.livedata.MessageEvent;
 import com.common.res.livedata.StatusEvent;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.Timer;
 
 import timber.log.Timber;
 

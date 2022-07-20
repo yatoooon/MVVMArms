@@ -1,11 +1,13 @@
 package com.common.template.mvvm.vm
 
 import android.app.Application
-import androidx.hilt.lifecycle.ViewModelInject
 import com.common.core.base.BaseModel
 import com.common.core.base.mvvm.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class TemplateViewModel @ViewModelInject constructor(
+@HiltViewModel
+class TemplateViewModel @Inject constructor(
     application: Application
 ) : BaseViewModel<BaseModel>(application) {
 

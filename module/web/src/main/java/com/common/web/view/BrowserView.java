@@ -29,7 +29,6 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 
-
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.core.base.BaseActivity;
 import com.common.export.arouter.service.IMediaService;

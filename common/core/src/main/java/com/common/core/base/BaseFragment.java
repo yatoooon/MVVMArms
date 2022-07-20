@@ -16,8 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 
-import com.common.res.action.ibase.ILoading;
-import com.common.res.action.ibase.IView;
 import com.common.res.action.ActivityAction;
 import com.common.res.action.BundleAction;
 import com.common.res.action.ClickAction;
@@ -25,6 +23,8 @@ import com.common.res.action.HandlerAction;
 import com.common.res.action.KeyboardAction;
 import com.common.res.action.ResourcesAction;
 import com.common.res.action.ToastAction;
+import com.common.res.action.ibase.ILoading;
+import com.common.res.action.ibase.IView;
 
 import java.util.List;
 

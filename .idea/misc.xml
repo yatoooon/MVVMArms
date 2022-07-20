@@ -104,9 +104,13 @@
         <entry key="common-res/src/main/res/layout/res_widget_status_layout.xml" value="0.24322916666666666" />
         <entry key="common-res/src/main/res/layout/resupdate_dialog.xml" value="0.1527777777777778" />
         <entry key="common-res/src/main/res/layout/safe_dialog.xml" value="0.1527777777777778" />
+        <entry key="common/res/src/main/res/layout/res_activity_launcher.xml" value="0.3880208333333333" />
         <entry key="common/res/src/main/res/layout/res_address_dialog_item_tv.xml" value="0.1105072463768116" />
+        <entry key="common/res/src/main/res/layout/res_rv_item.xml" value="0.3880208333333333" />
         <entry key="common/res/src/main/res/layout/res_safe_dialog.xml" value="0.1" />
         <entry key="common/res/src/main/res/layout/res_share_item.xml" value="0.1105072463768116" />
+        <entry key="common/res/src/main/res/layout/res_update_dialog.xml" value="0.3880208333333333" />
+        <entry key="common/res/src/main/res/layout/res_wait_dialog.xml" value="0.3880208333333333" />
         <entry key="common/res/src/main/res/layout/safe_dialog.xml" value="0.1" />
         <entry key="module-crash/src/main/res/drawable/crash_info_ic.xml" value="0.1962962962962963" />
         <entry key="module-crash/src/main/res/drawable/crash_reboot_ic.xml" value="0.1" />

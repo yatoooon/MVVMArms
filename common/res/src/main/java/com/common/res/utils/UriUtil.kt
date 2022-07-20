@@ -6,7 +6,6 @@ import java.net.URI
 import java.net.URLDecoder
 import java.net.URLEncoder
 import java.nio.charset.Charset
-import java.util.*
 
 /**
  * 1.scheme、host、path、encodedPath、query、encodedQuery、queryMap默认不为空

@@ -1,13 +1,18 @@
 package com.common.core.di.module;
 
 
+import android.app.Application;
 import android.content.Context;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.room.RoomDatabase;
 
+import com.common.core.appvm.AppViewModel;
+import com.common.core.appvm.AppViewModelFactory;
+import com.common.core.base.BaseApplication;
 import com.common.core.config.CoreConfigModule;
 import com.common.core.config.ManifestParser;
 import com.common.core.config.inter.AppliesOptions;
@@ -49,14 +54,14 @@ public class AppModule {
 
     @Singleton
     @Provides
-    List<CoreConfigModule> provideListCoreConfigModule(@ApplicationContext Context context){
+    List<CoreConfigModule> provideListCoreConfigModule(@ApplicationContext Context context) {
         return new ManifestParser(context).parse();
     }
 
 
     @Singleton
     @Provides
-    AppModule.Builder provideConfigModuleBuilder(@ApplicationContext Context context,List<CoreConfigModule> modules) {
+    AppModule.Builder provideConfigModuleBuilder(@ApplicationContext Context context, List<CoreConfigModule> modules) {
         AppModule.Builder builder = new AppModule.Builder();
         //遍历配置
         for (CoreConfigModule configModule : modules) {
@@ -171,6 +176,17 @@ public class AppModule {
         return builder.executorService == null ? new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS,
                 new SynchronousQueue<>(), Util.threadFactory("Arms Executor", false)) : builder.executorService;
     }
+
+
+    @Singleton
+    @Provides
+    AppViewModel provideAppViewModel(
+            Application application,
+            AppViewModelFactory factory
+    ) {
+        return new ViewModelProvider(((BaseApplication) application).viewModelStore, factory).get(AppViewModel.class);
+    }
+
 
     public static final class Builder {
         private HttpUrl baseUrl;

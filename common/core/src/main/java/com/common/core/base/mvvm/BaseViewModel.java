@@ -19,6 +19,10 @@ import com.common.res.livedata.MessageEvent;
 import com.common.res.livedata.SingleLiveEvent;
 import com.common.res.livedata.StatusEvent;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+
 /**
  * MVVMFrame 框架基于Google官方的 JetPack 构建，在使用MVVMFrame时，需遵循一些规范：
  * <p>
@@ -84,7 +88,7 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
      *
      * @param application
      */
-    @ViewModelInject
+    @Inject
     public BaseViewModel(@NonNull Application application) {
         super(application);
     }

@@ -16,7 +16,6 @@ import com.common.template.mvvm.activity.StatusActivity
 import com.common.template.mvvm.activity.TemplateActivity
 import com.gyf.immersionbar.ImmersionBar
 import com.tencent.bugly.crashreport.CrashReport
-import java.util.*
 
 @Route(path = RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MINE)
 class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {

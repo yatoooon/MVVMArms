@@ -86,6 +86,7 @@ dependencies {
     kapt Deps.hiltAndroidCompiler
     kapt Deps.glideCompiler
     kapt Deps.androidHiltCompiler
+    kapt Deps.kotlinxMetadataJvm
 
 
     api Deps.xUpdate

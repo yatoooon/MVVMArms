@@ -27,10 +27,10 @@ import com.common.res.dialog.WaitDialog;
 import com.common.res.dialog.address.AddressDialog;
 import com.common.res.dialog.popup.ListPopup;
 import com.common.res.manager.DialogManager;
+import com.common.template.R;
 import com.common.umeng.Platform;
 import com.common.umeng.UmengClient;
 import com.common.umeng.UmengShare;
-import com.common.template.R;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 

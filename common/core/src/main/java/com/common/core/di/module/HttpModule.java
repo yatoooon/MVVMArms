@@ -6,8 +6,8 @@ import android.app.Application;
 import androidx.annotation.Nullable;
 
 import com.common.core.base.BaseRepository;
-import com.common.res.action.ibase.IRepository;
 import com.common.core.config.inter.AppliesOptions;
+import com.common.res.action.ibase.IRepository;
 import com.common.res.http.GlobalHttpHandler;
 import com.common.res.http.log.RequestInterceptor;
 import com.google.gson.Gson;

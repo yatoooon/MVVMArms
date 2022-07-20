@@ -10,8 +10,8 @@ import com.common.res.adapter.BaseAdapter.Companion.PAGE_SIZE
 import com.common.res.http.net.launchAndCollect
 import com.common.res.layout.StatusLayout
 import com.common.template.R
-import com.common.template.mvvm.model.entity.Item
 import com.common.template.databinding.TemplateFragmentRepositoryBinding
+import com.common.template.mvvm.model.entity.Item
 import com.common.template.mvvm.vm.RepositoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

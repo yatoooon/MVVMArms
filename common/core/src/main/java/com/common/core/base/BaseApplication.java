@@ -2,6 +2,8 @@ package com.common.core.base;
 
 import android.content.Context;
 
+import androidx.lifecycle.ViewModelStore;
+
 import com.common.core.base.delegate.BaseApplicationLifecycleDelegate;
 import com.common.res.ResApp;
 import com.common.res.aop.Log;
@@ -17,6 +19,7 @@ import javax.inject.Inject;
  */
 public class BaseApplication extends ResApp {
 
+    public ViewModelStore viewModelStore = new ViewModelStore();
     @Inject
     AppComponent appComponent;
 

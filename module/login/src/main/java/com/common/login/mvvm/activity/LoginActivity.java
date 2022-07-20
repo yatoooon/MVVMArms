@@ -26,12 +26,12 @@ import com.common.res.aop.SingleClick;
 import com.common.res.glide.config.ImageConfigImpl;
 import com.common.res.manager.InputTextManager;
 import com.common.res.other.KeyboardWatcher;
-import com.common.umeng.Platform;
-import com.common.umeng.UmengClient;
-import com.common.umeng.UmengLogin;
 import com.common.res.utils.ArmsUtil;
 import com.common.res.view.SubmitButton;
 import com.common.sample.WXEntryActivity;
+import com.common.umeng.Platform;
+import com.common.umeng.UmengClient;
+import com.common.umeng.UmengLogin;
 import com.umeng.socialize.UMShareAPI;
 
 /**

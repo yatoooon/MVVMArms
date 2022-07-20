@@ -12,15 +12,16 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.4'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
         //Gradle Android Maven plugin
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         //This plugin is available from Bintray's JCenter repository and from the Gradle Plugin Portal
         classpath "com.github.ben-manes:gradle-versions-plugin:0.36.0"
 
-        classpath "com.google.dagger:hilt-android-gradle-plugin:2.42"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.40.5"
 
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.10'
+
 
     }
 }

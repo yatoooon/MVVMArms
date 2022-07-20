@@ -106,8 +106,9 @@ object Deps {
     const val dagger2 = "com.google.dagger:dagger:2.38.1"
     const val hiltAndroid = "com.google.dagger:hilt-android:2.31.1-alpha"
     const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:2.31.1-alpha"
-    const val androidHiltLifecycleViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
-    const val androidHiltCompiler = "androidx.hilt:hilt-compiler:1.0.0-alpha02"
+    const val androidHiltLifecycleViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    const val androidHiltCompiler = "androidx.hilt:hilt-compiler:1.0.0-alpha03"
+    const val kotlinxMetadataJvm = "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.4.2"
 
     const val dagger2Compiler = "com.google.dagger:dagger-compiler:2.38.1"
     const val gson = "com.google.code.gson:gson:2.9.0"

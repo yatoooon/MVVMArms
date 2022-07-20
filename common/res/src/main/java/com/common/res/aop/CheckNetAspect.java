@@ -6,8 +6,8 @@ import android.net.NetworkInfo;
 
 import androidx.core.content.ContextCompat;
 
-import com.common.res.ResApp;
 import com.common.res.R;
+import com.common.res.ResApp;
 import com.hjq.toast.ToastUtils;
 
 import org.aspectj.lang.ProceedingJoinPoint;

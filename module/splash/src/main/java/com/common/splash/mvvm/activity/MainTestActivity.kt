@@ -1,10 +1,10 @@
 package com.common.splash.mvvm.activity
 
 import com.common.core.base.mvvm.BaseVMActivity
-import dagger.hilt.android.AndroidEntryPoint
+import com.common.splash.R
 import com.common.splash.databinding.SplashActivityMaintestBinding
 import com.common.splash.mvvm.vm.MainTestViewModel
-import com.common.splash.R
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainTestActivity : BaseVMActivity<SplashActivityMaintestBinding, MainTestViewModel>() {

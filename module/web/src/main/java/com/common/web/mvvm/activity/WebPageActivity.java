@@ -13,7 +13,6 @@ import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 
-
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
 import com.common.export.arouter.RouterHub;
