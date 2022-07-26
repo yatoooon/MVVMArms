@@ -44,6 +44,7 @@ import com.common.res.utils.CacheUtil;
 import com.common.res.view.FloatActionButton;
 import com.common.res.view.GridSpaceDecoration;
 import com.common.res.view.PlayerView;
+import com.hjq.bar.TitleBar;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 
@@ -210,7 +211,7 @@ public final class VideoSelectActivity extends BaseActivity
 
     @SingleClick
     @Override
-    public void onRightClick(View view) {
+    public void onRightClick(TitleBar titleBar) {
         if (mAllVideo.isEmpty()) {
             return;
         }

@@ -9,7 +9,7 @@ object Versions {
     const val minSdk = 21
     const val targetSdk = 31
     const val compileSdk = 31
-    const val buildTool = "31.0.2"
+    const val buildTool = "31.0.0"
 }
 
 /**

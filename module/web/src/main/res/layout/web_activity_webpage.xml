@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <com.hjq.bar.TitleBar
+        android:id="@+id/res_titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:rightIconHeight="@dimen/res_dp_20"

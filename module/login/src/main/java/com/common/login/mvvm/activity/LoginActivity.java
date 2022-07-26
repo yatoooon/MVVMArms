@@ -32,6 +32,7 @@ import com.common.sample.WXEntryActivity;
 import com.common.umeng.Platform;
 import com.common.umeng.UmengClient;
 import com.common.umeng.UmengLogin;
+import com.hjq.bar.TitleBar;
 import com.umeng.socialize.UMShareAPI;
 
 /**
@@ -142,7 +143,7 @@ public final class LoginActivity extends BaseActivity
 
 
     @Override
-    public void onRightClick(View view) {
+    public void onRightClick(TitleBar titleBar) {
         // 跳转到注册界面
         RegisterActivity.start(this, mPhoneView.getText().toString(),
                 mPasswordView.getText().toString(), (phone, password) -> {

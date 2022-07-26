@@ -8,6 +8,7 @@ import com.android.build.gradle.AppExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.android.build.gradle.internal.dsl.SigningConfig
+import com.android.builder.core.DexOptions
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
@@ -30,7 +31,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 
     extension.run {
 
-//        buildToolsVersion(Versions.buildTool)
+        buildToolsVersion(Versions.buildTool)
         compileSdkVersion(Versions.compileSdk)
 
         defaultConfig {
@@ -40,10 +41,10 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                 applicationId = "com.arms.sample"
                 resValue("string", "app_name", "MVVMArms")
             }
-            minSdkVersion(Versions.minSdk)
-//            targetSdkVersion(Versions.targetSdk)
+            minSdk = Versions.minSdk
+            targetSdk = Versions.targetSdk
             testInstrumentationRunner = Deps.androidJUnitRunner
-//            multiDexEnabled = true
+            multiDexEnabled = true
             flavorDimensions("default")
             ndk {
                 // 设置支持的SO库架构
@@ -54,7 +55,8 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                         "armeabi-v7a",
                         "x86_64"
 //                        "arm64-v8a"
-                    ))
+                    )
+                )
             }
 
             javaCompileOptions {
@@ -76,7 +78,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
         }
 
         dexOptions {
-            javaMaxHeapSize =  "4g"
+            javaMaxHeapSize = "4g"
         }
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8
@@ -89,11 +91,11 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 
         if (isAppModule || isRunAlone) {
             extensions.getByType<BaseAppModuleExtension>().buildFeatures {
-                this.dataBinding = true
+                dataBinding = true
             }
         } else {
             extensions.getByType<LibraryExtension>().buildFeatures {
-                this.dataBinding = true
+                dataBinding = true
             }
         }
 
@@ -103,18 +105,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
         }
         sourceSets {
             getByName("main") {
-                if (isRunAlone) {
-                    @Suppress("MISSING_DEPENDENCY_CLASS")
-                    var debugManifest =
-                        File("${project.projectDir}/src/main/debug/AndroidManifest.xml")
-                    if (debugManifest.exists()) {
-                        manifest.srcFile("src/main/debug/AndroidManifest.xml")
-                    } else {
-                        manifest.srcFile("src/main/AndroidManifest.xml")
-                    }
-                } else {
-                    manifest.srcFile("src/main/AndroidManifest.xml")
-                }
+                manifest.srcFile("src/main/AndroidManifest.xml")
             }
         }
 
@@ -132,7 +123,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             getByName("debug") {
                 isMinifyEnabled = false
                 proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-//                setSigningConfig(signingConfig)
+                setSigningConfig(signingConfig)
             }
             getByName("release") {
                 isMinifyEnabled = false
@@ -140,7 +131,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                     isShrinkResources = false
                 }
                 proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-//                setSigningConfig(signingConfig)
+                setSigningConfig(signingConfig)
             }
         }
 

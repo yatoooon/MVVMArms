@@ -31,6 +31,7 @@ import com.common.template.R;
 import com.common.umeng.Platform;
 import com.common.umeng.UmengClient;
 import com.common.umeng.UmengShare;
+import com.hjq.bar.TitleBar;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 
@@ -519,14 +520,14 @@ public final class DialogActivity extends BaseActivity {
     }
 
     @Override
-    public void onRightClick(View view) {
+    public void onRightClick(TitleBar titleBar) {
         // 菜单弹窗
         new ListPopup.Builder(this)
                 .setList("选择拍照", "选取相册")
                 .addOnShowListener(popupWindow -> toast("PopupWindow 显示了"))
                 .addOnDismissListener(popupWindow -> toast("PopupWindow 销毁了"))
                 .setListener((ListPopup.OnListener<String>) (popupWindow, position, s) -> toast("点击了：" + s))
-                .showAsDropDown(view);
+                .showAsDropDown(titleBar.getRightView());
     }
 
     @Override

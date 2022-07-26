@@ -22,6 +22,7 @@ import com.common.res.aop.Log;
 import com.common.res.layout.StatusLayout;
 import com.common.web.R;
 import com.common.web.view.BrowserView;
+import com.hjq.bar.TitleBar;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
@@ -64,6 +65,9 @@ public final class WebPageActivity extends BaseActivity
 
     @Override
     public void initView() {
+        if (getTitleBar() != null) {
+            getTitleBar().setOnTitleBarListener(this);
+        }
         mStatusLayout = findViewById(R.id.hl_browser_hint);
         mProgressBar = findViewById(R.id.pb_browser_progress);
         mRefreshLayout = findViewById(R.id.sl_browser_refresh);
@@ -90,7 +94,7 @@ public final class WebPageActivity extends BaseActivity
     }
 
     @Override
-    public void onLeftClick(View view) {
+    public void onLeftClick(TitleBar titleBar) {
         finish();
     }
 

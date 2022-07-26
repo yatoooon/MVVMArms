@@ -207,6 +207,8 @@
         <entry key="module/template/src/main/res/layout/template_fragment_status.xml" value="0.11803444782168186" />
         <entry key="module/template/src/main/res/layout/template_fragment_template.xml" value="0.11803444782168186" />
         <entry key="module/template/src/main/res/layout/template_item.xml" value="0.11803444782168186" />
+        <entry key="module/web/src/main/res/layout/web_activity_webpage.xml" value="0.382051282051282" />
+        <entry key="module/web/src/main/res/layout/web_fragment_webpage.xml" value="0.3880208333333333" />
         <entry key="shadow/plugin/app/src/main/res/layout/activity_plugin.xml" value="0.12864583333333332" />
       </map>
     </option>

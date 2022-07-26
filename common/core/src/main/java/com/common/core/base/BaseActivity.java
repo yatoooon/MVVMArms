@@ -106,7 +106,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     }
 
     @Override
-    public void onLeftClick(View view) {
+    public void onLeftClick(TitleBar titleBar) {
         onBackPressed();
     }
 
