@@ -90,9 +90,9 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
             {
                 onSuccess = {
                     showComplete()
+                    binding.srlRefresh.isRefreshing = false
                     if (mAdapter.isFirstPage()) {
                         mAdapter.setList(it!!.items)
-                        binding.srlRefresh.isRefreshing = false
                     } else {
                         mAdapter.addData(it!!.items)
                         if (it.items.size == 0) {
