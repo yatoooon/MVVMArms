@@ -4,6 +4,7 @@ import com.common.res.http.imageloader.BaseImageLoaderStrategy;
 import com.common.res.http.imageloader.ImageLoader;
 import com.common.res.utils.ArmsUtil;
 import com.google.gson.Gson;
+import com.squareup.moshi.Moshi;
 
 import java.io.File;
 import java.util.concurrent.ExecutorService;
@@ -52,7 +53,7 @@ public class AppComponent {
      * @return {@link Gson}
      */
     @Inject
-    public Gson gson;
+    public Moshi moshi;
 
     /**
      * 缓存文件根目录 (RxCache 和 Glide 的缓存都已经作为子文件夹放在这个根目录下), 应该将所有缓存都统一放到这个根目录下

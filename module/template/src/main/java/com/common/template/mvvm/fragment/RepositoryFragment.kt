@@ -11,7 +11,7 @@ import com.common.res.http.net.launchAndCollect
 import com.common.res.layout.StatusLayout
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentRepositoryBinding
-import com.common.template.mvvm.model.entity.Item
+import com.common.template.mvvm.model.entity.TemplateEntity.Item
 import com.common.template.mvvm.vm.RepositoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,12 +34,17 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
     private val mAdapter: BaseAdapter<Item> = BaseAdapter<Item>(R.layout.template_item)
 
     override fun initData() {
-        getArticleData()
     }
 
     override fun initObserve() {
     }
 
+
+    override fun onFragmentResume(first: Boolean) {
+        if (first){
+            getArticleData()
+        }
+    }
     override fun initView() {
         binding.srlRefresh.setOnRefreshListener { refresh() }
         mAdapter.loadMoreModule.setOnLoadMoreListener { loadMore() }
@@ -61,7 +66,7 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
         mAdapter.setOnItemClickListener { adapter, view, position ->
             val data: Item = mAdapter.data.get(position)
             ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEACTIVITY)
-                .withString("url", data.html_url)
+                .withString("url", data.htmlUrl)
                 .withString("title", data.name)
                 .navigation()
         }
@@ -97,16 +102,16 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
                         }
                     }
                 }
-                onError = {
+                onFailed = { _, _ ->
                     binding.srlRefresh.isRefreshing = false
                     mAdapter.loadMoreModule.loadMoreFail()
                     showError(object : StatusLayout.OnRetryListener {
                         override fun onRetry(layout: StatusLayout?) {
-                            initData()
+                            getArticleData()
                         }
                     })
                 }
-            })
+            },false)
     }
 
     override fun getStatusLayout(): StatusLayout {

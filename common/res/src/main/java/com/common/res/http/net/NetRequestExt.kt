@@ -1,29 +1,39 @@
 package com.common.res.http.net
 
 import com.common.res.ResApp
+import com.common.res.utils.AppManager
+import com.common.res.utils.appLogoutToLogin
 import com.common.res.utils.checkNetworkStatus
 import com.hjq.toast.ToastUtils
+import kotlinx.coroutines.Job
 
 
 /**
  * 包装类
  */
-suspend fun <T> apiCall(call: suspend () -> T): Result<T?> {
-    return try {
+@Suppress("UNCHECKED_CAST")
+suspend fun <T> apiCall(call: suspend () -> BaseResponse<T>): Result<T?> {
+    try {
         if (checkNetworkStatus(ResApp.getApp())) {
-            val entity = call()
-            if (entity != null) {
-                Result.success(entity)
+            val baseResponse = call()
+            if (baseResponse.code == 200) {
+                return Result.success(baseResponse as T)
             } else {
-                Result.failure("返回null")
+                ToastUtils.show(baseResponse.msg)
+                return Result.failure(baseResponse.msg)
             }
         } else {
-            Result.failure("请检查网络连接")
+            val noNet = "请检查网络连接"
+            ToastUtils.show(noNet)
+            return Result.failure(noNet)
         }
+    } catch (e: kotlinx.coroutines.CancellationException) {
+        print("取消网络请求")
+        return Result.failure(e.message)
     } catch (e: Exception) {
         e.printStackTrace()
-        ToastUtils.show(e.message.toString())
-        Result.error(e)
+        ToastUtils.show(e.message)
+        return Result.error(e)
     }
 }
 

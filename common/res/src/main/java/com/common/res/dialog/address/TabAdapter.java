@@ -12,6 +12,7 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;
+import com.common.res.adapter.DataBindingViewHolder;
 import com.hjq.shape.view.ShapeView;
 
 
@@ -91,7 +92,7 @@ public final class TabAdapter extends BaseAdapter<String> implements OnItemClick
 
 
     @Override
-    protected void convert(@NonNull BaseDataBindingHolder<?> holder, String item) {
+    protected void convert(@NonNull DataBindingViewHolder<?> holder, String item) {
         super.convert(holder, item);
         TextView mTitleView = (TextView) holder.findView(R.id.tv_tab_sliding_title);
         ShapeView mLineView = (ShapeView) holder.findView(R.id.v_tab_sliding_line);

@@ -25,8 +25,7 @@ internal fun Project.configureDependencies() = dependencies.apply {
     add("implementation", Deps.androidHiltLifecycleViewmodel)
     add("kapt", Deps.androidHiltCompiler)
     add("kapt", Deps.kotlinxMetadataJvm)
-
-
+    add("coreLibraryDesugaring", Deps.desugarJdkLibs)
 }
 
 internal fun Project.containsAndroidPlugin(): Boolean {

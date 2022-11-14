@@ -7,6 +7,9 @@
         <variable
             name="item"
             type="String" />
+        <variable
+            name="position"
+            type="int" />
     </data>
 
     <LinearLayout

@@ -3,9 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
             type="String" />
+
+        <variable
+            name="position"
+            type="int" />
     </data>
 
     <FrameLayout
@@ -19,10 +24,10 @@
             android:layout_height="match_parent"
             android:background="@drawable/res_transparent_selector"
             android:gravity="center"
-            android:text="@{item}"
             android:paddingHorizontal="@dimen/res_dp_15"
-            android:paddingVertical="@dimen/res_dp_13"
+            android:paddingVertical="@dimen/res_dp_10"
             android:singleLine="true"
+            android:text="@{item}"
             android:textColor="@color/res_common_confirm_text_color"
             android:textSize="@dimen/sp_14"
             tools:text="条目" />

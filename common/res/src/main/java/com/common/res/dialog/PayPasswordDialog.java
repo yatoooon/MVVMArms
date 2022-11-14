@@ -17,6 +17,7 @@ import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;
+import com.common.res.adapter.DataBindingViewHolder;
 import com.common.res.aop.SingleClick;
 import com.common.res.view.PasswordView;
 
@@ -55,7 +56,7 @@ public final class PayPasswordDialog {
         private final RecyclerView mRecyclerView;
         private final BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.res_pay_password_item, BR.item) {
             @Override
-            protected void convert(@NonNull BaseDataBindingHolder<?> holder, String item) {
+            protected void convert(@NonNull DataBindingViewHolder<?> holder, String item) {
                 super.convert(holder, item);
                 if (holder.getBindingAdapterPosition() == 9) {
                     holder.findView(R.id.tv_pay_key).setVisibility(View.GONE);

@@ -32,9 +32,10 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
-  <!-- 全屏主题样式 -->
+    <!-- 全屏主题样式 -->
     <style name="res_FullScreenTheme" parent="res_AppTheme">
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">false</item>
     </style>
 
     <!-- 闪屏页主题样式 -->
@@ -179,6 +180,44 @@
     <style name="res_RightAnimStyle" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/res_window_right_in</item>
         <item name="android:windowExitAnimation">@anim/res_window_right_out</item>
+    </style>
+
+
+    <!-- 主页按钮样式 -->
+    <style name="res_MainButtonStyle">
+        <item name="android:layout_marginTop">@dimen/res_dp_4</item>
+        <item name="android:paddingLeft">@dimen/res_dp_8</item>
+        <item name="android:paddingRight">@dimen/res_dp_8</item>
+        <item name="android:paddingBottom">@dimen/res_dp_4</item>
+        <item name="android:paddingTop">@dimen/res_dp_4</item>
+        <item name="android:textSize">@dimen/res_sp_10</item>
+        <item name="android:textColor">@color/res_text_color</item>
+        <item name="android:gravity">center</item>
+        <item name="shape_radius">@dimen/res_dp_2</item>
+        <item name="shape_strokeColor">@color/res_primary_color</item>
+        <item name="shape_solidPressedColor">@color/res_primary_color</item>
+        <item name="shape_strokeWidth">@dimen/res_dp_1</item>
+    </style>
+    <!-- 主页title样式 -->
+    <style name="res_MainTitleTextViewStyle">
+        <item name="android:paddingLeft">@dimen/res_dp_10</item>
+        <item name="android:paddingRight">@dimen/res_dp_10</item>
+        <item name="android:paddingBottom">@dimen/res_dp_5</item>
+        <item name="android:paddingTop">@dimen/res_dp_5</item>
+        <item name="android:textSize">@dimen/res_sp_10</item>
+        <item name="android:textColor">@color/res_text_color</item>
+    </style>
+    <!-- 主页输入框样式 -->
+    <style name="res_MainEditTextStyle">
+        <item name="android:paddingLeft">@dimen/res_dp_10</item>
+        <item name="android:paddingRight">@dimen/res_dp_10</item>
+        <item name="android:textSize">@dimen/res_sp_10</item>
+        <item name="android:textColor">@color/res_text_color</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:gravity">center</item>
+        <item name="shape_strokeColor">@color/res_text_color</item>
+        <item name="shape_strokeWidth">@dimen/res_dp_1</item>
     </style>
 
 

@@ -6,7 +6,10 @@ import android.text.TextUtils
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.common.core.base.BaseDialogFragment
+import com.common.core.base.BaseFragment
 import com.common.res.R
+import com.common.res.utils.hideNavigationBar2
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
 import timber.log.Timber
@@ -34,6 +37,9 @@ class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCall
             if (!TextUtils.isEmpty(f.arguments?.getString("title"))) {
                 titleBar.title = f.arguments?.getString("title")
             }
+        }
+        if (f is BaseDialogFragment<*>) {//切面处理点击输入框的导航栏
+            f.hideNavigationBar2()
         }
     }
 

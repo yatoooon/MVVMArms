@@ -18,7 +18,7 @@
     <!-- 按钮禁用时的颜色 -->
     <color name="res_common_button_disable_color">#BBBBBB</color>
     <!-- 分割线的颜色 -->
-    <color name="res_common_line_color">#ECECEC</color>
+    <color name="res_common_line_color">#333333</color>
     <!-- 矢量图标的颜色 -->
     <color name="res_common_icon_color">#7C7C7C</color>
 

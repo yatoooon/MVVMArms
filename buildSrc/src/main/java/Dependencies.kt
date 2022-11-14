@@ -1,4 +1,4 @@
-object Deploys{
+object Deploys {
     const val isRunAlone = false
 }
 
@@ -53,6 +53,7 @@ object Deps {
 
     //network
     const val retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
+    const val retrofitConverterMoshi = "com.squareup.retrofit2:converter-moshi:2.9.0"
     const val retrofitConverterGson = "com.squareup.retrofit2:converter-gson:2.9.0"
     const val retrofitAdapterRxjava = "com.squareup.retrofit2:adapter-rxjava:2.9.0"
     const val retrofitAdapterRxjava2 = "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
@@ -65,15 +66,16 @@ object Deps {
     const val picasso = "com.squareup.picasso:picasso:2.8"
 
     //view
+    const val roundedimageview = "com.makeramen:roundedimageview:2.3.0"
     const val autosize = "me.jessyan:autosize:1.2.1"
     const val baseRecyclerViewAdapterHelper =
-        "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6"
+        "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7"
     const val titlebar = "com.wuhenzhizao:titlebar:1.2.0"
     const val smartShowAll = "com.github.the-pig-of-jungle.smart-show:all:3.0.3"
     const val smartRefreshLayoutKernel = "com.scwang.smart:refresh-layout-kernel:2.0.3"
     const val smartRefreshHeaderClassics = "com.scwang.smart:refresh-header-classics:2.0.3"
     const val lottie = "com.airbnb.android:lottie:5.2.0"
-    const val shapeView = "com.github.getActivity:ShapeView:8.2"
+    const val shapeView = "com.github.getActivity:ShapeView:8.3"
     const val titleBar = "com.github.getActivity:TitleBar:9.5"
     const val toastUtils = "com.github.getActivity:ToastUtils:10.5"
     const val XXPermissions = "com.github.getActivity:XXPermissions:15.0"
@@ -85,11 +87,13 @@ object Deps {
     const val bottomNavigationViewEx = "com.github.ittianyu:BottomNavigationViewEx:2.0.4"
     const val vlayout = "com.alibaba.android:vlayout:1.3.0@aar"
     const val ycbannerlib = "cn.yc:YCBannerLib:1.4.0"
+    const val banner = "io.github.youth5201314:banner:2.2.2"
     const val bgaQrcode = "cn.bingoogolapple:bga-qrcode-zxing:1.3.7"
     const val doodle = "com.github.1993hzw:Doodle:5.5.4"
     const val flowlayout = "com.hyman:flowlayout-lib:1.1.2"
     const val lfilepickerlibrary = "com.leon:lfilepickerlibrary:1.8.0"
-    const val easyFloat = "com.github.princekin-f:EasyFloat:1.3.4"
+    const val easyFloat = "com.github.princekin-f:EasyFloat:2.0.4"
+    const val calendarview = "com.haibin:calendarview:3.7.1"
     const val clansFab = "com.github.clans:fab:1.6.4"
     const val andRatingBar = "com.github.giswangsj:AndRatingBar:1.0.5"
     const val androidPdfViewer = "com.github.barteksc:android-pdf-viewer:2.8.2"
@@ -100,6 +104,7 @@ object Deps {
     const val rvAdapter = "com.gitee.cbfg5210:RVAdapter:0.3.5"
     const val circleindicator = "me.relex:circleindicator:2.1.6"
     const val bottombar = "me.majiajie:pager-bottom-tab-strip:2.4.0"
+    const val spannable = "com.github.liangjingkanji:spannable:1.1.5"
 
 
     //tools
@@ -109,9 +114,13 @@ object Deps {
     const val androidHiltLifecycleViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     const val androidHiltCompiler = "androidx.hilt:hilt-compiler:1.0.0-alpha03"
     const val kotlinxMetadataJvm = "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.4.2"
+    const val desugarJdkLibs = "com.android.tools:desugar_jdk_libs:1.1.5"
 
     const val dagger2Compiler = "com.google.dagger:dagger-compiler:2.38.1"
     const val gson = "com.google.code.gson:gson:2.9.0"
+    const val moshi_kotlin = "com.squareup.moshi:moshi-kotlin:1.13.0"
+    const val moshi_kotlin_codegen = "com.squareup.moshi:moshi-kotlin-codegen:1.13.0"
+    const val moshi_kotlin_nullsafe = "com.github.sparklexin:moshi-kotlin-nullsafe:1.0.0"
     const val multidex = "androidx.multidex:multidex:2.0.1"
     const val javaxAnnotation = "javax.annotation:jsr250-api:1.0"
     const val arouterApi = "com.alibaba:arouter-api:1.5.2"
@@ -135,6 +144,9 @@ object Deps {
     const val viewbindingBaseKtx = "com.dylanc:viewbinding-base-ktx:1.1.2"
     const val viewbindingBrvahKtx = "com.dylanc:viewbinding-brvah-ktx:1.1.2"
     const val logger = "com.orhanobut:logger:2.2.0"
+    const val pinyin4j = "com.github.open-android:pinyin4j:2.5.0"
+
+
 
     //test
     const val junit = "junit:junit:4.13.2"

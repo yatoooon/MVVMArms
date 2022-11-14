@@ -148,7 +148,7 @@ public final class SettingActivity extends BaseActivity
         } else if (viewId == R.id.sb_setting_exit) {
 
             if (true) {
-                routerNavigation(RouterHub.PUBLIC_LOGIN_LOGINACTIVITY);
+                routerNavigation(RouterHub.PUBLIC_LOGIN_LOGINACTIVITY,null);
                 // 进行内存优化，销毁除登录页之外的所有界面
                 try {
                     AppManager.getAppManager().killAll(Class.forName("com.common.login.ui.activity.LoginActivity"));

@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.room.RoomDatabase;
 
 import com.common.core.di.module.AppModule;
-import com.google.gson.GsonBuilder;
+import com.squareup.moshi.Moshi;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -42,8 +42,8 @@ public interface AppliesOptions {
         void configOkhttp(@NonNull Context context, @NonNull OkHttpClient.Builder builder);
     }
 
-     interface GsonConfiguration {
-        void configGson(@NonNull Context context, @NonNull GsonBuilder builder);
+     interface MoshiConfiguration {
+        void configMoshi(@NonNull Context context, @NonNull Moshi.Builder builder);
     }
 
 

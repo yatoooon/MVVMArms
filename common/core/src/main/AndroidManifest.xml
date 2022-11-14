@@ -4,8 +4,7 @@
 
     <application
         android:name=".base.BaseApplication"
-        android:theme="@style/res_AppTheme"
-        tools:replace="android:name,android:theme">
+        tools:replace="android:name">
         <meta-data
             android:name="com.common.core.lifecycle.CoreConfigModule"
             android:value="CoreConfigModule" />

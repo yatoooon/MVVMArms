@@ -4,9 +4,11 @@ import android.app.Activity
 import android.app.Application.ActivityLifecycleCallbacks
 import android.os.Bundle
 import android.text.TextUtils
+import androidx.appcompat.app.AppCompatActivity
 import com.common.core.base.BaseActivity
 import com.common.res.R
 import com.common.res.immersionbar.BindImmersionBar
+import com.common.res.utils.hideNavigationBar2
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
@@ -35,8 +37,8 @@ class CoreActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
                     ImmersionBar.with(activity)
                         .fullScreen(true)
                         .hideBar(BarHide.FLAG_HIDE_BAR)
-                        .navigationBarColor(R.color.res_white)
                         .init()
+                    activity.hideNavigationBar2()//切面处理点击输入框的导航栏
                 }
                 BindImmersionBar.DEFAULT -> {
                     ImmersionBar.with(activity)

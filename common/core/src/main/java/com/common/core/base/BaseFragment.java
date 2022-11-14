@@ -28,6 +28,8 @@ import com.common.res.action.ibase.IView;
 
 import java.util.List;
 
+import kotlinx.coroutines.Job;
+
 
 /**
  * MVVMFrame 框架基于Google官方的 JetPack 构建，在使用MVVMFrame时，需遵循一些规范：
@@ -43,8 +45,6 @@ import java.util.List;
  */
 public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment implements IView, ILoading,
         ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction, ToastAction {
-
-
 
 
     /**
@@ -81,6 +81,9 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         mRootView = inflater.inflate(getLayoutId(), container, false);
         if (isBinding()) {
             mBinding = DataBindingUtil.bind(getRootView());
+            if (mBinding != null) {
+                mBinding.setLifecycleOwner(this);
+            }
         }
         return mRootView;
     }
@@ -97,8 +100,8 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initView();
         initViewModel();
+        initView();
         initObserve();
         initData();
     }
@@ -137,6 +140,10 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if (mBinding != null) {
+            mBinding.unbind();
+            mBinding = null;
+        }
         mRootView = null;
     }
 
@@ -161,11 +168,12 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mBinding != null) {
-            mBinding.unbind();
-        }
         mLoading = false;
         removeCallbacks();
+        for (Job job : getJobList()) {
+            job.cancel(null);
+        }
+        getJobList().clear();
     }
 
 
@@ -211,18 +219,18 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     }
 
     @Override
-    public void showLoadingDialog() {
+    public void showLoadingDialog(ILoading loading) {
         FragmentActivity activity = requireActivity();
         if (activity instanceof BaseActivity) {
-            ((BaseActivity<?>) activity).showLoadingDialog();
+            ((BaseActivity<?>) activity).showLoadingDialog(loading);
         }
     }
 
     @Override
-    public void hideLoadingDialog() {
+    public void hideLoadingDialog(ILoading loading) {
         FragmentActivity activity = requireActivity();
         if (activity instanceof BaseActivity) {
-            ((BaseActivity<?>) activity).hideLoadingDialog();
+            ((BaseActivity<?>) activity).hideLoadingDialog(loading);
         }
     }
 

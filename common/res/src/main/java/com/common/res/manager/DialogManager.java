@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2021/01/29
- *    desc   : Dialog 显示管理类
+ * author : Android 轮子哥
+ * github : https://github.com/getActivity/AndroidProject
+ * time   : 2021/01/29
+ * desc   : Dialog 显示管理类
  */
 public final class DialogManager implements LifecycleEventObserver, BaseDialog.OnDismissListener {
 
@@ -43,12 +43,9 @@ public final class DialogManager implements LifecycleEventObserver, BaseDialog.O
         if (dialog == null || dialog.isShowing()) {
             throw new IllegalStateException("are you ok?");
         }
+        dialog.addOnDismissListener(this);
+        dialog.show();
         mDialogs.add(dialog);
-        BaseDialog firstDialog = mDialogs.get(0);
-        if (!firstDialog.isShowing()) {
-            firstDialog.addOnDismissListener(this);
-            firstDialog.show();
-        }
     }
 
     /**
@@ -58,10 +55,9 @@ public final class DialogManager implements LifecycleEventObserver, BaseDialog.O
         if (mDialogs.isEmpty()) {
             return;
         }
-        BaseDialog firstDialog = mDialogs.get(0);
-        if (firstDialog.isShowing()) {
-            firstDialog.removeOnDismissListener(this);
-            firstDialog.dismiss();
+        for (BaseDialog dialog : mDialogs) {
+            dialog.removeOnDismissListener(this);
+            dialog.dismiss();
         }
         mDialogs.clear();
     }

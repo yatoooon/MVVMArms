@@ -91,7 +91,6 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
             mAdapter.reset()
             initData()
         }, 200)
-
     }
 
     private fun loadMore() {
@@ -99,6 +98,5 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
             mAdapter.nextPage()
             viewModel.getData(mAdapter.page, PAGE_SIZE)
         }, 200)
-
     }
 }

@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;
+import com.common.res.adapter.DataBindingViewHolder;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public final class RecyclerViewAdapter extends BaseAdapter<List<AddressDialog.Ad
 
 
     @Override
-    protected void convert(@NonNull BaseDataBindingHolder<?> holder, List<AddressDialog.AddressBean> item) {
+    protected void convert(@NonNull DataBindingViewHolder<?> holder, List<AddressDialog.AddressBean> item) {
         super.convert(holder, item);
         RecyclerView recyclerView = (RecyclerView) holder.itemView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

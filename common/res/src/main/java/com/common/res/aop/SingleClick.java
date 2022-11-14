@@ -18,5 +18,5 @@ public @interface SingleClick {
     /**
      * 快速点击的间隔
      */
-    long value() default 1000;
+    long value() default 800;
 }

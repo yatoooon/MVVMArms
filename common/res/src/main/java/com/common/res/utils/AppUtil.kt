@@ -1,6 +1,7 @@
 package com.common.res.utils
 
 import android.os.Bundle
+import com.alibaba.android.arouter.launcher.ARouter
 import com.common.res.config.AppConfig
 
 /**
@@ -22,7 +23,7 @@ fun appLogoutToLogin() {
     checkLogin {
         if (it) {
             appLogout()
-//            routerNavigation(RouterHub.PUBLIC_LOGINACTIVITY)
+            ARouter.getInstance().build("/login/activity/LoginActivity").navigation()
         }
     }
 }

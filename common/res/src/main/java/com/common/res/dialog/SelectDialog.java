@@ -19,6 +19,7 @@ import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;
+import com.common.res.adapter.DataBindingViewHolder;
 import com.common.res.aop.SingleClick;
 import com.hjq.toast.ToastUtils;
 
@@ -235,7 +236,7 @@ public final class SelectDialog {
         }
 
         @Override
-        protected void convert(@NonNull BaseDataBindingHolder<?> holder, Object item) {
+        protected void convert(@NonNull DataBindingViewHolder<?> holder, Object item) {
             super.convert(holder, item);
             ((CheckBox) holder.findView(R.id.tv_select_checkbox)).setChecked(mSelectSet.containsKey(holder.getBindingAdapterPosition()));
             if (mMaxSelect == 1) {

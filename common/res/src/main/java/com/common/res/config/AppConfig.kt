@@ -7,12 +7,16 @@ import com.common.res.smartkey.MmkvSettingsImpl
 
 @Config(implCls = MmkvSettingsImpl::class)
 object AppConfig : AConfig() {
+    var username: String by smartKey("")
+    var password: String by smartKey("")
     var login: Boolean by smartKey(false)
-    var userName: String? by smartKey(null)
-    var accessToken: String? by smartKey(null)
-
+    var token: String by smartKey("")
+    var userInfoEntity: UserInfoEntity? by smartKey(null)
     fun clearUserData() {
+        username = ""
+        password = ""
         login = false
-        accessToken = null
+        token = ""
+        userInfoEntity = null
     }
 }

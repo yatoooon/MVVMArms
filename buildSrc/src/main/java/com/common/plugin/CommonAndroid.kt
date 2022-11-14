@@ -7,8 +7,6 @@ import Versions
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import com.android.build.gradle.internal.dsl.SigningConfig
-import com.android.builder.core.DexOptions
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
@@ -81,6 +79,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             javaMaxHeapSize = "4g"
         }
         compileOptions {
+            isCoreLibraryDesugaringEnabled = true
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
         }
@@ -111,19 +110,27 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 
         resourcePrefix(project.name.replace("module-", "") + "_")
 
-
-        buildTypes {
-            @Suppress("MISSING_DEPENDENCY_CLASS")
-            val signingConfig = SigningConfig("sample").apply {
+        signingConfigs {
+            getByName("debug") {
                 storeFile = File("${project.rootDir}/buildSrc/sample.jks")
                 storePassword = "123456"
                 keyAlias = "sample"
                 keyPassword = "123456"
             }
+            create("release") {
+                storeFile = File("${project.rootDir}/buildSrc/sample.jks")
+                storePassword = "123456"
+                keyAlias = "sample"
+                keyPassword = "123456"
+                isV1SigningEnabled = true
+                isV2SigningEnabled = true
+            }
+        }
+        buildTypes {
             getByName("debug") {
                 isMinifyEnabled = false
                 proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-                setSigningConfig(signingConfig)
+                setSigningConfig(signingConfigs.getByName("debug"))
             }
             getByName("release") {
                 isMinifyEnabled = false
@@ -131,7 +138,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                     isShrinkResources = false
                 }
                 proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-                setSigningConfig(signingConfig)
+                setSigningConfig(signingConfigs.getByName("release"))
             }
         }
 

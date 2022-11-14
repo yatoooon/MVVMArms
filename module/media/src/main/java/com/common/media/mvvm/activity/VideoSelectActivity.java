@@ -35,6 +35,7 @@ import com.common.media.R;
 import com.common.media.mvvm.dialog.AlbumDialog;
 import com.common.res.action.StatusAction;
 import com.common.res.adapter.BaseAdapter;
+import com.common.res.adapter.DataBindingViewHolder;
 import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
 import com.common.res.aop.SingleClick;
@@ -120,7 +121,7 @@ public final class VideoSelectActivity extends BaseActivity
 
     private BaseAdapter<VideoBean> mAdapter = new BaseAdapter<VideoBean>(R.layout.media_video_select_item, BR.item) {
         @Override
-        protected void convert(@NonNull BaseDataBindingHolder<?> holder, VideoBean item) {
+        protected void convert(@NonNull DataBindingViewHolder<?> holder, VideoBean item) {
             super.convert(holder, item);
             ((CheckBox) holder.findView(R.id.iv_video_select_check)).setChecked(mSelectVideo.contains(item));
         }

@@ -1,26 +1,29 @@
 package com.common.export.arouter
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
+import androidx.fragment.app.Fragment
+import com.alibaba.android.arouter.facade.Postcard
+import com.alibaba.android.arouter.facade.callback.NavCallback
+import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.facade.template.IProvider
 import com.alibaba.android.arouter.launcher.ARouter
+
 //路由工具类
-fun routerNavigation(path: String?): Any? {
-    return ARouter.getInstance().build(path).navigation()
+fun Activity.routerNavigation(path: String? = null, bundle: Bundle? = null): Any? {
+    return ARouter.getInstance().build(path).with(bundle).withTransition(0, 0).navigation(this)
 }
 
-fun routerNavigation(path: String?, bundle: Bundle?): Any? {
-    return ARouter.getInstance().build(path).with(bundle).navigation()
+fun Fragment.routerNavigation(path: String? = null, bundle: Bundle? = null): Any? {
+    return ARouter.getInstance().build(path).with(bundle).withTransition(0, 0).navigation(requireActivity())
 }
 
-fun routerNavigation(context: Context?, path: String?): Any? {
-    return ARouter.getInstance().build(path).navigation(context)
+fun routerNavigation(path: String? = null, bundle: Bundle? = null): Any? {
+    return ARouter.getInstance().build(path).with(bundle).withTransition(0, 0).navigation()
 }
 
-fun routerNavigation(context: Context?, path: String?, bundle: Bundle?): Any? {
-    return ARouter.getInstance().build(path).with(bundle).navigation(context)
-}
 
 inline fun <reified T : IProvider?> routerProvide(path: String?): T? {
     if (TextUtils.isEmpty(path)) {
@@ -29,8 +32,8 @@ inline fun <reified T : IProvider?> routerProvide(path: String?): T? {
     var provider: IProvider? = null
     try {
         provider = ARouter.getInstance()
-                .build(path)
-                .navigation() as IProvider
+            .build(path)
+            .navigation() as IProvider
     } catch (e: Exception) {
         e.printStackTrace()
     }

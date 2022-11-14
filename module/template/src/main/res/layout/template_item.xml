@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.common.template.mvvm.model.entity.Item" />
+            type="com.common.template.mvvm.model.entity.TemplateEntity.Item" />
     </data>
 
     <LinearLayout
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@{item.stargazers_count}" />
+                android:text="@{String.valueOf(item.stargazersCount)}" />
 
         </LinearLayout>
 

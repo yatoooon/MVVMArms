@@ -303,9 +303,9 @@ public class BasePopupWindow extends PopupWindow
         /** 是否可触摸 */
         private boolean mTouchable = true;
         /** 是否有焦点 */
-        private boolean mFocusable = true;
+        private boolean mFocusable = false;  //我把这里改了
         /** 是否外层可触摸 */
-        private boolean mOutsideTouchable = false;
+        private boolean mOutsideTouchable = true;
 
         /** 背景遮盖层透明度 */
         private float mBackgroundDimAmount;

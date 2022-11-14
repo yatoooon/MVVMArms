@@ -17,6 +17,7 @@ import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.action.AnimAction;
 import com.common.res.adapter.BaseAdapter;
+import com.common.res.adapter.DataBindingViewHolder;
 import com.common.res.view.ArrowDrawable;
 
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public final class ListPopup {
 
         private final BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.res_popup_item, BR.item){
             @Override
-            protected void convert(@NonNull BaseDataBindingHolder<?> holder, String item) {
+            protected void convert(@NonNull DataBindingViewHolder<?> holder, String item) {
                 super.convert(holder, item);
                 holder.findView(R.id.tv_popup_text).setPaddingRelative((int) getResources().getDimension(R.dimen.res_dp_12),
                         (holder.getBindingAdapterPosition() == 0 ? (int) getResources().getDimension(R.dimen.res_dp_12) : 0),

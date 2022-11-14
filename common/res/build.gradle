@@ -28,6 +28,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
 
     buildFeatures {
@@ -68,6 +72,8 @@ dependencies {
     api Deps.titleBar
     api Deps.toastUtils
     api Deps.XXPermissions
+    api Deps.easyFloat
+    api Deps.calendarview
     api Deps.progressmanager
     api Deps.retrofitUrlManager
     api Deps.bottomNavigationViewEx
@@ -80,6 +86,7 @@ dependencies {
     api Deps.buglyNativeCrashReport
 
 
+    kapt Deps.moshi_kotlin_codegen
     kapt Deps.arouterCompiler
     kapt Deps.lifecycleCompiler
     kapt Deps.roomCompiler
@@ -145,17 +152,24 @@ dependencies {
     api Deps.lottie
     api Deps.loadsir
     api Deps.smartShowAll
+    api Deps.roundedimageview
+    api Deps.spannable
+    api Deps.banner
     //network
     api Deps.okhttp
     api Deps.retrofit
-    api Deps.retrofitConverterGson
+    api Deps.retrofitConverterMoshi
     //viewbinding
     api Deps.viewbindingKtx
     api Deps.viewbindingBaseKtx
     api Deps.viewbindingBrvahKtx
     //tools
+
+    api Deps.moshi_kotlin
+    api Deps.moshi_kotlin_nullsafe
     api Deps.gson
     api Deps.jolyglotGson
+    api Deps.pinyin4j
     compileOnly Deps.javaxAnnotation
 
     api Deps.aspectjrt

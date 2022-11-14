@@ -19,6 +19,7 @@ import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;
+import com.common.res.adapter.DataBindingViewHolder;
 import com.common.res.aop.SingleClick;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public final class MenuDialog {
 
         private final BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.res_menu_item, BR.item) {
             @Override
-            protected void convert(@NonNull BaseDataBindingHolder<?> holder, String item) {
+            protected void convert(@NonNull DataBindingViewHolder<?> holder, String item) {
                 super.convert(holder, item);
                 if (holder.getBindingAdapterPosition() == getItemCount() - 1) {
                     holder.findView(R.id.v_menu_line).setVisibility(View.GONE);

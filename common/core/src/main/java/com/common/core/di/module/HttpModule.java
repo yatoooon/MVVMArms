@@ -2,6 +2,7 @@ package com.common.core.di.module;
 
 
 import android.app.Application;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -10,9 +11,9 @@ import com.common.core.config.inter.AppliesOptions;
 import com.common.res.action.ibase.IRepository;
 import com.common.res.http.GlobalHttpHandler;
 import com.common.res.http.log.RequestInterceptor;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.hjq.toast.ToastUtils;
 import com.king.retrofit.retrofithelper.RetrofitHelper;
+import com.squareup.moshi.Moshi;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -29,8 +30,10 @@ import okhttp3.Dispatcher;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.moshi.MoshiConverterFactory;
+import xin.sparkle.moshi.NullSafeStandardJsonAdapters;
 
 /**
  *
@@ -48,13 +51,13 @@ public abstract class HttpModule {
      * @param builder       {@link Retrofit.Builder}
      * @param client        {@link OkHttpClient}
      * @param httpUrl       {@link HttpUrl}
-     * @param gson          {@link Gson}
+     * @param moshi         {@link Moshi}
      * @return {@link Retrofit}
      */
     @Singleton
     @Provides
     static Retrofit provideRetrofit(Application application, @Nullable AppliesOptions.RetrofitConfiguration configuration, Retrofit.Builder builder, OkHttpClient client
-            , HttpUrl httpUrl, Gson gson) {
+            , HttpUrl httpUrl, Moshi moshi) {
         builder
                 .baseUrl(httpUrl)//域名
                 .client(client);//设置 OkHttp
@@ -63,8 +66,9 @@ public abstract class HttpModule {
             configuration.configRetrofit(application, builder);
         }
 
+
         builder
-                .addConverterFactory(GsonConverterFactory.create(gson));//使用 Gson
+                .addConverterFactory(MoshiConverterFactory.create(moshi).withNullSerialization());//使用 Moshi
         return builder.build();
     }
 
@@ -86,10 +90,7 @@ public abstract class HttpModule {
     @Provides
     static OkHttpClient provideClient(Application application, @Nullable AppliesOptions.OkhttpConfiguration configuration, OkHttpClient.Builder builder, Interceptor intercept
             , @Nullable List<Interceptor> interceptors, @Nullable GlobalHttpHandler handler, ExecutorService executorService) {
-        builder
-                .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
-                .readTimeout(TIME_OUT, TimeUnit.SECONDS)
-                .addNetworkInterceptor(intercept);
+        builder.addNetworkInterceptor(intercept);
 
         if (handler != null) {
             builder.addInterceptor(chain -> chain.proceed(handler.onHttpRequestBefore(chain, chain.request())));
@@ -130,18 +131,17 @@ public abstract class HttpModule {
 
     @Singleton
     @Provides
-    static Gson provideGson(Application application, @Nullable AppliesOptions.GsonConfiguration configuration) {
-        GsonBuilder builder = new GsonBuilder();
+    static Moshi provideMoshi(Application application, Moshi.Builder builder, @Nullable AppliesOptions.MoshiConfiguration configuration) {
         if (configuration != null) {
-            configuration.configGson(application, builder);
+            configuration.configMoshi(application, builder);
         }
-        return builder.create();
+        return builder.build();
     }
 
     @Singleton
     @Provides
-    static GsonBuilder provideGsonBuilder() {
-        return new GsonBuilder();
+    static Moshi.Builder provideMoshiBuilder() {
+        return new Moshi.Builder();
     }
 
 

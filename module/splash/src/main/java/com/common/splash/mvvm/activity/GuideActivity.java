@@ -59,7 +59,7 @@ public final class GuideActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
         if (view == mCompleteView) {
-            RouterUtilKt.routerNavigation(RouterHub.PUBLIC_HOME_MAINACTIVITY);
+            RouterUtilKt.routerNavigation(RouterHub.PUBLIC_HOME_MAINACTIVITY,null);
             finish();
         }
     }

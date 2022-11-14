@@ -30,6 +30,7 @@ import com.common.media.databinding.MediaImageSelectActivityBinding;
 import com.common.media.mvvm.dialog.AlbumDialog;
 import com.common.res.action.StatusAction;
 import com.common.res.adapter.BaseAdapter;
+import com.common.res.adapter.DataBindingViewHolder;
 import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
 import com.common.res.aop.SingleClick;
@@ -112,10 +113,9 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
 
     private BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.media_image_select_item, BR.item) {
         @Override
-        protected void convert(@NonNull BaseDataBindingHolder<?> holder, String item) {
+        protected void convert(@NonNull DataBindingViewHolder<?> holder, String item) {
             super.convert(holder, item);
             ((CheckBox) holder.findView(R.id.iv_image_select_check)).setChecked(mSelectImage.contains(item));
-
         }
     };
 

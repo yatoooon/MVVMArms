@@ -11,11 +11,13 @@ import com.common.res.config.Constants.BASE_URL
 import com.common.res.config.GlobalHttpHandlerImpl
 import com.common.res.glide.GlideImageLoaderStrategy
 import com.common.res.http.SSLSocketClient
-import com.google.gson.GsonBuilder
+import com.squareup.moshi.Moshi
 import me.jessyan.progressmanager.ProgressManager
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import xin.sparkle.moshi.NullSafeKotlinJsonAdapterFactory
+import xin.sparkle.moshi.NullSafeStandardJsonAdapters
 import java.util.concurrent.TimeUnit
 
 /**
@@ -84,10 +86,12 @@ class CoreConfigModule : CoreConfigModule() {
             .globalHttpHandler(GlobalHttpHandlerImpl(context)) //用来处理 RxJava 中发生的所有错误, RxJava 中发生的每个错误都会回调此接口
             //RxJava 必须要使用 ErrorHandleSubscriber (默认实现 Subscriber 的 onError 方法), 此监听才生效
             //.responseErrorListener(new ResponseErrorListenerImpl())
-            .gsonConfiguration { context1: Context?, gsonBuilder: GsonBuilder ->  //这里可以自己自定义配置 Gson 的参数
-                gsonBuilder
-                    .serializeNulls() //支持序列化值为 null 的参数
-                    .enableComplexMapKeySerialization() //支持将序列化 key 为 Object 的 Map, 默认只能序列化 key 为 String 的 Map
+            .moshiConfiguration { context1: Context?, moshiBuilder: Moshi.Builder ->  //这里可以自己自定义配置 Moshi 的参数
+                moshiBuilder.add(NullSafeStandardJsonAdapters.FACTORY)
+                moshiBuilder.add(NullSafeKotlinJsonAdapterFactory())
+//                gsonBuilder
+//                    .serializeNulls() //支持序列化值为 null 的参数
+//                    .enableComplexMapKeySerialization() //支持将序列化 key 为 Object 的 Map, 默认只能序列化 key 为 String 的 Map
             }
             .retrofitConfiguration { context1: Context?, retrofitBuilder: Retrofit.Builder? -> }
             .okhttpConfiguration { context1: Context?, okhttpBuilder: OkHttpClient.Builder ->  //这里可以自己自定义配置 Okhttp 的参数
@@ -95,15 +99,16 @@ class CoreConfigModule : CoreConfigModule() {
                     SSLSocketClient.getSSLSocketFactory(),
                     SSLSocketClient.getTrustManager()
                 ) //支持 Https, 详情请百度
-                okhttpBuilder.readTimeout(30, TimeUnit.SECONDS)
-                okhttpBuilder.writeTimeout(30, TimeUnit.SECONDS)
-                okhttpBuilder.connectTimeout(30, TimeUnit.SECONDS)
+                okhttpBuilder.readTimeout(15, TimeUnit.SECONDS)
+                okhttpBuilder.writeTimeout(15, TimeUnit.SECONDS)
+                okhttpBuilder.connectTimeout(15, TimeUnit.SECONDS)
                 //使用一行代码监听 Retrofit／Okhttp 上传下载进度监听,以及 Glide 加载进度监听, 详细使用方法请查看 https://github.com/JessYanCoding/ProgressManager
                 ProgressManager.getInstance().with(okhttpBuilder)
                 //让 Retrofit 同时支持多个 BaseUrl 以及动态改变 BaseUrl, 详细使用方法请查看 https://github.com/JessYanCoding/RetrofitUrlManager
                 RetrofitUrlManager.getInstance().with(okhttpBuilder)
-            }.roomConfiguration(AppliesOptions.RoomConfiguration { context, builder -> })
+            }.roomConfiguration(AppliesOptions.RoomConfiguration { context, builder ->
 
+            })
 
     }
 

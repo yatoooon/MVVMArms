@@ -106,6 +106,7 @@
         <entry key="common-res/src/main/res/layout/safe_dialog.xml" value="0.1527777777777778" />
         <entry key="common/res/src/main/res/layout/res_activity_launcher.xml" value="0.3880208333333333" />
         <entry key="common/res/src/main/res/layout/res_address_dialog_item_tv.xml" value="0.1105072463768116" />
+        <entry key="common/res/src/main/res/layout/res_custom_dialog.xml" value="0.3729166666666667" />
         <entry key="common/res/src/main/res/layout/res_rv_item.xml" value="0.3880208333333333" />
         <entry key="common/res/src/main/res/layout/res_safe_dialog.xml" value="0.1" />
         <entry key="common/res/src/main/res/layout/res_share_item.xml" value="0.1105072463768116" />
@@ -201,12 +202,16 @@
         <entry key="module-web/src/main/res/layout/web_layout_loading_view.xml" value="0.3734375" />
         <entry key="module-web/src/main/res/layout/web_layout_radiobutton.xml" value="0.3734375" />
         <entry key="module-web/src/main/res/layout/web_layout_toolbar.xml" value="0.25" />
+        <entry key="module/login/src/main/res/layout/login_activity.xml" value="0.3729166666666667" />
         <entry key="module/media/src/main/res/layout/media_album_item.xml" value="0.1105072463768116" />
         <entry key="module/template/src/main/res/layout/template_activity_template.xml" value="0.11803444782168186" />
+        <entry key="module/template/src/main/res/layout/template_dialog_activity.xml" value="0.3729166666666667" />
+        <entry key="module/template/src/main/res/layout/template_fragment_found.xml" value="0.3505586592178771" />
         <entry key="module/template/src/main/res/layout/template_fragment_repository.xml" value="0.11803444782168186" />
         <entry key="module/template/src/main/res/layout/template_fragment_status.xml" value="0.11803444782168186" />
         <entry key="module/template/src/main/res/layout/template_fragment_template.xml" value="0.11803444782168186" />
         <entry key="module/template/src/main/res/layout/template_item.xml" value="0.11803444782168186" />
+        <entry key="module/template/src/main/res/layout/template_status_activity.xml" value="0.3729166666666667" />
         <entry key="module/web/src/main/res/layout/web_activity_webpage.xml" value="0.382051282051282" />
         <entry key="module/web/src/main/res/layout/web_fragment_webpage.xml" value="0.3880208333333333" />
         <entry key="shadow/plugin/app/src/main/res/layout/activity_plugin.xml" value="0.12864583333333332" />

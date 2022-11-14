@@ -2,6 +2,7 @@ package com.common.core.base;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseArray;
@@ -10,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import androidx.lifecycle.LifecycleKt;
+import androidx.lifecycle.LifecycleOwnerKt;
+import androidx.lifecycle.LifecycleOwnerKt.*;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -29,10 +33,15 @@ import com.common.res.action.ibase.IView;
 import com.common.res.dialog.BaseDialog;
 import com.common.res.dialog.WaitDialog;
 import com.common.res.immersionbar.BindImmersionBar;
+import com.common.res.utils.ScreenUtilKt;
 import com.hjq.bar.TitleBar;
 
 import java.util.List;
 import java.util.Random;
+import java.util.function.Consumer;
+
+import kotlinx.coroutines.CoroutineScopeKt;
+import kotlinx.coroutines.Job;
 
 
 /**
@@ -47,8 +56,7 @@ import java.util.Random;
  * }
  * //-------------------------
  */
-public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompatActivity implements IView, ILoading, BindImmersionBar, ActivityAction, ClickAction,
-        HandlerAction, BundleAction, KeyboardAction, ToastAction, TitleBarAction {
+public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompatActivity implements IView, ILoading, BindImmersionBar, ActivityAction, ClickAction, HandlerAction, BundleAction, KeyboardAction, ToastAction, TitleBarAction {
 
 
     private VDB mBinding;
@@ -75,8 +83,8 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView();
-        initView();
         initViewModel();
+        initView();
         initObserve();
         initData();
     }
@@ -89,6 +97,9 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         if (getLayoutId() != 0) {
             if (isBinding()) {
                 mBinding = DataBindingUtil.setContentView(this, getLayoutId());
+                if (mBinding != null) {
+                    mBinding.setLifecycleOwner(this);
+                }
             } else {
                 setContentView(getLayoutId());
             }
@@ -109,6 +120,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     public void onLeftClick(TitleBar titleBar) {
         onBackPressed();
     }
+
 
     /**
      * 初始化软键盘
@@ -143,6 +155,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     @Override
     public void finish() {
         super.finish();
+        overridePendingTransition(0, 0); //finish时的默认动画需要去掉
         // 隐藏软键，避免内存泄漏
         hideKeyboard(getCurrentFocus());
     }
@@ -152,12 +165,17 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         super.onDestroy();
         if (mBinding != null) {
             mBinding.unbind();
+            mBinding = null;
         }
         removeCallbacks();
         if (isShowLoading()) {
-            hideLoadingDialog();
+            hideLoadingDialog(this);
         }
         mDialog = null;
+        for (Job job : getJobList()) {
+            job.cancel(null);
+        }
+        getJobList().clear();
     }
 
     /**
@@ -203,30 +221,36 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     }
 
     @Override
-    public void showLoadingDialog() {
+    public void showLoadingDialog(ILoading loading) {
         if (isFinishing() || isDestroyed()) {
             return;
         }
 
         mDialogCount++;
-        postDelayed(() -> {
-            if (mDialogCount <= 0 || isFinishing() || isDestroyed()) {
-                return;
-            }
+        if (mDialogCount <= 0 || isFinishing() || isDestroyed()) {
+            return;
+        }
 
-            if (mDialog == null) {
-                mDialog = new WaitDialog.Builder(this)
-                        .setCancelable(false)
-                        .create();
+        if (mDialog == null) {
+            mDialog = new WaitDialog.Builder(this).setCancelable(false).create();
+        }
+        mDialog.setOnKeyListener((dialog, event) -> {
+            if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+                for (Job job : loading.getJobList()) {
+                    job.cancel(null);
+                }
+                return true;
+            } else {
+                return false;
             }
-            if (!mDialog.isShowing()) {
-                mDialog.show();
-            }
-        }, 300);
+        });
+        if (!mDialog.isShowing()) {
+            mDialog.show();
+        }
     }
 
     @Override
-    public void hideLoadingDialog() {
+    public void hideLoadingDialog(ILoading loading) {
         if (isFinishing() || isDestroyed()) {
             return;
         }
@@ -234,12 +258,13 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         if (mDialogCount > 0) {
             mDialogCount--;
         }
-
-        if (mDialogCount != 0 || mDialog == null || !mDialog.isShowing()) {
-            return;
-        }
-
-        mDialog.dismiss();
+        postDelayed(() -> {
+            if (mDialogCount != 0 || mDialog == null || !mDialog.isShowing()) {
+                return;
+            }
+            mDialog.setOnKeyListener((dialog, event) -> false);
+            mDialog.dismiss();
+        }, 300);
     }
 
 
@@ -253,8 +278,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
         List<Fragment> fragments = getSupportFragmentManager().getFragments();
         for (Fragment fragment : fragments) {
             // 这个 Fragment 必须是 BaseFragment 的子类，并且处于可见状态
-            if (!(fragment instanceof BaseFragment) ||
-                    fragment.getLifecycle().getCurrentState() != Lifecycle.State.RESUMED) {
+            if (!(fragment instanceof BaseFragment) || fragment.getLifecycle().getCurrentState() != Lifecycle.State.RESUMED) {
                 continue;
             }
             // 将按键事件派发给 Fragment 进行处理

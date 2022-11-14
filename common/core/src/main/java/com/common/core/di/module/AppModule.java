@@ -135,8 +135,8 @@ public class AppModule {
     @Singleton
     @Provides
     @Nullable
-    AppliesOptions.GsonConfiguration provideGsonConfiguration(@NonNull Builder builder) {
-        return builder.gsonConfiguration;
+    AppliesOptions.MoshiConfiguration provideMoshiConfiguration(@NonNull Builder builder) {
+        return builder.moshiConfiguration;
     }
 
     @Singleton
@@ -196,7 +196,7 @@ public class AppModule {
         private List<Interceptor> interceptors;
         private AppliesOptions.RetrofitConfiguration retrofitConfiguration;
         private AppliesOptions.OkhttpConfiguration okhttpConfiguration;
-        private AppliesOptions.GsonConfiguration gsonConfiguration;
+        private AppliesOptions.MoshiConfiguration moshiConfiguration;
         private AppliesOptions.RoomConfiguration roomConfiguration;
         private RequestInterceptor.Level printHttpLogLevel;
         private FormatPrinter formatPrinter;
@@ -252,8 +252,8 @@ public class AppModule {
             return this;
         }
 
-        public Builder gsonConfiguration(AppliesOptions.GsonConfiguration gsonConfiguration) {
-            this.gsonConfiguration = gsonConfiguration;
+        public Builder moshiConfiguration(AppliesOptions.MoshiConfiguration moshiConfiguration) {
+            this.moshiConfiguration = moshiConfiguration;
             return this;
         }
 

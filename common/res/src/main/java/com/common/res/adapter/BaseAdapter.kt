@@ -9,20 +9,19 @@ import com.common.res.BR
  *
  */
 open class BaseAdapter<T>(layoutId: Int, private val variableId: Int = BR.item) :
-    BaseQuickAdapter<T, BaseDataBindingHolder<*>>(layoutId), LoadMoreModule {
+    BaseQuickAdapter<T, DataBindingViewHolder<*>>(layoutId), LoadMoreModule {
 
-    override fun convert(holder: BaseDataBindingHolder<*>, item: T) {
-        holder.dataBinding?.let {
+    override fun convert(holder: DataBindingViewHolder<*>, item: T) {
+        holder.getDataBinding()?.let {
             it.setVariable(variableId, item)
+            it.setVariable(BR.position, holder.bindingAdapterPosition)
             it.executePendingBindings()
         }
     }
 
 
-
-
     companion object {
-        const val PAGE_SIZE = 20
+        const val PAGE_SIZE = 10
     }
 
     var page = 1
@@ -36,4 +35,6 @@ open class BaseAdapter<T>(layoutId: Int, private val variableId: Int = BR.item) 
     }
 
     fun isFirstPage() = page == 1
+
+    var total = 0
 }
