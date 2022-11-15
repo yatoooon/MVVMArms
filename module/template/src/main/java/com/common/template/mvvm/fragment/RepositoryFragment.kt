@@ -7,8 +7,9 @@ import com.common.export.arouter.RouterHub
 import com.common.res.action.StatusAction
 import com.common.res.adapter.BaseAdapter
 import com.common.res.adapter.BaseAdapter.Companion.PAGE_SIZE
-import com.common.res.http.net.launchAndCollect
+import com.common.res.http.net.launch
 import com.common.res.layout.StatusLayout
+import com.common.res.livedata.StatusEvent.Status
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentRepositoryBinding
 import com.common.template.mvvm.model.entity.TemplateEntity.Item
@@ -36,15 +37,14 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
     override fun initData() {
     }
 
-    override fun initObserve() {
-    }
-
 
     override fun onFragmentResume(first: Boolean) {
-        if (first){
+        if (first) {
+            viewModel.statusEvent.value = 0
             getArticleData()
         }
     }
+
     override fun initView() {
         binding.srlRefresh.setOnRefreshListener { refresh() }
         mAdapter.loadMoreModule.setOnLoadMoreListener { loadMore() }
@@ -70,8 +70,6 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
                 .withString("title", data.name)
                 .navigation()
         }
-        showLoading()
-
     }
 
 
@@ -85,33 +83,44 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
         getArticleData()
     }
 
-    private fun getArticleData() {
-        launchAndCollect({ viewModel.getArticleList(mAdapter.page, PAGE_SIZE) },
-            {
-                onSuccess = {
+    override fun initObserve() {
+        registerStatusEvent {
+            when (it) {
+                Status.INIT -> {
+                    showLoading()
+                }
+                Status.COMPLETE, Status.SUCCESS -> {
                     showComplete()
                     binding.srlRefresh.isRefreshing = false
-                    if (mAdapter.isFirstPage()) {
-                        mAdapter.setList(it!!.items)
-                    } else {
-                        mAdapter.addData(it!!.items)
-                        if (it.items.size == 0) {
-                            mAdapter.loadMoreModule.loadMoreEnd(false)
-                        } else {
-                            mAdapter.loadMoreModule.loadMoreComplete()
-                        }
-                    }
                 }
-                onFailed = { _, _ ->
-                    binding.srlRefresh.isRefreshing = false
-                    mAdapter.loadMoreModule.loadMoreFail()
+                Status.FAILURE -> {
                     showError(object : StatusLayout.OnRetryListener {
                         override fun onRetry(layout: StatusLayout?) {
                             getArticleData()
                         }
                     })
                 }
-            },false)
+            }
+        }
+        viewModel.articleList.observe(this) {
+            if (mAdapter.isFirstPage()) {
+                mAdapter.setList(it)
+            } else {
+                if (mAdapter.itemCount >= mAdapter.total) {
+                    mAdapter.loadMoreModule.loadMoreEnd(true)
+                } else {
+                    mAdapter.addData(it)
+                    mAdapter.loadMoreModule.loadMoreComplete()
+                }
+            }
+        }
+    }
+
+    private fun getArticleData() {
+        launch(
+            { viewModel.getArticleList(mAdapter.page, PAGE_SIZE) },
+            withLoading = false
+        )
     }
 
     override fun getStatusLayout(): StatusLayout {

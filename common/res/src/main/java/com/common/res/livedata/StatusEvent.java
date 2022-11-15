@@ -10,8 +10,6 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * 提供观察状态事件
- *
- *
  */
 public class StatusEvent extends SingleLiveEvent<Integer> {
 
@@ -31,12 +29,12 @@ public class StatusEvent extends SingleLiveEvent<Integer> {
     /**
      * 状态
      */
-    @IntDef({Status.EMPTY, Status.SUCCESS, Status.FAILURE, Status.ERROR})
+    @IntDef({Status.INIT, Status.COMPLETE,Status.SUCCESS, Status.FAILURE})
     @Retention(RetentionPolicy.SOURCE)
     public @interface Status {
-        int EMPTY = 0;
+        int INIT = -1;
+        int COMPLETE = 0;
         int SUCCESS = 1;
         int FAILURE = 2;
-        int ERROR = 3;
     }
 }

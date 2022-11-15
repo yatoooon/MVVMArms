@@ -172,10 +172,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
             hideLoadingDialog(this);
         }
         mDialog = null;
-        for (Job job : getJobList()) {
-            job.cancel(null);
-        }
-        getJobList().clear();
+        clearJobList();
     }
 
     /**

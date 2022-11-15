@@ -220,10 +220,7 @@ public abstract class BaseDialogFragment<VDB extends ViewDataBinding> extends Di
         super.onDestroy();
         mLoading = false;
         removeCallbacks();
-        for (Job job : getJobList()) {
-            job.cancel(null);
-        }
-        getJobList().clear();
+        clearJobList();
     }
 
 

@@ -21,54 +21,37 @@ fun <T> launchFlow(
 }
 
 /**
- * 这个方法只是简单的一个封装Loading的普通方法，不返回任何实体类
+ * withLoading带不带Loading  默认是带  是否返回实体类&&不需要监听数据变化
  */
-fun ILoading.launchWithLoading(requestBlock: suspend () -> Unit) {
-    jobList.add(lifecycleScope.launch {
-        flow {
-            emit(requestBlock())
-        }.onStart {
-            showLoadingDialog(this@launchWithLoading)
-        }.onCompletion {
-            hideLoadingDialog(this@launchWithLoading)
-        }.collect()
-    })
-}
-
-/**
- * withLoading带不带Loading  默认是带  &&不需要监听数据变化
- */
-fun <T> ILoading.launchAndCollect(
-    requestBlock: suspend () -> Result<T>,
-    listenerBuilder: ResultListener<T>.() -> Unit,
-    withLoading: Boolean = true,
+fun <T> ILoading.launch(
+    requestBlock: suspend () -> Result<T>,       //发起请求
+    listenerBuilder: (ResultListener<T>.() -> Unit)? = null,  //是否返回实体
+    withLoading: Boolean = true,                 //是否显示loading
+    isOnRepeat: Boolean = false,
+    minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
 ) {
     jobList.add(lifecycleScope.launch {
         launchFlow(requestBlock, {
             if (withLoading) {
-                showLoadingDialog(this@launchAndCollect)
+                showLoadingDialog(this@launch)
             }
         }, {
             if (withLoading) {
-                hideLoadingDialog(this@launchAndCollect)
+                hideLoadingDialog(this@launch)
             }
-        }).collect { response ->
-            response.parseData(listenerBuilder)
+        }).let {
+            if (isOnRepeat) {
+                it.flowWithLifecycle(lifecycle, minActiveState)
+            } else {
+                it
+            }
+        }.collect { response ->
+            listenerBuilder?.let {
+                response.parseData(it)
+            }
         }
     })
 }
 
 
-/**
- * 需要监听数据变化
- */
-fun <T> Flow<Result<T>>.collectIn(
-    lifecycleOwner: LifecycleOwner,
-    minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
-    listenerBuilder: ResultListener<T>.() -> Unit,
-): Job = lifecycleOwner.lifecycleScope.launch {
-    flowWithLifecycle(lifecycleOwner.lifecycle, minActiveState).collect { apiResponse: Result<T> ->
-        apiResponse.parseData(listenerBuilder)
-    }
-}
 

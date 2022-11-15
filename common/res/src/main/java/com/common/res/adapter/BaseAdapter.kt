@@ -36,5 +36,5 @@ open class BaseAdapter<T>(layoutId: Int, private val variableId: Int = BR.item) 
 
     fun isFirstPage() = page == 1
 
-    var total = 0
+    var total = Integer.MAX_VALUE
 }

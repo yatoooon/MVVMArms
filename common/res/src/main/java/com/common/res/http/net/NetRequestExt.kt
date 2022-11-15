@@ -33,7 +33,7 @@ suspend fun <T> apiCall(call: suspend () -> BaseResponse<T>): Result<T?> {
     } catch (e: Exception) {
         e.printStackTrace()
         ToastUtils.show(e.message)
-        return Result.error(e)
+        return Result.failure(e.message)
     }
 }
 
