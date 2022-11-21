@@ -15,41 +15,18 @@ import org.jetbrains.anko.padding
 class LauncherActivity : AppCompatActivity() {
 
 
-    val activitys = arrayListOf(
-        "LeakLauncherActivity",
-        "WXEntryActivity",
-        "CrashActivity",
-        "RestartActivity",
-        "AuthActivity",
-        "AssistActivity",
-        "PictureSelectorActivity",
-        "PictureSelectorWeChatStyleActivity",
-        "PictureSelectorCameraEmptyActivity",
-        "PictureCustomCameraActivity",
-        "PicturePreviewActivity",
-        "PictureSelectorPreviewWeChatStyleActivity",
-        "PictureVideoPlayActivity",
-        "PictureExternalPreviewActivity",
-        "PicturePlayAudioActivity",
-        "UCropActivity",
-        "PictureMultiCuttingActivity",
-        "LeakActivity",
-        "RequestStoragePermissionActivity",
-        "UpdateDialogActivity"
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.res_activity_launcher)
         val linearLayout = findViewById<LinearLayout>(R.id.root)
         packageManager.getPackageInfo(
-            packageName, PackageManager.GET_ACTIVITIES
+            packageName,
+            PackageManager.GET_ACTIVITIES
         ).activities.forEach { activity ->
-            if (!outActivityString(activity)) {
-                if (activity.name == this::class.java.name
-                ) {
-                    return@forEach
-                }
+            if (activity.name.startsWith("com.common.") && !activity.name.startsWith("com.common.core") && !activity.name.startsWith(
+                    "com.common.res"
+                )
+            ) {
                 val clazz = Class.forName(activity.name)
                 val button = Button(this).apply {
                     isAllCaps = false
@@ -65,10 +42,5 @@ class LauncherActivity : AppCompatActivity() {
         }
     }
 
-    private fun outActivityString(activity: ActivityInfo): Boolean {
-        activitys.forEach {
-            if (activity.name.contains(it)) return true
-        }
-        return false
-    }
+
 }

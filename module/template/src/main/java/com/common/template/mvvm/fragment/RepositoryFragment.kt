@@ -40,7 +40,7 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
 
     override fun onFragmentResume(first: Boolean) {
         if (first) {
-            viewModel.statusEvent.value = 0
+            viewModel.statusEvent.value = Status.INIT
             getArticleData()
         }
     }

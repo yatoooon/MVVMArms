@@ -30,6 +30,7 @@ fun <T> ILoading.launch(
     isOnRepeat: Boolean = false,
     minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
 ) {
+    clearJobList()
     jobList.add(lifecycleScope.launch {
         launchFlow(requestBlock, {
             if (withLoading) {

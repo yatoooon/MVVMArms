@@ -172,7 +172,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
             hideLoadingDialog(this);
         }
         mDialog = null;
-        clearJobList();
+        
     }
 
     /**

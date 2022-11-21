@@ -170,7 +170,7 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         super.onDestroy();
         mLoading = false;
         removeCallbacks();
-        clearJobList();
+        
     }
 
 

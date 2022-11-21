@@ -35,9 +35,12 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
         defaultConfig {
             versionCode = 1
             versionName = "1.0.0"
-            if (isAppModule || isRunAlone) {
+            if (isAppModule) {
                 applicationId = "com.arms.sample"
                 resValue("string", "app_name", "MVVMArms")
+            } else if (isRunAlone) {
+                applicationId = "com.arms.sample." + project.name
+                resValue("string", "app_name", project.name)
             }
             minSdk = Versions.minSdk
             targetSdk = Versions.targetSdk
