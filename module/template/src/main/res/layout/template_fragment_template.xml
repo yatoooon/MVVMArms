@@ -3,6 +3,9 @@
 
     <data>
 
+        <variable
+            name="model"
+            type="com.common.template.mvvm.vm.TemplateViewModel" />
     </data>
 
     <LinearLayout

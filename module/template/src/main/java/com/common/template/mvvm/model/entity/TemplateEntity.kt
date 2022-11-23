@@ -1,7 +1,7 @@
 package com.common.template.mvvm.model.entity
+
 import com.common.res.http.net.BaseResponse
 import com.squareup.moshi.Json
-
 
 
 data class TemplateEntity(
@@ -10,8 +10,8 @@ data class TemplateEntity(
     @Json(name = "items")
     val items: List<Item> = listOf(),
     @Json(name = "total_count")
-    val totalCount: Int = 0, override val code: Int = 200, override val msg: String = ""
-):BaseResponse<TemplateEntity>() {
+    val totalCount: Int = 0
+) :BaseResponse<TemplateEntity>(){
     data class Item(
         @Json(name = "allow_forking")
         val allowForking: Boolean = false,

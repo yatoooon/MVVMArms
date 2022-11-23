@@ -2,8 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
-    </data>
+        <variable
+            name="model"
+            type="com.common.template.mvvm.vm.TemplateViewModel" />    </data>
 
     <LinearLayout
         android:layout_width="match_parent"

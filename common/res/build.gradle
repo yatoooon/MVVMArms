@@ -132,7 +132,7 @@ dependencies {
     //anko
     api Deps.anko
     api Deps.ankoCommon
-    api Deps.kotlinStdlibJdk7
+    api Deps.kotlinStdlibJdk8
     //androidx
     api Deps.design
     api Deps.coreKtx

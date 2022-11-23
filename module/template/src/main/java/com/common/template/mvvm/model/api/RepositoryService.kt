@@ -1,5 +1,6 @@
 package com.common.template.mvvm.model.api
 
+import com.common.res.http.net.BaseResponse
 import com.common.template.mvvm.model.entity.TemplateEntity
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -9,5 +10,5 @@ interface RepositoryService {
     suspend fun getArticleList(
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): TemplateEntity
+    ):TemplateEntity
 }

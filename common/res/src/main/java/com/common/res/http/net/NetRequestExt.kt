@@ -17,7 +17,7 @@ suspend fun <T> apiCall(call: suspend () -> BaseResponse<T>): Result<T?> {
         if (checkNetworkStatus(ResApp.getApp())) {
             val baseResponse = call()
             if (baseResponse.code == 200) {
-                return Result.success(baseResponse as T)
+                return Result.success( baseResponse as T)
             } else {
                 ToastUtils.show(baseResponse.msg)
                 return Result.failure(baseResponse.msg)

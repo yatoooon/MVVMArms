@@ -1,21 +1,16 @@
 package com.common.res.config
 
 
-import com.common.res.http.net.BaseResponse
 import com.squareup.moshi.Json
 
 data class UserInfoEntity(
-    @Json(name = "code")
-    override val code: Int = 0,
-    @Json(name = "msg")
-    override val msg: String = "",
     @Json(name = "permissions")
     val permissions: List<String> = listOf(),
     @Json(name = "roles")
     val roles: List<String> = listOf(),
     @Json(name = "user")
     val user: User = User()
-) : BaseResponse<UserInfoEntity>() {
+) {
     data class User(
         @Json(name = "admin")
         val admin: Boolean = false,

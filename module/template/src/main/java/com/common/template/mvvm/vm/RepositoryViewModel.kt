@@ -24,8 +24,8 @@ class RepositoryViewModel @Inject constructor(
     var articleList = MutableLiveData<List<TemplateEntity.Item>>()
 
 
-    suspend fun getArticleList(page: Int, pageSize: Int): Result<TemplateEntity?> {
-        return apiCall { model.getArticleList(page, pageSize) }.apply {
+    suspend fun getArticleList(page: Int, pageSize: Int) =
+        apiCall { model.getArticleList(page, pageSize) }.apply {
             parseData {
                 onSuccess = {
                     articleList.value = it?.items
@@ -39,5 +39,5 @@ class RepositoryViewModel @Inject constructor(
                 }
             }
         }
-    }
+
 }

@@ -4,11 +4,10 @@ import android.content.Context
 import android.text.TextUtils
 import com.common.res.http.GlobalHttpHandler
 import com.common.res.http.api.LoginService
-import com.common.res.http.net.ReceiveObject
+import com.common.res.http.net.BaseResponse
 import com.common.res.utils.appLogoutToLogin
 import com.squareup.moshi.Moshi
 import okhttp3.*
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import xin.sparkle.moshi.NullSafeKotlinJsonAdapterFactory
@@ -40,7 +39,7 @@ class GlobalHttpHandlerImpl(private val context: Context) : GlobalHttpHandler {
         如果不需要返回新的结果, 则直接把参数 response 返回出去即可*/
         try {
             val moshi = Moshi.Builder().add(NullSafeStandardJsonAdapters.FACTORY).add(NullSafeKotlinJsonAdapterFactory()).build()
-            val adapter = moshi.adapter(ReceiveObject::class.java)
+            val adapter = moshi.adapter(BaseResponse::class.java)
             httpResult?.let {
                 val fromJson = adapter.fromJson(httpResult)
                 if (fromJson?.code == 401) {

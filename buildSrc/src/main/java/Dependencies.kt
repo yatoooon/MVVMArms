@@ -26,7 +26,7 @@ object Deps {
     //anko
     const val anko = "org.jetbrains.anko:anko:0.10.8"
     const val ankoCommon = "org.jetbrains.anko:anko-common:0.10.8"
-    const val kotlinStdlibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+    const val kotlinStdlibJdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22"
 
     //androidx
     const val appcompat = "androidx.appcompat:appcompat:1.4.2"

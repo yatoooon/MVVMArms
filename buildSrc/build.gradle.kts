@@ -10,12 +10,12 @@ repositories {
 }
 dependencies {
     /* Depend on the android gradle plugin, since we want to access it in our plugin */
-    implementation("com.android.tools.build:gradle:7.1.3")
+    implementation("com.android.tools.build:gradle:7.3.1")
 
     /* Depend on the kotlin plugin, since we want to access it in our plugin */
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20")
 
-    implementation("com.google.dagger:hilt-android-gradle-plugin:2.40.5")
+    implementation("com.google.dagger:hilt-android-gradle-plugin:2.44.2")
 
     /* Depend on the default Gradle API's since we want to build a custom plugin */
     implementation(gradleApi())
