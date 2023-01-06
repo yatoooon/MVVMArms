@@ -14,18 +14,13 @@ import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.File
 
-/**
- * desc :android{} 配置
- * author：panyy
- * date：2021/04/22
- */
+
 internal fun Project.configureAndroid(isAppModule: Boolean) {
     val extension =
-        if (isAppModule || Deploys.isRunAlone)
+        if (isAppModule || isRunAlone)
             extensions.getByType<AppExtension>()
         else
             extensions.getByType<LibraryExtension>()
-
 
     extension.run {
 
@@ -65,22 +60,8 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                     argument("AROUTER_MODULE_NAME", project.name)
                 }
             }
-
-
-//            addBuildConfigField(
-//                ClassFieldImpl(
-//                    "Boolean",
-//                    "isRunAlone",
-//                    isRunAlone.toString()
-//                )
-//            )
-
-
         }
 
-        dexOptions {
-            javaMaxHeapSize = "4g"
-        }
         compileOptions {
             isCoreLibraryDesugaringEnabled = true
             sourceCompatibility = JavaVersion.VERSION_1_8
@@ -91,20 +72,8 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             kotlinOptions.jvmTarget = "1.8"
         }
 
-        if (isAppModule || isRunAlone) {
-            extensions.getByType<BaseAppModuleExtension>().buildFeatures {
-                dataBinding = true
-            }
-        } else {
-            extensions.getByType<LibraryExtension>().buildFeatures {
-                dataBinding = true
-            }
-        }
+        dataBinding.enable = true
 
-        lintOptions {
-            isAbortOnError = false
-            warning("InvalidPackage")
-        }
         sourceSets {
             getByName("main") {
                 manifest.srcFile("src/main/AndroidManifest.xml")
@@ -125,10 +94,11 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                 storePassword = "123456"
                 keyAlias = "sample"
                 keyPassword = "123456"
-                isV1SigningEnabled = true
-                isV2SigningEnabled = true
+                enableV1Signing = true
+                enableV2Signing = true
             }
         }
+
         buildTypes {
             getByName("debug") {
                 isMinifyEnabled = false
@@ -145,9 +115,5 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             }
         }
 
-        packagingOptions {
-            exclude("META-INF/NOTICE.txt")
-            // ...
-        }
     }
 }

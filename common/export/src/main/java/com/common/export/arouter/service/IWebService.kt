@@ -4,11 +4,7 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.template.IProvider
 //web框架
-/**
- * desc :web框架服务接口
- * author：panyy
- * date：2021/04/22
- */
+
 interface IWebService : IProvider {
 
     /**

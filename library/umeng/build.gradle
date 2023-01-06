@@ -3,6 +3,9 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion Versions.compileSdk
     defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+
         // 模块混淆配置
         consumerProguardFiles 'proguard-umeng.pro'
 

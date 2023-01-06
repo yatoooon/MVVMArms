@@ -3,11 +3,7 @@ package com.common.plugin
 import Deploys.isRunAlone
 import org.gradle.api.Project
 
-/**
- * desc :公共插件
- * author：panyy
- * date：2021/04/22
- */
+
 internal fun Project.configurePlugins(isAppModule: Boolean) {
     if (isAppModule || isRunAlone) {
         plugins.apply("com.android.application")

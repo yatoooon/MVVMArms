@@ -10,8 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.room.RoomDatabase;
 
-import com.common.core.appvm.AppViewModel;
-import com.common.core.appvm.AppViewModelFactory;
+import com.common.res.appvm.AppViewModel;
+import com.common.res.appvm.AppViewModelFactory;
 import com.common.core.base.BaseApplication;
 import com.common.core.config.CoreConfigModule;
 import com.common.core.config.ManifestParser;

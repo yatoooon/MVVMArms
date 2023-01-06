@@ -1,4 +1,4 @@
-package com.common.core.appvm
+package com.common.res.appvm
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

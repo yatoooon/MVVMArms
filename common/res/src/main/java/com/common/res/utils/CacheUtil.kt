@@ -9,11 +9,7 @@ import com.tencent.bugly.crashreport.CrashReport
 import java.io.File
 import java.math.BigDecimal
 
-/**
- * desc :Glide缓存工具类
- * author：panyy
- * date：2021/04/22
- */
+
 object CacheUtil {
     /**
      * 清除图片磁盘缓存

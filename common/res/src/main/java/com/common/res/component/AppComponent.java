@@ -1,5 +1,6 @@
 package com.common.res.component;
 
+import com.common.res.appvm.AppViewModel;
 import com.common.res.http.imageloader.BaseImageLoaderStrategy;
 import com.common.res.http.imageloader.ImageLoader;
 import com.common.res.utils.ArmsUtil;
@@ -28,6 +29,7 @@ public class AppComponent {
     public AppComponent() {
 
     }
+
     /**
      * 图片加载管理器, 用于加载图片的管理类, 使用策略者模式, 可在运行时动态替换任何图片加载框架
      * arms-imageloader-glide 提供 Glide 的策略实现类, 也可以自行实现
@@ -45,7 +47,7 @@ public class AppComponent {
      * @return {@link OkHttpClient}
      */
     @Inject
-   public OkHttpClient okHttpClient;
+    public OkHttpClient okHttpClient;
 
     /**
      * Json 序列化库
@@ -73,5 +75,14 @@ public class AppComponent {
      */
     @Inject
     public ExecutorService executorService;
+
+
+    /**
+     * 返回一个全局ViewModel
+     *
+     * @return {@link AppViewModel}
+     */
+    @Inject
+    public AppViewModel appViewModel;
 
 }
