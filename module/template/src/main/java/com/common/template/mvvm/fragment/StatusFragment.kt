@@ -10,7 +10,6 @@ import com.common.res.ext.inflateLayout
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentStatusBinding
 import com.common.template.mvvm.vm.StatusViewModel
-import org.jetbrains.anko.textColor
 
 class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewModel>() {
 
@@ -61,9 +60,11 @@ class StatusFragment : BaseVMFragment<TemplateFragmentStatusBinding, StatusViewM
                 .apply {
                     findViewById<TextView>(R.id.tv_item).apply {
                         text = "我是头布局"
-                        textColor = ContextCompat.getColor(
-                            requireContext(),
-                            R.color.res_primary_color
+                        setTextColor(
+                            ContextCompat.getColor(
+                                requireContext(),
+                                R.color.res_primary_color
+                            )
                         )
                         setOnClickListener { toast("点击了头布局") }
                     }

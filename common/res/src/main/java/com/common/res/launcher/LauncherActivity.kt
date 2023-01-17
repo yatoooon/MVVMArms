@@ -10,7 +10,6 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toDrawable
 import com.common.res.R
-import org.jetbrains.anko.padding
 
 class LauncherActivity : AppCompatActivity() {
 
@@ -32,7 +31,7 @@ class LauncherActivity : AppCompatActivity() {
                     isAllCaps = false
                     text = clazz.simpleName
                     background = Color.WHITE.toDrawable()
-                    padding = 20
+                    setPadding(20,20,20,20)
                     setOnClickListener {
                         startActivity(Intent(this@LauncherActivity, clazz))
                     }

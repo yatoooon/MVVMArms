@@ -147,7 +147,6 @@ object Deps {
     const val pinyin4j = "com.github.open-android:pinyin4j:2.5.0"
 
 
-
     //test
     const val junit = "junit:junit:4.13.2"
     const val extJunit = "androidx.test.ext:junit:1.1.3"
