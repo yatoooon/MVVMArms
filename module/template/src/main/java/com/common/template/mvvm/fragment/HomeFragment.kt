@@ -27,8 +27,7 @@ class HomeFragment : BaseFragment<TemplateFragmentHomeBinding>(),
         StatusFragment.newInstance(),
         RepositoryFragment.newInstance(),
         ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEFRAGMENT)
-            .withString("url", "https://github.com/yatoooon")
-            .navigation() as Fragment,
+            .withString("url", "https://github.com/yatoooon").navigation() as Fragment,
         TemplateFragment.newInstance()
     )
 
@@ -49,7 +48,7 @@ class HomeFragment : BaseFragment<TemplateFragmentHomeBinding>(),
         binding.ctlHomeBar.setOnScrimsListener(this)
         binding.vpHomePager.adapter = mPagerAdapter
         binding.vpHomePager.offscreenPageLimit = fragments.size
-        binding.vpHomePager.isUserInputEnabled = false
+        binding.vpHomePager.isUserInputEnabled = true
         binding.vpHomePager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         TabLayoutMediator(binding.rvHomeTab, binding.vpHomePager) { tab, position ->
             if (position < 2) {
@@ -57,18 +56,15 @@ class HomeFragment : BaseFragment<TemplateFragmentHomeBinding>(),
             } else if (position == 2) {
                 tab.text = "网页"
             } else if (position == 3) {
-                tab.text = "fragment模版"
+                tab.text = "模版"
             }
         }.attach()
     }
 
     override fun onResume() {
         super.onResume()
-        ImmersionBar.with(requireActivity())
-            .statusBarDarkFont(binding.ctlHomeBar.tagScrimsShown)
-            .statusBarColor(R.color.res_transparent)
-            .navigationBarColor(R.color.res_white)
-            .init()
+        ImmersionBar.with(requireActivity()).statusBarDarkFont(binding.ctlHomeBar.tagScrimsShown)
+            .statusBarColor(R.color.res_transparent).navigationBarColor(R.color.res_white).init()
     }
 
     override fun initObserve() {
@@ -80,15 +76,13 @@ class HomeFragment : BaseFragment<TemplateFragmentHomeBinding>(),
         ImmersionBar.with(requireActivity()).statusBarDarkFont(shown).init()
         binding.tvHomeAddress.setTextColor(
             ContextCompat.getColor(
-                requireActivity(),
-                if (shown) R.color.res_black else R.color.res_white
+                requireActivity(), if (shown) R.color.res_black else R.color.res_white
             )
         )
         binding.tvHomeHint.setBackgroundResource(if (shown) R.drawable.template_search_bar_gray_bg else R.drawable.template_search_bar_transparent_bg)
         binding.tvHomeHint.setTextColor(
             ContextCompat.getColor(
-                requireActivity(),
-                if (shown) R.color.res_black60 else R.color.res_white60
+                requireActivity(), if (shown) R.color.res_black60 else R.color.res_white60
             )
         )
         ImageViewCompat.setImageTintList(

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
-import android.webkit.WebView
 import androidx.core.view.NestedScrollingChild
 import androidx.core.view.NestedScrollingChildHelper
 import androidx.core.view.ViewCompat
@@ -15,7 +14,7 @@ import androidx.core.view.ViewCompat
  * time   : 2020/08/18
  * desc   : 支持嵌套滚动的 WebView
  */
-open class NestedScrollWebView : WebView, NestedScrollingChild {
+open class NestedScrollWebView : CustomWebView, NestedScrollingChild {
     private var mChildHelper: NestedScrollingChildHelper? = null
     private var mLastMotionY = 0
     private val mScrollOffset = IntArray(2)
@@ -25,7 +24,6 @@ open class NestedScrollWebView : WebView, NestedScrollingChild {
 
     constructor(context: Context?) : super(context!!)
     constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context!!, attrs, defStyleAttr)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context!!, attrs, defStyleAttr, defStyleRes)
 
     @SuppressLint("ClickableViewAccessibility")

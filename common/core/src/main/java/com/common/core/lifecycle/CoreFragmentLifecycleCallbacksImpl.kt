@@ -7,7 +7,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.common.core.base.BaseDialogFragment
-import com.common.core.base.BaseFragment
 import com.common.res.R
 import com.common.res.utils.hideNavigationBar2
 import com.gyf.immersionbar.ImmersionBar
@@ -43,6 +42,7 @@ class CoreFragmentLifecycleCallbacksImpl : FragmentManager.FragmentLifecycleCall
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onFragmentActivityCreated(
         fm: FragmentManager,
         f: Fragment,
