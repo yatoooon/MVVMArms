@@ -6,15 +6,16 @@ import java.io.Serializable
 /**
  * 服务器网络数据返回模型
  */
-open class BaseResponse<T> : Serializable {
-    var code: Int = 200
+/**
+ * 服务器网络数据返回模型
+ */
+@Suppress("unused")
+abstract class BaseResponse<T> : Serializable {
+    abstract val code: Int
 
-    var msg: String = ""
-
-    var data: T? = null
+    abstract val msg: String
 
     override fun toString(): String {
-        return "BaseResponse(code=$code, msg='$msg', data=$data)"
+        return "BaseResponse(code=$code, msg='$msg')"
     }
-
 }

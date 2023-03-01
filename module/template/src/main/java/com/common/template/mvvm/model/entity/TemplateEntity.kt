@@ -10,8 +10,8 @@ data class TemplateEntity(
     @Json(name = "items")
     val items: List<Item> = listOf(),
     @Json(name = "total_count")
-    val totalCount: Int = 0
-) :BaseResponse<TemplateEntity>(){
+    val totalCount: Int = 0, override val code: Int = 200, override val msg: String
+) : BaseResponse<TemplateEntity>() {
     data class Item(
         @Json(name = "allow_forking")
         val allowForking: Boolean = false,
@@ -84,7 +84,7 @@ data class TemplateEntity(
         @Json(name = "has_wiki")
         val hasWiki: Boolean = false,
         @Json(name = "homepage")
-        val homepage: String? = null,
+        val homepage: String? = "",
         @Json(name = "hooks_url")
         val hooksUrl: String = "",
         @Json(name = "html_url")
@@ -104,17 +104,17 @@ data class TemplateEntity(
         @Json(name = "labels_url")
         val labelsUrl: String = "",
         @Json(name = "language")
-        val language: String? = null,
+        val language: String? = "",
         @Json(name = "languages_url")
         val languagesUrl: String = "",
         @Json(name = "license")
-        val license: License? = null,
+        val license: License? = License(),
         @Json(name = "merges_url")
         val mergesUrl: String = "",
         @Json(name = "milestones_url")
         val milestonesUrl: String = "",
         @Json(name = "mirror_url")
-        val mirrorUrl: Any? = null,
+        val mirrorUrl: Any? = Any(),
         @Json(name = "name")
         val name: String = "",
         @Json(name = "node_id")
