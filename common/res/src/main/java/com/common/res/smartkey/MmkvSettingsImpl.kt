@@ -5,28 +5,26 @@ import com.russhwolf.settings.ExperimentalListener
 import com.russhwolf.settings.ObservableSettings
 import com.russhwolf.settings.SettingsListener
 import com.tencent.mmkv.MMKV
+
 //mmkv实现类
 @OptIn(ExperimentalListener::class)
 class MmkvSettingsImpl(name: String) : ObservableSettings {
 
     private val delegate = MMKV.mmkvWithID(name, MMKV.MULTI_PROCESS_MODE)
 
-    override fun remove(key: String): Unit =
-        delegate?.removeValueForKey(key)!!
+    override fun remove(key: String): Unit = delegate?.removeValueForKey(key)!!
 
-    override fun hasKey(key: String): Boolean =
-        delegate?.containsKey(key)!!
+    override fun hasKey(key: String): Boolean = delegate?.containsKey(key)!!
 
     override fun keys(): Set<String> {
-        TODO("Not yet implemented")
+        return delegate?.all?.keys?.toSet()!!
     }
 
     override fun putInt(key: String, value: Int) {
         delegate?.putInt(key, value)
     }
 
-    override fun getInt(key: String, defaultValue: Int): Int =
-        delegate?.getInt(key, defaultValue)!!
+    override fun getInt(key: String, defaultValue: Int): Int = delegate?.getInt(key, defaultValue)!!
 
     override fun putLong(key: String, value: Long) {
         delegate?.putLong(key, value)
@@ -96,7 +94,7 @@ class MmkvSettingsImpl(name: String) : ObservableSettings {
     }
 
     override fun syncImmediately(): Boolean {
-        TODO("Not yet implemented")
+        return delegate?.commit()!!
     }
 
     @ExperimentalListener
