@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import com.common.res.R;
 import com.common.res.aop.SingleClick;
 import com.common.res.view.CountdownView;
-import com.hjq.toast.ToastUtils;
+import com.hjq.toast.Toaster;
 
 /**
  *    author : Android 轮子哥
@@ -63,14 +63,14 @@ public final class SafeDialog {
             int viewId = view.getId();
             if (viewId == R.id.cv_safe_countdown) {
                 if (true) {
-                    ToastUtils.show(R.string.res_common_code_send_hint);
+                    Toaster.show(R.string.res_common_code_send_hint);
                     mCountdownView.start();
                     setCancelable(false);
                     return;
                 }
             } else if (viewId == R.id.tv_ui_confirm) {
                 if (mCodeView.getText().toString().length() != getResources().getInteger(R.integer.res_sms_code_length)) {
-                    ToastUtils.show(R.string.res_common_code_error_hint);
+                    Toaster.show(R.string.res_common_code_error_hint);
                     return;
                 }
 

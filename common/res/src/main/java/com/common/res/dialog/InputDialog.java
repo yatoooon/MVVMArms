@@ -17,7 +17,7 @@ import androidx.annotation.StringRes;
 import com.common.res.R;
 import com.common.res.aop.SingleClick;
 import com.common.res.view.RegexEditText;
-import com.hjq.toast.ToastUtils;
+import com.hjq.toast.Toaster;
 
 
 /**
@@ -124,7 +124,7 @@ public final class InputDialog {
                 }
                 Editable editable = mInputView.getText();
                 if (TextUtils.isEmpty(editable != null ? editable.toString():"")){
-                    ToastUtils.show("请扫描或手动输入编号");
+                    Toaster.show("请扫描或手动输入编号");
                     return;
                 }
                 mListener.onConfirm(getDialog(), editable != null ? editable.toString() : "");

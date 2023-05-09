@@ -28,8 +28,6 @@ import com.common.res.action.ibase.IView;
 
 import java.util.List;
 
-import kotlinx.coroutines.Job;
-
 
 /**
  * MVVMFrame 框架基于Google官方的 JetPack 构建，在使用MVVMFrame时，需遵循一些规范：

@@ -10,12 +10,12 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.room.RoomDatabase;
 
-import com.common.res.appvm.AppViewModel;
-import com.common.res.appvm.AppViewModelFactory;
 import com.common.core.base.BaseApplication;
 import com.common.core.config.CoreConfigModule;
 import com.common.core.config.ManifestParser;
 import com.common.core.config.inter.AppliesOptions;
+import com.common.res.appvm.AppViewModel;
+import com.common.res.appvm.AppViewModelFactory;
 import com.common.res.http.GlobalHttpHandler;
 import com.common.res.http.imageloader.BaseImageLoaderStrategy;
 import com.common.res.http.log.DefaultFormatPrinter;
@@ -51,6 +51,13 @@ import okhttp3.internal.Util;
 @InstallIn(SingletonComponent.class)
 @Module
 public class AppModule {
+
+    @Provides
+    @Singleton
+    public BaseApplication provideBaseApplication(@ApplicationContext Context context) {
+        return (BaseApplication) context;
+    }
+
 
     @Singleton
     @Provides
@@ -173,17 +180,13 @@ public class AppModule {
     @Singleton
     @Provides
     ExecutorService provideExecutorService(@NonNull Builder builder) {
-        return builder.executorService == null ? new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS,
-                new SynchronousQueue<>(), Util.threadFactory("Arms Executor", false)) : builder.executorService;
+        return builder.executorService == null ? new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue<>(), Util.threadFactory("Arms Executor", false)) : builder.executorService;
     }
 
 
     @Singleton
     @Provides
-    AppViewModel provideAppViewModel(
-            Application application,
-            AppViewModelFactory factory
-    ) {
+    AppViewModel provideAppViewModel(Application application, AppViewModelFactory factory) {
         return new ViewModelProvider(((BaseApplication) application).viewModelStore, factory).get(AppViewModel.class);
     }
 

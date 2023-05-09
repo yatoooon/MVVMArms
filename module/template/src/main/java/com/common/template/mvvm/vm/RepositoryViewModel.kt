@@ -3,7 +3,6 @@ package com.common.template.mvvm.vm
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.common.core.base.mvvm.BaseViewModel
-import com.common.res.http.net.Result
 import com.common.res.http.net.apiCall
 import com.common.res.http.net.parseData
 import com.common.res.livedata.StatusEvent

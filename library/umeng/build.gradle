@@ -36,6 +36,13 @@ android {
                 'WX_SECRET': WX_APP_SECRET
         ])
     }
+    buildFeatures {
+        buildConfig = true
+    }
+
+    namespace "com.common.umeng"
+
+
 }
 
 // 友盟统计集成文档：https://developer.umeng.com/docs/119267/detail/118584

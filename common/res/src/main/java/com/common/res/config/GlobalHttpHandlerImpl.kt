@@ -4,11 +4,13 @@ import android.content.Context
 import android.text.TextUtils
 import com.common.res.http.GlobalHttpHandler
 import com.common.res.http.api.LoginService
-import com.common.res.http.net.BaseResponse
 import com.common.res.http.net.ReceiveObject
 import com.common.res.utils.appLogoutToLogin
 import com.squareup.moshi.Moshi
-import okhttp3.*
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import xin.sparkle.moshi.NullSafeKotlinJsonAdapterFactory

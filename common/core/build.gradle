@@ -16,13 +16,18 @@ android {
     }
     resourcePrefix "core_"
 
-    buildFeatures {
-        dataBinding = true
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_11
     }
 
-    compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
+
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    buildFeatures {
+        dataBinding = true
+        buildConfig = true
     }
 
     lintOptions {
@@ -30,18 +35,12 @@ android {
         warning 'InvalidPackage'
     }
 
+    namespace "com.common.core"
+
 }
 
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
 
-repositories {
-    flatDir {
-        dirs 'libs' //this way we can find the .aar file in libs folder
-    }
-}
+
 
 
 dependencies {

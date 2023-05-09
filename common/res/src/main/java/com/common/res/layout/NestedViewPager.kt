@@ -3,7 +3,11 @@ package com.common.res.layout
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import androidx.core.view.*
+import androidx.core.view.NestedScrollingChild
+import androidx.core.view.NestedScrollingChildHelper
+import androidx.core.view.NestedScrollingParent
+import androidx.core.view.NestedScrollingParentHelper
+import androidx.core.view.ViewCompat
 import androidx.viewpager.widget.ViewPager
 
 /**

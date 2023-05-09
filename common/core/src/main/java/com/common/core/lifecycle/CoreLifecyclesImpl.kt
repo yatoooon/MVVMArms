@@ -10,7 +10,7 @@ import com.common.core.other.CrashHandler
 import com.common.res.BuildConfig
 import com.common.res.layout.RefreshLottieHeader
 import com.common.umeng.UmengClient
-import com.hjq.toast.ToastUtils
+import com.hjq.toast.Toaster
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
@@ -59,7 +59,7 @@ class CoreLifecyclesImpl :
         }
 
 
-        ToastUtils.init(application)
+        Toaster.init(application)
 
 
         // Bugly 异常捕捉

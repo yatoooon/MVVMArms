@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.common.core.base.BaseDialogFragment;
-import com.common.core.base.BaseFragment;
 import com.common.res.livedata.MessageEvent;
 import com.common.res.livedata.StatusEvent;
 

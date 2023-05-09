@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.splash">
+    >
 
-    <application android:name=".app.SplashApp"
+    <application android:name="com.common.splash.app.SplashApp"
         tools:replace="android:name">
         <activity
             android:exported="false"
-            android:name=".mvvm.activity.MainTestActivity" />
+            android:name="com.common.splash.mvvm.activity.MainTestActivity" />
         <!-- 闪屏页 -->
         <activity
             android:exported="true"
-            android:name=".mvvm.activity.SplashActivity"
+            android:name="com.common.splash.mvvm.activity.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/res_SplashTheme">
@@ -25,7 +25,7 @@
         </activity>
         <activity
             android:exported="false"
-            android:name=".mvvm.activity.GuideActivity"
+            android:name="com.common.splash.mvvm.activity.GuideActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
     </application>

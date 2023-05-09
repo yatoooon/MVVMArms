@@ -19,7 +19,7 @@ import com.common.res.adapter.BaseAdapter;
 import com.common.umeng.Platform;
 import com.common.umeng.UmengClient;
 import com.common.umeng.UmengShare;
-import com.hjq.toast.ToastUtils;
+import com.hjq.toast.Toaster;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.ShareContent;
 import com.umeng.socialize.media.UMEmoji;
@@ -186,7 +186,7 @@ public final class ShareDialog {
                 if (mShareAction.getShareContent().getShareType() == ShareContent.WEB_STYLE) {
                     // 复制到剪贴板
                     getSystemService(ClipboardManager.class).setPrimaryClip(ClipData.newPlainText("url", mShareAction.getShareContent().mMedia.toUrl()));
-                    ToastUtils.show(R.string.res_share_platform_copy_hint);
+                    Toaster.show(R.string.res_share_platform_copy_hint);
                 }
             }
             dismiss();

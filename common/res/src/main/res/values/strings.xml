@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
+
     <!-- Error -->
     <string name="res_response_connect_failed_error">服务器连接失败，请稍后再试。</string>
     <string name="res_response_connect_timeout_error">服务器连接超时，请稍后再试。</string>

@@ -2,7 +2,13 @@ package com.common.res.view
 
 import android.animation.ValueAnimator
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.CornerPathEffect
+import android.graphics.Paint
+import android.graphics.Path
+import android.graphics.PathMeasure
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AnticipateInterpolator

@@ -2,18 +2,13 @@ package com.common.core.base;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
-import androidx.lifecycle.LifecycleKt;
-import androidx.lifecycle.LifecycleOwnerKt;
-import androidx.lifecycle.LifecycleOwnerKt.*;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -33,14 +28,11 @@ import com.common.res.action.ibase.IView;
 import com.common.res.dialog.BaseDialog;
 import com.common.res.dialog.WaitDialog;
 import com.common.res.immersionbar.BindImmersionBar;
-import com.common.res.utils.ScreenUtilKt;
 import com.hjq.bar.TitleBar;
 
 import java.util.List;
 import java.util.Random;
-import java.util.function.Consumer;
 
-import kotlinx.coroutines.CoroutineScopeKt;
 import kotlinx.coroutines.Job;
 
 

@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;

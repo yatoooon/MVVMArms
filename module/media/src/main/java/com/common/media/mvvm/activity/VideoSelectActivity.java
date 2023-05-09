@@ -23,7 +23,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.listener.OnItemLongClickListener;
-import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.common.core.base.BaseActivity;
 import com.common.export.arouter.RouterHub;
 import com.common.export.callback.OnCameraListener;

@@ -2,7 +2,6 @@ package com.common.core.di.module;
 
 
 import android.app.Application;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -11,13 +10,11 @@ import com.common.core.config.inter.AppliesOptions;
 import com.common.res.action.ibase.IRepository;
 import com.common.res.http.GlobalHttpHandler;
 import com.common.res.http.log.RequestInterceptor;
-import com.hjq.toast.ToastUtils;
 import com.king.retrofit.retrofithelper.RetrofitHelper;
 import com.squareup.moshi.Moshi;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import javax.inject.Singleton;
 
@@ -30,10 +27,8 @@ import okhttp3.Dispatcher;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
-import xin.sparkle.moshi.NullSafeStandardJsonAdapters;
 
 /**
  *

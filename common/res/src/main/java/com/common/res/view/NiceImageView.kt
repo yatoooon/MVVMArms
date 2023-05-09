@@ -1,7 +1,14 @@
 package com.common.res.view
 
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Path
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
+import android.graphics.RectF
+import android.graphics.Xfermode
 import android.os.Build
 import android.util.AttributeSet
 import androidx.annotation.ColorInt

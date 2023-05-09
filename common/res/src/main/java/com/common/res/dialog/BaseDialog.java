@@ -60,7 +60,6 @@ public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
         DialogInterface.OnShowListener, DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
 
     private final ListenersWrapper<BaseDialog> mListeners = new ListenersWrapper<>(this);
-    private final LifecycleRegistry mLifecycle = new LifecycleRegistry(this);
 
     @Nullable
     private List<OnShowListener> mShowListeners;
@@ -241,11 +240,10 @@ public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
         super.dismiss();
     }
 
-    @NonNull
-    @Override
-    public Lifecycle getLifecycle() {
-        return mLifecycle;
-    }
+
+
+
+
 
     /**
      * 设置一个显示监听器
@@ -412,7 +410,6 @@ public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
      */
     @Override
     public void onShow(DialogInterface dialog) {
-        mLifecycle.handleLifecycleEvent(Lifecycle.Event.ON_RESUME);
 
         if (mShowListeners == null) {
             return;
@@ -442,7 +439,6 @@ public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
      */
     @Override
     public void onDismiss(DialogInterface dialog) {
-        mLifecycle.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY);
 
         if (mDismissListeners == null) {
             return;
@@ -456,19 +452,16 @@ public class BaseDialog extends AppCompatDialog implements LifecycleOwner,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mLifecycle.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mLifecycle.handleLifecycleEvent(Lifecycle.Event.ON_START);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        mLifecycle.handleLifecycleEvent(Lifecycle.Event.ON_STOP);
     }
 
     @SuppressWarnings("unchecked")

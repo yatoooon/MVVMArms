@@ -51,7 +51,7 @@ class MainActivity : BaseActivity<HomeActivityMainBinding>() {
 
     override fun initData() {
         val apply = binding.tab.custom()
-            .addItem(newItem(R.drawable.app_logo,R.drawable.app_logo, "首页"))
+            .addItem(newItem(R.drawable.app_logo, R.drawable.app_logo, "首页"))
             .addItem(newItem(R.drawable.app_logo,R.drawable.app_logo, "发现"))
             .addItem(newItem(R.drawable.app_logo,R.drawable.app_logo, "消息"))
             .addItem(newItem(R.drawable.app_logo,R.drawable.app_logo, "我的"))

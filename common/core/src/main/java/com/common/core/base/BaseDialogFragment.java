@@ -25,7 +25,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 
-import com.common.core.R;
 import com.common.res.action.ActivityAction;
 import com.common.res.action.BundleAction;
 import com.common.res.action.ClickAction;
@@ -37,8 +36,6 @@ import com.common.res.action.ibase.ILoading;
 import com.common.res.action.ibase.IView;
 
 import java.util.List;
-
-import kotlinx.coroutines.Job;
 
 
 public abstract class BaseDialogFragment<VDB extends ViewDataBinding> extends DialogFragment implements IView, ILoading, ActivityAction, ResourcesAction, HandlerAction, ClickAction, BundleAction, KeyboardAction, ToastAction {

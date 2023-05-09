@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.home">
+    >
 
-    <application android:name=".app.HomeApp"
+    <application android:name="com.common.home.app.HomeApp"
         tools:replace="android:name">
         <activity
             android:exported="false"

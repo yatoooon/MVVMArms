@@ -12,6 +12,7 @@ import com.common.splash.BuildConfig
 import com.common.splash.R
 import com.common.splash.databinding.SplashActivityBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
 
 /**
@@ -37,13 +38,13 @@ class SplashActivity : BaseActivity<SplashActivityBinding>() {
     override fun initView() {
         super.initView()
         binding.lavSplashLottie.addAnimatorListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator?) {
+            override fun onAnimationEnd(animation: Animator) {
                 binding.lavSplashLottie.removeAnimatorListener(this)
                 routerNavigation(RouterHub.PUBLIC_HOME_MAINACTIVITY)
                 finish()
             }
         })
-        binding.ivSplashDebug.text = BuildConfig.BUILD_TYPE.toUpperCase()
+        binding.ivSplashDebug.text = BuildConfig.BUILD_TYPE.uppercase(Locale.getDefault())
         if (BuildConfig.DEBUG) {
             binding.ivSplashDebug.visibility = View.VISIBLE
         } else {

@@ -15,7 +15,7 @@ dependencies {
     /* Depend on the kotlin plugin, since we want to access it in our plugin */
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
 
-    implementation("com.google.dagger:hilt-android-gradle-plugin:2.44.2")
+    implementation("com.google.dagger:hilt-android-gradle-plugin:2.46")
 
     /* Depend on the default Gradle API's since we want to build a custom plugin */
     implementation(gradleApi())

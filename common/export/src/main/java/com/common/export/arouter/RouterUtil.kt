@@ -1,13 +1,9 @@
 package com.common.export.arouter
 
 import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
-import com.alibaba.android.arouter.facade.Postcard
-import com.alibaba.android.arouter.facade.callback.NavCallback
-import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.facade.template.IProvider
 import com.alibaba.android.arouter.launcher.ARouter
 

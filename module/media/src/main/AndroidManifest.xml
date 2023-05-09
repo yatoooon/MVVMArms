@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.media">
+    >
 
-    <application android:name=".app.MediaApp"
+    <application android:name="com.common.media.app.MediaApp"
         tools:replace="android:name">
         <activity
             android:exported="false"
-            android:name=".mvvm.activity.ImageSelectActivity"
+            android:name="com.common.media.mvvm.activity.ImageSelectActivity"
             android:label="@string/res_image_select_title"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <activity
             android:exported="false"
-            android:name=".mvvm.activity.VideoPlayActivity"
+            android:name="com.common.media.mvvm.activity.VideoPlayActivity"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:theme="@style/res_FullScreenTheme" />
         <activity
             android:exported="false"
-            android:name=".mvvm.activity.VideoSelectActivity"
+            android:name="com.common.media.mvvm.activity.VideoSelectActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:exported="false"
-            android:name=".mvvm.activity.VideoPlayActivity$Portrait"
+            android:name="com.common.media.mvvm.activity.VideoPlayActivity$Portrait"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/res_FullScreenTheme" />
         <activity
             android:exported="false"
-            android:name=".mvvm.activity.VideoPlayActivity$Landscape"
+            android:name="com.common.media.mvvm.activity.VideoPlayActivity$Landscape"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:theme="@style/res_FullScreenTheme" />
         <activity
             android:exported="false"
-            android:name=".mvvm.activity.ImagePreviewActivity"
+            android:name="com.common.media.mvvm.activity.ImagePreviewActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:exported="false"
-            android:name=".mvvm.activity.ImageCropActivity"
+            android:name="com.common.media.mvvm.activity.ImageCropActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:exported="false"
-            android:name=".mvvm.activity.CameraActivity"
+            android:name="com.common.media.mvvm.activity.CameraActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 

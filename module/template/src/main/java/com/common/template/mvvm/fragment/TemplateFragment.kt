@@ -2,10 +2,10 @@ package com.common.template.mvvm.fragment
 
 import android.os.Bundle
 import com.common.core.base.mvvm.BaseVMFragment
-import dagger.hilt.android.AndroidEntryPoint
+import com.common.template.R
 import com.common.template.databinding.TemplateFragmentTemplateBinding
 import com.common.template.mvvm.vm.TemplateViewModel
-import com.common.template.R
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class TemplateFragment : BaseVMFragment<TemplateFragmentTemplateBinding, TemplateViewModel>() {

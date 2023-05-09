@@ -20,7 +20,7 @@ import com.common.res.aop.SingleClick;
 import com.common.res.dialog.TipsDialog;
 import com.common.res.manager.InputTextManager;
 import com.common.res.view.CountdownView;
-import com.hjq.toast.ToastUtils;
+import com.hjq.toast.Toaster;
 
 /**
  * author : Android 轮子哥
@@ -107,7 +107,7 @@ public final class PhoneResetActivity extends BaseActivity
             }
 
             if (mCodeView.getText().toString().length() != getResources().getInteger(R.integer.res_sms_code_length)) {
-                ToastUtils.show(R.string.res_common_code_error_hint);
+                Toaster.show(R.string.res_common_code_error_hint);
                 return;
             }
 

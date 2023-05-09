@@ -7,9 +7,9 @@ object Deploys {
  */
 object Versions {
     const val minSdk = 21
-    const val targetSdk = 31
-    const val compileSdk = 31
-    const val buildTool = "31.0.0"
+    const val targetSdk = 33
+    const val compileSdk = 33
+    const val buildTool = "33.0.0"
 }
 
 /**
@@ -17,8 +17,8 @@ object Versions {
  */
 object Deps {
     //kotlin
-    const val kotlinxCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3"
-    const val kotlinxCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3"
+    const val kotlinxCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0"
+    const val kotlinxCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0"
     const val koinAndroid = "org.koin:koin-android:2.2.2"
     const val koinAndroidxScope = "org.koin:koin-androidx-scope:2.2.2"
     const val koinAndroidxViewmodel = "org.koin:koin-androidx-viewmodel:2.2.2"
@@ -29,26 +29,26 @@ object Deps {
     const val kotlinStdlibJdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22"
 
     //androidx
-    const val appcompat = "androidx.appcompat:appcompat:1.4.2"
-    const val design = "com.google.android.material:material:1.6.1"
+    const val appcompat = "androidx.appcompat:appcompat:1.6.1"
+    const val design = "com.google.android.material:material:1.9.0"
     const val cardview = "androidx.cardview:cardview:1.0.0"
-    const val annotationX = "androidx.annotation:annotation:1.4.0"
-    const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
-    const val room = "androidx.room:room-runtime:2.4.2"
+    const val annotationX = "androidx.annotation:annotation:1.6.0"
+    const val recyclerview = "androidx.recyclerview:recyclerview:1.3.0"
+    const val room = "androidx.room:room-runtime:2.5.1"
     const val roomKtx = "androidx.room:room-ktx:2.3.0"
-    const val roomCompiler = "androidx.room:room-compiler:2.4.2"
-    const val lifecycleLivedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0"
-    const val lifecycleViewmodelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
-    const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0"
+    const val roomCompiler = "androidx.room:room-compiler:2.5.1"
+    const val lifecycleLivedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
+    const val lifecycleViewmodelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:2.5.0"
+    const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:2.6.1"
     const val paging3 = "androidx.paging:paging-runtime:3.1.0-alpha03"
 
 
     const val lifecycleViewmodelSavedstate =
-        "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.0"
-    const val coreKtx = "androidx.core:core-ktx:1.8.0"
-    const val fragmentKtx = "androidx.fragment:fragment-ktx:1.5.0"
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1"
+    const val coreKtx = "androidx.core:core-ktx:1.10.0"
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:1.5.7"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
 
     //network
@@ -57,11 +57,11 @@ object Deps {
     const val retrofitConverterGson = "com.squareup.retrofit2:converter-gson:2.9.0"
     const val retrofitAdapterRxjava = "com.squareup.retrofit2:adapter-rxjava:2.9.0"
     const val retrofitAdapterRxjava2 = "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
-    const val retrofit_helper = "com.github.jenly1314:retrofit-helper:1.0.1"
+    const val retrofit_helper = "com.github.jenly1314:retrofit-helper:1.1.0"
 
-    const val okhttp = "com.squareup.okhttp3:okhttp:4.10.0"
-    const val glide = "com.github.bumptech.glide:glide:4.13.2"
-    const val glideCompiler = "com.github.bumptech.glide:compiler:4.13.2"
+    const val okhttp = "com.squareup.okhttp3:okhttp:4.11.0"
+    const val glide = "com.github.bumptech.glide:glide:4.15.1"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:4.15.1"
     const val okhttputils = "com.zhy:okhttputils:2.6.2"
     const val picasso = "com.squareup.picasso:picasso:2.8"
 
@@ -69,20 +69,20 @@ object Deps {
     const val roundedimageview = "com.makeramen:roundedimageview:2.3.0"
     const val autosize = "me.jessyan:autosize:1.2.1"
     const val baseRecyclerViewAdapterHelper =
-        "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7"
+        "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.11"
     const val titlebar = "com.wuhenzhizao:titlebar:1.2.0"
     const val smartShowAll = "com.github.the-pig-of-jungle.smart-show:all:3.0.3"
     const val smartRefreshLayoutKernel = "com.scwang.smart:refresh-layout-kernel:2.0.3"
     const val smartRefreshHeaderClassics = "com.scwang.smart:refresh-header-classics:2.0.3"
-    const val lottie = "com.airbnb.android:lottie:5.2.0"
-    const val shapeView = "com.github.getActivity:ShapeView:8.3"
-    const val titleBar = "com.github.getActivity:TitleBar:9.5"
-    const val toastUtils = "com.github.getActivity:ToastUtils:10.5"
-    const val XXPermissions = "com.github.getActivity:XXPermissions:15.0"
+    const val lottie = "com.airbnb.android:lottie:6.0.0"
+    const val shapeView = "com.github.getActivity:ShapeView:8.5"
+    const val titleBar = "com.github.getActivity:TitleBar:10.3"
+    const val Toaster = "com.github.getActivity:Toaster:12.2"
+    const val XXPermissions = "com.github.getActivity:XXPermissions:18.0"
     const val loadsir = "com.kingja.loadsir:loadsir:1.3.8"
     const val photoview = "com.github.chrisbanes.photoview:library:1.2.3"
     const val tbssdk = "com.tencent.tbs.tbssdk:sdk:43993"
-    const val xUpdate = "com.github.xuexiangjys:XUpdate:2.0.7"
+    const val xUpdate = "com.github.xuexiangjys:XUpdate:2.1.4"
     const val pictureSelector = "com.github.LuckSiege.PictureSelector:picture_library:v2.6.0"
     const val bottomNavigationViewEx = "com.github.ittianyu:BottomNavigationViewEx:2.0.4"
     const val vlayout = "com.alibaba.android:vlayout:1.3.0@aar"
@@ -104,7 +104,7 @@ object Deps {
     const val rvAdapter = "com.gitee.cbfg5210:RVAdapter:0.3.5"
     const val circleindicator = "me.relex:circleindicator:2.1.6"
     const val bottombar = "me.majiajie:pager-bottom-tab-strip:2.4.0"
-    const val spannable = "com.github.liangjingkanji:spannable:1.1.5"
+    const val spannable = "com.github.liangjingkanji:spannable:1.2.6"
 
 
     //tools
@@ -112,14 +112,14 @@ object Deps {
     const val hiltAndroid = "com.google.dagger:hilt-android:2.31.1-alpha"
     const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:2.31.1-alpha"
     const val androidHiltLifecycleViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
-    const val androidHiltCompiler = "androidx.hilt:hilt-compiler:1.0.0-alpha03"
+    const val androidHiltCompiler = "androidx.hilt:hilt-compiler:1.0.0"
     const val kotlinxMetadataJvm = "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.4.2"
     const val desugarJdkLibs = "com.android.tools:desugar_jdk_libs:1.1.5"
 
     const val dagger2Compiler = "com.google.dagger:dagger-compiler:2.38.1"
-    const val gson = "com.google.code.gson:gson:2.9.0"
-    const val moshi_kotlin = "com.squareup.moshi:moshi-kotlin:1.13.0"
-    const val moshi_kotlin_codegen = "com.squareup.moshi:moshi-kotlin-codegen:1.13.0"
+    const val gson = "com.google.code.gson:gson:2.10.1"
+    const val moshi_kotlin = "com.squareup.moshi:moshi-kotlin:1.14.0"
+    const val moshi_kotlin_codegen = "com.squareup.moshi:moshi-kotlin-codegen:1.14.0"
     const val moshi_kotlin_nullsafe = "com.github.sparklexin:moshi-kotlin-nullsafe:1.0.0"
     const val multidex = "androidx.multidex:multidex:2.0.1"
     const val javaxAnnotation = "javax.annotation:jsr250-api:1.0"
@@ -135,10 +135,10 @@ object Deps {
     const val butterknife = "com.jakewharton:butterknife:10.2.3"
     const val butterknifeCompiler = "com.jakewharton:butterknife-compiler:10.2.3"
     const val eventbus = "org.greenrobot:eventbus:3.2.0"
-    const val mmkvStatic = "com.tencent:mmkv-static:1.2.13"
+    const val mmkvStatic = "com.tencent:mmkv-static:1.2.16"
     const val greendao = "org.greenrobot:greendao:3.3.0"
     const val filedownloader = "com.liulishuo.filedownloader:library:1.7.7"
-    const val smartkey = "com.github.Vove7.SmartKey:smartkey:6.3.3"
+    const val smartkey = "com.github.Vove7.SmartKey:smartkey:6.3.8"
     const val immersionbar = "com.gyf.immersionbar:immersionbar:3.0.0"
     const val viewbindingKtx = "com.dylanc:viewbinding-ktx:1.1.2"
     const val viewbindingBaseKtx = "com.dylanc:viewbinding-base-ktx:1.1.2"
@@ -149,20 +149,20 @@ object Deps {
 
     //test
     const val junit = "junit:junit:4.13.2"
-    const val extJunit = "androidx.test.ext:junit:1.1.3"
-    const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
+    const val extJunit = "androidx.test.ext:junit:1.1.5"
+    const val espressoCore = "androidx.test.espresso:espresso-core:3.5.1"
     const val androidJUnitRunner = "androidx.test.runner.AndroidJUnitRunner"
-    const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.9.1"
-    const val aspectjrt = "org.aspectj:aspectjrt:1.9.9.1"
+    const val leakcanary = "com.squareup.leakcanary:leakcanary-android:2.10"
+    const val aspectjrt = "org.aspectj:aspectjrt:1.9.19"
 
-    const val umengCommon = "com.umeng.umsdk:common:9.5.0"
-    const val umengAsms = "com.umeng.umsdk:asms:1.6.3"
-    const val umengShareCore = "com.umeng.umsdk:share-core:7.1.9"
-    const val umengShareWX = "com.umeng.umsdk:share-wx:7.1.9"
-    const val umengShareQQ = "com.umeng.umsdk:share-qq:7.1.9"
+    const val umengCommon = "com.umeng.umsdk:common:9.5.8"
+    const val umengAsms = "com.umeng.umsdk:asms:1.8.0"
+    const val umengShareCore = "com.umeng.umsdk:share-core:7.3.2"
+    const val umengShareWX = "com.umeng.umsdk:share-wx:7.3.2"
+    const val umengShareQQ = "com.umeng.umsdk:share-qq:7.3.2"
     const val qqopensdk = "com.tencent.tauth:qqopensdk:3.53.0"
     const val wechatsdk = "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.8.0"
-    const val buglyCrashReport = "com.tencent.bugly:crashreport:4.0.4"
+    const val buglyCrashReport = "com.tencent.bugly:crashreport:4.1.9.2"
     const val buglyNativeCrashReport = "com.tencent.bugly:nativecrashreport:3.9.2"
 
 }

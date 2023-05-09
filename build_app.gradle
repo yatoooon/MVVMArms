@@ -2,4 +2,7 @@ android {
     aspectjx {
         include "com.common"
     }
+    hilt {
+        enableAggregatingTask = true
+    }
 }

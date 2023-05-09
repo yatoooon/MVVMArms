@@ -1,12 +1,10 @@
 package com.common.plugin
 
-import Deploys
 import Deploys.isRunAlone
 import Deps
 import Versions
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.LibraryExtension
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
@@ -16,11 +14,8 @@ import java.io.File
 
 
 internal fun Project.configureAndroid(isAppModule: Boolean) {
-    val extension =
-        if (isAppModule || isRunAlone)
-            extensions.getByType<AppExtension>()
-        else
-            extensions.getByType<LibraryExtension>()
+    val extension = if (isAppModule || isRunAlone) extensions.getByType<AppExtension>()
+    else extensions.getByType<LibraryExtension>()
 
     extension.run {
 
@@ -48,8 +43,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                     mutableSetOf(
 //                        "armeabi",
 //                        "x86",
-                        "armeabi-v7a",
-                        "x86_64"
+                        "armeabi-v7a", "x86_64"
 //                        "arm64-v8a"
                     )
                 )
@@ -62,24 +56,29 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             }
         }
 
+
+        namespace = "com.common." + project.name
+
+
         compileOptions {
             isCoreLibraryDesugaringEnabled = true
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
+            sourceCompatibility = JavaVersion.VERSION_11
+            targetCompatibility = JavaVersion.VERSION_11
         }
 
         tasks.withType<KotlinCompile> {
-            kotlinOptions.jvmTarget = "1.8"
+            kotlinOptions.jvmTarget = "11"
         }
 
-        dataBinding.enable = true
+        dataBinding {
+            enable = true
+        }
 
         sourceSets {
             getByName("main") {
                 manifest.srcFile("src/main/AndroidManifest.xml")
             }
         }
-
         resourcePrefix(project.name.replace("module-", "") + "_")
 
         signingConfigs {

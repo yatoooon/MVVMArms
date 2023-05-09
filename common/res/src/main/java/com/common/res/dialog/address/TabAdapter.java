@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;
 import com.common.res.adapter.DataBindingViewHolder;

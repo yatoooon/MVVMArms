@@ -15,13 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder;
 import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;
 import com.common.res.adapter.DataBindingViewHolder;
 import com.common.res.aop.SingleClick;
-import com.hjq.toast.ToastUtils;
+import com.hjq.toast.Toaster;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -131,7 +130,7 @@ public final class SelectDialog {
                     }
                     mListener.onSelected(getDialog(), data);
                 } else {
-                    ToastUtils.show(String.format(getString(R.string.res_select_min_hint), mAdapter.getMinSelect()));
+                    Toaster.show(String.format(getString(R.string.res_select_min_hint), mAdapter.getMinSelect()));
                 }
             } else if (viewId == R.id.tv_ui_cancel) {
                 autoDismiss();
@@ -265,7 +264,7 @@ public final class SelectDialog {
                     mSelectSet.put(position, getItem(position));
                     notifyItemChanged(position);
                 } else {
-                    ToastUtils.show(String.format(getContext().getString(R.string.res_select_max_hint), mMaxSelect));
+                    Toaster.show(String.format(getContext().getString(R.string.res_select_max_hint), mMaxSelect));
                 }
             }
         }

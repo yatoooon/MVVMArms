@@ -1,13 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.web">
+    >
 
-    <application android:name=".app.WebApp"
+    <application android:name="com.common.web.app.WebApp"
         tools:replace="android:name">
 
         <activity
             android:exported="false"
-            android:name=".mvvm.activity.WebPageActivity"
+            android:name="com.common.web.mvvm.activity.WebPageActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="stateHidden|adjustResize" />

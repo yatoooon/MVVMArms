@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.common.template">
+    >
 
     <application
-        android:name=".app.TemplateApp"
+        android:name="com.common.template.app.TemplateApp"
         tools:replace="android:name">
         <activity
-            android:name=".mvvm.activity.TemplateActivity"
+            android:name="com.common.template.mvvm.activity.TemplateActivity"
             android:exported="false" />
 
         <meta-data
@@ -15,12 +15,12 @@
             android:value="CoreConfigModule" />
 
         <activity
-            android:name=".mvvm.activity.StatusActivity"
+            android:name="com.common.template.mvvm.activity.StatusActivity"
             android:exported="false"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvvm.activity.DialogActivity"
+            android:name="com.common.template.mvvm.activity.DialogActivity"
             android:exported="false"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />

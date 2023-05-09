@@ -4,7 +4,13 @@ import android.animation.Animator
 import android.animation.ValueAnimator
 import android.animation.ValueAnimator.AnimatorUpdateListener
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Path
+import android.graphics.PathMeasure
+import android.graphics.PorterDuff
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.animation.AccelerateInterpolator
@@ -387,7 +393,7 @@ class SubmitButton @JvmOverloads constructor(context: Context, attrs: AttributeS
     private val accentColor: Int
         private get() {
             val typedValue = TypedValue()
-            context.theme.resolveAttribute(R.attr.colorAccent, typedValue, true)
+            context.theme.resolveAttribute(com.hjq.shape.R.attr.colorAccent, typedValue, true)
             return typedValue.data
         }
 

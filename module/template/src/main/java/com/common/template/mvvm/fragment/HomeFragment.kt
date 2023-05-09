@@ -24,8 +24,8 @@ class HomeFragment : BaseFragment<TemplateFragmentHomeBinding>(),
     private lateinit var mPagerAdapter: FragmentViewPager2Adapter
 
     private val fragments = mutableListOf<Fragment>(
-        StatusFragment.newInstance(),
         RepositoryFragment.newInstance(),
+        StatusFragment.newInstance(),
         ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEFRAGMENT)
             .withString("url", "https://github.com/yatoooon").navigation() as Fragment,
         TemplateFragment.newInstance()

@@ -17,6 +17,10 @@ class MmkvSettingsImpl(name: String) : ObservableSettings {
     override fun hasKey(key: String): Boolean =
         delegate?.containsKey(key)!!
 
+    override fun keys(): Set<String> {
+        TODO("Not yet implemented")
+    }
+
     override fun putInt(key: String, value: Int) {
         delegate?.putInt(key, value)
     }
@@ -89,6 +93,10 @@ class MmkvSettingsImpl(name: String) : ObservableSettings {
         val platformListener = listener as? Listener ?: return
         val listenerDelegate = platformListener.delegate
         delegate?.unregisterOnSharedPreferenceChangeListener(listenerDelegate)
+    }
+
+    override fun syncImmediately(): Boolean {
+        TODO("Not yet implemented")
     }
 
     @ExperimentalListener

@@ -1,6 +1,5 @@
 package com.common.template.mvvm.model.api
 
-import com.common.res.http.net.BaseResponse
 import com.common.template.mvvm.model.entity.TemplateEntity
 import retrofit2.http.GET
 import retrofit2.http.Query
