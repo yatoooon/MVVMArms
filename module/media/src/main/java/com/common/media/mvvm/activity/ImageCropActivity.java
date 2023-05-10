@@ -45,7 +45,7 @@ public final class ImageCropActivity extends BaseActivity {
 
 
     @Log
-    @Permissions({Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE})
+    @Permissions({Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO,Permission.READ_MEDIA_AUDIO})
     public static void start(BaseActivity activity, File file, int cropRatioX, int cropRatioY, OnCropListener listener) {
         Intent intent = new Intent(activity, ImageCropActivity.class);
         intent.putExtra(INTENT_KEY_IN_SOURCE_IMAGE_PATH, file.toString());

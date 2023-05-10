@@ -36,7 +36,7 @@ public final class CameraActivity extends BaseActivity {
     public static final String INTENT_KEY_OUT_ERROR = "error";
 
     @Log
-    @Permissions({Permission.WRITE_EXTERNAL_STORAGE, Permission.READ_EXTERNAL_STORAGE, Permission.CAMERA})
+    @Permissions({Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO,Permission.READ_MEDIA_AUDIO, Permission.CAMERA})
     public static void start(BaseActivity activity, boolean video, OnCameraListener listener) {
         File file = createCameraFile(video);
         Intent intent = new Intent(activity, CameraActivity.class);
@@ -92,7 +92,7 @@ public final class CameraActivity extends BaseActivity {
         }
 
         if (intent.resolveActivity(getPackageManager()) == null ||
-                !XXPermissions.isGranted(this, Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE, Permission.CAMERA)) {
+                !XXPermissions.isGranted(this, Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO,Permission.READ_MEDIA_AUDIO, Permission.CAMERA)) {
             setResult(RESULT_ERROR, new Intent().putExtra(INTENT_KEY_OUT_ERROR, getString(R.string.res_camera_launch_fail)));
             finish();
             return;

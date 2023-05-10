@@ -143,7 +143,7 @@ public final class UpdateDialog {
          * 下载 Apk
          */
         @CheckNet
-        @Permissions({Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE, Permission.REQUEST_INSTALL_PACKAGES})
+        @Permissions({Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO,Permission.READ_MEDIA_AUDIO, Permission.REQUEST_INSTALL_PACKAGES})
         private void downloadApk() {
             // 设置对话框不能被取消
             setCancelable(false);

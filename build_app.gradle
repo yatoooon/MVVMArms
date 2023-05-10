@@ -1,6 +1,9 @@
 android {
     aspectjx {
         include "com.common"
+        debug = true
+        exclude 'kotlin.jvm', 'kotlin.internal'
+        exclude 'kotlinx.coroutines.internal', 'kotlinx.coroutines.android'
     }
     hilt {
         enableAggregatingTask = true

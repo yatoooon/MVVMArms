@@ -62,11 +62,7 @@ import java.util.Set;
  * desc   : 选择视频
  */
 @Route(path = RouterHub.PUBLIC_MEDIA_VIDEOSELECTACTIVITY)
-public final class VideoSelectActivity extends BaseActivity
-        implements StatusAction, Runnable,
-        OnItemClickListener,
-        OnItemLongClickListener,
-        OnItemChildClickListener {
+public final class VideoSelectActivity extends BaseActivity implements StatusAction, Runnable, OnItemClickListener, OnItemLongClickListener, OnItemChildClickListener {
 
     private static final String INTENT_KEY_IN_MAX_SELECT = "maxSelect";
 
@@ -74,7 +70,7 @@ public final class VideoSelectActivity extends BaseActivity
 
 
     @Log
-    @Permissions({Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE})
+    @Permissions({Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO, Permission.READ_MEDIA_AUDIO})
     public static void start(BaseActivity activity, int maxSelect, OnVideoSelectListener listener) {
         if (maxSelect < 1) {
             // 最少要选择一个视频
@@ -231,24 +227,22 @@ public final class VideoSelectActivity extends BaseActivity
         data.add(0, new AlbumDialog.AlbumInfo(mAllVideo.get(0).getVideoPath(), getString(R.string.res_video_select_all), String.format(getString(R.string.res_video_select_total), count), mAdapter.getData() == mAllVideo));
 
         if (mAlbumDialog == null) {
-            mAlbumDialog = new AlbumDialog.Builder(this)
-                    .setListener((dialog, position, bean) -> {
+            mAlbumDialog = new AlbumDialog.Builder(this).setListener((dialog, position, bean) -> {
 
-                        setRightTitle(bean.getName());
-                        // 滚动回第一个位置
-                        mRecyclerView.scrollToPosition(0);
-                        if (position == 0) {
-                            mAdapter.setList(mAllVideo);
-                        } else {
-                            mAdapter.setList(mAllAlbum.get(bean.getName()));
-                        }
-                        // 执行列表动画
-                        mRecyclerView.setLayoutAnimation(AnimationUtils.loadLayoutAnimation(getActivity(), R.anim.res_layout_from_right));
-                        mRecyclerView.scheduleLayoutAnimation();
-                    });
+                setRightTitle(bean.getName());
+                // 滚动回第一个位置
+                mRecyclerView.scrollToPosition(0);
+                if (position == 0) {
+                    mAdapter.setList(mAllVideo);
+                } else {
+                    mAdapter.setList(mAllAlbum.get(bean.getName()));
+                }
+                // 执行列表动画
+                mRecyclerView.setLayoutAnimation(AnimationUtils.loadLayoutAnimation(getActivity(), R.anim.res_layout_from_right));
+                mRecyclerView.scheduleLayoutAnimation();
+            });
         }
-        mAlbumDialog.setData(data)
-                .show();
+        mAlbumDialog.setData(data).show();
     }
 
     @Override
@@ -371,13 +365,8 @@ public final class VideoSelectActivity extends BaseActivity
     @Override
     public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
         VideoBean bean = mAdapter.getItem(position);
-        VideoPlayBuilder videoPlayBuilder = new VideoPlayBuilder()
-                .setVideoSource(new File(bean.getVideoPath()))
-                .setActivityOrientation(bean.getVideoWidth() > bean.getVideoHeight() ?
-                        ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        ARouter.getInstance().build(bean.getVideoWidth() > bean.getVideoHeight() ? RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_LANDSCAPE : RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_PORTRAIT)
-                .withParcelable("parameters", videoPlayBuilder)
-                .navigation();
+        VideoPlayBuilder videoPlayBuilder = new VideoPlayBuilder().setVideoSource(new File(bean.getVideoPath())).setActivityOrientation(bean.getVideoWidth() > bean.getVideoHeight() ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        ARouter.getInstance().build(bean.getVideoWidth() > bean.getVideoHeight() ? RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_LANDSCAPE : RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_PORTRAIT).withParcelable("parameters", videoPlayBuilder).navigation();
     }
 
     @Override
@@ -400,13 +389,10 @@ public final class VideoSelectActivity extends BaseActivity
         final String selection = "(" + MediaStore.Files.FileColumns.MEDIA_TYPE + "=?)" + " AND " + MediaStore.MediaColumns.SIZE + ">0";
 
         ContentResolver contentResolver = getContentResolver();
-        String[] projections = new String[]{MediaStore.Files.FileColumns._ID, MediaStore.MediaColumns.DATA,
-                MediaStore.MediaColumns.DISPLAY_NAME, MediaStore.MediaColumns.DATE_MODIFIED,
-                MediaStore.MediaColumns.MIME_TYPE, MediaStore.MediaColumns.WIDTH,
-                MediaStore.MediaColumns.HEIGHT, MediaStore.MediaColumns.SIZE, MediaStore.Video.Media.DURATION};
+        String[] projections = new String[]{MediaStore.Files.FileColumns._ID, MediaStore.MediaColumns.DATA, MediaStore.MediaColumns.DISPLAY_NAME, MediaStore.MediaColumns.DATE_MODIFIED, MediaStore.MediaColumns.MIME_TYPE, MediaStore.MediaColumns.WIDTH, MediaStore.MediaColumns.HEIGHT, MediaStore.MediaColumns.SIZE, MediaStore.Video.Media.DURATION};
 
         Cursor cursor = null;
-        if (XXPermissions.isGranted(this, Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE)) {
+        if (XXPermissions.isGranted(this, Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO, Permission.READ_MEDIA_AUDIO)) {
             cursor = contentResolver.query(contentUri, projections, selection, new String[]{String.valueOf(MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO)}, sortOrder);
         }
         if (cursor != null && cursor.moveToFirst()) {

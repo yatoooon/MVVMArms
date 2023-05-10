@@ -66,7 +66,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
     private static final String INTENT_KEY_OUT_IMAGE_LIST = "imageList";
 
     @Log
-    @Permissions({Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE})
+    @Permissions({Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO,Permission.READ_MEDIA_AUDIO})
     public static void start(BaseActivity activity, int maxSelect, OnPhotoSelectListener listener) {
         if (maxSelect < 1) {
             // 最少要选择一个图片
@@ -389,7 +389,7 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
                 MediaStore.MediaColumns.HEIGHT, MediaStore.MediaColumns.SIZE};
 
         Cursor cursor = null;
-        if (XXPermissions.isGranted(this, Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE)) {
+        if (XXPermissions.isGranted(this, Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO,Permission.READ_MEDIA_AUDIO)) {
             cursor = contentResolver.query(contentUri, projections, selection, new String[]{String.valueOf(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE)}, sortOrder);
         }
         if (cursor != null && cursor.moveToFirst()) {
