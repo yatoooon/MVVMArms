@@ -69,7 +69,6 @@ public final class VideoSelectActivity extends BaseActivity implements StatusAct
     private static final String INTENT_KEY_OUT_VIDEO_LIST = "videoList";
 
 
-    @Log
     @Permissions({Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO, Permission.READ_MEDIA_AUDIO})
     public static void start(BaseActivity activity, int maxSelect, OnVideoSelectListener listener) {
         if (maxSelect < 1) {

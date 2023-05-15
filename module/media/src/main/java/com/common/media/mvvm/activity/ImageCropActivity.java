@@ -44,7 +44,6 @@ public final class ImageCropActivity extends BaseActivity {
     public static final String INTENT_KEY_OUT_ERROR = "error";
 
 
-    @Log
     @Permissions({Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO,Permission.READ_MEDIA_AUDIO})
     public static void start(BaseActivity activity, File file, int cropRatioX, int cropRatioY, OnCropListener listener) {
         Intent intent = new Intent(activity, ImageCropActivity.class);

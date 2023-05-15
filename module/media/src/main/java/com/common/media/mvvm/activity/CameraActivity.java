@@ -35,7 +35,6 @@ public final class CameraActivity extends BaseActivity {
 
     public static final String INTENT_KEY_OUT_ERROR = "error";
 
-    @Log
     @Permissions({Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO,Permission.READ_MEDIA_AUDIO, Permission.CAMERA})
     public static void start(BaseActivity activity, boolean video, OnCameraListener listener) {
         File file = createCameraFile(video);

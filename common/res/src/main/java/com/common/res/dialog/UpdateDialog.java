@@ -14,26 +14,28 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextKt;
 import androidx.core.content.FileProvider;
 
 import com.common.res.R;
 import com.common.res.aop.CheckNet;
 import com.common.res.aop.Permissions;
 import com.common.res.aop.SingleClick;
+import com.common.res.ext.Context_ExtensionKt;
 import com.hjq.permissions.Permission;
+import com.hjq.toast.Toaster;
 
 import java.io.File;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2019/03/20
- *    desc   : 升级对话框
+ * author : Android 轮子哥
+ * github : https://github.com/getActivity/AndroidProject
+ * time   : 2019/03/20
+ * desc   : 升级对话框
  */
 public final class UpdateDialog {
 
-    public static final class Builder
-            extends BaseDialog.Builder<Builder> {
+    public static final class Builder extends BaseDialog.Builder<Builder> {
 
         private final TextView mNameView;
         private final TextView mContentView;
@@ -42,18 +44,30 @@ public final class UpdateDialog {
         private final TextView mUpdateView;
         private final TextView mCloseView;
 
-        /** Apk 文件 */
+        /**
+         * Apk 文件
+         */
         private File mApkFile;
-        /** 下载地址 */
+        /**
+         * 下载地址
+         */
         private String mDownloadUrl;
-        /** 文件 MD5 */
+        /**
+         * 文件 MD5
+         */
         private String mFileMd5;
-        /** 是否强制更新 */
+        /**
+         * 是否强制更新
+         */
         private boolean mForceUpdate;
 
-        /** 当前是否下载中 */
+        /**
+         * 当前是否下载中
+         */
         private boolean mDownloading;
-        /** 当前是否下载完毕 */
+        /**
+         * 当前是否下载完毕
+         */
         private boolean mDownloadComplete;
 
         public Builder(Context context) {
@@ -130,20 +144,27 @@ public final class UpdateDialog {
                         installApk();
                     } else {
                         // 下载失败，重新下载
-                        downloadApk();
+                        startDownload();
                     }
                 } else if (!mDownloading) {
                     // 没有下载，开启下载
-                    downloadApk();
+                    startDownload();
                 }
+            }
+        }
+
+        private void startDownload() {
+            if (Context_ExtensionKt.isNetworkAvailable(getContext())) {
+                downloadApk();
+            } else {
+                Toaster.show("请检查网络");
             }
         }
 
         /**
          * 下载 Apk
          */
-        @CheckNet
-        @Permissions({Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO,Permission.READ_MEDIA_AUDIO, Permission.REQUEST_INSTALL_PACKAGES})
+        @Permissions({Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO, Permission.READ_MEDIA_AUDIO, Permission.REQUEST_INSTALL_PACKAGES})
         private void downloadApk() {
             // 设置对话框不能被取消
             setCancelable(false);
@@ -181,8 +202,7 @@ public final class UpdateDialog {
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
             // 创建要下载的文件对象
-            mApkFile = new File(getContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS),
-                    getString(R.string.app_name) + "_v" + mNameView.getText().toString() + ".apk");
+            mApkFile = new File(getContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), getString(R.string.app_name) + "_v" + mNameView.getText().toString() + ".apk");
 //            EasyHttp.download(getDialog())
 //                    .method(HttpMethod.GET)
 //                    .file(mApkFile)

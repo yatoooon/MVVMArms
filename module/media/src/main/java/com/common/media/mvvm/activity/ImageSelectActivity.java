@@ -65,7 +65,6 @@ public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActi
 
     private static final String INTENT_KEY_OUT_IMAGE_LIST = "imageList";
 
-    @Log
     @Permissions({Permission.READ_MEDIA_IMAGES, Permission.READ_MEDIA_VIDEO,Permission.READ_MEDIA_AUDIO})
     public static void start(BaseActivity activity, int maxSelect, OnPhotoSelectListener listener) {
         if (maxSelect < 1) {
