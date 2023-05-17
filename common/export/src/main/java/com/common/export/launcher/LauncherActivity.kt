@@ -1,4 +1,4 @@
-package com.common.res.launcher
+package com.common.export.launcher
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -18,19 +18,19 @@ class LauncherActivity : AppCompatActivity() {
         setContentView(R.layout.res_activity_launcher)
         val linearLayout = findViewById<LinearLayout>(R.id.root)
         packageManager.getPackageInfo(
-            packageName,
-            PackageManager.GET_ACTIVITIES
+            packageName, PackageManager.GET_ACTIVITIES
         ).activities.forEach { activity ->
-            if (activity.name.startsWith("com.common.") && !activity.name.startsWith("com.common.core") && !activity.name.startsWith(
-                    "com.common.res"
-                )
+            if (activity.name.startsWith("com.common.")
+                && !activity.name.startsWith("com.common.core")
+                && !activity.name.startsWith("com.common.res")
+                && !activity.name.startsWith("com.common.export")
             ) {
                 val clazz = Class.forName(activity.name)
                 val button = Button(this).apply {
                     isAllCaps = false
                     text = clazz.simpleName
                     background = Color.WHITE.toDrawable()
-                    setPadding(20,20,20,20)
+                    setPadding(20, 20, 20, 20)
                     setOnClickListener {
                         startActivity(Intent(this@LauncherActivity, clazz))
                     }

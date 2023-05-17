@@ -18,6 +18,16 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            if (Deploys.isRunAlone) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/app/AndroidManifest.xml'
+            }
+        }
+    }
+
 
     //统一规范资源名称前缀，防止多个 module 之间资源冲突
     resourcePrefix "export_"
