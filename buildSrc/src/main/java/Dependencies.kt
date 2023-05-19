@@ -35,7 +35,7 @@ object Deps {
     const val annotationX = "androidx.annotation:annotation:1.6.0"
     const val recyclerview = "androidx.recyclerview:recyclerview:1.3.0"
     const val room = "androidx.room:room-runtime:2.5.1"
-    const val roomKtx = "androidx.room:room-ktx:2.3.0"
+    const val roomKtx = "androidx.room:room-ktx:2.5.1"
     const val roomCompiler = "androidx.room:room-compiler:2.5.1"
     const val lifecycleLivedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
     const val lifecycleViewmodelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"

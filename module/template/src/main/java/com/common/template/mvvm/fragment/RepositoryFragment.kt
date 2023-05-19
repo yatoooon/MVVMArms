@@ -7,6 +7,7 @@ import com.common.export.arouter.RouterHub
 import com.common.res.action.StatusAction
 import com.common.res.adapter.BaseAdapter
 import com.common.res.adapter.BaseAdapter.Companion.PAGE_SIZE
+import com.common.res.ext.isNetworkAvailable
 import com.common.res.http.net.launch
 import com.common.res.layout.StatusLayout
 import com.common.res.livedata.StatusEvent.Status
@@ -41,17 +42,17 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
     override fun onFragmentResume(first: Boolean) {
         if (first) {
             viewModel.statusEvent.value = Status.INIT
-            getArticleData()
+            getArticleData(first)
         }
     }
+
 
     override fun initView() {
         binding.srlRefresh.setOnRefreshListener { refresh() }
         mAdapter.loadMoreModule.setOnLoadMoreListener { loadMore() }
         mAdapter.loadMoreModule.isAutoLoadMore = true
         binding.recyclerView.adapter = mAdapter
-        binding.srlRefresh.setColorSchemeResources(R.color.res_primary_color)
-        /*  statusAdapter.addFooterView(
+        binding.srlRefresh.setColorSchemeResources(R.color.res_primary_color)/*  statusAdapter.addFooterView(
               requireContext().inflateLayout(R.layout.template_item_status)
                   .apply {
                       findViewById<TextView>(R.id.tv_item).apply {
@@ -66,9 +67,7 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
         mAdapter.setOnItemClickListener { adapter, view, position ->
             val data: Item = mAdapter.data.get(position)
             ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEACTIVITY)
-                .withString("url", data.htmlUrl)
-                .withString("title", data.name)
-                .navigation()
+                .withString("url", data.htmlUrl).withString("title", data.name).navigation()
         }
     }
 
@@ -94,7 +93,6 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
                     showComplete()
                     binding.srlRefresh.isRefreshing = false
                 }
-
                 Status.FAILURE -> {
                     showError(object : StatusLayout.OnRetryListener {
                         override fun onRetry(layout: StatusLayout?) {
@@ -118,10 +116,12 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
         }
     }
 
-    private fun getArticleData() {
+    private fun getArticleData(first: Boolean = false) {
+        if (first || !requireActivity().isNetworkAvailable) {
+            viewModel.getArticleListFromRoom(mAdapter.page, PAGE_SIZE)
+        }
         launch(
-            { viewModel.getArticleList(mAdapter.page, PAGE_SIZE) },
-            withLoading = false
+            { viewModel.getArticleList(mAdapter.page, PAGE_SIZE) }, withLoading = false
         )
     }
 
