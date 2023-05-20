@@ -147,6 +147,7 @@ class AndroidBug5497Workaround {
                     hasNavBar(activity)
                 }
             } catch (e: Exception) {
+                e.printStackTrace()
             }
             return hasNavigationBar
         }

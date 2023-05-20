@@ -184,6 +184,7 @@ public final class ImageCropActivity extends BaseActivity {
                 finish();
             });
         } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
             CrashReport.postCatchedException(e);
             setResult(RESULT_ERROR, new Intent().putExtra(INTENT_KEY_OUT_ERROR, getString(R.string.res_image_crop_error_not_support)));
             finish();

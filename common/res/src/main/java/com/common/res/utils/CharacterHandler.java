@@ -94,8 +94,10 @@ public class CharacterHandler {
                 message = json;
             }
         } catch (JSONException e) {
+            e.printStackTrace();
             message = json;
         } catch (OutOfMemoryError error) {
+            error.printStackTrace();
             message = "Output omitted because of Object size";
         }
         return message;
@@ -121,6 +123,7 @@ public class CharacterHandler {
             transformer.transform(xmlInput, xmlOutput);
             message = xmlOutput.getWriter().toString().replaceFirst(">", ">\n");
         } catch (TransformerException e) {
+            e.printStackTrace();
             message = xml;
         }
         return message;

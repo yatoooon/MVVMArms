@@ -118,8 +118,8 @@ object Deps {
 
     const val dagger2Compiler = "com.google.dagger:dagger-compiler:2.38.1"
     const val gson = "com.google.code.gson:gson:2.10.1"
-    const val moshi_kotlin = "com.squareup.moshi:moshi-kotlin:1.14.0"
-    const val moshi_kotlin_codegen = "com.squareup.moshi:moshi-kotlin-codegen:1.14.0"
+    const val moshi_kotlin = "com.squareup.moshi:moshi-kotlin:1.15.0"
+    const val moshi_kotlin_codegen = "com.squareup.moshi:moshi-kotlin-codegen:1.15.0"
     const val moshi_kotlin_nullsafe = "com.github.sparklexin:moshi-kotlin-nullsafe:1.0.0"
     const val multidex = "androidx.multidex:multidex:2.0.1"
     const val javaxAnnotation = "javax.annotation:jsr250-api:1.0"

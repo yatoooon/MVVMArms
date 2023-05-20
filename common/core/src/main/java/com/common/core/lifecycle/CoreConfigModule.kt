@@ -12,6 +12,7 @@ import com.common.res.config.GlobalHttpHandlerImpl
 import com.common.res.glide.GlideImageLoaderStrategy
 import com.common.res.http.SSLSocketClient
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import me.jessyan.progressmanager.ProgressManager
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager
 import okhttp3.OkHttpClient
@@ -89,6 +90,7 @@ class CoreConfigModule : CoreConfigModule() {
             .moshiConfiguration { context1: Context?, moshiBuilder: Moshi.Builder ->  //这里可以自己自定义配置 Moshi 的参数
                 moshiBuilder.add(NullSafeStandardJsonAdapters.FACTORY)
                 moshiBuilder.add(NullSafeKotlinJsonAdapterFactory())
+                moshiBuilder.addLast(KotlinJsonAdapterFactory())
 //                gsonBuilder
 //                    .serializeNulls() //支持序列化值为 null 的参数
 //                    .enableComplexMapKeySerialization() //支持将序列化 key 为 Object 的 Map, 默认只能序列化 key 为 String 的 Map

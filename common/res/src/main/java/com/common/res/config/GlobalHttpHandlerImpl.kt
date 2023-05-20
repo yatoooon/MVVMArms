@@ -7,6 +7,8 @@ import com.common.res.http.api.LoginService
 import com.common.res.http.net.ReceiveObject
 import com.common.res.utils.appLogoutToLogin
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.addAdapter
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -41,7 +43,11 @@ class GlobalHttpHandlerImpl(private val context: Context) : GlobalHttpHandler {
         如果使用 Okhttp 将新的请求, 请求成功后, 再将 Okhttp 返回的 Response return 出去即可
         如果不需要返回新的结果, 则直接把参数 response 返回出去即可*/
         try {
-            val moshi = Moshi.Builder().add(NullSafeStandardJsonAdapters.FACTORY).add(NullSafeKotlinJsonAdapterFactory()).build()
+            val moshi = Moshi.Builder()
+                .add(NullSafeStandardJsonAdapters.FACTORY)
+                .add(NullSafeKotlinJsonAdapterFactory())
+                .addLast(KotlinJsonAdapterFactory()
+            ).build()
             val adapter = moshi.adapter(ReceiveObject::class.java)
             httpResult?.let {
                 val fromJson = adapter.fromJson(httpResult)
@@ -72,7 +78,7 @@ class GlobalHttpHandlerImpl(private val context: Context) : GlobalHttpHandler {
                 }
             }
         } catch (e: Exception) {
-            println(e)
+            e.printStackTrace()
             return response
         }
         return response

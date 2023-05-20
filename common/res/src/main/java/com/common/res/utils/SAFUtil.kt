@@ -95,6 +95,7 @@ fun <T> getMetaData(context: Context, name: String): T? {
 
         return ai.metaData?.get(name) as T
     } catch (e: Exception) {
+        e.printStackTrace()
         print("Couldn't find meta-data: " + name)
     }
 

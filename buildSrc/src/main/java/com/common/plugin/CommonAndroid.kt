@@ -34,6 +34,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             }
             minSdk = Versions.minSdk
             targetSdk = Versions.targetSdk
+            consumerProguardFile(File("${project.rootDir}/buildSrc/consumer-rules.pro"))
             testInstrumentationRunner = Deps.androidJUnitRunner
             multiDexEnabled = true
             flavorDimensions("default")
@@ -100,16 +101,14 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 
         buildTypes {
             getByName("debug") {
-                isMinifyEnabled = false
-                proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+                isMinifyEnabled = true
                 setSigningConfig(signingConfigs.getByName("debug"))
             }
             getByName("release") {
-                isMinifyEnabled = false
+                isMinifyEnabled = true
                 if (isAppModule || isRunAlone) {
                     isShrinkResources = false
                 }
-                proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
                 setSigningConfig(signingConfigs.getByName("release"))
             }
         }

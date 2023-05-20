@@ -12,6 +12,7 @@ class DataBindingViewHolder<BD : ViewDataBinding>(itemView: View) : BaseViewHold
             val bind: BD? = DataBindingUtil.bind(itemView)
             bind
         } catch (e: Exception) {
+            e.printStackTrace()
             null
         }
     }

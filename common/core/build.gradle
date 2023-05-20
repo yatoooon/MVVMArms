@@ -8,6 +8,7 @@ android {
     defaultConfig {
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
+
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())

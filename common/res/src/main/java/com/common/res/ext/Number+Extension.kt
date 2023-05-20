@@ -51,6 +51,7 @@ fun String?.toBigDecimalWithNull(default: BigDecimal = BigDecimal.ZERO) = isNull
     try {
         this!!.toBigDecimal()
     } catch (e: NumberFormatException) {
+        e.printStackTrace()
         default
     }
 }, default)
@@ -59,6 +60,7 @@ fun String?.toIntWithNull(default: Int = 0) = isNullOrBlank().not().then({
     try {
         this!!.toInt()
     } catch (e: NumberFormatException) {
+        e.printStackTrace()
         default
     }
 }, default)
@@ -67,6 +69,7 @@ fun String?.toFloatWithNull(default: Float = 0F) = isNullOrBlank().not().then({
     try {
         this!!.toFloat()
     } catch (e: NumberFormatException) {
+        e.printStackTrace()
         default
     }
 }, default)
@@ -75,6 +78,7 @@ fun String?.toDoubleWithNull(default: Double = 0.toDouble()) = isNullOrBlank().n
     try {
         this!!.toDouble()
     } catch (e: NumberFormatException) {
+        e.printStackTrace()
         default
     }
 }, default)

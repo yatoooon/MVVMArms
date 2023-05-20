@@ -6,7 +6,7 @@ import com.common.template.mvvm.model.room.dao.TemplateEntityItemDao
 import com.common.template.mvvm.model.room.table.TemplateEntityItem
 
 
-@Database(entities = [TemplateEntityItem::class], version = 1)
+@Database(entities = [TemplateEntityItem::class], version = 1, exportSchema = false)
 abstract class TemplateEntityItemDataBase : RoomDatabase() {
     abstract fun templateEntityItemDao(): TemplateEntityItemDao
 }

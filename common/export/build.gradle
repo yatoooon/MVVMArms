@@ -10,7 +10,6 @@ android {
     defaultConfig {
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
-        consumerProguardFiles 'consumer-rules.pro'
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
@@ -32,16 +31,6 @@ android {
     //统一规范资源名称前缀，防止多个 module 之间资源冲突
     resourcePrefix "export_"
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 
     buildFeatures {
         dataBinding = true

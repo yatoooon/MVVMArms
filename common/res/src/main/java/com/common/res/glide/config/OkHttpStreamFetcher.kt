@@ -66,7 +66,7 @@ class OkHttpStreamFetcher     // Public API.
                 stream!!.close()
             }
         } catch (e: IOException) {
-            // Ignored
+            e.printStackTrace()
         }
         if (responseBody != null) {
             responseBody!!.close()

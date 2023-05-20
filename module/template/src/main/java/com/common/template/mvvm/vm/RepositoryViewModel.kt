@@ -63,9 +63,9 @@ class RepositoryViewModel @Inject constructor(
                     articleList.value = it?.items
                     statusEvent.value = StatusEvent.Status.SUCCESS
                 }
-//                onFailed = {
-//                    statusEvent.value = StatusEvent.Status.FAILURE
-//                }
+                onFailed = {
+                    statusEvent.value = StatusEvent.Status.FAILURE
+                }
                 onComplete = {
                     statusEvent.value = StatusEvent.Status.COMPLETE
                 }

@@ -718,6 +718,7 @@ public final class PlayerView extends SimpleLayout
                                 getContext().getContentResolver(),
                                 Settings.System.SCREEN_BRIGHTNESS), 255) / 255f;
                     } catch (Settings.SettingNotFoundException ignored) {
+                        ignored.printStackTrace();
                         mCurrentBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_OFF;
                     }
                 }

@@ -25,6 +25,7 @@ suspend fun <T> apiCall(call: suspend () -> BaseResponse<T>): Result<T?> {
             return Result.failure(noNet)
         }
     } catch (e: kotlinx.coroutines.CancellationException) {
+        e.printStackTrace()
         print("取消网络请求")
         return Result.failure(e.message)
     } catch (e: Exception) {

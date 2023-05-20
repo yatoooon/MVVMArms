@@ -22,6 +22,7 @@ internal fun Project.configureDependencies() = dependencies.apply {
     add("kapt", Deps.kotlinxMetadataJvm)
     add("implementation", Deps.room)
     add("kapt", Deps.roomCompiler)
+//    add("kapt", Deps.moshi_kotlin_codegen)
     add("coreLibraryDesugaring", Deps.desugarJdkLibs)
 }
 

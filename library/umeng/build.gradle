@@ -6,9 +6,6 @@ android {
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
 
-        // 模块混淆配置
-        consumerProguardFiles 'proguard-umeng.pro'
-
         // 友盟 AppKey
         def UMENG_APP_KEY = "5cb16d93570df399fd0014e2"
         // QQ AppId

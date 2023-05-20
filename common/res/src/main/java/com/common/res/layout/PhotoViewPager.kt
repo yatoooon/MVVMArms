@@ -22,8 +22,10 @@ class PhotoViewPager : NestedViewPager {
         return try {
             super.onInterceptTouchEvent(ev)
         } catch (ignored: IllegalArgumentException) {
+            ignored.printStackTrace()
             false
         } catch (ignored: ArrayIndexOutOfBoundsException) {
+            ignored.printStackTrace()
             false
         }
     }
