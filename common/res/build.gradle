@@ -9,8 +9,8 @@ android {
     compileSdkVersion Versions.compileSdk
 
     defaultConfig {
-        minSdkVersion Versions.minSdk
-        targetSdkVersion Versions.targetSdk
+        minSdk Versions.minSdk
+        targetSdk Versions.targetSdk
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())

@@ -1,2 +1,0 @@
--keep class !com.common.**{*;}
--keep public class * extends com.common.core.config.CoreConfigModule
