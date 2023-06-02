@@ -1,0 +1,5 @@
+xiaomi
+oppo
+vivo
+huawei
+app

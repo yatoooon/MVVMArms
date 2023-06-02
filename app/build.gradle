@@ -1,7 +1,9 @@
 plugins {
     id "com.common.plugin.app"
 }
+
 dependencies {
+    implementation project(':module:copy')
     implementation project(':module:splash')
     implementation project(':module:template')
     implementation project(':module:home')

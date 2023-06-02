@@ -97,7 +97,7 @@ class MainActivity : BaseActivity<HomeActivityMainBinding>() {
     }
 
     override fun getImmersionBarType(): Int {
-        return BindImmersionBar.IMMERSIONBAR
+        return BindImmersionBar.IMMERSION
     }
 
     //创建一个Item

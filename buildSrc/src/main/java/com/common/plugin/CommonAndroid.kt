@@ -31,10 +31,11 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             } else if (isRunAlone) {
                 applicationId = "com.arms.sample." + project.name
                 resValue("string", "app_name", project.name)
+            } else {
+                consumerProguardFile(File("${project.rootDir}/buildSrc/consumer-rules.pro"))
             }
             minSdk = Versions.minSdk
             targetSdk = Versions.targetSdk
-            consumerProguardFile(File("${project.rootDir}/buildSrc/consumer-rules.pro"))
             testInstrumentationRunner = Deps.androidJUnitRunner
             multiDexEnabled = true
             flavorDimensions("default")
@@ -44,7 +45,8 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                     mutableSetOf(
 //                        "armeabi",
 //                        "x86",
-                        "armeabi-v7a", "x86_64"
+                        "armeabi-v7a",
+//                        "x86_64",
 //                        "arm64-v8a"
                     )
                 )
@@ -101,13 +103,13 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 
         buildTypes {
             getByName("debug") {
-                isMinifyEnabled = true
+                isMinifyEnabled = false
                 setSigningConfig(signingConfigs.getByName("debug"))
             }
             getByName("release") {
                 isMinifyEnabled = true
                 if (isAppModule || isRunAlone) {
-                    isShrinkResources = false
+                    isShrinkResources = true
                 }
                 setSigningConfig(signingConfigs.getByName("release"))
             }

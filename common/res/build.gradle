@@ -172,6 +172,7 @@ dependencies {
     api Deps.pinyin4j
     compileOnly Deps.javaxAnnotation
 
+    api Deps.vasdolly
     api Deps.aspectjrt
 
 

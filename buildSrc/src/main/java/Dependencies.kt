@@ -145,6 +145,7 @@ object Deps {
     const val viewbindingBrvahKtx = "com.dylanc:viewbinding-brvah-ktx:1.1.2"
     const val logger = "com.orhanobut:logger:2.2.0"
     const val pinyin4j = "com.github.open-android:pinyin4j:2.5.0"
+    const val vasdolly = "com.tencent.vasdolly:helper:3.0.6"
 
 
     //test

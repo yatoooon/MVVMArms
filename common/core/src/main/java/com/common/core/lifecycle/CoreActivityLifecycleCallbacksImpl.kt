@@ -25,7 +25,7 @@ class CoreActivityLifecycleCallbacksImpl : ActivityLifecycleCallbacks {
         //全局设置状态栏
         if (activity is BaseActivity<*>) {
             when (activity.getImmersionBarType()) {
-                BindImmersionBar.IMMERSIONBAR -> {
+                BindImmersionBar.IMMERSION -> {
                     ImmersionBar.with(activity)
                         .statusBarDarkFont(activity.isStatusBarDarkFont())
                         .statusBarColor(R.color.res_white)
