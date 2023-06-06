@@ -16,7 +16,6 @@ import com.common.core.base.BaseActivity;
 import com.common.export.arouter.RouterHub;
 import com.common.export.callback.OnCropListener;
 import com.common.media.R;
-import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
 import com.hjq.permissions.Permission;
 import com.tencent.bugly.crashreport.CrashReport;

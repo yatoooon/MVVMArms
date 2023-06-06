@@ -19,6 +19,7 @@ dependencies {
 
     implementation("com.tencent.vasdolly:plugin:3.0.6")
 
+
     /* Depend on the default Gradle API's since we want to build a custom plugin */
     implementation(gradleApi())
     implementation(localGroovy())

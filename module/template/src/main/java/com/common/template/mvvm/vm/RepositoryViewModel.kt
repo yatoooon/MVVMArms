@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.common.core.base.mvvm.BaseViewModel
 import com.common.res.adapter.BaseAdapter.Companion.PAGE_SIZE
-import com.common.res.component.AppComponent
 import com.common.res.http.net.apiCall
 import com.common.res.http.net.parseData
 import com.common.res.livedata.StatusEvent

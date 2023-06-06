@@ -14,11 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.core.app.NotificationCompat;
-import androidx.core.content.ContextKt;
 import androidx.core.content.FileProvider;
 
 import com.common.res.R;
-import com.common.res.aop.CheckNet;
 import com.common.res.aop.Permissions;
 import com.common.res.aop.SingleClick;
 import com.common.res.ext.Context_ExtensionKt;

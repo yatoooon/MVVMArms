@@ -23,7 +23,6 @@ android {
     resourcePrefix "res_"
 
 
-
     buildFeatures {
         dataBinding = true
         buildConfig = true
@@ -38,7 +37,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
 
 
     lintOptions {
@@ -174,6 +172,8 @@ dependencies {
 
     api Deps.vasdolly
     api Deps.aspectjrt
+
+
 
 
 }

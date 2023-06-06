@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.accompany.stars",
+  "applicationId": "com.arms.sample",
   "variantName": "release",
   "elements": [
     {
@@ -13,7 +13,7 @@
       "attributes": [],
       "versionCode": 1,
       "versionName": "1.0.0",
-      "outputFile": "app-release.apk"
+      "outputFile": "MVVMArms-v1.0.0-1-20230605-release.apk"
     }
   ],
   "elementType": "File"

@@ -35,7 +35,6 @@ import com.common.media.mvvm.dialog.AlbumDialog;
 import com.common.res.action.StatusAction;
 import com.common.res.adapter.BaseAdapter;
 import com.common.res.adapter.DataBindingViewHolder;
-import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
 import com.common.res.aop.SingleClick;
 import com.common.res.layout.StatusLayout;

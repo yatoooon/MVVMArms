@@ -7,7 +7,6 @@ import com.common.res.http.api.LoginService
 import com.common.res.http.net.ReceiveObject
 import com.common.res.utils.appLogoutToLogin
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.addAdapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

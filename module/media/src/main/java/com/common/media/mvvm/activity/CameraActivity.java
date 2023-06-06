@@ -12,7 +12,6 @@ import androidx.core.content.FileProvider;
 import com.common.core.base.BaseActivity;
 import com.common.export.callback.OnCameraListener;
 import com.common.media.R;
-import com.common.res.aop.Log;
 import com.common.res.aop.Permissions;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;

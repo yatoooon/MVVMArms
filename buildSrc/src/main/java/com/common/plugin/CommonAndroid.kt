@@ -14,6 +14,7 @@ import java.io.File
 
 
 internal fun Project.configureAndroid(isAppModule: Boolean) {
+
     val extension = if (isAppModule || isRunAlone) extensions.getByType<AppExtension>()
     else extensions.getByType<LibraryExtension>()
 
@@ -26,8 +27,16 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             versionCode = 1
             versionName = "1.0.0"
             if (isAppModule) {
+                val appName = "MVVMArms" // 应用名称
+                val versionName = defaultConfig.versionName
+                val versionCode = defaultConfig.versionCode
+                setProperty(
+                    "archivesBaseName", "$appName-v$versionName-$versionCode-${buildTime()}"
+                )
                 applicationId = "com.arms.sample"
-                resValue("string", "app_name", "MVVMArms")
+                resValue("string", "app_name", appName)
+                //生成apk位置选择 buildSrc/apk 路径
+                //生成渠道点击 Gradle->MVVMArms->Tasks->com.tencent.vasdolly->reBuildChannel
             } else if (isRunAlone) {
                 applicationId = "com.arms.sample." + project.name
                 resValue("string", "app_name", project.name)
@@ -114,6 +123,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                 setSigningConfig(signingConfigs.getByName("release"))
             }
         }
+
 
     }
 }

@@ -9,7 +9,7 @@ class PluginApp : Plugin<Project> {
     override fun apply(project: Project) {
         project.configurePlugins(true)
         project.configureAndroid(true)
-        if (!isRunAlone){
+        if (!isRunAlone) {
             project.configureChannel()
         }
         project.configureDependencies()
