@@ -1,13 +1,13 @@
-include ':app'
-include ':library:umeng'
-include ':common:res'
-include ':common:core'
-include ':common:export'
-include ':module:home'
-include ':module:template'
-include ':module:splash'
-include ':module:media'
-include ':module:web'
-include ':module:login'
-include ':module:personal'
-include ':module:copy'
+include(":app")
+include(":library:umeng")
+include(":common:res")
+include(":common:core")
+include(":common:export")
+include(":module:home")
+include(":module:template")
+include(":module:splash")
+include(":module:media")
+include(":module:web")
+include(":module:login")
+include(":module:personal")
+include(":module:copy")
