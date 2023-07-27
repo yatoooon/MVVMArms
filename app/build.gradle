@@ -3,7 +3,6 @@ plugins {
 }
 
 dependencies {
-    implementation project(':module:copy')
     implementation project(':module:splash')
     implementation project(':module:template')
     implementation project(':module:home')

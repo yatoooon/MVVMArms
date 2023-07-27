@@ -10,4 +10,4 @@ include(":module:media")
 include(":module:web")
 include(":module:login")
 include(":module:personal")
-include(":module:copy")
+
