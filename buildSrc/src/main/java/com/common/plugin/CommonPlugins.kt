@@ -17,7 +17,7 @@ internal fun Project.configurePlugins(isAppModule: Boolean) {
     plugins.apply("dagger.hilt.android.plugin")
     plugins.apply("io.github.wurensen.android-aspectjx")
     var options = mutableMapOf<String, String>().apply {
-        @Suppress("MISSING_DEPENDENCY_CLASS") put("from", "${project.rootDir}/build_app.gradle")
+        @Suppress("MISSING_DEPENDENCY_CLASS") put("from", "${project.rootDir}/build_android.gradle")
     }
     apply(options)
 
