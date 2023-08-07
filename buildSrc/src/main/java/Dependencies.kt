@@ -76,7 +76,7 @@ object Deps {
     const val smartRefreshHeaderClassics = "com.scwang.smart:refresh-header-classics:2.0.3"
     const val lottie = "com.airbnb.android:lottie:6.0.0"
     const val shapeView = "com.github.getActivity:ShapeView:8.5"
-    const val titleBar = "com.github.getActivity:TitleBar:10.3"
+    const val titleBar = "com.github.getActivity:TitleBar:10.5"
     const val Toaster = "com.github.getActivity:Toaster:12.2"
     const val XXPermissions = "com.github.getActivity:XXPermissions:18.0"
     const val loadsir = "com.kingja.loadsir:loadsir:1.3.8"
