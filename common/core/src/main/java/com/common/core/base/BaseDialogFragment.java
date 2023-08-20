@@ -80,7 +80,7 @@ public abstract class BaseDialogFragment<VDB extends ViewDataBinding> extends Di
         if (isBinding()) {
             mBinding = DataBindingUtil.bind(getRootView());
             if (mBinding != null) {
-                mBinding.setLifecycleOwner(this);
+                mBinding.setLifecycleOwner(getViewLifecycleOwner());
             }
         }
         return mRootView;

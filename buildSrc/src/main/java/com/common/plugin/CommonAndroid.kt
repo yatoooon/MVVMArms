@@ -55,7 +55,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 //                        "armeabi",
 //                        "x86",
                         "armeabi-v7a",
-//                        "x86_64",
+                        "x86_64",
 //                        "arm64-v8a"
                     )
                 )

@@ -80,7 +80,7 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         if (isBinding()) {
             mBinding = DataBindingUtil.bind(getRootView());
             if (mBinding != null) {
-                mBinding.setLifecycleOwner(this);
+                mBinding.setLifecycleOwner(getViewLifecycleOwner());
             }
         }
         return mRootView;
