@@ -84,7 +84,7 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                     }
                     btnMineBrowser -> {
                         ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEACTIVITY)
-                            .withString("url", "www.baidu.com")
+                            .withString("url", "https://www.baidu.com/")
                             .withString("title", "百度一下")
                             .navigation()
                     }

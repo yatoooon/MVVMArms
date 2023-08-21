@@ -78,7 +78,7 @@ object Deps {
     const val shapeView = "com.github.getActivity:ShapeView:8.5"
     const val titleBar = "com.github.getActivity:TitleBar:10.5"
     const val Toaster = "com.github.getActivity:Toaster:12.2"
-    const val XXPermissions = "com.github.getActivity:XXPermissions:18.0"
+    const val XXPermissions = "com.github.getActivity:XXPermissions:18.3"
     const val loadsir = "com.kingja.loadsir:loadsir:1.3.8"
     const val photoview = "com.github.chrisbanes.photoview:library:1.2.3"
     const val tbssdk = "com.tencent.tbs.tbssdk:sdk:43993"

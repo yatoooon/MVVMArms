@@ -120,7 +120,7 @@ public final class SettingActivity extends BaseActivity
 
         } else if (viewId == R.id.sb_setting_agreement) {
             ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEACTIVITY)
-                    .withString("url", "www.baidu.com")
+                    .withString("url", "https://www.baidu.com/")
                     .withString("title", "百度一下")
                     .navigation();
         } else if (viewId == R.id.sb_setting_about) {

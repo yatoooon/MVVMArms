@@ -117,15 +117,22 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
 
     @Override
     public void onDestroy() {
-        if (mModel != null) {
-            mModel.onDestroy();
-            mModel = null;
-        }
+
     }
 
     @Override
     public void onAny(LifecycleOwner owner, Lifecycle.Event event) {
 
+    }
+
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        if (mModel != null) {
+            mModel.onDestroy();
+            mModel = null;
+        }
     }
 
     /**
