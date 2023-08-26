@@ -11,6 +11,7 @@ import com.common.res.config.Constants.BASE_URL
 import com.common.res.config.GlobalHttpHandlerImpl
 import com.common.res.glide.GlideImageLoaderStrategy
 import com.common.res.http.SSLSocketClient
+import com.common.res.manager.ThreadPoolManager
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import me.jessyan.progressmanager.ProgressManager
@@ -82,7 +83,7 @@ class CoreConfigModule : CoreConfigModule() {
             //                    }
             //                })
             //可以自定义一个单例的线程池供全局使用
-            //                .executorService(Executors.newCachedThreadPool())
+            .executorService(ThreadPoolManager.getInstance())
             //这里提供一个全局处理 Http 请求和响应结果的处理类, 可以比客户端提前一步拿到服务器返回的结果, 可以做一些操作, 比如 Token 超时后, 重新获取 Token
             .globalHttpHandler(GlobalHttpHandlerImpl(context)) //用来处理 RxJava 中发生的所有错误, RxJava 中发生的每个错误都会回调此接口
             //RxJava 必须要使用 ErrorHandleSubscriber (默认实现 Subscriber 的 onError 方法), 此监听才生效
@@ -116,21 +117,21 @@ class CoreConfigModule : CoreConfigModule() {
 
     override fun injectAppLifecycle(
         context: Context,
-        lifecycles: MutableList<BaseApplicationLifecycle>
+        lifecycles: MutableList<BaseApplicationLifecycle>,
     ) {
         lifecycles.add(CoreLifecyclesImpl())
     }
 
     override fun injectActivityLifecycle(
         context: Context,
-        lifecycles: MutableList<Application.ActivityLifecycleCallbacks>
+        lifecycles: MutableList<Application.ActivityLifecycleCallbacks>,
     ) {
         lifecycles.add(CoreActivityLifecycleCallbacksImpl())
     }
 
     override fun injectFragmentLifecycle(
         context: Context,
-        lifecycles: MutableList<FragmentManager.FragmentLifecycleCallbacks>
+        lifecycles: MutableList<FragmentManager.FragmentLifecycleCallbacks>,
     ) {
         lifecycles.add(CoreFragmentLifecycleCallbacksImpl())
     }

@@ -4,20 +4,25 @@ import android.app.Activity
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
+import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.template.IProvider
 import com.alibaba.android.arouter.launcher.ARouter
 
 //路由工具类
+fun buildPostcard(path: String? = null, bundle: Bundle? = null): Postcard {
+    return ARouter.getInstance().build(path).with(bundle)
+}
+
 fun Activity.routerNavigation(path: String? = null, bundle: Bundle? = null): Any? {
-    return ARouter.getInstance().build(path).with(bundle).withTransition(0, 0).navigation(this)
+    return buildPostcard(path, bundle).withTransition(0, 0).navigation(this)
 }
 
 fun Fragment.routerNavigation(path: String? = null, bundle: Bundle? = null): Any? {
-    return ARouter.getInstance().build(path).with(bundle).withTransition(0, 0).navigation(requireActivity())
+    return buildPostcard(path, bundle).withTransition(0, 0).navigation(requireActivity())
 }
 
 fun routerNavigation(path: String? = null, bundle: Bundle? = null): Any? {
-    return ARouter.getInstance().build(path).with(bundle).withTransition(0, 0).navigation()
+    return buildPostcard(path, bundle).withTransition(0, 0).navigation()
 }
 
 
@@ -27,9 +32,7 @@ inline fun <reified T : IProvider?> routerProvide(path: String?): T? {
     }
     var provider: IProvider? = null
     try {
-        provider = ARouter.getInstance()
-            .build(path)
-            .navigation() as IProvider
+        provider = ARouter.getInstance().build(path).navigation() as IProvider
     } catch (e: Exception) {
         e.printStackTrace()
     }

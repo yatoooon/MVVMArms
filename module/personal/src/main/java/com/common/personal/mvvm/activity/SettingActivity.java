@@ -17,8 +17,8 @@ import com.common.res.dialog.SafeDialog;
 import com.common.res.dialog.UpdateDialog;
 import com.common.res.ext.Context_ExtensionKt;
 import com.common.res.layout.SettingBar;
-import com.common.res.manager.ThreadPoolManager;
 import com.common.res.utils.AppManager;
+import com.common.res.utils.ArmsUtil;
 import com.common.res.utils.CacheUtil;
 import com.common.res.view.SwitchButton;
 
@@ -135,7 +135,7 @@ public final class SettingActivity extends BaseActivity
 
             // 清除内存缓存（必须在主线程）
             CacheUtil.INSTANCE.clearImageMemoryCache(this);
-            ThreadPoolManager.getInstance().execute(() -> {
+            ArmsUtil.obtainAppComponent().executorService.execute(() -> {
                 CacheUtil.INSTANCE.clearAllCache(this);
                 // 清除本地缓存（必须在子线程）
                 CacheUtil.INSTANCE.clearImageDiskCache(this);

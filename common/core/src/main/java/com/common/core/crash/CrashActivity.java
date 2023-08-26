@@ -23,7 +23,7 @@ import com.common.core.R;
 import com.common.core.base.BaseActivity;
 import com.common.res.aop.SingleClick;
 import com.common.res.ext.Context_ExtensionKt;
-import com.common.res.manager.ThreadPoolManager;
+import com.common.res.utils.ArmsUtil;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
@@ -237,7 +237,7 @@ public final class CrashActivity extends BaseActivity {
             if (permissions.contains(Manifest.permission.INTERNET)) {
                 builder.append("\n当前网络访问：\t");
 
-                ThreadPoolManager.getInstance().execute(() -> {
+                ArmsUtil.obtainAppComponent().executorService.execute(() -> {
                     try {
                         InetAddress.getByName("www.baidu.com");
                         builder.append("正常");

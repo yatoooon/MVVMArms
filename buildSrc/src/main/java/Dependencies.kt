@@ -114,7 +114,6 @@ object Deps {
     const val androidHiltLifecycleViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     const val androidHiltCompiler = "androidx.hilt:hilt-compiler:1.0.0"
     const val kotlinxMetadataJvm = "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.4.2"
-    const val desugarJdkLibs = "com.android.tools:desugar_jdk_libs:1.1.5"
 
     const val dagger2Compiler = "com.google.dagger:dagger-compiler:2.38.1"
     const val gson = "com.google.code.gson:gson:2.10.1"

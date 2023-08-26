@@ -55,7 +55,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 //                        "armeabi",
 //                        "x86",
                         "armeabi-v7a",
-                        "x86_64",
+//                        "x86_64",
 //                        "arm64-v8a"
                     )
                 )
@@ -73,7 +73,6 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
 
 
         compileOptions {
-            isCoreLibraryDesugaringEnabled = true
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
         }
@@ -91,7 +90,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
                 manifest.srcFile("src/main/AndroidManifest.xml")
             }
         }
-        resourcePrefix(project.name.replace("module-", "") + "_")
+        resourcePrefix(project.name + "_")
 
         signingConfigs {
             getByName("debug") {

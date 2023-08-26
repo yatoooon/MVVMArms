@@ -5,9 +5,6 @@
 
     <application android:name="com.common.splash.app.SplashApp"
         tools:replace="android:name">
-        <activity
-            android:exported="false"
-            android:name="com.common.splash.mvvm.activity.MainTestActivity" />
         <!-- 闪屏页 -->
         <activity
             android:exported="true"
