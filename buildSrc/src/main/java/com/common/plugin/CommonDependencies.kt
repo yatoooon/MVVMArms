@@ -11,6 +11,7 @@ internal fun Project.configureDependencies() = dependencies.apply {
     if (project.containsAndroidPlugin()) {
         add("androidTestImplementation", Deps.extJunit)
         add("androidTestImplementation", Deps.espressoCore)
+        add("implementation", "com.bytedance.tools.codelocator:codelocator-core:2.0.3")
     }
     add("implementation", project(":common:export"))
     add("implementation", Deps.arouterApi)
