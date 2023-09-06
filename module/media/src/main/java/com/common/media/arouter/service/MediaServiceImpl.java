@@ -1,5 +1,6 @@
 package com.common.media.arouter.service;
 
+import android.app.Activity;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
@@ -30,19 +31,19 @@ public class MediaServiceImpl implements IMediaService {
     }
 
     @Override
-    public void startImageSelectActivity(@NonNull BaseActivity<?> activity, int maxSelect, @NonNull OnPhotoSelectListener listener) {
-        ImageSelectActivity.start(activity, maxSelect, listener);
+    public void startImageSelectActivity(@NonNull Activity activity, int maxSelect, @NonNull OnPhotoSelectListener listener) {
+        ImageSelectActivity.start((BaseActivity) activity, maxSelect, listener);
     }
 
 
     @Override
-    public void startCameraActivity(@NonNull BaseActivity<?> activity, boolean video, @NonNull OnCameraListener listener) {
-        CameraActivity.start(activity, video, listener);
+    public void startCameraActivity(@NonNull Activity activity, boolean video, @NonNull OnCameraListener listener) {
+        CameraActivity.start((BaseActivity) activity, video, listener);
     }
 
     @Override
-    public void startImageCropActivity(@NonNull BaseActivity<?> activity, @NonNull File file, int cropRatioX, int cropRatioY, @NonNull OnCropListener listener) {
-        ImageCropActivity.start(activity, file, cropRatioX, cropRatioY, listener);
+    public void startImageCropActivity(@NonNull Activity activity, @NonNull File file, int cropRatioX, int cropRatioY, @NonNull OnCropListener listener) {
+        ImageCropActivity.start((BaseActivity) activity, file, cropRatioX, cropRatioY, listener);
     }
 
     @Override
@@ -51,7 +52,7 @@ public class MediaServiceImpl implements IMediaService {
     }
 
     @Override
-    public void startVideoSelectActivity(@NonNull BaseActivity<?> activity, int maxSelect, @NonNull OnVideoSelectListener listener) {
-        VideoSelectActivity.start(activity,maxSelect,listener);
+    public void startVideoSelectActivity(@NonNull Activity activity, int maxSelect, @NonNull OnVideoSelectListener listener) {
+        VideoSelectActivity.start((BaseActivity) activity,maxSelect,listener);
     }
 }

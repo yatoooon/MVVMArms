@@ -13,6 +13,7 @@ internal fun Project.configureDependencies() = dependencies.apply {
         add("androidTestImplementation", Deps.espressoCore)
         add("implementation", "com.bytedance.tools.codelocator:codelocator-core:2.0.3")
     }
+    add("implementation", project(":common:core"))
     add("implementation", project(":common:export"))
     add("implementation", Deps.arouterApi)
     add("kapt", Deps.arouterCompiler)

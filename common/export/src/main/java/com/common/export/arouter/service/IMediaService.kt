@@ -1,8 +1,8 @@
 package com.common.export.arouter.service
 
+import android.app.Activity
 import android.content.Context
 import com.alibaba.android.arouter.facade.template.IProvider
-import com.common.core.base.BaseActivity
 import com.common.export.callback.OnCameraListener
 import com.common.export.callback.OnCropListener
 import com.common.export.callback.OnPhotoSelectListener
@@ -13,15 +13,15 @@ interface IMediaService : IProvider {
 
 
     fun startImageSelectActivity(
-        activity: BaseActivity<*>, maxSelect: Int, listener: OnPhotoSelectListener
+        activity: Activity, maxSelect: Int, listener: OnPhotoSelectListener
     )
 
     fun startCameraActivity(
-        activity: BaseActivity<*>, video: Boolean, listener: OnCameraListener
+        activity: Activity, video: Boolean, listener: OnCameraListener
     )
 
     fun startImageCropActivity(
-        activity: BaseActivity<*>,
+        activity: Activity,
         file: File,
         cropRatioX: Int,
         cropRatioY: Int,
@@ -33,7 +33,7 @@ interface IMediaService : IProvider {
     )
 
     fun startVideoSelectActivity(
-        activity: BaseActivity<*>, maxSelect: Int, listener: OnVideoSelectListener
+        activity: Activity, maxSelect: Int, listener: OnVideoSelectListener
     )
 
 
