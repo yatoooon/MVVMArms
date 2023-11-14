@@ -1,5 +1,3 @@
 files:
-  - source: '*'
-    translation: values
-    translatable_elements:
-      - string
+  - source: '**/values/strings.xml'
+    translation: /values-%two_letters_code%/%original_file_name%
