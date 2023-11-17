@@ -24,6 +24,10 @@ jobs:
         with:
           command: 'status translation'
           command_args: '--fail-if-incomplete'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
 
       - name: crowdin download action with matrix
         uses: crowdin/github-action@v1
