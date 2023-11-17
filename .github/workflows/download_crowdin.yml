@@ -1,0 +1,44 @@
+name: Download from Crowdin
+
+on:
+  schedule:
+    - cron: '0 */1 * * *'
+  push:
+    branches-ignore:
+      - 'master'
+
+jobs:
+  download-from-crowdin:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1 # Should be 1 to avoid parallel builds
+      matrix:
+        lc: [ ar, hi, ta, te, th, tr, zh ] # Target languages https://developer.crowdin.com/language-codes/
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check translation progress
+        uses: crowdin/github-action@v1
+        with:
+          command: 'status translation'
+          command_args: '--fail-if-incomplete'
+
+      - name: crowdin download action with matrix
+        uses: crowdin/github-action@v1
+        with:
+          download_translations: true
+          download_language: ${{ matrix.lc }}
+          commit_message: New Crowdin translations - ${{ matrix.lc }}
+          localization_branch_name: l10n_${{ github.ref_name }}_crowdin_translations_${{ matrix.lc }}
+          create_pull_request: true
+          pull_request_title: New translations - ${{ matrix.lc }}
+          pull_request_body: New translations - ${{ matrix.lc }}
+          pull_request_base_branch_name: ${{ github.ref_name }}
+          skip_untranslated_strings: true
+          export_only_approved: true #是否审查
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
