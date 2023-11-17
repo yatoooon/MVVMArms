@@ -28,20 +28,20 @@ jobs:
 #          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
 #          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
 #
-      - name: Pre-translate using MT  # 使用机器翻译预翻译
-        uses: crowdin/github-action@v1
-        with:
-          command: 'pre-translate'
-          command_args: --language ${{ matrix.lc }} --method MT --engine-id 415596
-        env:
-          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
-          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+#      - name: Pre-translate using MT  # 使用机器翻译预翻译
+#        uses: crowdin/github-action@v1
+#        with:
+#          command: 'pre-translate'
+#          command_args: --language ${{ matrix.lc }} --method MT --engine-id 415596
+#        env:
+#          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+#          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
 
       - name: Check translation progress #检查翻译进度
         uses: crowdin/github-action@v1
         with:
           command: 'status translation'
-          command_args: '--fail-if-incomplete'
+          command_args: --language ${{ matrix.lc }} --fail-if-incomplete'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
