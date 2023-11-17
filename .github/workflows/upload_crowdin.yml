@@ -27,7 +27,7 @@ jobs:
         uses: crowdin/github-action@v1
         with:
           command: 'pre-translate'
-          command_args:  --method TM
+          command_args:  --method TM --verbose
         env:
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
@@ -36,7 +36,7 @@ jobs:
         uses: crowdin/github-action@v1
         with:
           command: 'pre-translate'
-          command_args:  --method MT --engine-id 415596
+          command_args:  --method MT --engine-id 415596 --verbose
         env:
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
