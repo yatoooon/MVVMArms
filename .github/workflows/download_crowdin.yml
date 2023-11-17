@@ -19,7 +19,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check translation progress
+      - name: Pre-translate  #预翻译
+        uses: crowdin/github-action@v1
+        with:
+            command: 'pre-translate'
+            command_args: --language ${{ matrix.lc }} --method tm,mt
+        env:
+            CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+            CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+
+      - name: Check translation progress #检查翻译进度
         uses: crowdin/github-action@v1
         with:
           command: 'status translation'
@@ -29,7 +38,7 @@ jobs:
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
 
-      - name: crowdin download action with matrix
+      - name: crowdin download action with matrix #下载单个语种翻译
         uses: crowdin/github-action@v1
         with:
           download_translations: true
@@ -41,7 +50,7 @@ jobs:
           pull_request_body: New translations - ${{ matrix.lc }}
           pull_request_base_branch_name: ${{ github.ref_name }}
           skip_untranslated_strings: true
-          export_only_approved: true #是否审查
+          export_only_approved: false #是否审查
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
