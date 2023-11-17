@@ -36,7 +36,7 @@
 
     <string name="res_common_video_error_not_support">该视频不适合在此设备上播放</string>
     <string name="res_common_video_error_unknown">无法播放此视频</string>
-    <string name="res_common_video_error_supplement">错误类型：$1%d，错误代码：$2%d</string>
+    <string name="res_common_video_error_supplement">错误类型：%1$d，错误代码：%2$d</string>
 
     <string name="res_common_phone_input_hint">请输入手机号码</string>
     <string name="res_common_phone_input_error">手机号输入不正确</string>
