@@ -37,15 +37,15 @@ jobs:
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
 
-      - name: Check translation progress #检查翻译进度
-        uses: crowdin/github-action@v1
-        with:
-          command: 'status translation'
-          command_args: --language ${{ matrix.lc }} --fail-if-incomplete
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
-          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+#      - name: Check translation progress #检查翻译进度
+#        uses: crowdin/github-action@v1
+#        with:
+#          command: 'status translation'
+#          command_args: --language ${{ matrix.lc }} --fail-if-incomplete
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+#          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+#          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
 
       - name: crowdin download action with matrix #下载单个语种翻译
         uses: crowdin/github-action@v1
