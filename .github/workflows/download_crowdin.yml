@@ -38,8 +38,8 @@ jobs:
           commit_message: New Crowdin translations - ${{ matrix.lc }}
           localization_branch_name: l10n_${{ github.ref_name }}_crowdin_translations_${{ matrix.lc }}
           create_pull_request: true
-          pull_request_title: New translations - ${{ matrix.lc }}
-          pull_request_body: New translations - ${{ matrix.lc }}
+          pull_request_title: ${{ github.ref_name }}  translations - ${{ matrix.lc }}
+          pull_request_body: ${{ github.ref_name }}  translations - ${{ matrix.lc }}
           pull_request_base_branch_name: ${{ github.ref_name }}
           skip_untranslated_strings: true
           export_only_approved: false
