@@ -32,11 +32,3 @@ jobs:
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
 
-      - name: Pre-translate using MT  # 使用机器翻译预翻译
-        uses: crowdin/github-action@v1
-        with:
-          command: 'pre-translate'
-          command_args:  --method MT --engine-id 415596 --verbose --branch ${{ github.ref_name }}
-        env:
-          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
-          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}

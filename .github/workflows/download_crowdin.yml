@@ -41,7 +41,7 @@ jobs:
           pull_request_body: New translations - ${{ matrix.lc }}
           pull_request_base_branch_name: ${{ github.ref_name }}
           skip_untranslated_strings: true
-          export_only_approved: false #是否审查
+          export_only_approved: false
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
