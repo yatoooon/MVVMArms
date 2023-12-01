@@ -3,7 +3,6 @@ package com.common.template.mvvm.fragment
 import android.os.Bundle
 import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.mvvm.BaseVMFragment
-import com.common.export.arouter.RouterHub
 import com.common.res.action.StatusAction
 import com.common.res.adapter.BaseAdapter
 import com.common.res.adapter.BaseAdapter.Companion.PAGE_SIZE
@@ -15,6 +14,7 @@ import com.common.template.R
 import com.common.template.databinding.TemplateFragmentRepositoryBinding
 import com.common.template.mvvm.model.entity.TemplateEntity.Item
 import com.common.template.mvvm.vm.RepositoryViewModel
+import com.common.web.service.export.arouter.WebRouterHub
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -66,7 +66,7 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
                   })*/
         mAdapter.setOnItemClickListener { adapter, view, position ->
             val data: Item = mAdapter.data.get(position)
-            ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEACTIVITY)
+            ARouter.getInstance().build(WebRouterHub.PUBLIC_WEBPAGEACTIVITY)
                 .withString("url", data.htmlUrl).withString("title", data.name).navigation()
         }
     }

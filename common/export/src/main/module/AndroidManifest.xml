@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name="com.common.export.launcher.LauncherActivity"
+            android:name="com.common.res.launcher.LauncherActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

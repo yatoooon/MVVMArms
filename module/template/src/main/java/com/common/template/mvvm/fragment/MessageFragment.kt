@@ -4,18 +4,19 @@ import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.BaseFragment
-import com.common.export.arouter.RouterHub
+import com.common.home.export.arouter.HomeRouterHub
 import com.common.res.aop.Permissions
 import com.common.res.ext.dp2px
 import com.common.res.ext.load
 import com.common.res.utils.bindViewClickListener
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentMessageBinding
+import com.common.template.export.arouter.TemplateRouterHub
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
 
-@Route(path = RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MESSAGE)
+@Route(path = TemplateRouterHub.PUBLIC_TEMPLATE_FRAGMENT_MESSAGE)
 class MessageFragment : BaseFragment<TemplateFragmentMessageBinding>() {
 
     override fun getLayoutId(): Int {
@@ -75,7 +76,7 @@ class MessageFragment : BaseFragment<TemplateFragmentMessageBinding>() {
 
                     }
                     btnMessageTab -> {
-                        ARouter.getInstance().build(RouterHub.PUBLIC_HOME_MAINACTIVITY)
+                        ARouter.getInstance().build(HomeRouterHub.PUBLIC_HOME_MAINACTIVITY)
                             .withString("index", "0")
                             .navigation()
                     }

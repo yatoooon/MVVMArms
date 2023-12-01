@@ -13,10 +13,13 @@ import androidx.annotation.Nullable;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.core.base.BaseActivity;
-import com.common.export.arouter.RouterHub;
-import com.common.export.arouter.service.IMediaService;
-import com.common.export.callback.OnCropListener;
+
+
+import com.common.media.export.arouter.MediaRouterHub;
+import com.common.media.export.callback.OnCropListener;
+import com.common.media.export.service.IMediaService;
 import com.common.personal.R;
+import com.common.personal.export.arouter.PersonalRouterHub;
 import com.common.res.aop.SingleClick;
 import com.common.res.dialog.InputDialog;
 import com.common.res.dialog.address.AddressDialog;
@@ -36,7 +39,7 @@ import java.util.ArrayList;
  * time   : 2019/04/20
  * desc   : 个人资料
  */
-@Route(path = RouterHub.PUBLIC_PERSONAL_PERSONALDATAACTIVITY)
+@Route(path = PersonalRouterHub.PUBLIC_PERSONAL_PERSONALDATAACTIVITY)
 public final class PersonalDataActivity extends BaseActivity {
 
     private ViewGroup mAvatarLayout;
@@ -100,7 +103,7 @@ public final class PersonalDataActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
         if (view == mAvatarLayout) {
-            ARouter.getInstance().build(RouterHub.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
+            ARouter.getInstance().build(MediaRouterHub.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
                     .withInt("maxSelect", 1)
                     .navigation(this, getImageSelectRequestCode());
         } else if (view == mAvatarView) {

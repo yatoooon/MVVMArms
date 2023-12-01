@@ -31,10 +31,11 @@ import androidx.lifecycle.LifecycleOwner;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.core.base.BaseActivity;
-import com.common.export.arouter.service.IMediaService;
-import com.common.export.callback.OnPhotoSelectListener;
-import com.common.export.callback.OnVideoSelectListener;
-import com.common.export.data.VideoBean;
+
+import com.common.media.export.callback.OnPhotoSelectListener;
+import com.common.media.export.callback.OnVideoSelectListener;
+import com.common.media.export.data.VideoBean;
+import com.common.media.export.service.IMediaService;
 import com.common.res.action.ActivityAction;
 import com.common.res.dialog.BaseDialog;
 import com.common.res.dialog.InputDialog;

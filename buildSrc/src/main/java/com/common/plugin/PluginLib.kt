@@ -8,6 +8,6 @@ class PluginLib : Plugin<Project> {
     override fun apply(project: Project) {
         project.configurePlugins(false)
         project.configureAndroid(false)
-        project.configureDependencies()
+        project.configureDependencies(false)
     }
 }

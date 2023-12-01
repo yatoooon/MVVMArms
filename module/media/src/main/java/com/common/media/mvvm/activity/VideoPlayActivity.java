@@ -6,9 +6,9 @@ import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
-import com.common.export.arouter.RouterHub;
-import com.common.export.data.VideoPlayBuilder;
 import com.common.media.R;
+import com.common.media.export.arouter.MediaRouterHub;
+import com.common.media.export.data.VideoPlayBuilder;
 import com.common.res.immersionbar.BindImmersionBar;
 import com.common.res.view.PlayerView;
 
@@ -21,7 +21,7 @@ import me.jessyan.autosize.internal.CancelAdapt;
  * time   : 2020/02/16
  * desc   : 视频播放界面
  */
-@Route(path = RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY)
+@Route(path = MediaRouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY)
 public class VideoPlayActivity extends BaseActivity
         implements PlayerView.OnPlayListener, CancelAdapt {
 
@@ -111,14 +111,14 @@ public class VideoPlayActivity extends BaseActivity
     /**
      * 竖屏播放
      */
-    @Route(path = RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_PORTRAIT)
+    @Route(path = MediaRouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_PORTRAIT)
     public static final class Portrait extends VideoPlayActivity {
     }
 
     /**
      * 横屏播放
      */
-    @Route(path = RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_LANDSCAPE)
+    @Route(path = MediaRouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_LANDSCAPE)
     public static final class Landscape extends VideoPlayActivity {
     }
 

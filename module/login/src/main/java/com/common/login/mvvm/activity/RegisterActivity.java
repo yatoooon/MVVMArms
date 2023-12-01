@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
-import com.common.export.arouter.RouterHub;
+import com.common.login.export.arouter.LoginRouterHub;
 import com.common.login.R;
 import com.common.res.aop.Log;
 import com.common.res.aop.SingleClick;
@@ -26,7 +26,7 @@ import com.gyf.immersionbar.ImmersionBar;
  * time   : 2018/10/18
  * desc   : 注册界面
  */
-@Route(path = RouterHub.PUBLIC_LOGIN_REGISTERACTIVITY)
+@Route(path = LoginRouterHub.PUBLIC_LOGIN_REGISTERACTIVITY)
 public final class RegisterActivity extends BaseActivity
         implements TextView.OnEditorActionListener {
 

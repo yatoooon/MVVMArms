@@ -15,12 +15,13 @@ import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
-import com.common.export.arouter.RouterHub;
+
 import com.common.res.action.StatusAction;
 import com.common.res.aop.CheckNet;
 import com.common.res.aop.Log;
 import com.common.res.layout.StatusLayout;
 import com.common.web.R;
+import com.common.web.service.export.arouter.WebRouterHub;
 import com.common.web.view.BrowserView;
 import com.hjq.bar.TitleBar;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
@@ -33,7 +34,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
  * time   : 2018/10/18
  * desc   : 浏览器界面
  */
-@Route(path = RouterHub.PUBLIC_WEBPAGEACTIVITY)
+@Route(path = WebRouterHub.PUBLIC_WEBPAGEACTIVITY)
 public final class WebPageActivity extends BaseActivity
         implements StatusAction, OnRefreshListener {
 

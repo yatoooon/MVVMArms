@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.common.export.data.VideoBean" />
+            type="com.common.media.export.data.VideoBean" />
     </data>
 
     <com.common.res.layout.RatioFrameLayout

@@ -8,21 +8,22 @@ import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.BaseActivity
-import com.common.export.arouter.RouterHub
 import com.common.home.R
 import com.common.home.databinding.HomeActivityMainBinding
+import com.common.home.export.arouter.HomeRouterHub
 import com.common.res.adapter.FragmentViewPager2Adapter
 import com.common.res.ext.color
 import com.common.res.immersionbar.BindImmersionBar
 import com.common.res.utils.AppManager
 import com.common.res.utils.DoubleClickUtils.isOnDoubleClick
+import com.common.template.export.arouter.TemplateRouterHub
 import dagger.hilt.android.AndroidEntryPoint
 import me.majiajie.pagerbottomtabstrip.internal.Utils
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem
 import me.majiajie.pagerbottomtabstrip.item.NormalItemView
 
 
-@Route(path = RouterHub.PUBLIC_HOME_MAINACTIVITY)
+@Route(path = HomeRouterHub.PUBLIC_HOME_MAINACTIVITY)
 @AndroidEntryPoint
 class MainActivity : BaseActivity<HomeActivityMainBinding>() {
 
@@ -30,16 +31,16 @@ class MainActivity : BaseActivity<HomeActivityMainBinding>() {
     private var mPagerAdapter = FragmentViewPager2Adapter(this)
 
     private val fragments = mutableListOf(
-        ARouter.getInstance().build(RouterHub.PUBLIC_TEMPLATE_FRAGMENT_HOME)
+        ARouter.getInstance().build(TemplateRouterHub.PUBLIC_TEMPLATE_FRAGMENT_HOME)
             .withString("title", "首页")
             .navigation() as Fragment,
-        ARouter.getInstance().build(RouterHub.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
+        ARouter.getInstance().build(TemplateRouterHub.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
             .withString("title", "发现")
             .navigation() as Fragment,
-        ARouter.getInstance().build(RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MESSAGE)
+        ARouter.getInstance().build(TemplateRouterHub.PUBLIC_TEMPLATE_FRAGMENT_MESSAGE)
             .withString("title", "消息")
             .navigation() as Fragment,
-        ARouter.getInstance().build(RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MINE)
+        ARouter.getInstance().build(TemplateRouterHub.PUBLIC_TEMPLATE_FRAGMENT_MINE)
             .withString("title", "我的")
             .navigation() as Fragment
     )

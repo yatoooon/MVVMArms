@@ -8,12 +8,13 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
-import com.common.export.arouter.RouterHub;
-import com.common.export.arouter.RouterUtilKt;
+import com.common.home.export.arouter.HomeRouterHub;
 import com.common.res.adapter.BaseAdapter;
 import com.common.res.aop.SingleClick;
+import com.common.res.utils.RouterUtilKt;
 import com.common.splash.BR;
 import com.common.splash.R;
+import com.common.splash.export.arouter.SplashRouterHub;
 
 import me.relex.circleindicator.CircleIndicator3;
 
@@ -23,7 +24,7 @@ import me.relex.circleindicator.CircleIndicator3;
  * time   : 2019/09/21
  * desc   : 应用引导页
  */
-@Route(path = RouterHub.PUBLIC_SPLASH_GUIDEACTIVITY)
+@Route(path = SplashRouterHub.PUBLIC_SPLASH_GUIDEACTIVITY)
 public final class GuideActivity extends BaseActivity {
 
     private ViewPager2 mViewPager;
@@ -59,7 +60,7 @@ public final class GuideActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
         if (view == mCompleteView) {
-            RouterUtilKt.routerNavigation(RouterHub.PUBLIC_HOME_MAINACTIVITY,null);
+            RouterUtilKt.routerNavigation(HomeRouterHub.PUBLIC_HOME_MAINACTIVITY,null);
             finish();
         }
     }

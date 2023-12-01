@@ -4,20 +4,25 @@ import android.content.pm.ActivityInfo
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.common.core.base.BaseFragment
-import com.common.export.arouter.RouterHub
-import com.common.export.arouter.routerNavigation
-import com.common.export.arouter.service.IMediaService
-import com.common.export.data.VideoPlayBuilder
+import com.common.login.export.arouter.LoginRouterHub
+import com.common.media.export.arouter.MediaRouterHub
+import com.common.media.export.data.VideoPlayBuilder
+import com.common.media.export.service.IMediaService
+import com.common.personal.export.arouter.PersonalRouterHub
 import com.common.res.utils.bindViewClickListener
+import com.common.res.utils.routerNavigation
+import com.common.splash.export.arouter.SplashRouterHub
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentMineBinding
+import com.common.template.export.arouter.TemplateRouterHub
 import com.common.template.mvvm.activity.DialogActivity
 import com.common.template.mvvm.activity.StatusActivity
 import com.common.template.mvvm.activity.TemplateActivity
+import com.common.web.service.export.arouter.WebRouterHub
 import com.gyf.immersionbar.ImmersionBar
 import com.tencent.bugly.crashreport.CrashReport
 
-@Route(path = RouterHub.PUBLIC_TEMPLATE_FRAGMENT_MINE)
+@Route(path = TemplateRouterHub.PUBLIC_TEMPLATE_FRAGMENT_MINE)
 class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
 
     override fun getLayoutId(): Int {
@@ -59,31 +64,31 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                         startActivity(StatusActivity::class.java)
                     }
                     btnMineLogin -> {
-                        routerNavigation(RouterHub.PUBLIC_LOGIN_LOGINACTIVITY)
+                        routerNavigation(LoginRouterHub.PUBLIC_LOGIN_LOGINACTIVITY)
                     }
                     btnMineRegister -> {
-                        routerNavigation(RouterHub.PUBLIC_LOGIN_REGISTERACTIVITY)
+                        routerNavigation(LoginRouterHub.PUBLIC_LOGIN_REGISTERACTIVITY)
                     }
                     btnMineForget -> {
-                        routerNavigation(RouterHub.PUBLIC_LOGIN_PASSWORDFORGETACTIVITY)
+                        routerNavigation(LoginRouterHub.PUBLIC_LOGIN_PASSWORDFORGETACTIVITY)
                     }
                     btnMineReset -> {
-                        routerNavigation(RouterHub.PUBLIC_LOGIN_PASSWORDRESETACTIVITY)
+                        routerNavigation(LoginRouterHub.PUBLIC_LOGIN_PASSWORDRESETACTIVITY)
                     }
                     btnMineChange -> {
-                        routerNavigation(RouterHub.PUBLIC_LOGIN_PHONERESETACTIVITY)
+                        routerNavigation(LoginRouterHub.PUBLIC_LOGIN_PHONERESETACTIVITY)
                     }
                     btnMinePersonal -> {
-                        routerNavigation(RouterHub.PUBLIC_PERSONAL_PERSONALDATAACTIVITY)
+                        routerNavigation(PersonalRouterHub.PUBLIC_PERSONAL_PERSONALDATAACTIVITY)
                     }
                     btnMineSetting -> {
-                        routerNavigation(RouterHub.PUBLIC_PERSONAL_SETTINGACTIVITY)
+                        routerNavigation(PersonalRouterHub.PUBLIC_PERSONAL_SETTINGACTIVITY)
                     }
                     btnMineGuide -> {
-                        routerNavigation(RouterHub.PUBLIC_SPLASH_GUIDEACTIVITY)
+                        routerNavigation(SplashRouterHub.PUBLIC_SPLASH_GUIDEACTIVITY)
                     }
                     btnMineBrowser -> {
-                        ARouter.getInstance().build(RouterHub.PUBLIC_WEBPAGEACTIVITY)
+                        ARouter.getInstance().build(WebRouterHub.PUBLIC_WEBPAGEACTIVITY)
                             .withString("url", "https://www.baidu.com/")
                             .withString("title", "百度一下")
                             .navigation()
@@ -115,7 +120,7 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                             .setVideoSource("http://vfx.mtime.cn/Video/2019/06/29/mp4/190629004821240734.mp4")
                             .setActivityOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
                         ARouter.getInstance()
-                            .build(RouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_LANDSCAPE)
+                            .build(MediaRouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_LANDSCAPE)
                             .withParcelable("parameters", builder)
                             .navigation()
                     }

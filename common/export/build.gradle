@@ -62,7 +62,13 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     kapt Deps.arouterCompiler
     api Deps.arouterApi
-    implementation Deps.appcompat
-    implementation Deps.buglyCrashReport
-    implementation Deps.buglyNativeCrashReport
+    api Deps.appcompat
+    api project(':export:home_export')
+    api project(':export:login_export')
+    api project(':export:media_export')
+    api project(':export:personal_export')
+    api project(':export:template_export')
+    api project(':export:home_export')
+    api project(':export:web_export')
+    api project(':export:splash_export')
 }

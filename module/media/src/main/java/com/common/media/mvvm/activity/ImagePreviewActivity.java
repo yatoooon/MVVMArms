@@ -14,9 +14,9 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.common.core.base.BaseActivity;
-import com.common.export.arouter.RouterHub;
 import com.common.media.BR;
 import com.common.media.R;
+import com.common.media.export.arouter.MediaRouterHub;
 import com.common.res.adapter.BaseAdapter;
 import com.common.res.adapter.RecyclerPagerAdapter;
 import com.common.res.aop.Log;
@@ -35,7 +35,7 @@ import me.relex.circleindicator.CircleIndicator;
  * time   : 2019/03/05
  * desc   : 查看大图
  */
-@Route(path = RouterHub.PUBLIC_MEDIA_IMAGEPREVIEWACTIVITY)
+@Route(path = MediaRouterHub.PUBLIC_MEDIA_IMAGEPREVIEWACTIVITY)
 public final class ImagePreviewActivity extends BaseActivity
         implements ViewPager.OnPageChangeListener,
         OnItemClickListener {

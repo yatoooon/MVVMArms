@@ -7,12 +7,12 @@ import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
-import com.common.export.arouter.RouterHub;
-import com.common.export.arouter.service.IMediaService;
-import com.common.export.callback.OnCameraListener;
-import com.common.export.callback.OnCropListener;
-import com.common.export.callback.OnPhotoSelectListener;
-import com.common.export.callback.OnVideoSelectListener;
+import com.common.media.export.arouter.MediaRouterHub;
+import com.common.media.export.callback.OnCameraListener;
+import com.common.media.export.callback.OnCropListener;
+import com.common.media.export.callback.OnPhotoSelectListener;
+import com.common.media.export.callback.OnVideoSelectListener;
+import com.common.media.export.service.IMediaService;
 import com.common.media.mvvm.activity.CameraActivity;
 import com.common.media.mvvm.activity.ImageCropActivity;
 import com.common.media.mvvm.activity.ImagePreviewActivity;
@@ -22,7 +22,7 @@ import com.common.media.mvvm.activity.VideoSelectActivity;
 import java.io.File;
 import java.util.List;
 
-@Route(path = RouterHub.MEDIA_SERVICE, name = "media服务")
+@Route(path = MediaRouterHub.MEDIA_SERVICE, name = "media服务")
 public class MediaServiceImpl implements IMediaService {
 
     @Override

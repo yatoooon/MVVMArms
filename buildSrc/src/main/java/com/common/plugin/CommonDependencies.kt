@@ -5,7 +5,7 @@ import com.android.build.gradle.api.AndroidBasePlugin
 import org.gradle.api.Project
 
 
-internal fun Project.configureDependencies() = dependencies.apply {
+internal fun Project.configureDependencies(isExport: Boolean) = dependencies.apply {
     add("implementation", (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar")))))
     add("testImplementation", Deps.junit)
     if (project.containsAndroidPlugin()) {
@@ -13,8 +13,10 @@ internal fun Project.configureDependencies() = dependencies.apply {
         add("androidTestImplementation", Deps.espressoCore)
         add("implementation", "com.bytedance.tools.codelocator:codelocator-core:2.0.3")
     }
-    add("implementation", project(":common:core"))
-    add("implementation", project(":common:export"))
+    if (!isExport){
+        add("implementation", project(":common:core"))
+        add("implementation", project(":common:export"))
+    }
     add("implementation", Deps.arouterApi)
     add("kapt", Deps.arouterCompiler)
     add("implementation", Deps.hiltAndroid)
@@ -24,7 +26,6 @@ internal fun Project.configureDependencies() = dependencies.apply {
     add("kapt", Deps.kotlinxMetadataJvm)
     add("implementation", Deps.room)
     add("kapt", Deps.roomCompiler)
-//    add("kapt", Deps.moshi_kotlin_codegen)
 }
 
 internal fun Project.containsAndroidPlugin(): Boolean {

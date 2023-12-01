@@ -8,7 +8,11 @@ import android.view.VelocityTracker
 import android.view.View
 import android.view.ViewConfiguration
 import android.widget.LinearLayout
-import androidx.core.view.*
+import androidx.core.view.NestedScrollingChild
+import androidx.core.view.NestedScrollingChildHelper
+import androidx.core.view.NestedScrollingParent
+import androidx.core.view.NestedScrollingParentHelper
+import androidx.core.view.ViewCompat
 
 /**
  * author : Android 轮子哥

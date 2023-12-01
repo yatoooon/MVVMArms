@@ -2,14 +2,14 @@ package com.common.template.mvvm.fragment
 
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.BaseFragment
-import com.common.export.arouter.RouterHub
 import com.common.res.ext.loadImage
 import com.common.res.view.SwitchButton
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentFoundBinding
+import com.common.template.export.arouter.TemplateRouterHub
 import com.gyf.immersionbar.ImmersionBar
 
-@Route(path = RouterHub.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
+@Route(path = TemplateRouterHub.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
 open class FoundFragment : BaseFragment<TemplateFragmentFoundBinding>() {
 
     override fun getLayoutId(): Int {

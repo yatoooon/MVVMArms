@@ -12,6 +12,6 @@ class PluginApp : Plugin<Project> {
         if (!isRunAlone) {
             project.configureChannel()
         }
-        project.configureDependencies()
+        project.configureDependencies(false)
     }
 }

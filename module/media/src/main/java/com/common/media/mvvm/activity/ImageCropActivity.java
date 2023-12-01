@@ -13,9 +13,10 @@ import androidx.core.content.FileProvider;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
-import com.common.export.arouter.RouterHub;
-import com.common.export.callback.OnCropListener;
+
 import com.common.media.R;
+import com.common.media.export.arouter.MediaRouterHub;
+import com.common.media.export.callback.OnCropListener;
 import com.common.res.aop.Permissions;
 import com.hjq.permissions.Permission;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -31,7 +32,7 @@ import java.util.Locale;
  * time   : 2021/09/19
  * desc   : 图片裁剪
  */
-@Route(path = RouterHub.PUBLIC_MEDIA_IMAGECROPACTIVITY)
+@Route(path = MediaRouterHub.PUBLIC_MEDIA_IMAGECROPACTIVITY)
 public final class ImageCropActivity extends BaseActivity {
 
     private static final String INTENT_KEY_IN_SOURCE_IMAGE_PATH = "imagePath";
