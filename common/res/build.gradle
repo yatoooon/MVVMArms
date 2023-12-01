@@ -6,10 +6,10 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 
 android {
-    compileSdkVersion Versions.compileSdk
-    buildToolsVersion Versions.buildTool
+    
 
     defaultConfig {
+        compileSdk Versions.compileSdk
         minSdk Versions.minSdk
         targetSdk Versions.targetSdk
         kapt {
