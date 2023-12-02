@@ -63,12 +63,12 @@ dependencies {
     kapt Deps.arouterCompiler
     api Deps.arouterApi
     api Deps.appcompat
-    api project(':export:home_export')
-    api project(':export:login_export')
-    api project(':export:media_export')
-    api project(':export:personal_export')
-    api project(':export:template_export')
-    api project(':export:home_export')
-    api project(':export:web_export')
-    api project(':export:splash_export')
+    api project(':module-export:home_export')
+    api project(':module-export:login_export')
+    api project(':module-export:media_export')
+    api project(':module-export:personal_export')
+    api project(':module-export:template_export')
+    api project(':module-export:home_export')
+    api project(':module-export:web_export')
+    api project(':module-export:splash_export')
 }

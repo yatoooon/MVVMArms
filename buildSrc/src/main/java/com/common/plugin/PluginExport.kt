@@ -6,8 +6,8 @@ import org.gradle.api.Project
 
 class PluginExport : Plugin<Project> {
     override fun apply(project: Project) {
-        project.configurePlugins(false)
-        project.configureAndroid(false)
-        project.configureDependencies(true)
+        project.configurePlugins(isExportModule = true)
+        project.configureAndroid(isExportModule = true)
+        project.configureDependencies(isExportModule = true)
     }
 }

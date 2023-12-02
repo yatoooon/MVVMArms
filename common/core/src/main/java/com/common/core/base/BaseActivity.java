@@ -16,6 +16,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.res.action.ActivityAction;
 import com.common.res.action.BundleAction;
 import com.common.res.action.ClickAction;
@@ -75,6 +76,7 @@ public abstract class BaseActivity<VDB extends ViewDataBinding> extends AppCompa
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView();
+        ARouter.getInstance().inject(this);
         initViewModel();
         initView();
         initObserve();

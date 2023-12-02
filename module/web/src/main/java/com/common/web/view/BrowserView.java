@@ -35,7 +35,7 @@ import com.common.core.base.BaseActivity;
 import com.common.media.export.callback.OnPhotoSelectListener;
 import com.common.media.export.callback.OnVideoSelectListener;
 import com.common.media.export.data.VideoBean;
-import com.common.media.export.service.IMediaService;
+import com.common.media.export.arouter.IMediaService;
 import com.common.res.action.ActivityAction;
 import com.common.res.dialog.BaseDialog;
 import com.common.res.dialog.InputDialog;

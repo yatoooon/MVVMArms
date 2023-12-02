@@ -7,7 +7,7 @@ import com.common.core.base.BaseFragment
 import com.common.login.export.arouter.LoginRouterHub
 import com.common.media.export.arouter.MediaRouterHub
 import com.common.media.export.data.VideoPlayBuilder
-import com.common.media.export.service.IMediaService
+import com.common.media.export.arouter.IMediaService
 import com.common.personal.export.arouter.PersonalRouterHub
 import com.common.res.utils.bindViewClickListener
 import com.common.res.utils.routerNavigation

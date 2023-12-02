@@ -1,15 +1,23 @@
 package com.common.plugin
 
-import Deploys.isRunAlone
 import org.gradle.api.Project
 
 
-internal fun Project.configurePlugins(isAppModule: Boolean) {
-    if (isAppModule || isRunAlone) {
-        plugins.apply("com.android.application")
-        plugins.apply("com.tencent.vasdolly")
-    } else {
-        plugins.apply("com.android.library")
+internal fun Project.configurePlugins(
+    isAppModule: Boolean = false,
+    isLibModule: Boolean = false,
+    isExportModule: Boolean = false,
+    isRunAlone: Boolean = false,
+) {
+    when {
+        isAppModule || isRunAlone -> {
+            plugins.apply("com.android.application")
+            plugins.apply("com.tencent.vasdolly")
+        }
+
+        isLibModule || isExportModule -> {
+            plugins.apply("com.android.library")
+        }
     }
     plugins.apply("kotlin-android")
     plugins.apply("kotlin-kapt")

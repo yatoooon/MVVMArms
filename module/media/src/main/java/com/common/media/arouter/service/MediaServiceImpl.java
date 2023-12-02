@@ -12,7 +12,7 @@ import com.common.media.export.callback.OnCameraListener;
 import com.common.media.export.callback.OnCropListener;
 import com.common.media.export.callback.OnPhotoSelectListener;
 import com.common.media.export.callback.OnVideoSelectListener;
-import com.common.media.export.service.IMediaService;
+import com.common.media.export.arouter.IMediaService;
 import com.common.media.mvvm.activity.CameraActivity;
 import com.common.media.mvvm.activity.ImageCropActivity;
 import com.common.media.mvvm.activity.ImagePreviewActivity;

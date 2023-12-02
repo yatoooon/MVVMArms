@@ -5,6 +5,33 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="module-export.home_export">
+        <State />
+      </entry>
+      <entry key="module-export.login_export">
+        <State />
+      </entry>
+      <entry key="module-export.media_export">
+        <State />
+      </entry>
+      <entry key="module-export.personal_export">
+        <State />
+      </entry>
+      <entry key="module-export.splash_export">
+        <State />
+      </entry>
+      <entry key="module-export.template_export">
+        <State />
+      </entry>
+      <entry key="module-export.web_export">
+        <State />
+      </entry>
+      <entry key="module.home">
+        <State />
+      </entry>
+      <entry key="module.login">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

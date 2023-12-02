@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.res.action.ActivityAction;
 import com.common.res.action.BundleAction;
 import com.common.res.action.ClickAction;
@@ -98,6 +99,7 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ARouter.getInstance().inject(this);
         initViewModel();
         initView();
         initObserve();

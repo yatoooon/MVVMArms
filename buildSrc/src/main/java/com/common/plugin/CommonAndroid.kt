@@ -1,6 +1,5 @@
 package com.common.plugin
 
-import Deploys.isRunAlone
 import Deps
 import Versions
 import com.android.build.gradle.AppExtension
@@ -13,10 +12,18 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.File
 
 
-internal fun Project.configureAndroid(isAppModule: Boolean) {
+internal fun Project.configureAndroid(
+    isAppModule: Boolean = false,
+    isLibModule: Boolean = false,
+    isExportModule: Boolean = false,
+    isRunAlone: Boolean =false,
+) {
 
-    val extension = if (isAppModule || isRunAlone) extensions.getByType<AppExtension>()
-    else extensions.getByType<LibraryExtension>()
+    val extension = when {
+        isAppModule || isRunAlone -> extensions.getByType<AppExtension>()
+        isLibModule || isExportModule -> extensions.getByType<LibraryExtension>()
+        else -> extensions.getByType<LibraryExtension>()
+    }
 
     extension.run {
 
@@ -26,22 +33,34 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
         defaultConfig {
             versionCode = 1
             versionName = "1.0.0"
-            if (isAppModule) {
-                val appName = "MVVMArms" // 应用名称
-                val versionName = defaultConfig.versionName
-                val versionCode = defaultConfig.versionCode
-                setProperty(
-                    "archivesBaseName", "$appName-v$versionName-$versionCode-${buildTime()}"
-                )
-                applicationId = "com.arms.sample"
-                resValue("string", "app_name", appName)
-                //生成apk位置选择 buildSrc/apk 路径
-                //生成渠道点击 Gradle->MVVMArms->Tasks->com.tencent.vasdolly->reBuildChannel
-            } else if (isRunAlone) {
-                applicationId = "com.arms.sample." + project.name
-                resValue("string", "app_name", project.name)
-            } else {
-                consumerProguardFile(File("${project.rootDir}/buildSrc/consumer-rules.pro"))
+            when {
+                isAppModule -> {
+                    val appName = "MVVMArms" // 应用名称
+                    val versionName = defaultConfig.versionName
+                    val versionCode = defaultConfig.versionCode
+                    setProperty(
+                        "archivesBaseName", "$appName-v$versionName-$versionCode-${buildTime()}"
+                    )
+                    applicationId = "com.arms.sample"
+                    resValue("string", "app_name", appName)
+                    //生成apk位置选择 buildSrc/apk 路径
+                    //生成渠道点击 Gradle->MVVMArms->Tasks->com.tencent.vasdolly->reBuildChannel
+                }
+
+                isRunAlone -> {
+                    val appName = project.name // 应用名称
+                    val versionName = defaultConfig.versionName
+                    val versionCode = defaultConfig.versionCode
+                    setProperty(
+                        "archivesBaseName", "$appName-v$versionName-$versionCode-${buildTime()}"
+                    )
+                    applicationId = "com.arms.sample." + project.name
+                    resValue("string", "app_name", project.name)
+                }
+
+                isLibModule || isExportModule -> {
+                    consumerProguardFile(File("${project.rootDir}/buildSrc/consumer-rules.pro"))
+                }
             }
             minSdk = Versions.minSdk
             targetSdk = Versions.targetSdk
@@ -68,9 +87,7 @@ internal fun Project.configureAndroid(isAppModule: Boolean) {
             }
         }
 
-
         namespace = "com.common." + project.name
-
 
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8

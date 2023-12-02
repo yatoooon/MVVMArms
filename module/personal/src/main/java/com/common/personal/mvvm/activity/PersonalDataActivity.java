@@ -17,7 +17,7 @@ import com.common.core.base.BaseActivity;
 
 import com.common.media.export.arouter.MediaRouterHub;
 import com.common.media.export.callback.OnCropListener;
-import com.common.media.export.service.IMediaService;
+import com.common.media.export.arouter.IMediaService;
 import com.common.personal.R;
 import com.common.personal.export.arouter.PersonalRouterHub;
 import com.common.res.aop.SingleClick;
