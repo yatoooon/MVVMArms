@@ -63,6 +63,7 @@ dependencies {
     kapt Deps.arouterCompiler
     api Deps.arouterApi
     api Deps.appcompat
+    //一键生成的export module放这里
     api project(':module-export:home_export')
     api project(':module-export:login_export')
     api project(':module-export:media_export')
@@ -71,4 +72,5 @@ dependencies {
     api project(':module-export:home_export')
     api project(':module-export:web_export')
     api project(':module-export:splash_export')
+    api project(':module-export:test_export')
 }

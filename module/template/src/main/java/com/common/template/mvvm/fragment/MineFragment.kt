@@ -17,7 +17,7 @@ import com.common.template.databinding.TemplateFragmentMineBinding
 import com.common.template.export.arouter.TemplateRouterHub
 import com.common.template.mvvm.activity.DialogActivity
 import com.common.template.mvvm.activity.StatusActivity
-import com.common.template.mvvm.activity.TemplateActivity
+import com.common.test.export.arouter.TestRouterHub
 import com.common.web.service.export.arouter.WebRouterHub
 import com.gyf.immersionbar.ImmersionBar
 import com.tencent.bugly.crashreport.CrashReport
@@ -133,7 +133,7 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                         throw IllegalStateException("are you ok?")
                     }
                     btnMineTemplate -> {
-                        startActivity(TemplateActivity::class.java)
+                        routerNavigation(TestRouterHub.publicTestTestActivity)
                     }
                 }
             }

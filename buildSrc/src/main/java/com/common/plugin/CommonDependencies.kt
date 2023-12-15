@@ -17,7 +17,7 @@ internal fun Project.configureDependencies(
         isAppModule || isRunAlone -> {
             add("androidTestImplementation", Deps.extJunit)
             add("androidTestImplementation", Deps.espressoCore)
-            add("implementation", "com.bytedance.tools.codelocator:codelocator-core:2.0.3")
+            add("implementation", Deps.codelocator)
             add("implementation", project(":common:core"))
             add("implementation", project(":common:export"))
         }
