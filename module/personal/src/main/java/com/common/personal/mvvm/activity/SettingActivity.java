@@ -8,9 +8,10 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.core.base.BaseActivity;
-import com.common.login.export.arouter.LoginRouterHub;
+import com.common.login.export.LoginExport;
 import com.common.personal.R;
-import com.common.personal.export.arouter.PersonalRouterHub;
+
+import com.common.personal.export.PersonalExport;
 import com.common.res.aop.SingleClick;
 import com.common.res.dialog.BaseDialog;
 import com.common.res.dialog.MenuDialog;
@@ -22,7 +23,7 @@ import com.common.res.utils.AppManager;
 import com.common.res.utils.ArmsUtil;
 import com.common.res.utils.CacheUtil;
 import com.common.res.view.SwitchButton;
-import com.common.web.service.export.arouter.WebRouterHub;
+import com.common.web.export.WebExport;
 
 
 /**
@@ -31,7 +32,7 @@ import com.common.web.service.export.arouter.WebRouterHub;
  * time   : 2019/03/01
  * desc   : 设置界面
  */
-@Route(path = PersonalRouterHub.PUBLIC_PERSONAL_SETTINGACTIVITY)
+@Route(path = PersonalExport.PUBLIC_PERSONAL_SETTINGACTIVITY)
 public final class SettingActivity extends BaseActivity
         implements SwitchButton.OnCheckedChangeListener {
 
@@ -85,7 +86,7 @@ public final class SettingActivity extends BaseActivity
                     .setList(R.string.res_setting_language_simple, R.string.res_setting_language_complex)
                     .setListener((MenuDialog.OnListener<String>) (dialog, position, string) -> {
                         mLanguageView.setRightText(string);
-                        ARouter.getInstance().build(WebRouterHub.PUBLIC_WEBPAGEACTIVITY)
+                        ARouter.getInstance().build(WebExport.PUBLIC_WEBPAGEACTIVITY)
                                 .withString("url", "https://github.com/getActivity/MultiLanguages")
                                 .navigation();
                     })
@@ -111,17 +112,17 @@ public final class SettingActivity extends BaseActivity
         } else if (viewId == R.id.sb_setting_phone) {
 
             new SafeDialog.Builder(this)
-                    .setListener((dialog, phone, code) -> ARouter.getInstance().build(LoginRouterHub.PUBLIC_LOGIN_PHONERESETACTIVITY).withString("code",code).navigation())
+                    .setListener((dialog, phone, code) -> ARouter.getInstance().build(LoginExport.PUBLIC_LOGIN_PHONERESETACTIVITY).withString("code",code).navigation())
                     .show();
 
         } else if (viewId == R.id.sb_setting_password) {
 
             new SafeDialog.Builder(this)
-                    .setListener((dialog, phone, code) -> ARouter.getInstance().build(LoginRouterHub.PUBLIC_LOGIN_PASSWORDRESETACTIVITY).withString("code",code).navigation())
+                    .setListener((dialog, phone, code) -> ARouter.getInstance().build(LoginExport.PUBLIC_LOGIN_PASSWORDRESETACTIVITY).withString("code",code).navigation())
                     .show();
 
         } else if (viewId == R.id.sb_setting_agreement) {
-            ARouter.getInstance().build(WebRouterHub.PUBLIC_WEBPAGEACTIVITY)
+            ARouter.getInstance().build(WebExport.PUBLIC_WEBPAGEACTIVITY)
                     .withString("url", "https://www.baidu.com/")
                     .withString("title", "百度一下")
                     .navigation();
@@ -150,7 +151,7 @@ public final class SettingActivity extends BaseActivity
         } else if (viewId == R.id.sb_setting_exit) {
 
             if (true) {
-                routerNavigation(LoginRouterHub.PUBLIC_LOGIN_LOGINACTIVITY,null);
+                routerNavigation(LoginExport.PUBLIC_LOGIN_LOGINACTIVITY,null);
                 // 进行内存优化，销毁除登录页之外的所有界面
                 try {
                     AppManager.getAppManager().killAll(Class.forName("com.common.login.ui.activity.LoginActivity"));

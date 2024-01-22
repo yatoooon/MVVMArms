@@ -5,13 +5,13 @@ import android.animation.AnimatorListenerAdapter
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.common.core.base.BaseActivity
-import com.common.home.export.arouter.HomeRouterHub
+import com.common.home.export.HomeExport
 import com.common.res.immersionbar.BindImmersionBar
 import com.common.res.utils.routerNavigation
 import com.common.splash.BuildConfig
 import com.common.splash.R
 import com.common.splash.databinding.SplashActivityBinding
-import com.common.splash.export.arouter.SplashRouterHub
+import com.common.splash.export.SplashExport
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
@@ -20,7 +20,7 @@ import java.util.Locale
  * 模板示例
  *
  */
-@Route(path = SplashRouterHub.PUBLIC_SPLASH_SPLASHACTIVITY)
+@Route(path = SplashExport.PUBLIC_SPLASH_SPLASHACTIVITY)
 @AndroidEntryPoint
 class SplashActivity : BaseActivity<SplashActivityBinding>() {
 
@@ -41,7 +41,7 @@ class SplashActivity : BaseActivity<SplashActivityBinding>() {
         binding.lavSplashLottie.addAnimatorListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator) {
                 binding.lavSplashLottie.removeAnimatorListener(this)
-                routerNavigation(HomeRouterHub.PUBLIC_HOME_MAINACTIVITY)
+                routerNavigation(HomeExport.PUBLIC_HOME_MAINACTIVITY)
                 finish()
             }
         })

@@ -24,11 +24,10 @@ import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.listener.OnItemLongClickListener;
 import com.common.core.base.BaseActivity;
-
-
 import com.common.media.BR;
 import com.common.media.R;
-import com.common.media.export.arouter.MediaRouterHub;
+
+import com.common.media.export.MediaExport;
 import com.common.media.export.callback.OnCameraListener;
 import com.common.media.export.callback.OnVideoSelectListener;
 import com.common.media.export.data.VideoBean;
@@ -62,7 +61,7 @@ import java.util.Set;
  * time   : 2020/03/01
  * desc   : 选择视频
  */
-@Route(path = MediaRouterHub.PUBLIC_MEDIA_VIDEOSELECTACTIVITY)
+@Route(path = MediaExport.PUBLIC_MEDIA_VIDEOSELECTACTIVITY)
 public final class VideoSelectActivity extends BaseActivity implements StatusAction, Runnable, OnItemClickListener, OnItemLongClickListener, OnItemChildClickListener {
 
     private static final String INTENT_KEY_IN_MAX_SELECT = "maxSelect";
@@ -366,7 +365,7 @@ public final class VideoSelectActivity extends BaseActivity implements StatusAct
     public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
         VideoBean bean = mAdapter.getItem(position);
         VideoPlayBuilder videoPlayBuilder = new VideoPlayBuilder().setVideoSource(new File(bean.getVideoPath())).setActivityOrientation(bean.getVideoWidth() > bean.getVideoHeight() ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        ARouter.getInstance().build(bean.getVideoWidth() > bean.getVideoHeight() ? MediaRouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_LANDSCAPE : MediaRouterHub.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_PORTRAIT).withParcelable("parameters", videoPlayBuilder).navigation();
+        ARouter.getInstance().build(bean.getVideoWidth() > bean.getVideoHeight() ? MediaExport.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_LANDSCAPE : MediaExport.PUBLIC_MEDIA_VIDEOPLAYACTIVITY_PORTRAIT).withParcelable("parameters", videoPlayBuilder).navigation();
     }
 
     @Override

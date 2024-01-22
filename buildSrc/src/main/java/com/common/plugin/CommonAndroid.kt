@@ -15,13 +15,12 @@ import java.io.File
 internal fun Project.configureAndroid(
     isAppModule: Boolean = false,
     isLibModule: Boolean = false,
-    isExportModule: Boolean = false,
-    isRunAlone: Boolean =false,
+    isRunAlone: Boolean = false,
 ) {
 
     val extension = when {
         isAppModule || isRunAlone -> extensions.getByType<AppExtension>()
-        isLibModule || isExportModule -> extensions.getByType<LibraryExtension>()
+        isLibModule -> extensions.getByType<LibraryExtension>()
         else -> extensions.getByType<LibraryExtension>()
     }
 
@@ -58,7 +57,7 @@ internal fun Project.configureAndroid(
                     resValue("string", "app_name", project.name)
                 }
 
-                isLibModule || isExportModule -> {
+                isLibModule -> {
                     consumerProguardFile(File("${project.rootDir}/buildSrc/consumer-rules.pro"))
                 }
             }

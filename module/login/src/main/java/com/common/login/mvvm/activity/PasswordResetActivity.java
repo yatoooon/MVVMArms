@@ -13,9 +13,8 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
-
 import com.common.login.R;
-import com.common.login.export.arouter.LoginRouterHub;
+import com.common.login.export.LoginExport;
 import com.common.res.aop.Log;
 import com.common.res.aop.SingleClick;
 import com.common.res.dialog.TipsDialog;
@@ -28,7 +27,7 @@ import com.common.res.manager.InputTextManager;
  * time   : 2019/02/27
  * desc   : 重置密码
  */
-@Route(path = LoginRouterHub.PUBLIC_LOGIN_PASSWORDRESETACTIVITY)
+@Route(path = LoginExport.PUBLIC_LOGIN_PASSWORDRESETACTIVITY)
 public final class PasswordResetActivity extends BaseActivity
         implements TextView.OnEditorActionListener {
 

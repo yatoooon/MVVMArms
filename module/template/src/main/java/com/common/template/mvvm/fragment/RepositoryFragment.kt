@@ -14,7 +14,8 @@ import com.common.template.R
 import com.common.template.databinding.TemplateFragmentRepositoryBinding
 import com.common.template.mvvm.model.entity.TemplateEntity.Item
 import com.common.template.mvvm.vm.RepositoryViewModel
-import com.common.web.service.export.arouter.WebRouterHub
+import com.common.web.export.WebExport
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -66,7 +67,7 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
                   })*/
         mAdapter.setOnItemClickListener { adapter, view, position ->
             val data: Item = mAdapter.data.get(position)
-            ARouter.getInstance().build(WebRouterHub.PUBLIC_WEBPAGEACTIVITY)
+            ARouter.getInstance().build(WebExport.PUBLIC_WEBPAGEACTIVITY)
                 .withString("url", data.htmlUrl).withString("title", data.name).navigation()
         }
     }

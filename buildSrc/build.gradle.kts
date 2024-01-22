@@ -4,6 +4,7 @@ plugins {
 repositories {
     google()
     jcenter()
+    mavenCentral()
     maven {
         setUrl("https://maven.aliyun.com/nexus/content/groups/public/")
     }
@@ -19,6 +20,7 @@ dependencies {
 
     implementation("com.tencent.vasdolly:plugin:3.0.6")
 
+    implementation("io.github.FlyJingFish.ModuleCommunication:module-communication-plugin:1.0.9")
 
     /* Depend on the default Gradle API's since we want to build a custom plugin */
     implementation(gradleApi())

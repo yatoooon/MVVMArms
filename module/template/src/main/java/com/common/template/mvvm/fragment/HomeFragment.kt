@@ -12,12 +12,14 @@ import com.common.res.adapter.FragmentViewPager2Adapter
 import com.common.res.layout.XCollapsingToolbarLayout
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentHomeBinding
-import com.common.template.export.arouter.TemplateRouterHub
-import com.common.web.service.export.arouter.WebRouterHub
+import com.common.template.export.TemplateExport
+import com.common.web.export.WebExport
+
+
 import com.google.android.material.tabs.TabLayoutMediator
 import com.gyf.immersionbar.ImmersionBar
 
-@Route(path = TemplateRouterHub.PUBLIC_TEMPLATE_FRAGMENT_HOME)
+@Route(path = TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_HOME)
 class HomeFragment : BaseFragment<TemplateFragmentHomeBinding>(),
     XCollapsingToolbarLayout.OnScrimsListener {
 
@@ -27,7 +29,7 @@ class HomeFragment : BaseFragment<TemplateFragmentHomeBinding>(),
     private val fragments = mutableListOf<Fragment>(
         RepositoryFragment.newInstance(),
         StatusFragment.newInstance(),
-        ARouter.getInstance().build(WebRouterHub.PUBLIC_WEBPAGEFRAGMENT)
+        ARouter.getInstance().build(WebExport.PUBLIC_WEBPAGEFRAGMENT)
             .withString("url", "https://github.com/yatoooon").navigation() as Fragment,
         TemplateFragment.newInstance()
     )

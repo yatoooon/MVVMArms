@@ -11,11 +11,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragment_container"
-            android:name="com.common.test.mvvm.fragment.Test2Fragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="一键生成activity"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

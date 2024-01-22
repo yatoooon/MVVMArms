@@ -1,3 +1,0 @@
-plugins {
-    id "com.common.plugin.export"
-}

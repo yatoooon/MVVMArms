@@ -2,6 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'communication.module'
+
 
 
 android {
@@ -34,7 +36,7 @@ android {
 
 
     buildFeatures {
-        dataBinding = true
+//        dataBinding = true
         buildConfig = true
     }
     compileOptions {
@@ -63,14 +65,4 @@ dependencies {
     kapt Deps.arouterCompiler
     api Deps.arouterApi
     api Deps.appcompat
-    //一键生成的export module放这里
-    api project(':module-export:home_export')
-    api project(':module-export:login_export')
-    api project(':module-export:media_export')
-    api project(':module-export:personal_export')
-    api project(':module-export:template_export')
-    api project(':module-export:home_export')
-    api project(':module-export:web_export')
-    api project(':module-export:splash_export')
-    api project(':module-export:test_export')
 }

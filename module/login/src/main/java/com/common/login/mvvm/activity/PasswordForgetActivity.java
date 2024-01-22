@@ -10,9 +10,8 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseActivity;
-
 import com.common.login.R;
-import com.common.login.export.arouter.LoginRouterHub;
+import com.common.login.export.LoginExport;
 import com.common.res.aop.SingleClick;
 import com.common.res.manager.InputTextManager;
 import com.common.res.view.CountdownView;
@@ -24,7 +23,7 @@ import com.common.res.view.CountdownView;
  * time   : 2019/02/27
  * desc   : 忘记密码
  */
-@Route(path = LoginRouterHub.PUBLIC_LOGIN_PASSWORDFORGETACTIVITY)
+@Route(path = LoginExport.PUBLIC_LOGIN_PASSWORDFORGETACTIVITY)
 public final class PasswordForgetActivity extends BaseActivity
         implements TextView.OnEditorActionListener {
 

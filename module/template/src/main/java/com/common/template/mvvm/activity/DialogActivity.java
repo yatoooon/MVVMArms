@@ -27,7 +27,8 @@ import com.common.res.dialog.address.AddressDialog;
 import com.common.res.dialog.popup.ListPopup;
 import com.common.res.manager.DialogManager;
 import com.common.template.R;
-import com.common.template.export.arouter.TemplateRouterHub;
+
+import com.common.template.export.TemplateExport;
 import com.common.umeng.Platform;
 import com.common.umeng.UmengClient;
 import com.common.umeng.UmengShare;
@@ -46,7 +47,7 @@ import java.util.List;
  *    time   : 2018/12/02
  *    desc   : 对话框使用案例
  */
-@Route(path = TemplateRouterHub.PUBLIC_DIALOG_ACTIVITY)
+@Route(path = TemplateExport.PUBLIC_DIALOG_ACTIVITY)
 public final class DialogActivity extends BaseActivity {
 
     /** 等待对话框 */

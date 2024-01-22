@@ -8,27 +8,39 @@ import org.gradle.api.Project
 internal fun Project.configureDependencies(
     isAppModule: Boolean = false,
     isLibModule: Boolean = false,
-    isExportModule: Boolean = false,
     isRunAlone: Boolean = false,
 ) = dependencies.apply {
     add("implementation", (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar")))))
     add("testImplementation", Deps.junit)
     when {
-        isAppModule || isRunAlone -> {
+        isAppModule->{
             add("androidTestImplementation", Deps.extJunit)
             add("androidTestImplementation", Deps.espressoCore)
             add("implementation", Deps.codelocator)
             add("implementation", project(":common:core"))
-            add("implementation", project(":common:export"))
+
+            //一键生成的module放这里
+            add("implementation", project(":module:splash"))
+            add("implementation", project(":module:template"))
+            add("implementation", project(":module:home"))
+            add("implementation", project(":module:media"))
+            add("implementation", project(":module:web"))
+            add("implementation", project(":module:login"))
+            add("implementation", project(":module:personal"))
+            add("implementation", project(":module:test"))
+        }
+        isRunAlone -> {
+            add("androidTestImplementation", Deps.extJunit)
+            add("androidTestImplementation", Deps.espressoCore)
+            add("implementation", Deps.codelocator)
+            add("implementation", project(":common:core"))
         }
 
-        isExportModule -> {
 
-        }
 
         isLibModule -> {
             add("implementation", project(":common:core"))
-            add("implementation", project(":common:export"))
+            add("compileOnly", project(":common:export"))
         }
     }
     add("implementation", Deps.arouterApi)

@@ -1,16 +1,3 @@
 plugins {
     id "com.common.plugin.app"
 }
-
-dependencies {
-    //一键生成的module放这里
-    implementation project(':module:splash')
-    implementation project(':module:template')
-    implementation project(':module:home')
-    implementation project(':module:splash')
-    implementation project(':module:media')
-    implementation project(':module:web')
-    implementation project(':module:login')
-    implementation project(':module:personal')
-    implementation project(':module:test')
-}

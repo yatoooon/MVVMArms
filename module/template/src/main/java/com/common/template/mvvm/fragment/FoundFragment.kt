@@ -6,10 +6,11 @@ import com.common.res.ext.loadImage
 import com.common.res.view.SwitchButton
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentFoundBinding
-import com.common.template.export.arouter.TemplateRouterHub
+import com.common.template.export.TemplateExport
+
 import com.gyf.immersionbar.ImmersionBar
 
-@Route(path = TemplateRouterHub.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
+@Route(path = TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
 open class FoundFragment : BaseFragment<TemplateFragmentFoundBinding>() {
 
     override fun getLayoutId(): Int {

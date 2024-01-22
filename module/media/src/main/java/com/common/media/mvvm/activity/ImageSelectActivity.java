@@ -22,7 +22,8 @@ import com.chad.library.adapter.base.listener.OnItemLongClickListener;
 import com.common.core.base.BaseActivity;
 import com.common.media.R;
 import com.common.media.databinding.MediaImageSelectActivityBinding;
-import com.common.media.export.arouter.MediaRouterHub;
+
+import com.common.media.export.MediaExport;
 import com.common.media.export.callback.OnCameraListener;
 import com.common.media.export.callback.OnPhotoSelectListener;
 import com.common.media.mvvm.dialog.AlbumDialog;
@@ -53,7 +54,7 @@ import java.util.Set;
  * time   : 2019/07/24
  * desc   : 选择图片
  */
-@Route(path = MediaRouterHub.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
+@Route(path = MediaExport.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
 public final class ImageSelectActivity extends BaseActivity<MediaImageSelectActivityBinding>
         implements StatusAction, Runnable,
         OnItemClickListener,

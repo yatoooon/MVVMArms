@@ -6,9 +6,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import com.common.test.databinding.TestActivityTestBinding
 import com.common.test.mvvm.vm.TestViewModel
 import com.common.test.R
-import com.common.test.export.arouter.TestRouterHub
+import com.common.test.export.TestExport
 
-@Route(path = TestRouterHub.publicTestTestActivity)
+@Route(path = TestExport.publicTestTestActivity)
 @AndroidEntryPoint
 class TestActivity : BaseVMActivity<TestActivityTestBinding, TestViewModel>() {
 

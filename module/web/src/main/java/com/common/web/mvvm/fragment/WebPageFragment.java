@@ -9,15 +9,15 @@ import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.common.core.base.BaseFragment;
-
 import com.common.res.action.StatusAction;
 import com.common.res.aop.CheckNet;
 import com.common.res.aop.Log;
 import com.common.res.layout.StatusLayout;
 import com.common.web.R;
 import com.common.web.databinding.WebFragmentWebpageBinding;
+import com.common.web.export.WebExport;
 import com.common.web.mvvm.activity.WebPageActivity;
-import com.common.web.service.export.arouter.WebRouterHub;
+
 import com.common.web.view.BrowserView;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
@@ -29,7 +29,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
  *    time   : 2020/10/24
  *    desc   : 浏览器 Fragment
  */
-@Route(path = WebRouterHub.PUBLIC_WEBPAGEFRAGMENT)
+@Route(path = WebExport.PUBLIC_WEBPAGEFRAGMENT)
 public final class WebPageFragment extends BaseFragment<WebFragmentWebpageBinding>
         implements StatusAction, OnRefreshListener {
 

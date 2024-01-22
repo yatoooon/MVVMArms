@@ -6,7 +6,6 @@ import org.gradle.api.Project
 internal fun Project.configurePlugins(
     isAppModule: Boolean = false,
     isLibModule: Boolean = false,
-    isExportModule: Boolean = false,
     isRunAlone: Boolean = false,
 ) {
     when {
@@ -15,8 +14,9 @@ internal fun Project.configurePlugins(
             plugins.apply("com.tencent.vasdolly")
         }
 
-        isLibModule || isExportModule -> {
+        isLibModule -> {
             plugins.apply("com.android.library")
+            plugins.apply("communication.export")
         }
     }
     plugins.apply("kotlin-android")
@@ -24,7 +24,7 @@ internal fun Project.configurePlugins(
     plugins.apply("kotlin-parcelize")
     plugins.apply("dagger.hilt.android.plugin")
     plugins.apply("io.github.wurensen.android-aspectjx")
-    var options = mutableMapOf<String, String>().apply {
+    val options = mutableMapOf<String, String>().apply {
         @Suppress("MISSING_DEPENDENCY_CLASS") put("from", "${project.rootDir}/build_android.gradle")
     }
     apply(options)

@@ -13,13 +13,13 @@ import androidx.annotation.Nullable;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.core.base.BaseActivity;
+import com.common.media.export.MediaExport;
 
 
-import com.common.media.export.arouter.MediaRouterHub;
 import com.common.media.export.callback.OnCropListener;
-import com.common.media.export.arouter.IMediaService;
 import com.common.personal.R;
-import com.common.personal.export.arouter.PersonalRouterHub;
+
+import com.common.personal.export.PersonalExport;
 import com.common.res.aop.SingleClick;
 import com.common.res.dialog.InputDialog;
 import com.common.res.dialog.address.AddressDialog;
@@ -27,6 +27,7 @@ import com.common.res.glide.config.ImageConfigImpl;
 import com.common.res.layout.SettingBar;
 import com.common.res.other.FileContentResolver;
 import com.common.res.utils.ArmsUtil;
+import com.flyjingfish.module_communication_annotation.ImplementClassUtils;
 
 import java.io.File;
 import java.net.URI;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
  * time   : 2019/04/20
  * desc   : 个人资料
  */
-@Route(path = PersonalRouterHub.PUBLIC_PERSONAL_PERSONALDATAACTIVITY)
+@Route(path = PersonalExport.PUBLIC_PERSONAL_PERSONALDATAACTIVITY)
 public final class PersonalDataActivity extends BaseActivity {
 
     private ViewGroup mAvatarLayout;
@@ -103,14 +104,15 @@ public final class PersonalDataActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
         if (view == mAvatarLayout) {
-            ARouter.getInstance().build(MediaRouterHub.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
+            ARouter.getInstance().build(MediaExport.PUBLIC_MEDIA_IMAGESELECTACTIVITY)
                     .withInt("maxSelect", 1)
                     .navigation(this, getImageSelectRequestCode());
         } else if (view == mAvatarView) {
             if (mAvatarUrl != null) {
                 ArrayList<String> strings = new ArrayList<>();
                 strings.add(mAvatarUrl.toString());
-                ARouter.getInstance().navigation(IMediaService.class).startImagePreviewActivity(this, strings, 0);
+                MediaExport mediaExport = ImplementClassUtils.INSTANCE.getSingleInstance(MediaExport.class);
+                mediaExport.startImagePreviewActivity(this, strings, 0);
             } else {
                 // 选择头像
                 onClick(mAvatarLayout);
@@ -166,7 +168,8 @@ public final class PersonalDataActivity extends BaseActivity {
      * 裁剪图片
      */
     private void cropImageFile(File sourceFile) {
-        ARouter.getInstance().navigation(IMediaService.class).startImageCropActivity(this, sourceFile, 1, 1, new OnCropListener() {
+        MediaExport mediaExport = ImplementClassUtils.INSTANCE.getSingleInstance(MediaExport.class);
+        mediaExport.startImageCropActivity(this, sourceFile, 1, 1, new OnCropListener() {
             @Override
             public void onSucceed(Uri fileUri, String fileName) {
                 File outputFile;

@@ -29,13 +29,12 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.common.core.base.BaseActivity;
 
+import com.common.media.export.MediaExport;
 import com.common.media.export.callback.OnPhotoSelectListener;
 import com.common.media.export.callback.OnVideoSelectListener;
 import com.common.media.export.data.VideoBean;
-import com.common.media.export.arouter.IMediaService;
 import com.common.res.action.ActivityAction;
 import com.common.res.dialog.BaseDialog;
 import com.common.res.dialog.InputDialog;
@@ -45,6 +44,7 @@ import com.common.res.layout.NestedScrollWebView;
 import com.common.res.utils.PermissionCallback;
 import com.common.web.BuildConfig;
 import com.common.web.R;
+import com.flyjingfish.module_communication_annotation.ImplementClassUtils;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 
@@ -504,8 +504,8 @@ public final class BrowserView extends NestedScrollWebView
                 if (mimeTypes.length == 1) {
                     switch (mimeTypes[0]) {
                         case "image/*":
-                            ARouter.getInstance().navigation(IMediaService.class)
-                                    .startImageSelectActivity(activity, multipleSelect ? Integer.MAX_VALUE : 1, new OnPhotoSelectListener() {
+                            MediaExport mediaExport = ImplementClassUtils.INSTANCE.getSingleInstance(MediaExport.class);
+                            mediaExport.startImageSelectActivity(activity, multipleSelect ? Integer.MAX_VALUE : 1, new OnPhotoSelectListener() {
                                         @Override
                                         public void onSelected(List<String> data) {
                                             Uri[] uri = new Uri[data.size()];
@@ -523,8 +523,8 @@ public final class BrowserView extends NestedScrollWebView
                                     });
                             return;
                         case "video/*":
-                            ARouter.getInstance().navigation(IMediaService.class)
-                                    .startVideoSelectActivity(activity, multipleSelect ? Integer.MAX_VALUE : 1, new OnVideoSelectListener() {
+                            MediaExport mediaExport2 = ImplementClassUtils.INSTANCE.getSingleInstance(MediaExport.class);
+                            mediaExport2.startVideoSelectActivity(activity, multipleSelect ? Integer.MAX_VALUE : 1, new OnVideoSelectListener() {
                                         @Override
                                         public void onSelected(List<VideoBean> data) {
                                             Uri[] uri = new Uri[data.size()];
