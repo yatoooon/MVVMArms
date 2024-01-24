@@ -4,8 +4,8 @@ import android.media.MediaMetadataRetriever;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
+
 
 import com.flyjingfish.module_communication_annotation.ExposeBean;
 
@@ -87,14 +87,14 @@ public  class VideoBean implements Parcelable {
     }
 
     @Override
-    public boolean equals(@Nullable Object obj) {
+    public boolean equals(Object obj) {
         if (obj instanceof VideoBean) {
             return mVideoPath.equals(((VideoBean) obj).mVideoPath);
         }
         return false;
     }
 
-    @NonNull
+
     @Override
     public String toString() {
         return mVideoPath;

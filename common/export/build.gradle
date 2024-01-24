@@ -13,22 +13,9 @@ android {
         compileSdk Versions.compileSdk
         minSdk Versions.minSdk
         targetSdk Versions.targetSdk
-        kapt {
-            arguments {
-                arg("AROUTER_MODULE_NAME", project.getName())
-            }
-        }
     }
 
-    sourceSets {
-        main {
-            if (Deploys.isRunAlone) {
-                manifest.srcFile 'src/main/module/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/app/AndroidManifest.xml'
-            }
-        }
-    }
+
 
 
     //统一规范资源名称前缀，防止多个 module 之间资源冲突
@@ -62,7 +49,4 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    kapt Deps.arouterCompiler
-    api Deps.arouterApi
-    api Deps.appcompat
 }

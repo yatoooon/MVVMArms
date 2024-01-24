@@ -1,4 +1,4 @@
-package com.common.export.launcher
+package com.common.res.launcher
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,14 +8,14 @@ import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toDrawable
-import com.common.export.R
+import com.common.res.R
 
 class LauncherActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.export_activity_launcher)
+        setContentView(R.layout.res_activity_launcher)
         val linearLayout = findViewById<LinearLayout>(R.id.root)
         packageManager.getPackageInfo(
             packageName, PackageManager.GET_ACTIVITIES
