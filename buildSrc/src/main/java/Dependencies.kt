@@ -1,6 +1,3 @@
-object Deploys {
-    const val isRunAlone = false
-}
 
 /**
  * 版本信息

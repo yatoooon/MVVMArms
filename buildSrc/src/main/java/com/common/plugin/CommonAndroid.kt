@@ -15,11 +15,10 @@ import java.io.File
 internal fun Project.configureAndroid(
     isAppModule: Boolean = false,
     isLibModule: Boolean = false,
-    isRunAlone: Boolean = false,
 ) {
 
     val extension = when {
-        isAppModule || isRunAlone -> extensions.getByType<AppExtension>()
+        isAppModule -> extensions.getByType<AppExtension>()
         isLibModule -> extensions.getByType<LibraryExtension>()
         else -> extensions.getByType<LibraryExtension>()
     }
@@ -45,18 +44,6 @@ internal fun Project.configureAndroid(
                     //生成apk位置选择 buildSrc/apk 路径
                     //生成渠道点击 Gradle->MVVMArms->Tasks->com.tencent.vasdolly->reBuildChannel
                 }
-
-                isRunAlone -> {
-                    val appName = project.name // 应用名称
-                    val versionName = defaultConfig.versionName
-                    val versionCode = defaultConfig.versionCode
-                    setProperty(
-                        "archivesBaseName", "$appName-v$versionName-$versionCode-${buildTime()}"
-                    )
-                    applicationId = "com.arms.sample." + project.name
-                    resValue("string", "app_name", project.name)
-                }
-
                 isLibModule -> {
                     consumerProguardFile(File("${project.rootDir}/buildSrc/consumer-rules.pro"))
                 }
@@ -132,7 +119,7 @@ internal fun Project.configureAndroid(
             }
             getByName("release") {
                 isMinifyEnabled = true
-                if (isAppModule || isRunAlone) {
+                if (isAppModule) {
                     isShrinkResources = true
                 }
                 setSigningConfig(signingConfigs.getByName("release"))

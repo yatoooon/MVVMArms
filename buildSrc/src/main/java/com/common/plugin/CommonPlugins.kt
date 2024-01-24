@@ -6,10 +6,9 @@ import org.gradle.api.Project
 internal fun Project.configurePlugins(
     isAppModule: Boolean = false,
     isLibModule: Boolean = false,
-    isRunAlone: Boolean = false,
 ) {
     when {
-        isAppModule || isRunAlone -> {
+        isAppModule -> {
             plugins.apply("com.android.application")
             plugins.apply("com.tencent.vasdolly")
         }

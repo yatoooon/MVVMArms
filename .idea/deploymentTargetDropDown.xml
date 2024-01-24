@@ -11,6 +11,9 @@
       <entry key="module.login">
         <State />
       </entry>
+      <entry key="module.test">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

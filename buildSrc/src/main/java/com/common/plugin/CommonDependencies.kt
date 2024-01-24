@@ -8,17 +8,15 @@ import org.gradle.api.Project
 internal fun Project.configureDependencies(
     isAppModule: Boolean = false,
     isLibModule: Boolean = false,
-    isRunAlone: Boolean = false,
 ) = dependencies.apply {
     add("implementation", (fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar")))))
     add("testImplementation", Deps.junit)
     when {
-        isAppModule->{
+        isAppModule -> {
             add("androidTestImplementation", Deps.extJunit)
             add("androidTestImplementation", Deps.espressoCore)
             add("implementation", Deps.codelocator)
             add("implementation", project(":common:core"))
-
             //一键生成的module放这里
             add("implementation", project(":module:splash"))
             add("implementation", project(":module:template"))
@@ -29,14 +27,6 @@ internal fun Project.configureDependencies(
             add("implementation", project(":module:personal"))
             add("implementation", project(":module:test"))
         }
-        isRunAlone -> {
-            add("androidTestImplementation", Deps.extJunit)
-            add("androidTestImplementation", Deps.espressoCore)
-            add("implementation", Deps.codelocator)
-            add("implementation", project(":common:core"))
-        }
-
-
 
         isLibModule -> {
             add("implementation", project(":common:core"))
