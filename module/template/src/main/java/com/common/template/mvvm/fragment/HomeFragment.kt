@@ -7,32 +7,28 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.common.core.base.BaseFragment
+import com.common.core.base.mvvm.BaseVMLazyFragment
 import com.common.res.adapter.FragmentViewPager2Adapter
 import com.common.res.layout.XCollapsingToolbarLayout
 import com.common.template.R
 import com.common.template.databinding.TemplateFragmentHomeBinding
 import com.common.template.export.TemplateExport
+import com.common.template.mvvm.vm.HomeViewModel
 import com.common.web.export.WebExport
 
 
 import com.google.android.material.tabs.TabLayoutMediator
 import com.gyf.immersionbar.ImmersionBar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @Route(path = TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_HOME)
-class HomeFragment : BaseFragment<TemplateFragmentHomeBinding>(),
+class HomeFragment : BaseVMLazyFragment<TemplateFragmentHomeBinding, HomeViewModel>(),
     XCollapsingToolbarLayout.OnScrimsListener {
 
 
     private lateinit var mPagerAdapter: FragmentViewPager2Adapter
 
-    private val fragments = mutableListOf<Fragment>(
-        RepositoryFragment.newInstance(),
-        StatusFragment.newInstance(),
-        ARouter.getInstance().build(WebExport.PUBLIC_WEBPAGEFRAGMENT)
-            .withString("url", "https://github.com/yatoooon").navigation() as Fragment,
-        TemplateFragment.newInstance()
-    )
 
     override fun getLayoutId(): Int {
         return R.layout.template_fragment_home
@@ -45,12 +41,26 @@ class HomeFragment : BaseFragment<TemplateFragmentHomeBinding>(),
     }
 
     override fun initView() {
+
+    }
+
+    override fun onLazyLoad() {
         ImmersionBar.setTitleBar(this, binding.tbHomeTitle)
         mPagerAdapter = FragmentViewPager2Adapter(this)
-        mPagerAdapter.setFragments(fragments)
         binding.ctlHomeBar.setOnScrimsListener(this)
+        mPagerAdapter.setFragmentCreators(
+            listOf(
+                { RepositoryFragment.newInstance() },
+                { StatusFragment.newInstance() },
+                {
+                    ARouter.getInstance().build(WebExport.PUBLIC_WEBPAGEFRAGMENT)
+                        .withString("url", "https://github.com/yatoooon").navigation() as Fragment
+                },
+                { TemplateFragment.newInstance() }
+            )
+        )
         binding.vpHomePager.adapter = mPagerAdapter
-        binding.vpHomePager.offscreenPageLimit = fragments.size
+        binding.vpHomePager.offscreenPageLimit = mPagerAdapter.itemCount
         binding.vpHomePager.isUserInputEnabled = true
         binding.vpHomePager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         TabLayoutMediator(binding.rvHomeTab, binding.vpHomePager) { tab, position ->
@@ -68,10 +78,6 @@ class HomeFragment : BaseFragment<TemplateFragmentHomeBinding>(),
         super.onResume()
         ImmersionBar.with(requireActivity()).statusBarDarkFont(binding.ctlHomeBar.tagScrimsShown)
             .statusBarColor(R.color.res_transparent).navigationBarColor(R.color.res_white).init()
-    }
-
-    override fun initObserve() {
-
     }
 
 

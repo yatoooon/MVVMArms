@@ -32,21 +32,6 @@ class MainActivity : BaseActivity<HomeActivityMainBinding>() {
 
     private var mPagerAdapter = FragmentViewPager2Adapter(this)
 
-    private val fragments = mutableListOf(
-        ARouter.getInstance().build(TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_HOME)
-            .withString("title", "首页")
-            .navigation() as Fragment,
-        ARouter.getInstance().build(TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
-            .withString("title", "发现")
-            .navigation() as Fragment,
-        ARouter.getInstance().build(TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_MESSAGE)
-            .withString("title", "消息")
-            .navigation() as Fragment,
-        ARouter.getInstance().build(TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_MINE)
-            .withString("title", "我的")
-            .navigation() as Fragment
-    )
-
 
     override fun getLayoutId(): Int {
         return R.layout.home_activity_main
@@ -63,9 +48,22 @@ class MainActivity : BaseActivity<HomeActivityMainBinding>() {
                     binding.vpHomePager.setCurrentItem(index, false)//false 不平滑过度
                 }
             }
-        mPagerAdapter.setFragments(fragments)
-        binding.vpHomePager.offscreenPageLimit = fragments.size
+        mPagerAdapter.setFragmentCreators(listOf(
+            {ARouter.getInstance().build(TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_HOME)
+                .withString("title", "首页")
+                .navigation() as Fragment},
+            {ARouter.getInstance().build(TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_FOUND)
+                .withString("title", "发现")
+                .navigation() as Fragment},
+            {ARouter.getInstance().build(TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_MESSAGE)
+                .withString("title", "消息")
+                .navigation() as Fragment},
+            {ARouter.getInstance().build(TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_MINE)
+                .withString("title", "我的")
+                .navigation() as Fragment}
+        ))
         binding.vpHomePager.adapter = mPagerAdapter
+        binding.vpHomePager.offscreenPageLimit = mPagerAdapter.itemCount
         binding.vpHomePager.isUserInputEnabled = false //禁止viewpager2左右滑动
         binding.vpHomePager.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {

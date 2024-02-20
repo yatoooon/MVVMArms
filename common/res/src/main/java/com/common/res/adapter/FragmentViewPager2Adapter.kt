@@ -8,6 +8,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class FragmentViewPager2Adapter : FragmentStateAdapter {
 
+    private var fragmentCreators: List<() -> Fragment> = emptyList()
+
     constructor(fragmentActivity: FragmentActivity) : super(fragmentActivity)
     constructor(fragment: Fragment) : super(fragment)
     constructor(fragmentManager: FragmentManager, lifecycle: Lifecycle) : super(
@@ -16,15 +18,14 @@ class FragmentViewPager2Adapter : FragmentStateAdapter {
     )
 
     override fun createFragment(position: Int): Fragment {
-        return fragmentList[position]
+        return fragmentCreators[position].invoke()
     }
 
     override fun getItemCount(): Int {
-        return fragmentList.size
+        return fragmentCreators.size
     }
 
-    private var fragmentList: List<Fragment> = ArrayList()
-    fun setFragments(fragments: List<Fragment>) {
-        fragmentList = fragments
+    fun setFragmentCreators(creators: List<() -> Fragment>) {
+        this.fragmentCreators = creators
     }
 }

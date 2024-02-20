@@ -42,14 +42,5 @@
         <meta-data
             android:name="design_height_in_dp"
             android:value="640" />
-
-        <activity
-            android:name=".launcher.LauncherActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 </manifest>

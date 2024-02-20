@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.common.core.base.mvvm.BaseViewModel
 import com.common.res.adapter.BaseAdapter.Companion.PAGE_SIZE
+import com.common.res.ext.send
 import com.common.res.http.net.apiCall
 import com.common.res.http.net.parseData
 import com.common.res.livedata.StatusEvent
@@ -20,7 +21,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class RepositoryViewModel @Inject constructor(
-    application: Application, repositoryModel: RepositoryModel
+    application: Application, repositoryModel: RepositoryModel,
 ) : BaseViewModel<RepositoryModel>(application, repositoryModel) {
 
     var articleList = MutableLiveData<List<TemplateEntity.Item>>()
@@ -42,8 +43,8 @@ class RepositoryViewModel @Inject constructor(
                         )
                     )
                 }
-                articleList.postValue(list)
-                statusEvent.postValue(StatusEvent.Status.SUCCESS)
+                articleList.send(list)
+                statusEvent.send(StatusEvent.Status.SUCCESS)
             }
         }
     }
@@ -54,21 +55,27 @@ class RepositoryViewModel @Inject constructor(
                 onSuccess = {
                     ArmsUtil.obtainAppComponent().executorService.execute {
                         it?.items?.map { it ->
-                            TemplateEntityItem(it.id, it.stargazersCount, it.name, it.description)
+                            TemplateEntityItem(
+                                it.id,
+                                it.stargazersCount,
+                                it.name,
+                                it.description
+                            )
                         }.let { it ->
                             model.insertArticleListToRoom(it!!)
                         }
                     }
-                    articleList.value = it?.items
-                    statusEvent.value = StatusEvent.Status.SUCCESS
+                    articleList.send(it?.items)
+                    statusEvent.send(StatusEvent.Status.SUCCESS)
                 }
                 onFailed = {
-                    statusEvent.value = StatusEvent.Status.FAILURE
+                    statusEvent.send(StatusEvent.Status.FAILURE)
                 }
                 onComplete = {
-                    statusEvent.value = StatusEvent.Status.COMPLETE
+                    statusEvent.send(StatusEvent.Status.COMPLETE)
                 }
             }
         }
+
 
 }

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <application android:name="com.common.home.app.HomeApp"
+    <application
+        android:name="com.common.home.app.HomeApp"
         tools:replace="android:name">
         <activity
-            android:exported="false"
             android:name="com.common.home.mvvm.activity.MainActivity"
+            android:exported="false"
             android:launchMode="singleTask"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan">
+        </activity>
     </application>
 
 

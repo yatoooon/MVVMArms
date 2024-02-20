@@ -3,7 +3,7 @@ package com.common.template.mvvm.fragment
 import android.content.pm.ActivityInfo
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.common.core.base.BaseFragment
+import com.common.core.base.mvvm.BaseVMLazyFragment
 import com.common.login.export.LoginExport
 import com.common.media.export.MediaExport
 
@@ -19,15 +19,18 @@ import com.common.template.export.TemplateExport
 
 import com.common.template.mvvm.activity.DialogActivity
 import com.common.template.mvvm.activity.StatusActivity
+import com.common.template.mvvm.vm.MineViewModel
 import com.common.test.export.TestExport
 import com.common.web.export.WebExport
 import com.flyjingfish.module_communication_annotation.ImplementClassUtils
 
 import com.gyf.immersionbar.ImmersionBar
 import com.tencent.bugly.crashreport.CrashReport
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @Route(path = TemplateExport.PUBLIC_TEMPLATE_FRAGMENT_MINE)
-class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
+class MineFragment : BaseVMLazyFragment<TemplateFragmentMineBinding, MineViewModel>() {
 
     override fun getLayoutId(): Int {
         return R.layout.template_fragment_mine
@@ -38,6 +41,10 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
 
 
     override fun initView() {
+
+    }
+
+    override fun onLazyLoad() {
         binding.apply {
             bindViewClickListener(
                 btnMineDialog,
@@ -64,58 +71,73 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                     btnMineDialog -> {
                         startActivity(DialogActivity::class.java)
                     }
+
                     btnMineHint -> {
                         startActivity(StatusActivity::class.java)
                     }
+
                     btnMineLogin -> {
                         routerNavigation(LoginExport.PUBLIC_LOGIN_LOGINACTIVITY)
                     }
+
                     btnMineRegister -> {
                         routerNavigation(LoginExport.PUBLIC_LOGIN_REGISTERACTIVITY)
                     }
+
                     btnMineForget -> {
                         routerNavigation(LoginExport.PUBLIC_LOGIN_PASSWORDFORGETACTIVITY)
                     }
+
                     btnMineReset -> {
                         routerNavigation(LoginExport.PUBLIC_LOGIN_PASSWORDRESETACTIVITY)
                     }
+
                     btnMineChange -> {
                         routerNavigation(LoginExport.PUBLIC_LOGIN_PHONERESETACTIVITY)
                     }
+
                     btnMinePersonal -> {
                         routerNavigation(PersonalExport.PUBLIC_PERSONAL_PERSONALDATAACTIVITY)
                     }
+
                     btnMineSetting -> {
                         routerNavigation(PersonalExport.PUBLIC_PERSONAL_SETTINGACTIVITY)
                     }
+
                     btnMineGuide -> {
                         routerNavigation(SplashExport.PUBLIC_SPLASH_GUIDEACTIVITY)
                     }
+
                     btnMineBrowser -> {
                         ARouter.getInstance().build(WebExport.PUBLIC_WEBPAGEACTIVITY)
                             .withString("url", "https://www.baidu.com/")
                             .withString("title", "百度一下")
                             .navigation()
                     }
+
                     btnMineImageSelect -> {
                         ImplementClassUtils.getSingleInstance<MediaExport>(MediaExport::class)
                             .startImageSelectActivity(
                                 mActivity, 3
                             ) { toast(it.toString()) }
                     }
+
                     btnMineImagePreview -> {
                         val images = ArrayList<String>()
                         images.add("https://www.baidu.com/img/bd_logo.png")
                         images.add("https://avatars1.githubusercontent.com/u/28616817")
-                        ImplementClassUtils.getSingleInstance<MediaExport>(MediaExport::class).startImagePreviewActivity(mActivity, images, 0)
+                        ImplementClassUtils.getSingleInstance<MediaExport>(MediaExport::class)
+                            .startImagePreviewActivity(mActivity, images, 0)
 
                     }
+
                     btnMineVideoSelect -> {
                         ImplementClassUtils.getSingleInstance<MediaExport>(MediaExport::class)
                             .startVideoSelectActivity(mActivity, 1) {
                                 toast(it.toString())
                             }
                     }
+
                     btnMineVideoPlay -> {
                         val builder = VideoPlayBuilder()
                             .setVideoTitle("速度与激情特别行动")
@@ -126,6 +148,7 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
                             .withParcelable("parameters", builder)
                             .navigation()
                     }
+
                     btnMineCrash -> {
                         // 上报错误到 Bugly 上
                         CrashReport.postCatchedException(IllegalStateException("are you ok?"))
@@ -134,6 +157,7 @@ class MineFragment : BaseFragment<TemplateFragmentMineBinding>() {
 
                         throw IllegalStateException("are you ok?")
                     }
+
                     btnMineTemplate -> {
                         routerNavigation(TestExport.publicTestTestActivity)
                     }

@@ -89,10 +89,12 @@ class RepositoryFragment : BaseVMFragment<TemplateFragmentRepositoryBinding, Rep
                 Status.INIT -> {
                     showLoading()
                 }
+
                 Status.COMPLETE, Status.SUCCESS -> {
                     showComplete()
                     binding.srlRefresh.isRefreshing = false
                 }
+
                 Status.FAILURE -> {
                     showError(object : StatusLayout.OnRetryListener {
                         override fun onRetry(layout: StatusLayout?) {
