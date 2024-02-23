@@ -7,11 +7,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
+
+import com.chad.library.adapter4.BaseQuickAdapter;
+import com.chad.library.adapter4.viewholder.DataBindingHolder;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;
-import com.common.res.adapter.DataBindingViewHolder;
 import com.hjq.shape.view.ShapeView;
 
 
@@ -21,7 +21,7 @@ import com.hjq.shape.view.ShapeView;
  * time   : 2021/02/28
  * desc   : Tab 适配器
  */
-public final class TabAdapter extends BaseAdapter<String> implements OnItemClickListener {
+public final class TabAdapter extends BaseAdapter<String> implements BaseQuickAdapter.OnItemClickListener {
 
 
     /**
@@ -72,7 +72,20 @@ public final class TabAdapter extends BaseAdapter<String> implements OnItemClick
 
 
     @Override
-    public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+    protected void onBindViewHolder(@NonNull DataBindingHolder<?> holder, int position, @Nullable String item) {
+        super.onBindViewHolder(holder, position, item);
+        TextView mTitleView = (TextView) holder.itemView.findViewById(R.id.tv_tab_sliding_title);
+        ShapeView mLineView = (ShapeView) holder.itemView.findViewById(R.id.v_tab_sliding_line);
+        mTitleView.setText(item);
+        mTitleView.setSelected(mSelectedPosition == holder.getBindingAdapterPosition());
+        mLineView.setVisibility(mSelectedPosition == holder.getBindingAdapterPosition() ? View.VISIBLE : View.INVISIBLE);
+
+    }
+
+
+
+    @Override
+    public void onClick(@NonNull BaseQuickAdapter baseQuickAdapter, @NonNull View view, int position) {
         if (mSelectedPosition == position) {
             return;
         }
@@ -83,21 +96,10 @@ public final class TabAdapter extends BaseAdapter<String> implements OnItemClick
             return;
         }
 
-        if (mListener.onTabSelected(adapter.getRecyclerView(), position)) {
+        if (mListener.onTabSelected(baseQuickAdapter.getRecyclerView(), position)) {
             mSelectedPosition = position;
             notifyDataSetChanged();
         }
-    }
-
-
-    @Override
-    protected void convert(@NonNull DataBindingViewHolder<?> holder, String item) {
-        super.convert(holder, item);
-        TextView mTitleView = (TextView) holder.findView(R.id.tv_tab_sliding_title);
-        ShapeView mLineView = (ShapeView) holder.findView(R.id.v_tab_sliding_line);
-        mTitleView.setText(item);
-        mTitleView.setSelected(mSelectedPosition == holder.getBindingAdapterPosition());
-        mLineView.setVisibility(mSelectedPosition == holder.getBindingAdapterPosition() ? View.VISIBLE : View.INVISIBLE);
     }
 
 

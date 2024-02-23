@@ -2,7 +2,6 @@ package com.common.res.dialog.popup;
 
 import android.content.Context;
 import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -10,13 +9,11 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.chad.library.adapter4.viewholder.DataBindingHolder;
 import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.action.AnimAction;
 import com.common.res.adapter.BaseAdapter;
-import com.common.res.adapter.DataBindingViewHolder;
 import com.common.res.view.ArrowDrawable;
 
 import java.util.ArrayList;
@@ -32,8 +29,7 @@ import java.util.List;
 public final class ListPopup {
 
     public static final class Builder
-            extends BasePopupWindow.Builder<Builder>
-            implements OnItemClickListener {
+            extends BasePopupWindow.Builder<Builder> {
 
         @SuppressWarnings("rawtypes")
         @Nullable
@@ -42,13 +38,15 @@ public final class ListPopup {
 
         private final BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.res_popup_item, BR.item){
             @Override
-            protected void convert(@NonNull DataBindingViewHolder<?> holder, String item) {
-                super.convert(holder, item);
-                holder.findView(R.id.tv_popup_text).setPaddingRelative((int) getResources().getDimension(R.dimen.res_dp_12),
+            protected void onBindViewHolder(@NonNull DataBindingHolder<?> holder, int position, @Nullable String item) {
+                super.onBindViewHolder(holder, position, item);
+                holder.getBinding().getRoot().findViewById(R.id.tv_popup_text).setPaddingRelative((int) getResources().getDimension(R.dimen.res_dp_12),
                         (holder.getBindingAdapterPosition() == 0 ? (int) getResources().getDimension(R.dimen.res_dp_12) : 0),
                         (int) getResources().getDimension(R.dimen.res_dp_12),
                         (int) getResources().getDimension(R.dimen.res_dp_10));
             }
+
+
         };
 
         public Builder(Context context) {
@@ -60,6 +58,16 @@ public final class ListPopup {
             setContentView(recyclerView);
 
             recyclerView.setAdapter(mAdapter);
+            mAdapter.setOnItemClickListener((baseQuickAdapter, view, i) -> {
+                if (mAutoDismiss) {
+                    dismiss();
+                }
+
+                if (mListener == null) {
+                    return;
+                }
+                mListener.onSelected(getPopupWindow(), i, mAdapter.getItem(i));
+            });
 
             new ArrowDrawable.Builder(context)
                     .setArrowOrientation(Gravity.TOP)
@@ -98,7 +106,7 @@ public final class ListPopup {
 
         @SuppressWarnings("all")
         public Builder setList(List data) {
-            mAdapter.setList(data);
+            mAdapter.submitList(data);
             return this;
         }
 
@@ -115,17 +123,7 @@ public final class ListPopup {
 
 
 
-        @Override
-        public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-            if (mAutoDismiss) {
-                dismiss();
-            }
 
-            if (mListener == null) {
-                return;
-            }
-            mListener.onSelected(getPopupWindow(), position, mAdapter.getItem(position));
-        }
     }
 
 

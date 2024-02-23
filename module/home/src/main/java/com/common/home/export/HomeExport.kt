@@ -6,7 +6,9 @@ import com.flyjingfish.module_communication_annotation.ExposeInterface
 @ExposeInterface
 interface HomeExport {
     companion object {
-        const val HOME: String = "/home"
-        const val PUBLIC_HOME_MAINACTIVITY: String = "$HOME/activity/MainActivity"
+        private const val GROUP: String = "/Home"
+
+         const val publicHomeMainActivity: String = "/Home/Activity/MainActivity"
+
     }
 }

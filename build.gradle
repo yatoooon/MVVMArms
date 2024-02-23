@@ -12,7 +12,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.4.2'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.21'
         //Gradle Android Maven plugin
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         //This plugin is available from Bintray's JCenter repository and from the Gradle Plugin Portal
@@ -33,7 +33,7 @@ buildscript {
     }
 }
 plugins {
-    id("com.google.devtools.ksp") version "1.7.20-1.0.8" apply false
+    id("com.google.devtools.ksp") version "1.9.21-1.0.16" apply false
 }
 apply from: './buildSrc/build_version.gradle'
 apply plugin: "com.vanniktech.dependency.graph.generator"

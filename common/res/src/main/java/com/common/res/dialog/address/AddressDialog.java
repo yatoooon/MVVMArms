@@ -81,7 +81,7 @@ public final class AddressDialog {
             mTabView = findViewById(R.id.rv_address_tab);
             setOnClickListener(mCloseView);
 
-            mTabAdapter.addData(getString(R.string.res_address_hint));
+            mTabAdapter.add(getString(R.string.res_address_hint));
             mTabView.setLayoutManager(new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false));
             mTabAdapter.setOnTabListener(this);
             mTabView.setAdapter(mTabAdapter);
@@ -106,7 +106,7 @@ public final class AddressDialog {
             };
 
             // 显示省份列表
-            mAdapter.addData(AddressManager.getProvinceList(getContext()));
+            mAdapter.add(AddressManager.getProvinceList(getContext()));
             addOnShowListener(this);
             addOnDismissListener(this);
         }
@@ -208,11 +208,11 @@ public final class AddressDialog {
                 case 0:
                     // 记录当前选择的省份
                     mProvince = mAdapter.getItem(type).get(position).getName();
-                    mTabAdapter.setData(type, mProvince);
+                    mTabAdapter.set(type, mProvince);
 
-                    mTabAdapter.addData(getString(R.string.res_address_hint));
+                    mTabAdapter.add(getString(R.string.res_address_hint));
                     mTabAdapter.setSelectedPosition(type + 1);
-                    mAdapter.addData(AddressManager.getCityList(mAdapter.getItem(type).get(position).getNext()));
+                    mAdapter.add(AddressManager.getCityList(mAdapter.getItem(type).get(position).getNext()));
                     mViewPager.setCurrentItem(type + 1, smoothScroll);
 
                     // 如果当前选择的是直辖市，就直接跳过选择城市，直接选择区域
@@ -223,7 +223,7 @@ public final class AddressDialog {
                 case 1:
                     // 记录当前选择的城市
                     mCity = mAdapter.getItem(type).get(position).getName();
-                    mTabAdapter.setData(type, mCity);
+                    mTabAdapter.set(type, mCity);
 
                     if (mIgnoreArea) {
 
@@ -235,9 +235,9 @@ public final class AddressDialog {
                         postDelayed(this::dismiss, 300);
 
                     } else {
-                        mTabAdapter.addData(getString(R.string.res_address_hint));
+                        mTabAdapter.add(getString(R.string.res_address_hint));
                         mTabAdapter.setSelectedPosition(type + 1);
-                        mAdapter.addData(AddressManager.getAreaList(mAdapter.getItem(type).get(position).getNext()));
+                        mAdapter.add(AddressManager.getAreaList(mAdapter.getItem(type).get(position).getNext()));
                         mViewPager.setCurrentItem(type + 1, smoothScroll);
                     }
 
@@ -245,7 +245,7 @@ public final class AddressDialog {
                 case 2:
                     // 记录当前选择的区域
                     mArea = mAdapter.getItem(type).get(position).getName();
-                    mTabAdapter.setData(type, mArea);
+                    mTabAdapter.set(type, mArea);
 
                     if (mListener != null) {
                         mListener.onSelected(getDialog(), mProvince, mCity, mArea);
@@ -289,7 +289,7 @@ public final class AddressDialog {
                     mViewPager.setCurrentItem(position);
                 }
 
-                mTabAdapter.setData(position, getString(R.string.res_address_hint));
+                mTabAdapter.set(position, getString(R.string.res_address_hint));
                 switch (position) {
                     case 0:
                         mProvince = mCity = mArea = null;

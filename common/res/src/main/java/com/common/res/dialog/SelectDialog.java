@@ -13,12 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
+
+import com.chad.library.adapter4.viewholder.DataBindingHolder;
 import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;
-import com.common.res.adapter.DataBindingViewHolder;
 import com.common.res.aop.SingleClick;
 import com.hjq.toast.Toaster;
 
@@ -73,7 +72,7 @@ public final class SelectDialog {
 
         @SuppressWarnings("all")
         public Builder setList(List data) {
-            mAdapter.setList(data);
+            mAdapter.submitList(data);
             mRecyclerView.addOnLayoutChangeListener(this);
             return this;
         }
@@ -178,8 +177,7 @@ public final class SelectDialog {
         }
     }
 
-    private static final class SelectAdapter extends BaseAdapter<Object>
-            implements OnItemClickListener {
+    private static final class SelectAdapter extends BaseAdapter<Object> {
 
         /**
          * 最小选择数量
@@ -198,7 +196,28 @@ public final class SelectDialog {
 
         public SelectAdapter(int layoutId, int variableId) {
             super(layoutId, variableId);
-            setOnItemClickListener(this);
+            setOnItemClickListener((baseQuickAdapter, view, position) -> {
+                System.out.println("position:" + position);
+                if (mSelectSet.containsKey(position)) {
+                    // 当前必须不是单选模式才能取消选中
+                    if (!isSingleSelect()) {
+                        mSelectSet.remove(position);
+                        notifyItemChanged(position);
+                    }
+                } else {
+                    if (mMaxSelect == 1) {
+                        mSelectSet.clear();
+                        notifyDataSetChanged();
+                    }
+
+                    if (mSelectSet.size() < mMaxSelect) {
+                        mSelectSet.put(position, getItem(position));
+                        notifyItemChanged(position);
+                    } else {
+                        Toaster.show(String.format(getContext().getString(R.string.res_select_max_hint), mMaxSelect));
+                    }
+                }
+            });
         }
 
 
@@ -234,38 +253,21 @@ public final class SelectDialog {
             return mSelectSet;
         }
 
+
         @Override
-        protected void convert(@NonNull DataBindingViewHolder<?> holder, Object item) {
-            super.convert(holder, item);
-            ((CheckBox) holder.findView(R.id.tv_select_checkbox)).setChecked(mSelectSet.containsKey(holder.getBindingAdapterPosition()));
+        protected void onBindViewHolder(@NonNull DataBindingHolder<?> holder, int position, @Nullable Object item) {
+            super.onBindViewHolder(holder, position, item);
+            ((CheckBox) holder.itemView.findViewById(R.id.tv_select_checkbox)).setChecked(mSelectSet.containsKey(holder.getBindingAdapterPosition()));
             if (mMaxSelect == 1) {
-                holder.findView(R.id.tv_select_checkbox).setClickable(false);
+                holder.itemView.findViewById(R.id.tv_select_checkbox).setClickable(false);
             } else {
-                holder.findView(R.id.tv_select_checkbox).setEnabled(false);
+                holder.itemView.findViewById(R.id.tv_select_checkbox).setEnabled(false);
             }
-        }
-
-        @Override
-        public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-            System.out.println("position:" + position);
-            if (mSelectSet.containsKey(position)) {
-                // 当前必须不是单选模式才能取消选中
-                if (!isSingleSelect()) {
-                    mSelectSet.remove(position);
-                    notifyItemChanged(position);
-                }
+            ((CheckBox) holder.itemView.findViewById(R.id.tv_select_checkbox)).setChecked(mSelectSet.containsKey(holder.getBindingAdapterPosition()));
+            if (mMaxSelect == 1) {
+                holder.itemView.findViewById(R.id.tv_select_checkbox).setClickable(false);
             } else {
-                if (mMaxSelect == 1) {
-                    mSelectSet.clear();
-                    notifyDataSetChanged();
-                }
-
-                if (mSelectSet.size() < mMaxSelect) {
-                    mSelectSet.put(position, getItem(position));
-                    notifyItemChanged(position);
-                } else {
-                    Toaster.show(String.format(getContext().getString(R.string.res_select_max_hint), mMaxSelect));
-                }
+                holder.itemView.findViewById(R.id.tv_select_checkbox).setEnabled(false);
             }
         }
 

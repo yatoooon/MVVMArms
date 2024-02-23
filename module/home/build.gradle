@@ -1,4 +1,3 @@
 plugins {
     id "com.common.plugin.lib"
 }
-

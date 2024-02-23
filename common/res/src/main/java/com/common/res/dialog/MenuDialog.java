@@ -13,12 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.chad.library.adapter4.BaseQuickAdapter;
+import com.chad.library.adapter4.viewholder.DataBindingHolder;
 import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;
-import com.common.res.adapter.DataBindingViewHolder;
 import com.common.res.aop.SingleClick;
 
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ public final class MenuDialog {
 
     public static final class Builder
             extends BaseDialog.Builder<Builder>
-            implements OnItemClickListener,
+            implements BaseQuickAdapter.OnItemClickListener,
             View.OnLayoutChangeListener, Runnable {
 
         @SuppressWarnings("rawtypes")
@@ -48,15 +47,17 @@ public final class MenuDialog {
 
         private final BaseAdapter<String> mAdapter = new BaseAdapter<String>(R.layout.res_menu_item, BR.item) {
             @Override
-            protected void convert(@NonNull DataBindingViewHolder<?> holder, String item) {
-                super.convert(holder, item);
+            protected void onBindViewHolder(@NonNull DataBindingHolder<?> holder, int position, @Nullable String item) {
+                super.onBindViewHolder(holder, position, item);
                 if (holder.getBindingAdapterPosition() == getItemCount() - 1) {
-                    holder.findView(R.id.v_menu_line).setVisibility(View.GONE);
+                    holder.itemView.findViewById(R.id.v_menu_line).setVisibility(View.GONE);
                 } else {
-                    holder.findView(R.id.v_menu_line).setVisibility(View.VISIBLE);
+                    holder.itemView.findViewById(R.id.v_menu_line).setVisibility(View.VISIBLE);
 
                 }
             }
+
+            
         };
 
         public Builder(Context context) {
@@ -103,7 +104,7 @@ public final class MenuDialog {
 
         @SuppressWarnings("all")
         public Builder setList(List data) {
-            mAdapter.setList(data);
+            mAdapter.submitList(data);
             mRecyclerView.addOnLayoutChangeListener(this);
             return this;
         }
@@ -182,7 +183,7 @@ public final class MenuDialog {
         }
 
         @Override
-        public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+        public void onClick(@NonNull BaseQuickAdapter baseQuickAdapter, @NonNull View view, int position) {
             if (mAutoDismiss) {
                 dismiss();
             }
@@ -192,6 +193,8 @@ public final class MenuDialog {
             }
             mListener.onSelected(getDialog(), position, mAdapter.getItem(position));
         }
+
+
     }
 
 

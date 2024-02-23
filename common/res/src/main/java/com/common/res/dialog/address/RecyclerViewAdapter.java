@@ -7,10 +7,10 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chad.library.adapter4.viewholder.DataBindingHolder;
 import com.common.res.BR;
 import com.common.res.R;
 import com.common.res.adapter.BaseAdapter;
-import com.common.res.adapter.DataBindingViewHolder;
 
 import java.util.List;
 
@@ -23,24 +23,25 @@ public final class RecyclerViewAdapter extends BaseAdapter<List<AddressDialog.Ad
         super(layoutId, variableId);
     }
 
-
     @Override
-    protected void convert(@NonNull DataBindingViewHolder<?> holder, List<AddressDialog.AddressBean> item) {
-        super.convert(holder, item);
+    protected void onBindViewHolder(@NonNull DataBindingHolder<?> holder, int position, @Nullable List<AddressDialog.AddressBean> item) {
+        super.onBindViewHolder(holder, position, item);
         RecyclerView recyclerView = (RecyclerView) holder.itemView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setNestedScrollingEnabled(true);
         recyclerView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         BaseAdapter<AddressDialog.AddressBean> mAdapter = new BaseAdapter<>(R.layout.res_address_dialog_item_tv, BR.item);
-        mAdapter.setOnItemClickListener((adapter, view, position) -> {
+        mAdapter.setOnItemClickListener((adapter, view, i) -> {
             if (mListener == null) {
                 return;
             }
-            mListener.onSelected(holder.getBindingAdapterPosition(), position);
+            mListener.onSelected(holder.getBindingAdapterPosition(), i);
         });
         recyclerView.setAdapter(mAdapter);
-        mAdapter.setList(getItem(holder.getBindingAdapterPosition()));
+        mAdapter.submitList(getItem(holder.getBindingAdapterPosition()));
     }
+
+
 
 
     public void setOnSelectListener(@Nullable OnSelectListener listener) {

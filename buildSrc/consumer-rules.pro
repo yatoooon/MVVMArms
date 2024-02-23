@@ -1,5 +1,7 @@
 -keep class !com.common.**,** {*;}
 -keep class com.common.res.aop.** {*;}
+-keep class com.common.res.http.net.** {*;}
+-keep class com.common.**.mvvm.model.** {*;}
 -keep class * extends androidx.databinding.ViewDataBinding{*;}
 -keep class * extends com.common.core.base.mvvm.BaseViewModel{*;}
 -keep class * extends com.common.core.config.CoreConfigModule{*;}

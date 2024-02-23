@@ -18,14 +18,7 @@ internal fun Project.configureDependencies(
             add("implementation", Deps.codelocator)
             add("implementation", project(":common:core"))
             //一键生成的module放这里
-            add("implementation", project(":module:splash"))
-            add("implementation", project(":module:template"))
             add("implementation", project(":module:home"))
-            add("implementation", project(":module:media"))
-            add("implementation", project(":module:web"))
-            add("implementation", project(":module:login"))
-            add("implementation", project(":module:personal"))
-            add("implementation", project(":module:test"))
         }
 
         isLibModule -> {

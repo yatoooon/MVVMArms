@@ -4,9 +4,9 @@
  */
 object Versions {
     const val minSdk = 21
-    const val targetSdk = 33
-    const val compileSdk = 33
-    const val buildTool = "33.0.0"
+    const val targetSdk = 34
+    const val compileSdk = 34
+    const val buildTool = "34.0.0"
 }
 
 /**
@@ -31,9 +31,9 @@ object Deps {
     const val cardview = "androidx.cardview:cardview:1.0.0"
     const val annotationX = "androidx.annotation:annotation:1.6.0"
     const val recyclerview = "androidx.recyclerview:recyclerview:1.3.0"
-    const val room = "androidx.room:room-runtime:2.5.1"
-    const val roomKtx = "androidx.room:room-ktx:2.5.1"
-    const val roomCompiler = "androidx.room:room-compiler:2.5.1"
+    const val room = "androidx.room:room-runtime:2.6.1"
+    const val roomKtx = "androidx.room:room-ktx:2.6.1"
+    const val roomCompiler = "androidx.room:room-compiler:2.6.1"
     const val lifecycleLivedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
     const val lifecycleViewmodelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
     const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
@@ -66,7 +66,7 @@ object Deps {
     const val roundedimageview = "com.makeramen:roundedimageview:2.3.0"
     const val autosize = "me.jessyan:autosize:1.2.1"
     const val baseRecyclerViewAdapterHelper =
-        "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.11"
+        "io.github.cymchad:BaseRecyclerViewAdapterHelper4:4.1.4"
     const val titlebar = "com.wuhenzhizao:titlebar:1.2.0"
     const val smartShowAll = "com.github.the-pig-of-jungle.smart-show:all:3.0.3"
     const val smartRefreshLayoutKernel = "com.scwang.smart:refresh-layout-kernel:2.0.3"

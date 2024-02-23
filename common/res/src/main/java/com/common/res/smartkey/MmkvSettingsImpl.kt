@@ -73,7 +73,7 @@ class MmkvSettingsImpl(name: String) : ObservableSettings {
     override fun addListener(key: String, callback: () -> Unit): SettingsListener {
         val cache = Listener.Cache(delegate?.all?.get(key))
         val prefsListener =
-            SharedPreferences.OnSharedPreferenceChangeListener { _: SharedPreferences, updatedKey: String ->
+            SharedPreferences.OnSharedPreferenceChangeListener { _: SharedPreferences, updatedKey: String? ->
                 if (updatedKey != key) return@OnSharedPreferenceChangeListener
                 val prev = cache.value
                 val current = delegate?.all?.get(key)
