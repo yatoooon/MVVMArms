@@ -1,5 +1,4 @@
 include(":app")
-include(":library:umeng")
 include(":common:res")
 include(":common:core")
 include(":common:export")

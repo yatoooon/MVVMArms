@@ -52,7 +52,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api project(':library:umeng')
 
     api Deps.logger
     api Deps.glide
@@ -173,8 +172,7 @@ dependencies {
 
     api Deps.vasdolly
     api Deps.aspectjrt
-
-    api 'io.github.FlyJingFish.ModuleCommunication:module-communication-annotation:1.0.9'
+    api Deps.moduleCommunication
 
 
 

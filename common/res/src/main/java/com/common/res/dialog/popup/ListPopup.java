@@ -40,7 +40,7 @@ public final class ListPopup {
             @Override
             protected void onBindViewHolder(@NonNull DataBindingHolder<?> holder, int position, @Nullable String item) {
                 super.onBindViewHolder(holder, position, item);
-                holder.getBinding().getRoot().findViewById(R.id.tv_popup_text).setPaddingRelative((int) getResources().getDimension(R.dimen.res_dp_12),
+                holder.itemView.findViewById(R.id.tv_popup_text).setPaddingRelative((int) getResources().getDimension(R.dimen.res_dp_12),
                         (holder.getBindingAdapterPosition() == 0 ? (int) getResources().getDimension(R.dimen.res_dp_12) : 0),
                         (int) getResources().getDimension(R.dimen.res_dp_12),
                         (int) getResources().getDimension(R.dimen.res_dp_10));

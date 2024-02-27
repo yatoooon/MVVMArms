@@ -143,6 +143,7 @@ object Deps {
     const val pinyin4j = "com.github.open-android:pinyin4j:2.5.0"
     const val vasdolly = "com.tencent.vasdolly:helper:3.0.6"
     const val codelocator = "com.bytedance.tools.codelocator:codelocator-core:2.0.3"
+    const val moduleCommunication = "io.github.FlyJingFish.ModuleCommunication:module-communication-annotation:1.1.0"
 
 
 

@@ -8,7 +8,7 @@ import com.chad.library.adapter4.BaseQuickAdapter
 import com.chad.library.adapter4.viewholder.DataBindingHolder
 import com.common.res.BR
 
-open class BaseAdapter<T:Any>(val layoutId: Int, private val variableId: Int = BR.item) :
+open class BaseAdapter<T : Any>(private val layoutId: Int, private val variableId: Int = BR.item) :
     BaseQuickAdapter<T, DataBindingHolder<*>>() {
 
     companion object {
@@ -28,6 +28,7 @@ open class BaseAdapter<T:Any>(val layoutId: Int, private val variableId: Int = B
     fun isFirstPage() = page == 1
 
     var total = Integer.MAX_VALUE
+
     override fun onBindViewHolder(holder: DataBindingHolder<*>, position: Int, item: T?) {
         holder.binding.apply {
             setVariable(variableId, item)
@@ -41,7 +42,7 @@ open class BaseAdapter<T:Any>(val layoutId: Int, private val variableId: Int = B
         parent: ViewGroup,
         viewType: Int,
     ): DataBindingHolder<*> {
-        return DataBindingHolder<ViewDataBinding>(layoutId,parent)
+        return DataBindingHolder<ViewDataBinding>(layoutId, parent)
     }
 
 
