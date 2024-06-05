@@ -59,9 +59,9 @@ internal fun Project.configureAndroid(
                     mutableSetOf(
 //                        "armeabi",
 //                        "x86",
-                        "armeabi-v7a",
-                        "x86_64",
-//                        "arm64-v8a"
+//                        "armeabi-v7a",
+//                        "x86_64",
+                        "arm64-v8a"
                     )
                 )
             }
