@@ -3,7 +3,7 @@
  * 版本信息
  */
 object Versions {
-    const val minSdk = 21
+    const val minSdk = 24
     const val targetSdk = 34
     const val compileSdk = 34
     const val buildTool = "34.0.0"
