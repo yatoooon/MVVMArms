@@ -7,6 +7,8 @@ import com.common.home.databinding.HomeActivityMainBinding
 import com.common.home.mvvm.vm.MainViewModel
 import com.common.home.R
 import com.common.home.export.HomeExport.Companion.publicHomeMainActivity
+import com.common.res.utils.routerNavigation
+import com.common.test.export.TestExport
 
 @Route(path = publicHomeMainActivity)
 @AndroidEntryPoint
@@ -17,6 +19,6 @@ class MainActivity : BaseVMActivity<HomeActivityMainBinding, MainViewModel>() {
     }
 
     override fun initData() {
-
+        routerNavigation(TestExport.publicTestTestActivity)
     }
 }

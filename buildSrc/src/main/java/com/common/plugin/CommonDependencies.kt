@@ -19,6 +19,7 @@ internal fun Project.configureDependencies(
             add("implementation", project(":common:core"))
             //一键生成的module放这里
             add("implementation", project(":module:home"))
+            add("implementation", project(":module:test"))
         }
 
         isLibModule -> {

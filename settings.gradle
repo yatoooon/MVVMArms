@@ -3,4 +3,5 @@ include(":common:res")
 include(":common:core")
 include(":common:export")
 include(":module:home")
+include(":module:test")
 
